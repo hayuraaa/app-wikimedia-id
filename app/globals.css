@@ -1,4 +1,5 @@
 @import "tailwindcss";
+@import "./animations.css";
 
 :root {
   --color-black: #0d0d0d;

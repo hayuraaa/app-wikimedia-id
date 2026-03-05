@@ -1,6 +1,7 @@
 "use client";
 
 import { useState, useEffect } from "react";
+import { useScrollReveal } from "@/hooks/useScrollReveal";
 import Link from "next/link";
 
 // ─── Types ───────────────────────────────────────────────────────────────────
@@ -16,8 +17,6 @@ type Article = {
   authors: { id: number; name: string }[];
   categories: string[];
 };
-
-// ─── Data placeholder ────────────────────────────────────────────────────────
 
 type EventItem = {
   id: number;
@@ -75,6 +74,8 @@ const programs = [
 // ─── Component ────────────────────────────────────────────────────────────────
 
 export default function Home() {
+  useScrollReveal();
+
   const [email, setEmail] = useState("");
   const [submitted, setSubmitted] = useState(false);
   const [articles, setArticles] = useState<Article[]>([]);
@@ -84,6 +85,7 @@ export default function Home() {
   const [wikiProjects, setWikiProjects] = useState<WikiProject[]>([]);
   const [wikiLoading, setWikiLoading] = useState(true);
   const [activeWikiTab, setActiveWikiTab] = useState<number>(0);
+  const [activeSlide, setActiveSlide] = useState(0);
 
   useEffect(() => {
     fetch("https://dashboard.wikimedia.or.id/api/v1/articles?per_page=4")
@@ -92,14 +94,12 @@ export default function Home() {
       .catch(() => {})
       .finally(() => setArticlesLoading(false));
 
-    // Try upcoming first, fallback to latest if empty
     fetch("https://dashboard.wikimedia.or.id/api/v1/events/upcoming/list?limit=5")
       .then((res) => res.json())
       .then((json) => {
         if (json.success && json.data?.length > 0) {
           setEvents(json.data.slice(0, 5));
         } else {
-          // Fallback: ambil semua event (termasuk yg sudah selesai), ambil 5 terbaru
           return fetch("https://dashboard.wikimedia.or.id/api/v1/events?upcoming=false")
             .then((res) => res.json())
             .then((fallback) => {
@@ -121,6 +121,17 @@ export default function Home() {
       .finally(() => setWikiLoading(false));
   }, []);
 
+  useEffect(() => {
+    const articleImages = articles
+      .filter((a) => a.featured_image)
+      .slice(0, 3);
+    if (articleImages.length < 2) return;
+    const interval = setInterval(() => {
+      setActiveSlide((prev) => (prev + 1) % articleImages.length);
+    }, 3000);
+    return () => clearInterval(interval);
+  }, [articles]);
+
   const getEventStatus = (ev: EventItem): "berlangsung" | "mendatang" | "selesai" => {
     const now = new Date();
     const mulai = new Date(ev.tanggal_mulai);
@@ -134,9 +145,7 @@ export default function Home() {
     const tMulai = new Date(mulai);
     const tSelesai = new Date(selesai);
     const opts: Intl.DateTimeFormatOptions = { day: "numeric", month: "short", year: "numeric" };
-    if (tMulai.toDateString() === tSelesai.toDateString()) {
-      return tMulai.toLocaleDateString("id-ID", opts);
-    }
+    if (tMulai.toDateString() === tSelesai.toDateString()) return tMulai.toLocaleDateString("id-ID", opts);
     if (tMulai.getMonth() === tSelesai.getMonth() && tMulai.getFullYear() === tSelesai.getFullYear()) {
       return `${tMulai.getDate()}–${tSelesai.toLocaleDateString("id-ID", opts)}`;
     }
@@ -147,36 +156,53 @@ export default function Home() {
     if (email) setSubmitted(true);
   };
 
+  const formatCategory = (cat: string) => {
+    const connectors = new Set(["dan", "atau", "di", "ke", "dari", "untuk", "yang", "dengan"]);
+    return cat
+      .replace(/[-_]/g, " ")
+      .split(" ")
+      .map((word, i) =>
+        i === 0 || !connectors.has(word.toLowerCase())
+          ? word.charAt(0).toUpperCase() + word.slice(1).toLowerCase()
+          : word.toLowerCase()
+      )
+      .join(" ");
+  };
+
   return (
     <>
       {/* ── HERO ─────────────────────────────────────────────────────────── */}
       <section style={{ position: "relative", minHeight: "90vh", display: "flex", alignItems: "center", overflow: "hidden" }}>
-        <div style={{ position: "absolute", inset: 0, backgroundImage: "url('/Foto_bersama_para_peserta_WikiNusantara_2024.png')", backgroundSize: "cover", backgroundPosition: "center top", backgroundRepeat: "no-repeat" }} />
+        <div className="hero-parallax" style={{ position: "absolute", inset: 0, backgroundImage: "url('/Foto_bersama_para_peserta_WikiNusantara_2024.png')", backgroundSize: "cover", backgroundPosition: "center top", backgroundRepeat: "no-repeat" }} />
         <div style={{ position: "absolute", inset: 0, background: "linear-gradient(90deg, rgba(8,8,8,0.88) 0%, rgba(8,8,8,0.72) 35%, rgba(8,8,8,0.3) 60%, rgba(8,8,8,0.05) 100%)" }} />
         <div style={{ position: "absolute", inset: 0, backgroundImage: `linear-gradient(rgba(255,255,255,0.04) 1px, transparent 1px), linear-gradient(90deg, rgba(255,255,255,0.04) 1px, transparent 1px)`, backgroundSize: "60px 60px" }} />
+        <div className="hero-dots" />
 
         <div style={{ maxWidth: "1280px", margin: "0 auto", padding: "80px 24px", width: "100%", position: "relative", zIndex: 1 }}>
           <div style={{ maxWidth: "700px", width: "100%" }}>
-            <div style={{ display: "inline-flex", alignItems: "center", gap: "8px", marginBottom: "24px", padding: "6px 14px", border: "1px solid rgba(139,26,42,0.6)", borderRadius: "2px", backgroundColor: "rgba(139,26,42,0.12)" }}>
-              <span style={{ display: "block", width: "6px", height: "6px", borderRadius: "50%", backgroundColor: "#e05070", animation: "pulse 2s infinite" }} />
+            <div className="hero-badge" style={{ display: "inline-flex", alignItems: "center", gap: "8px", marginBottom: "24px", padding: "6px 14px", border: "1px solid rgba(139,26,42,0.6)", borderRadius: "2px", backgroundColor: "rgba(139,26,42,0.12)" }}>
+              <span className="hero-badge-dot" style={{ display: "block", width: "6px", height: "6px", borderRadius: "50%", backgroundColor: "#e05070" }} />
               <span style={{ fontSize: "11px", fontWeight: "700", letterSpacing: "0.1em", textTransform: "uppercase", color: "#e05070", fontFamily: "var(--font-sans)" }}>Pengetahuan Bebas untuk Semua</span>
             </div>
-            <h1 style={{ fontSize: "clamp(2.2rem, 4vw, 3.6rem)", fontWeight: "700", color: "#ffffff", lineHeight: "1.15", marginBottom: "24px", fontFamily: "var(--font-serif)", letterSpacing: "-0.01em" }}>
+
+            <h1 className="hero-title" style={{ fontSize: "clamp(2.2rem, 4vw, 3.6rem)", fontWeight: "700", color: "#ffffff", lineHeight: "1.15", marginBottom: "24px", fontFamily: "var(--font-serif)", letterSpacing: "-0.01em" }}>
               Membangun{" "}
               <span style={{ backgroundColor: "rgba(139,26,42,0.55)", color: "#ffffff", padding: "2px 4px", borderRadius: "1px", boxShadow: "0 0 0 1px rgba(139,26,42,0.8)" }}>Ekosistem</span>{" "}
               Pengetahuan Terbuka di Indonesia
             </h1>
-            <p style={{ fontSize: "16px", color: "rgba(255,255,255,0.72)", lineHeight: "1.8", marginBottom: "40px", fontFamily: "var(--font-sans)" }}>
+
+            <p className="hero-desc" style={{ fontSize: "16px", color: "rgba(255,255,255,0.72)", lineHeight: "1.8", marginBottom: "40px", fontFamily: "var(--font-sans)" }}>
               Wikimedia Indonesia adalah organisasi nirlaba yang mendedikasikan diri untuk mengembangkan dan mendukung proyek-proyek Wikimedia demi kemajuan pengetahuan bebas di seluruh nusantara.
             </p>
-            <div style={{ display: "flex", gap: "16px", flexWrap: "wrap" }}>
-              <Link href="/program" style={{ display: "inline-flex", alignItems: "center", gap: "8px", padding: "14px 28px", backgroundColor: "#8b1a2a", color: "#fff", fontSize: "13px", fontWeight: "700", letterSpacing: "0.06em", textTransform: "uppercase", textDecoration: "none", fontFamily: "var(--font-sans)", transition: "all 0.2s", borderRadius: "2px" }}
+
+            <div className="hero-buttons" style={{ display: "flex", gap: "16px", flexWrap: "wrap" }}>
+              <Link href="/program" className="btn-ripple" style={{ display: "inline-flex", alignItems: "center", gap: "8px", padding: "14px 28px", backgroundColor: "#8b1a2a", color: "#fff", fontSize: "13px", fontWeight: "700", letterSpacing: "0.06em", textTransform: "uppercase", textDecoration: "none", fontFamily: "var(--font-sans)", transition: "all 0.2s", borderRadius: "2px" }}
                 onMouseEnter={(e) => (e.currentTarget.style.backgroundColor = "#a82235")}
                 onMouseLeave={(e) => (e.currentTarget.style.backgroundColor = "#8b1a2a")}>
                 Jelajahi Program
                 <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2.5"><path d="M5 12h14M12 5l7 7-7 7" /></svg>
               </Link>
-              <Link href="/tentang" style={{ display: "inline-flex", alignItems: "center", gap: "8px", padding: "14px 28px", backgroundColor: "transparent", color: "#ffffff", fontSize: "13px", fontWeight: "700", letterSpacing: "0.06em", textTransform: "uppercase", textDecoration: "none", fontFamily: "var(--font-sans)", border: "1px solid rgba(255,255,255,0.5)", transition: "all 0.2s", borderRadius: "2px" }}
+              <Link href="/tentang" className="btn-ripple" style={{ display: "inline-flex", alignItems: "center", gap: "8px", padding: "14px 28px", backgroundColor: "transparent", color: "#ffffff", fontSize: "13px", fontWeight: "700", letterSpacing: "0.06em", textTransform: "uppercase", textDecoration: "none", fontFamily: "var(--font-sans)", border: "1px solid rgba(255,255,255,0.5)", transition: "all 0.2s", borderRadius: "2px" }}
                 onMouseEnter={(e) => { e.currentTarget.style.backgroundColor = "rgba(255,255,255,0.15)"; e.currentTarget.style.borderColor = "#fff"; }}
                 onMouseLeave={(e) => { e.currentTarget.style.backgroundColor = "transparent"; e.currentTarget.style.borderColor = "rgba(255,255,255,0.5)"; }}>
                 Tentang Kami
@@ -188,15 +214,13 @@ export default function Home() {
 
       {/* ── ARTIKEL TERBARU ──────────────────────────────────────────────── */}
       <section style={{ backgroundColor: "#ffffff", padding: "80px 24px", position: "relative", overflow: "hidden" }}>
-        {/* Dot pattern */}
         <div style={{ position: "absolute", inset: 0, backgroundImage: "radial-gradient(rgba(0,0,0,0.04) 1px, transparent 1px)", backgroundSize: "22px 22px", pointerEvents: "none" }} />
-        {/* Decorative circles */}
         <div style={{ position: "absolute", top: "-80px", right: "-80px", width: "320px", height: "320px", borderRadius: "50%", border: "1px solid rgba(26,58,92,0.06)", pointerEvents: "none" }} />
         <div style={{ position: "absolute", top: "-40px", right: "-40px", width: "200px", height: "200px", borderRadius: "50%", border: "1px solid rgba(26,58,92,0.05)", pointerEvents: "none" }} />
         <div style={{ position: "absolute", bottom: "-40px", left: "-40px", width: "220px", height: "220px", borderRadius: "50%", backgroundColor: "rgba(139,26,42,0.03)", pointerEvents: "none" }} />
+
         <div style={{ maxWidth: "1280px", margin: "0 auto", position: "relative", zIndex: 1 }}>
-          {/* Section header */}
-          <div style={{ display: "flex", justifyContent: "space-between", alignItems: "flex-end", marginBottom: "40px", paddingBottom: "16px", borderBottom: "3px solid #0d0d0d" }}>
+          <div className="section-border-shimmer reveal" style={{ display: "flex", justifyContent: "space-between", alignItems: "flex-end", marginBottom: "40px", paddingBottom: "16px", borderBottom: "3px solid #0d0d0d" }}>
             <div>
               <span style={{ fontSize: "11px", fontWeight: "700", letterSpacing: "0.1em", textTransform: "uppercase", color: "#8b1a2a", fontFamily: "var(--font-sans)" }}>◆ Terkini</span>
               <h2 style={{ fontSize: "clamp(1.6rem, 3vw, 2.2rem)", fontWeight: "700", color: "#0d0d0d", fontFamily: "var(--font-serif)", marginTop: "4px" }}>Artikel & Berita Terbaru</h2>
@@ -208,28 +232,24 @@ export default function Home() {
             </Link>
           </div>
 
-          {/* Grid artikel */}
           {articlesLoading ? (
             <div style={{ display: "grid", gridTemplateColumns: "repeat(auto-fill, minmax(280px, 1fr))", gap: "24px" }}>
               {[...Array(4)].map((_, i) => (
                 <div key={i} style={{ border: "1px solid #e5e2dd", borderRadius: "4px", overflow: "hidden", backgroundColor: "#fff" }}>
-                  <div style={{ height: "160px", backgroundColor: "#f0eeec", animation: "shimmer 1.5s infinite" }} />
+                  <div className="skeleton" style={{ height: "160px" }} />
                   <div style={{ padding: "20px" }}>
-                    <div style={{ height: "12px", backgroundColor: "#f0eeec", borderRadius: "2px", marginBottom: "12px", width: "40%" }} />
-                    <div style={{ height: "16px", backgroundColor: "#f0eeec", borderRadius: "2px", marginBottom: "8px" }} />
-                    <div style={{ height: "16px", backgroundColor: "#f0eeec", borderRadius: "2px", width: "70%" }} />
+                    <div className="skeleton" style={{ height: "12px", borderRadius: "2px", marginBottom: "12px", width: "40%" }} />
+                    <div className="skeleton" style={{ height: "16px", borderRadius: "2px", marginBottom: "8px" }} />
+                    <div className="skeleton" style={{ height: "16px", borderRadius: "2px", width: "70%" }} />
                   </div>
                 </div>
               ))}
             </div>
           ) : (
-            <div style={{ display: "grid", gridTemplateColumns: "repeat(auto-fill, minmax(280px, 1fr))", gap: "24px" }}>
+            <div className="reveal-stagger" style={{ display: "grid", gridTemplateColumns: "repeat(auto-fill, minmax(280px, 1fr))", gap: "24px" }}>
               {articles.map((a) => (
                 <Link key={a.id} href={`/rubrik/${a.slug}`} style={{ textDecoration: "none", display: "block" }}>
-                  <article style={{ border: "1px solid #e5e2dd", borderRadius: "4px", overflow: "hidden", transition: "all 0.2s", height: "100%", backgroundColor: "#fff", display: "flex", flexDirection: "column" }}
-                    onMouseEnter={(e) => { (e.currentTarget as HTMLElement).style.boxShadow = "0 8px 32px rgba(0,0,0,0.1)"; (e.currentTarget as HTMLElement).style.transform = "translateY(-2px)"; }}
-                    onMouseLeave={(e) => { (e.currentTarget as HTMLElement).style.boxShadow = "none"; (e.currentTarget as HTMLElement).style.transform = "none"; }}>
-                    {/* Featured image */}
+                  <article className="card-glow" style={{ border: "1px solid #e5e2dd", borderRadius: "4px", overflow: "hidden", height: "100%", backgroundColor: "#fff", display: "flex", flexDirection: "column" }}>
                     <div style={{ height: "180px", backgroundColor: "#f0eeec", overflow: "hidden", borderBottom: "1px solid #e5e2dd", position: "relative" }}>
                       {a.featured_image ? (
                         <img src={a.featured_image} alt={a.title} style={{ width: "100%", height: "100%", objectFit: "cover", transition: "transform 0.3s" }}
@@ -242,24 +262,25 @@ export default function Home() {
                       )}
                     </div>
                     <div style={{ padding: "20px", display: "flex", flexDirection: "column", gap: "10px", flex: 1 }}>
-                      {/* Kategori + Tanggal */}
-                      <div style={{ display: "flex", alignItems: "center", justifyContent: "space-between", gap: "8px" }}>
-                        {a.categories?.[0] ? (
-                          <span style={{ fontSize: "10px", fontWeight: "700", letterSpacing: "0.08em", textTransform: "uppercase", color: "#1e4d7b", backgroundColor: "rgba(30,77,123,0.08)", padding: "2px 8px", borderRadius: "2px", fontFamily: "var(--font-sans)" }}>
-                            {a.categories[0]}
-                          </span>
-                        ) : <span />}
-                        <span style={{ fontSize: "11px", color: "#9a9690", fontFamily: "var(--font-sans)", whiteSpace: "nowrap" }}>
+                      {/* Categories + date row */}
+                      <div style={{ display: "flex", alignItems: "flex-start", justifyContent: "space-between", gap: "8px" }}>
+                        {a.categories?.length > 0 ? (
+                          <div style={{ display: "flex", gap: "4px", flexWrap: "wrap", flex: 1 }}>
+                            {a.categories.map((cat) => (
+                              <span key={cat} style={{ fontSize: "10px", fontWeight: "700", letterSpacing: "0.04em", color: "#1e4d7b", backgroundColor: "rgba(30,77,123,0.08)", padding: "2px 8px", borderRadius: "2px", fontFamily: "var(--font-sans)" }}>
+                                {formatCategory(cat)}
+                              </span>
+                            ))}
+                          </div>
+                        ) : <span style={{ flex: 1 }} />}
+                        <span style={{ fontSize: "11px", color: "#9a9690", fontFamily: "var(--font-sans)", whiteSpace: "nowrap", flexShrink: 0 }}>
                           {new Date(a.published_at).toLocaleDateString("id-ID", { day: "numeric", month: "short", year: "numeric" })}
                         </span>
                       </div>
-                      {/* Judul */}
                       <h3 style={{ fontSize: "15px", fontWeight: "600", color: "#0d0d0d", lineHeight: "1.5", fontFamily: "var(--font-serif)", margin: 0 }}>{a.title}</h3>
-                      {/* Excerpt */}
                       <p style={{ fontSize: "12px", color: "#9a9690", lineHeight: "1.6", fontFamily: "var(--font-sans)", display: "-webkit-box", WebkitLineClamp: 2, WebkitBoxOrient: "vertical", overflow: "hidden", margin: 0, flex: 1 }}>
                         {a.excerpt}
                       </p>
-                      {/* Author + Views */}
                       <div style={{ display: "flex", alignItems: "center", justifyContent: "space-between", paddingTop: "10px", borderTop: "1px solid #f0eeec", marginTop: "auto" }}>
                         <span style={{ fontSize: "11px", color: "#5c5a57", fontFamily: "var(--font-sans)", overflow: "hidden", textOverflow: "ellipsis", whiteSpace: "nowrap", maxWidth: "65%" }}>
                           {a.authors?.[0]?.name ?? "—"}
@@ -280,13 +301,11 @@ export default function Home() {
 
       {/* ── ACARA MENDATANG ───────────────────────────────────────────────── */}
       <section style={{ backgroundColor: "#f8f7f5", padding: "80px 24px", position: "relative", overflow: "hidden" }}>
-        {/* Diagonal lines texture */}
         <div style={{ position: "absolute", inset: 0, backgroundImage: "repeating-linear-gradient(45deg, rgba(0,0,0,0.015) 0px, rgba(0,0,0,0.015) 1px, transparent 1px, transparent 12px)", pointerEvents: "none" }} />
         <div style={{ position: "absolute", top: 0, left: 0, width: "4px", height: "100%", background: "linear-gradient(180deg, #8b1a2a, transparent)", opacity: 0.3, pointerEvents: "none" }} />
 
         <div style={{ maxWidth: "1280px", margin: "0 auto", position: "relative", zIndex: 1 }}>
-          {/* Section header */}
-          <div style={{ display: "flex", justifyContent: "space-between", alignItems: "flex-end", marginBottom: "40px", paddingBottom: "16px", borderBottom: "3px solid #0d0d0d" }}>
+          <div className="section-border-shimmer reveal" style={{ display: "flex", justifyContent: "space-between", alignItems: "flex-end", marginBottom: "40px", paddingBottom: "16px", borderBottom: "3px solid #0d0d0d" }}>
             <div>
               <span style={{ fontSize: "11px", fontWeight: "700", letterSpacing: "0.1em", textTransform: "uppercase", color: "#8b1a2a", fontFamily: "var(--font-sans)" }}>◆ Kalender</span>
               <h2 style={{ fontSize: "clamp(1.6rem, 3vw, 2.2rem)", fontWeight: "700", color: "#0d0d0d", fontFamily: "var(--font-serif)", marginTop: "4px" }}>Acara Mendatang</h2>
@@ -298,17 +317,14 @@ export default function Home() {
             </Link>
           </div>
 
-          {/* Two-column layout */}
-          <div className="events-grid" style={{ display: "grid", gridTemplateColumns: "1fr auto", gap: "48px", alignItems: "center" }}>
-
-            {/* LEFT: Event list */}
-            <div style={{ display: "flex", flexDirection: "column", gap: "12px" }}>
+          <div className="events-grid" style={{ display: "grid", gridTemplateColumns: "1fr 480px", gap: "36px", alignItems: "center" }}>
+            <div className="reveal-stagger" style={{ display: "flex", flexDirection: "column", gap: "12px" }}>
               {eventsLoading ? (
                 [...Array(3)].map((_, i) => (
-                  <div key={i} style={{ backgroundColor: "#fff", border: "1px solid #e5e2dd", borderRadius: "4px", padding: "20px 24px", animation: "shimmer 1.5s infinite" }}>
-                    <div style={{ height: "12px", backgroundColor: "#f0eeec", borderRadius: "2px", marginBottom: "10px", width: "30%" }} />
-                    <div style={{ height: "16px", backgroundColor: "#f0eeec", borderRadius: "2px", marginBottom: "8px" }} />
-                    <div style={{ height: "12px", backgroundColor: "#f0eeec", borderRadius: "2px", width: "50%" }} />
+                  <div key={i} style={{ backgroundColor: "#fff", border: "1px solid #e5e2dd", borderRadius: "4px", padding: "20px 24px" }}>
+                    <div className="skeleton" style={{ height: "12px", borderRadius: "2px", marginBottom: "10px", width: "30%" }} />
+                    <div className="skeleton" style={{ height: "16px", borderRadius: "2px", marginBottom: "8px" }} />
+                    <div className="skeleton" style={{ height: "12px", borderRadius: "2px", width: "50%" }} />
                   </div>
                 ))
               ) : events.length === 0 ? (
@@ -325,7 +341,7 @@ export default function Home() {
                   const dateColor = status === "berlangsung" ? "#16a34a" : status === "selesai" ? "#9a9690" : "#1a3a5c";
                   return (
                     <Link key={ev.id} href={`/komunitas/acara/${ev.slug}`} style={{ textDecoration: "none" }}>
-                      <div style={{
+                      <div className="event-card" style={{
                         backgroundColor: "#ffffff",
                         border: "1px solid #e5e2dd",
                         borderLeft: `3px solid ${borderColor}`,
@@ -334,12 +350,10 @@ export default function Home() {
                         display: "flex",
                         alignItems: "center",
                         gap: "14px",
-                        transition: "all 0.2s",
                         cursor: "pointer",
                       }}
                         onMouseEnter={(e) => { (e.currentTarget as HTMLElement).style.boxShadow = "0 4px 20px rgba(0,0,0,0.07)"; (e.currentTarget as HTMLElement).style.transform = "translateX(4px)"; }}
                         onMouseLeave={(e) => { (e.currentTarget as HTMLElement).style.boxShadow = "none"; (e.currentTarget as HTMLElement).style.transform = "none"; }}>
-                        {/* Date block */}
                         <div style={{ flexShrink: 0, textAlign: "center", minWidth: "36px" }}>
                           <div style={{ fontSize: "18px", fontWeight: "700", color: dateColor, fontFamily: "var(--font-serif)", lineHeight: 1 }}>
                             {new Date(ev.tanggal_mulai).getDate()}
@@ -348,9 +362,7 @@ export default function Home() {
                             {new Date(ev.tanggal_mulai).toLocaleDateString("id-ID", { month: "short" })}
                           </div>
                         </div>
-                        {/* Divider */}
                         <div style={{ width: "1px", backgroundColor: "#e5e2dd", flexShrink: 0, alignSelf: "stretch" }} />
-                        {/* Info */}
                         <div style={{ flex: 1, minWidth: 0 }}>
                           <div style={{ display: "flex", alignItems: "center", gap: "6px", marginBottom: "3px", flexWrap: "wrap" }}>
                             <span style={{ fontSize: "9px", fontWeight: "700", letterSpacing: "0.07em", textTransform: "uppercase", color: badgeColor, backgroundColor: badgeBg, padding: "1px 6px", borderRadius: "2px", fontFamily: "var(--font-sans)" }}>
@@ -366,7 +378,6 @@ export default function Home() {
                             {formatTanggal(ev.tanggal_mulai, ev.tanggal_selesai)}
                           </p>
                         </div>
-                        {/* Arrow */}
                         <svg width="12" height="12" viewBox="0 0 24 24" fill="none" stroke="#c5c3bf" strokeWidth="2" style={{ flexShrink: 0 }}><path d="M5 12h14M12 5l7 7-7 7"/></svg>
                       </div>
                     </Link>
@@ -375,64 +386,100 @@ export default function Home() {
               )}
             </div>
 
-            {/* RIGHT: Illustration */}
-            <div className="events-illustration" style={{ display: "flex", alignItems: "center", justifyContent: "center", width: "420px" }}>
-              <img
-                src="/Kegiatan_Umum_WMID_-_svg.svg"
-                alt="Ilustrasi Kegiatan WMID"
-                style={{ width: "100%", maxWidth: "400px", opacity: 0.92 }}
-              />
+            <div className="events-illustration" style={{ display: "flex", alignItems: "center", justifyContent: "center", width: "480px" }}>
+              {(() => {
+                const slideImages = articles.filter((a) => a.featured_image).slice(0, 3);
+                if (slideImages.length === 0) return null;
+                return (
+                  <div style={{ position: "relative", width: "100%", maxWidth: "480px", height: "460px", borderRadius: "6px", overflow: "hidden", boxShadow: "0 12px 40px rgba(0,0,0,0.18)", border: "1px solid rgba(0,0,0,0.08)" }}>
+                    {slideImages.map((a, idx) => (
+                      <div key={a.id} style={{
+                        position: "absolute", inset: 0,
+                        opacity: idx === activeSlide ? 1 : 0,
+                        transition: "opacity 0.8s ease-in-out",
+                        pointerEvents: idx === activeSlide ? "auto" : "none",
+                      }}>
+                        <img
+                          src={a.featured_image!}
+                          alt={a.title}
+                          style={{ width: "100%", height: "100%", objectFit: "cover", display: "block" }}
+                        />
+                        {/* overlay gradient + caption */}
+                        <div style={{
+                          position: "absolute", bottom: 0, left: 0, right: 0,
+                          background: "linear-gradient(transparent, rgba(0,0,0,0.72))",
+                          padding: "28px 16px 14px",
+                        }}>
+                          <p style={{
+                            fontSize: "12px", fontWeight: "600", color: "#fff",
+                            fontFamily: "var(--font-serif)", lineHeight: "1.4", margin: 0,
+                            display: "-webkit-box", WebkitLineClamp: 2, WebkitBoxOrient: "vertical", overflow: "hidden",
+                          }}>
+                            {a.title}
+                          </p>
+                        </div>
+                      </div>
+                    ))}
+                    {/* dot indicators */}
+                    <div style={{ position: "absolute", bottom: "10px", right: "12px", display: "flex", gap: "5px", zIndex: 10 }}>
+                      {slideImages.map((_, idx) => (
+                        <button key={idx} onClick={() => setActiveSlide(idx)} style={{
+                          width: idx === activeSlide ? "18px" : "6px",
+                          height: "6px", borderRadius: "3px",
+                          backgroundColor: idx === activeSlide ? "#e05070" : "rgba(255,255,255,0.5)",
+                          border: "none", cursor: "pointer", padding: 0,
+                          transition: "all 0.3s ease",
+                        }} />
+                      ))}
+                    </div>
+                  </div>
+                );
+              })()}
             </div>
-
           </div>
         </div>
       </section>
 
       {/* ── PROYEK WIKIMEDIA ──────────────────────────────────────────────── */}
       <section style={{ backgroundColor: "#1a3a5c", padding: "80px 24px", position: "relative", overflow: "hidden" }}>
-        {/* Grid lines — sama seperti newsletter */}
         <div style={{ position: "absolute", inset: 0, backgroundImage: `linear-gradient(rgba(255,255,255,0.03) 1px, transparent 1px), linear-gradient(90deg, rgba(255,255,255,0.03) 1px, transparent 1px)`, backgroundSize: "60px 60px" }} />
-        {/* Decorative glow */}
         <div style={{ position: "absolute", top: "-100px", right: "-100px", width: "400px", height: "400px", borderRadius: "50%", background: "radial-gradient(circle, rgba(139,26,42,0.18) 0%, transparent 70%)", pointerEvents: "none" }} />
         <div style={{ position: "absolute", bottom: "-80px", left: "-80px", width: "300px", height: "300px", borderRadius: "50%", background: "radial-gradient(circle, rgba(30,77,123,0.25) 0%, transparent 70%)", pointerEvents: "none" }} />
 
-        <div style={{ maxWidth: "1280px", margin: "0 auto", position: "relative", zIndex: 1 }}>
+        <div className="reveal" style={{ maxWidth: "1280px", margin: "0 auto", position: "relative", zIndex: 1 }}>
           <div style={{ display: "flex", justifyContent: "space-between", alignItems: "flex-end", marginBottom: "40px", paddingBottom: "16px", borderBottom: "2px solid rgba(255,255,255,0.12)" }}>
             <div>
-              {/* Merah diselaraskan ke #8b1a2a */}
               <span style={{ fontSize: "11px", fontWeight: "700", letterSpacing: "0.1em", textTransform: "uppercase", color: "#e05070", fontFamily: "var(--font-sans)" }}>◆ Ekosistem</span>
               <h2 style={{ fontSize: "clamp(1.6rem, 3vw, 2.2rem)", fontWeight: "700", color: "#ffffff", fontFamily: "var(--font-serif)", marginTop: "4px" }}>Proyek Wikimedia</h2>
             </div>
             <a href="https://id.wikimedia.org/wiki/Halaman_Utama" target="_blank" rel="noopener noreferrer"
-                style={{ fontSize: "13px", fontWeight: "600", color: "rgba(255,255,255,0.65)", textDecoration: "none", fontFamily: "var(--font-sans)", letterSpacing: "0.04em", whiteSpace: "nowrap" }}
-                onMouseEnter={(e) => (e.currentTarget.style.color = "#e05070")}
-                onMouseLeave={(e) => (e.currentTarget.style.color = "rgba(255,255,255,0.65)")}>
-                Selengkapnya →
-              </a>
+              style={{ fontSize: "13px", fontWeight: "600", color: "rgba(255,255,255,0.65)", textDecoration: "none", fontFamily: "var(--font-sans)", letterSpacing: "0.04em", whiteSpace: "nowrap" }}
+              onMouseEnter={(e) => (e.currentTarget.style.color = "#e05070")}
+              onMouseLeave={(e) => (e.currentTarget.style.color = "rgba(255,255,255,0.65)")}>
+              Selengkapnya →
+            </a>
           </div>
 
           {wikiLoading ? (
             <div style={{ display: "flex", gap: "8px", flexWrap: "wrap" }}>
               {[...Array(6)].map((_, i) => (
-                <div key={i} style={{ height: "36px", width: "120px", backgroundColor: "rgba(255,255,255,0.1)", borderRadius: "4px", animation: "shimmer 1.5s infinite" }} />
+                <div key={i} className="skeleton" style={{ height: "36px", width: "120px", borderRadius: "4px" }} />
               ))}
             </div>
           ) : (
             <div style={{ display: "flex", flexDirection: "column", gap: "0" }}>
-
-              {/* Tab list */}
               <div style={{ display: "flex", flexWrap: "wrap", gap: "4px", borderBottom: "2px solid rgba(255,255,255,0.12)", paddingBottom: "0", marginBottom: "0" }}>
                 {wikiProjects.map((p, idx) => {
                   const isActive = activeWikiTab === idx;
                   return (
-                    <button key={p.id} onClick={() => setActiveWikiTab(idx)}
+                    <button key={p.id} className="wiki-tab-btn" onClick={() => setActiveWikiTab(idx)}
                       style={{
                         padding: "8px 16px", border: "none",
                         borderBottom: isActive ? "2px solid #e05070" : "2px solid transparent",
                         marginBottom: "-2px",
                         background: isActive ? "rgba(255,255,255,0.08)" : "transparent",
-                        cursor: "pointer", transition: "all 0.15s",
-                        color: isActive ? "#ffffff" : "rgba(255, 255, 255, 0.66)",
+                        cursor: "pointer",
+                        color: isActive ? "#ffffff" : "rgba(255,255,255,0.66)",
                         borderRadius: "4px 4px 0 0",
                       }}
                       onMouseEnter={(e) => { if (!isActive) (e.currentTarget as HTMLElement).style.color = "rgba(255,255,255,0.75)"; }}
@@ -445,34 +492,22 @@ export default function Home() {
                 })}
               </div>
 
-              {/* Tab content */}
               {wikiProjects[activeWikiTab] && (() => {
                 const active = wikiProjects[activeWikiTab];
                 return (
                   <div style={{ backgroundColor: "rgba(255,255,255,0.06)", border: "1px solid rgba(255,255,255,0.1)", borderTop: "none", borderRadius: "0 0 4px 4px", overflow: "hidden", backdropFilter: "blur(8px)" }}>
-                    {/* Header */}
                     <div style={{ padding: "28px 32px", borderBottom: "1px solid rgba(255,255,255,0.08)", display: "flex", alignItems: "flex-start", gap: "20px" }}>
-                      <img src={active.logo_url} alt={active.nama_proyek}
-                        style={{ width: "48px", height: "48px", objectFit: "contain", flexShrink: 0 }} />
+                      <img src={active.logo_url} alt={active.nama_proyek} style={{ width: "48px", height: "48px", objectFit: "contain", flexShrink: 0 }} />
                       <div>
                         <h3 style={{ fontSize: "24px", fontWeight: "700", color: "#ffffff", fontFamily: "var(--font-serif)", margin: "0 0 6px" }}>{active.nama_proyek}</h3>
                         <p style={{ fontSize: "14px", color: "rgba(255,255,255,0.6)", lineHeight: "1.7", fontFamily: "var(--font-sans)", margin: 0 }}>{active.deskripsi}</p>
                       </div>
                     </div>
-                    {/* Subprojects */}
                     <div style={{ padding: "20px 32px" }}>
                       <div style={{ display: "flex", flexWrap: "wrap", gap: "8px" }}>
                         {active.subprojects.map((sp) => (
                           <a key={sp.id} href={sp.url} target="_blank" rel="noopener noreferrer"
-                            style={{
-                              display: "inline-flex", alignItems: "center", gap: "5px",
-                              padding: "5px 12px",
-                              backgroundColor: "rgba(255,255,255,0.07)",
-                              border: "1px solid rgba(255,255,255,0.15)",
-                              borderRadius: "2px",
-                              fontSize: "12px", color: "rgba(255,255,255,0.75)", fontFamily: "var(--font-sans)",
-                              textDecoration: "none", fontWeight: "500", transition: "all 0.15s",
-                            }}
+                            style={{ display: "inline-flex", alignItems: "center", gap: "5px", padding: "5px 12px", backgroundColor: "rgba(255,255,255,0.07)", border: "1px solid rgba(255,255,255,0.15)", borderRadius: "2px", fontSize: "12px", color: "rgba(255,255,255,0.75)", fontFamily: "var(--font-sans)", textDecoration: "none", fontWeight: "500", transition: "all 0.15s" }}
                             onMouseEnter={(e) => { e.currentTarget.style.backgroundColor = "rgba(255,255,255,0.18)"; e.currentTarget.style.color = "#fff"; e.currentTarget.style.borderColor = "rgba(255,255,255,0.4)"; }}
                             onMouseLeave={(e) => { e.currentTarget.style.backgroundColor = "rgba(255,255,255,0.07)"; e.currentTarget.style.color = "rgba(255,255,255,0.75)"; e.currentTarget.style.borderColor = "rgba(255,255,255,0.15)"; }}>
                             {sp.nama_bahasa}
@@ -484,7 +519,6 @@ export default function Home() {
                   </div>
                 );
               })()}
-
             </div>
           )}
         </div>
@@ -493,15 +527,15 @@ export default function Home() {
       {/* ── SOROTAN PROGRAM ───────────────────────────────────────────────── */}
       <section style={{ backgroundColor: "#ffffff", padding: "80px 24px" }}>
         <div style={{ maxWidth: "1280px", margin: "0 auto" }}>
-          <div style={{ marginBottom: "48px", paddingBottom: "16px", borderBottom: "3px solid #0d0d0d" }}>
+          <div className="section-border-shimmer reveal" style={{ marginBottom: "48px", paddingBottom: "16px", borderBottom: "3px solid #0d0d0d" }}>
             <span style={{ fontSize: "11px", fontWeight: "700", letterSpacing: "0.1em", textTransform: "uppercase", color: "#8b1a2a", fontFamily: "var(--font-sans)" }}>◆ Inisiatif</span>
             <h2 style={{ fontSize: "clamp(1.6rem, 3vw, 2.2rem)", fontWeight: "700", color: "#0d0d0d", fontFamily: "var(--font-serif)", marginTop: "4px" }}>Program Kami</h2>
           </div>
 
-          <div style={{ display: "grid", gridTemplateColumns: "repeat(auto-fill, minmax(260px, 1fr))", gap: "24px" }}>
+          <div className="reveal-stagger" style={{ display: "grid", gridTemplateColumns: "repeat(auto-fill, minmax(260px, 1fr))", gap: "24px" }}>
             {programs.map((p) => (
               <a key={p.key} href={p.href} target={p.href.startsWith("http") ? "_blank" : "_self"} rel="noopener noreferrer" style={{ textDecoration: "none", display: "block" }}>
-                <div style={{ border: "1px solid #e5e2dd", borderRadius: "4px", padding: "32px", height: "100%", transition: "all 0.2s", borderTop: `3px solid ${p.accent}` }}
+                <div className="program-card" style={{ border: "1px solid #e5e2dd", borderRadius: "4px", padding: "32px", height: "100%", borderTop: `3px solid ${p.accent}` }}
                   onMouseEnter={(e) => { (e.currentTarget as HTMLElement).style.boxShadow = "0 8px 32px rgba(0,0,0,0.08)"; (e.currentTarget as HTMLElement).style.transform = "translateY(-2px)"; }}
                   onMouseLeave={(e) => { (e.currentTarget as HTMLElement).style.boxShadow = "none"; (e.currentTarget as HTMLElement).style.transform = "none"; }}>
                   <h3 style={{ fontSize: "17px", fontWeight: "700", color: "#0d0d0d", fontFamily: "var(--font-serif)", marginBottom: "10px" }}>{p.title}</h3>
@@ -518,11 +552,10 @@ export default function Home() {
 
       {/* ── CTA NEWSLETTER ────────────────────────────────────────────────── */}
       <section style={{ backgroundColor: "#1a3a5c", padding: "80px 24px", position: "relative", overflow: "hidden" }}>
-        {/* Background texture */}
         <div style={{ position: "absolute", inset: 0, backgroundImage: `linear-gradient(rgba(255,255,255,0.03) 1px, transparent 1px), linear-gradient(90deg, rgba(255,255,255,0.03) 1px, transparent 1px)`, backgroundSize: "60px 60px" }} />
         <div style={{ position: "absolute", top: "-80px", right: "-80px", width: "300px", height: "300px", borderRadius: "50%", backgroundColor: "rgba(139,26,42,0.12)" }} />
 
-        <div style={{ maxWidth: "700px", margin: "0 auto", textAlign: "center", position: "relative", zIndex: 1 }}>
+        <div className="reveal" style={{ maxWidth: "700px", margin: "0 auto", textAlign: "center", position: "relative", zIndex: 1 }}>
           <span style={{ fontSize: "11px", fontWeight: "700", letterSpacing: "0.1em", textTransform: "uppercase", color: "#e05070", fontFamily: "var(--font-sans)" }}>◆ Bergabung</span>
           <h2 style={{ fontSize: "clamp(1.8rem, 3vw, 2.6rem)", fontWeight: "700", color: "#ffffff", fontFamily: "var(--font-serif)", margin: "12px 0 16px", lineHeight: "1.2" }}>
             Jadilah Bagian dari Gerakan Pengetahuan Bebas
@@ -534,6 +567,7 @@ export default function Home() {
           {!submitted ? (
             <div style={{ display: "flex", maxWidth: "480px", margin: "0 auto", flexWrap: "wrap", justifyContent: "center", gap: "12px" }}>
               <input
+                className="newsletter-input"
                 type="email"
                 placeholder="Alamat email kamu"
                 value={email}
@@ -544,16 +578,15 @@ export default function Home() {
                   backgroundColor: "rgba(255,255,255,0.08)", color: "#ffffff",
                   fontFamily: "var(--font-sans)", outline: "none",
                 }}
-                onFocus={(e) => (e.currentTarget.style.borderColor = "rgba(255,255,255,0.5)")}
-                onBlur={(e) => (e.currentTarget.style.borderColor = "rgba(255,255,255,0.2)")}
               />
               <button
+                className="btn-ripple"
                 onClick={handleSubscribe}
                 style={{
                   padding: "14px 28px", backgroundColor: "#8b1a2a", color: "#fff",
                   fontSize: "13px", fontWeight: "700", letterSpacing: "0.06em",
                   textTransform: "uppercase", border: "none", cursor: "pointer",
-                  fontFamily: "var(--font-sans)", transition: "all 0.2s", borderRadius: "2px",
+                  fontFamily: "var(--font-sans)", transition: "background 0.2s", borderRadius: "2px",
                 }}
                 onMouseEnter={(e) => (e.currentTarget.style.backgroundColor = "#a82235")}
                 onMouseLeave={(e) => (e.currentTarget.style.backgroundColor = "#8b1a2a")}
@@ -580,7 +613,7 @@ export default function Home() {
       <style>{`
         @keyframes pulse { 0%, 100% { opacity: 1; } 50% { opacity: 0.4; } }
         @keyframes shimmer { 0% { opacity: 1; } 50% { opacity: 0.5; } 100% { opacity: 1; } }
-        
+
         @media (max-width: 768px) {
           .events-grid {
             grid-template-columns: 1fr !important;

@@ -1,0 +1,243 @@
+/* ═══════════════════════════════════════════════════════════════════════════
+   WMID Homepage — Subtle Animation Layer
+   Tambahkan file ini ke dalam proyek kamu, lalu import di global.css atau 
+   langsung di layout.tsx
+   ═══════════════════════════════════════════════════════════════════════════ */
+
+/* ── 1. FADE-IN REVEAL (dipakai via Intersection Observer) ─────────────────
+   Tambahkan class "reveal" ke elemen yang ingin muncul saat scroll.
+   JS akan menambahkan class "visible" ketika elemen masuk viewport.
+   ─────────────────────────────────────────────────────────────────────────── */
+.reveal {
+  opacity: 0;
+  transform: translateY(20px);
+  transition: opacity 0.6s cubic-bezier(0.22, 1, 0.36, 1),
+              transform 0.6s cubic-bezier(0.22, 1, 0.36, 1);
+}
+
+.reveal.visible {
+  opacity: 1;
+  transform: translateY(0);
+}
+
+/* ── 2. HERO — Parallax ringan via CSS (no JS) ──────────────────────────────
+   Ganti background-attachment hero menjadi fixed agar ada efek parallax ringan.
+   Cukup tambahkan class "hero-parallax" ke div background hero.
+   ─────────────────────────────────────────────────────────────────────────── */
+.hero-parallax {
+  background-attachment: fixed !important;
+}
+
+/* Disable di mobile (fixed attachment tidak smooth di iOS) */
+@media (max-width: 768px) {
+  .hero-parallax {
+    background-attachment: scroll !important;
+  }
+}
+
+/* ── 3. HERO — Floating dots dekoratif ──────────────────────────────────────
+   Tambahkan div.hero-dots di dalam section hero sebagai child absolute.
+   ─────────────────────────────────────────────────────────────────────────── */
+.hero-dots {
+  position: absolute;
+  inset: 0;
+  overflow: hidden;
+  pointer-events: none;
+  z-index: 0;
+}
+
+.hero-dots::before,
+.hero-dots::after {
+  content: "";
+  position: absolute;
+  border-radius: 50%;
+  animation: float-slow 8s ease-in-out infinite;
+}
+
+.hero-dots::before {
+  width: 300px; height: 300px;
+  background: radial-gradient(circle, rgba(139,26,42,0.08) 0%, transparent 70%);
+  top: 10%; right: 15%;
+  animation-delay: 0s;
+}
+
+.hero-dots::after {
+  width: 200px; height: 200px;
+  background: radial-gradient(circle, rgba(30,77,123,0.12) 0%, transparent 70%);
+  bottom: 20%; right: 30%;
+  animation-delay: -4s;
+}
+
+@keyframes float-slow {
+  0%, 100% { transform: translateY(0px) scale(1); }
+  50%       { transform: translateY(-18px) scale(1.04); }
+}
+
+/* ── 4. HERO — Badge pulse lebih halus ──────────────────────────────────────
+   Ganti animasi pulse bawaan dengan versi yang lebih smooth.
+   ─────────────────────────────────────────────────────────────────────────── */
+@keyframes pulse-dot {
+  0%, 100% { opacity: 1; box-shadow: 0 0 0 0 rgba(224, 80, 112, 0.5); }
+  50%       { opacity: 0.7; box-shadow: 0 0 0 5px rgba(224, 80, 112, 0); }
+}
+
+.hero-badge-dot {
+  animation: pulse-dot 2.4s ease-in-out infinite !important;
+}
+
+/* ── 5. SECTION HEADER — Shimmer pada garis bawah ──────────────────────────
+   Tambahkan class "section-border-shimmer" ke div border-bottom section header.
+   ─────────────────────────────────────────────────────────────────────────── */
+.section-border-shimmer {
+  position: relative;
+  overflow: hidden;
+}
+
+.section-border-shimmer::after {
+  content: "";
+  position: absolute;
+  bottom: 0; left: -100%;
+  width: 60%; height: 3px;
+  background: linear-gradient(90deg, transparent, rgba(139,26,42,0.6), transparent);
+  animation: shimmer-line 3.5s ease-in-out infinite;
+}
+
+@keyframes shimmer-line {
+  0%   { left: -60%; opacity: 0; }
+  20%  { opacity: 1; }
+  80%  { opacity: 1; }
+  100% { left: 110%; opacity: 0; }
+}
+
+/* ── 6. ARTIKEL CARD — hover image zoom sudah ada, tambahkan glow ───────────
+   Tambahkan class "card-glow" ke article element.
+   ─────────────────────────────────────────────────────────────────────────── */
+.card-glow {
+  transition: box-shadow 0.3s ease, transform 0.3s ease !important;
+}
+
+.card-glow:hover {
+  box-shadow: 0 12px 40px rgba(139, 26, 42, 0.12) !important;
+  transform: translateY(-3px) !important;
+}
+
+/* ── 7. EVENT CARD — sliding border color on hover ──────────────────────────
+   Sudah ada hover effect, tambahkan transisi border-left-color.
+   Tambahkan class "event-card" ke div event.
+   ─────────────────────────────────────────────────────────────────────────── */
+.event-card {
+  transition: box-shadow 0.25s ease, transform 0.25s ease, border-left-color 0.25s ease !important;
+}
+
+.event-card:hover {
+  border-left-color: #8b1a2a !important;
+}
+
+/* ── 8. WIKI TABS — smooth tab indicator ────────────────────────────────────
+   Sudah pakai borderBottom inline, tidak perlu class tambahan.
+   Tapi kita perlu tambahkan transition ke semua tab button.
+   Tambahkan class "wiki-tab-btn" ke setiap button tab.
+   ─────────────────────────────────────────────────────────────────────────── */
+.wiki-tab-btn {
+  transition: color 0.2s ease, background 0.2s ease, border-bottom-color 0.2s ease !important;
+}
+
+/* ── 9. PROGRAM CARD — animated top border ──────────────────────────────────
+   Tambahkan class "program-card" ke div program.
+   ─────────────────────────────────────────────────────────────────────────── */
+.program-card {
+  transition: box-shadow 0.3s ease, transform 0.3s ease !important;
+  position: relative;
+  overflow: hidden;
+}
+
+.program-card::before {
+  content: "";
+  position: absolute;
+  top: 0; left: -100%;
+  width: 100%; height: 3px;
+  background: linear-gradient(90deg, transparent, rgba(255,255,255,0.5), transparent);
+  transition: left 0.5s ease;
+}
+
+.program-card:hover::before {
+  left: 100%;
+}
+
+/* ── 10. NEWSLETTER INPUT — focus glow ─────────────────────────────────────
+   Tambahkan class "newsletter-input" ke input email.
+   ─────────────────────────────────────────────────────────────────────────── */
+.newsletter-input {
+  transition: border-color 0.2s ease, box-shadow 0.2s ease !important;
+}
+
+.newsletter-input:focus {
+  border-color: rgba(255,255,255,0.5) !important;
+  box-shadow: 0 0 0 3px rgba(139,26,42,0.25) !important;
+  outline: none !important;
+}
+
+/* ── 11. LOGO / ILUSTRASI — gentle bob ─────────────────────────────────────
+   Tambahkan class "img-bob" ke img ilustrasi acara.
+   ─────────────────────────────────────────────────────────────────────────── */
+.img-bob {
+  animation: bob 5s ease-in-out infinite;
+}
+
+@keyframes bob {
+  0%, 100% { transform: translateY(0px); }
+  50%       { transform: translateY(-8px); }
+}
+
+/* ── 12. SKELETON SHIMMER — perbaiki agar lebih smooth ─────────────────────
+   Override animasi shimmer bawaan dengan versi gradient sweep.
+   ─────────────────────────────────────────────────────────────────────────── */
+@keyframes shimmer-skeleton {
+  0%   { background-position: -400px 0; }
+  100% { background-position: 400px 0; }
+}
+
+.skeleton {
+  background: linear-gradient(90deg, #f0eeec 25%, #e8e6e2 50%, #f0eeec 75%);
+  background-size: 800px 100%;
+  animation: shimmer-skeleton 1.6s ease-in-out infinite;
+}
+
+/* ── 13. CTA BUTTON — ripple effect ─────────────────────────────────────────
+   Tambahkan class "btn-ripple" ke button Berlangganan dan Link CTA.
+   ─────────────────────────────────────────────────────────────────────────── */
+.btn-ripple {
+  position: relative;
+  overflow: hidden;
+}
+
+.btn-ripple::after {
+  content: "";
+  position: absolute;
+  inset: 0;
+  background: rgba(255,255,255,0.15);
+  opacity: 0;
+  transition: opacity 0.3s ease;
+}
+
+.btn-ripple:hover::after {
+  opacity: 1;
+}
+
+.btn-ripple:active::after {
+  opacity: 0.3;
+  transition: opacity 0s;
+}
+
+/* ── 14. SECTION — fade-in dari bawah saat load pertama (above-the-fold) ────
+   Hero section konten muncul saat halaman load.
+   ─────────────────────────────────────────────────────────────────────────── */
+@keyframes hero-enter {
+  from { opacity: 0; transform: translateY(28px); }
+  to   { opacity: 1; transform: translateY(0); }
+}
+
+.hero-badge   { animation: hero-enter 0.7s cubic-bezier(0.22, 1, 0.36, 1) 0.1s both; }
+.hero-title   { animation: hero-enter 0.7s cubic-bezier(0.22, 1, 0.36, 1) 0.25s both; }
+.hero-desc    { animation: hero-enter 0.7s cubic-bezier(0.22, 1, 0.36, 1) 0.4s both; }
+.hero-buttons { animation: hero-enter 0.7s cubic-bezier(0.22, 1, 0.36, 1) 0.55s both; }

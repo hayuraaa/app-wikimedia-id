@@ -20,7 +20,7 @@ export const metadata: Metadata = {
   title: "Wikimedia Indonesia",
   description: "Portal informasi Wikimedia Indonesia",
   icons: {
-    icon: "/favicon.png",
+    icon: "/Logo_WMID.ico",
   },
 };
 
