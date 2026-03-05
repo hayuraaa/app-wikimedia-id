@@ -1,12 +1,13 @@
 "use client";
 
 import { useState, useEffect } from "react";
+import { usePathname } from "next/navigation";
 import Image from "next/image";
 import Link from "next/link";
 
 const navItems = [
   { label: "Beranda", href: "/" },
-  { label: "Berita", href: "/berita" },
+  { label: "Rubrik", href: "/rubrik" },
   { label: "Artikel", href: "/artikel" },
   { label: "Program", href: "/program" },
   { label: "Komunitas", href: "/komunitas" },
@@ -16,7 +17,13 @@ const navItems = [
 export default function Header() {
   const [scrolled, setScrolled] = useState(false);
   const [menuOpen, setMenuOpen] = useState(false);
-  const [activeItem, setActiveItem] = useState("Beranda");
+  const pathname = usePathname();
+
+  // Derived dari URL — otomatis sinkron saat navigasi
+  const activeItem =
+    navItems.find((item) =>
+      item.href === "/" ? pathname === "/" : pathname.startsWith(item.href)
+    )?.label ?? "";
 
   useEffect(() => {
     const onScroll = () => setScrolled(window.scrollY > 20);
@@ -69,7 +76,6 @@ export default function Header() {
             <Link
               key={item.label}
               href={item.href}
-              onClick={() => setActiveItem(item.label)}
               style={{
                 padding: "8px 14px",
                 fontSize: "13px",
@@ -130,7 +136,7 @@ export default function Header() {
         <nav style={{ padding: "8px 0 16px" }}>
           {navItems.map((item) => (
             <Link key={item.label} href={item.href}
-              onClick={() => { setActiveItem(item.label); setMenuOpen(false); }}
+              onClick={() => setMenuOpen(false)}
               style={{
                 display: "block", padding: "12px 24px", fontSize: "14px", fontWeight: "600",
                 letterSpacing: "0.04em", textTransform: "uppercase", textDecoration: "none",

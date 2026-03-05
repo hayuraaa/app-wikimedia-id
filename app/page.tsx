@@ -2,6 +2,7 @@
 
 import { useState, useEffect } from "react";
 import { useScrollReveal } from "@/hooks/useScrollReveal";
+import { useRouter } from "next/navigation";
 import Link from "next/link";
 
 // ─── Types ───────────────────────────────────────────────────────────────────
@@ -75,6 +76,7 @@ const programs = [
 
 export default function Home() {
   useScrollReveal();
+  const router = useRouter();
 
   const [email, setEmail] = useState("");
   const [submitted, setSubmitted] = useState(false);
@@ -122,9 +124,7 @@ export default function Home() {
   }, []);
 
   useEffect(() => {
-    const articleImages = articles
-      .filter((a) => a.featured_image)
-      .slice(0, 3);
+    const articleImages = articles.filter((a) => a.featured_image).slice(0, 3);
     if (articleImages.length < 2) return;
     const interval = setInterval(() => {
       setActiveSlide((prev) => (prev + 1) % articleImages.length);
@@ -267,7 +267,13 @@ export default function Home() {
                         {a.categories?.length > 0 ? (
                           <div style={{ display: "flex", gap: "4px", flexWrap: "wrap", flex: 1 }}>
                             {a.categories.map((cat) => (
-                              <span key={cat} style={{ fontSize: "10px", fontWeight: "700", letterSpacing: "0.04em", color: "#1e4d7b", backgroundColor: "rgba(30,77,123,0.08)", padding: "2px 8px", borderRadius: "2px", fontFamily: "var(--font-sans)" }}>
+                              <span
+                                key={cat}
+                                onClick={(e) => { e.preventDefault(); e.stopPropagation(); router.push(`/rubrik/kategori/${cat}`); }}
+                                style={{ fontSize: "10px", fontWeight: "700", letterSpacing: "0.04em", color: "#1e4d7b", backgroundColor: "rgba(30,77,123,0.08)", padding: "2px 8px", borderRadius: "2px", fontFamily: "var(--font-sans)", cursor: "pointer", transition: "all 0.15s" }}
+                                onMouseEnter={(e) => { e.currentTarget.style.backgroundColor = "rgba(30,77,123,0.18)"; e.currentTarget.style.color = "#0d2a4d"; }}
+                                onMouseLeave={(e) => { e.currentTarget.style.backgroundColor = "rgba(30,77,123,0.08)"; e.currentTarget.style.color = "#1e4d7b"; }}
+                              >
                                 {formatCategory(cat)}
                               </span>
                             ))}
@@ -282,9 +288,18 @@ export default function Home() {
                         {a.excerpt}
                       </p>
                       <div style={{ display: "flex", alignItems: "center", justifyContent: "space-between", paddingTop: "10px", borderTop: "1px solid #f0eeec", marginTop: "auto" }}>
-                        <span style={{ fontSize: "11px", color: "#5c5a57", fontFamily: "var(--font-sans)", overflow: "hidden", textOverflow: "ellipsis", whiteSpace: "nowrap", maxWidth: "65%" }}>
-                          {a.authors?.[0]?.name ?? "—"}
-                        </span>
+                        {a.authors?.[0] ? (
+                          <span
+                            onClick={(e) => { e.preventDefault(); e.stopPropagation(); router.push(`/rubrik/author/${a.authors[0].name.toLowerCase().replace(/\s+/g, "-")}`); }}
+                            style={{ fontSize: "11px", color: "#5c5a57", fontFamily: "var(--font-sans)", overflow: "hidden", textOverflow: "ellipsis", whiteSpace: "nowrap", maxWidth: "65%", cursor: "pointer", transition: "color 0.15s" }}
+                            onMouseEnter={(e) => (e.currentTarget.style.color = "#1e4d7b")}
+                            onMouseLeave={(e) => (e.currentTarget.style.color = "#5c5a57")}
+                          >
+                            {a.authors[0].name}
+                          </span>
+                        ) : (
+                          <span style={{ fontSize: "11px", color: "#5c5a57", fontFamily: "var(--font-sans)" }}>—</span>
+                        )}
                         <span style={{ display: "flex", alignItems: "center", gap: "4px", fontSize: "11px", color: "#9a9690", fontFamily: "var(--font-sans)", flexShrink: 0 }}>
                           <svg width="12" height="12" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2"><path d="M1 12s4-8 11-8 11 8 11 8-4 8-11 8-11-8-11-8z"/><circle cx="12" cy="12" r="3"/></svg>
                           {a.views.toLocaleString("id-ID")}
@@ -310,7 +325,7 @@ export default function Home() {
               <span style={{ fontSize: "11px", fontWeight: "700", letterSpacing: "0.1em", textTransform: "uppercase", color: "#8b1a2a", fontFamily: "var(--font-sans)" }}>◆ Kalender</span>
               <h2 style={{ fontSize: "clamp(1.6rem, 3vw, 2.2rem)", fontWeight: "700", color: "#0d0d0d", fontFamily: "var(--font-serif)", marginTop: "4px" }}>Acara Mendatang</h2>
             </div>
-            <Link href="/komunitas/acara" style={{ fontSize: "13px", fontWeight: "600", color: "#1e4d7b", textDecoration: "none", fontFamily: "var(--font-sans)", letterSpacing: "0.04em", whiteSpace: "nowrap" }}
+            <Link href="/acara" style={{ fontSize: "13px", fontWeight: "600", color: "#1e4d7b", textDecoration: "none", fontFamily: "var(--font-sans)", letterSpacing: "0.04em", whiteSpace: "nowrap" }}
               onMouseEnter={(e) => (e.currentTarget.style.color = "#8b1a2a")}
               onMouseLeave={(e) => (e.currentTarget.style.color = "#1e4d7b")}>
               Lihat Semua →
@@ -340,7 +355,7 @@ export default function Home() {
                   const badgeLabel = status === "berlangsung" ? "● Berlangsung" : status === "selesai" ? "Selesai" : "Mendatang";
                   const dateColor = status === "berlangsung" ? "#16a34a" : status === "selesai" ? "#9a9690" : "#1a3a5c";
                   return (
-                    <Link key={ev.id} href={`/komunitas/acara/${ev.slug}`} style={{ textDecoration: "none" }}>
+                    <Link key={ev.id} href={`/acara/${ev.slug}`} style={{ textDecoration: "none" }}>
                       <div className="event-card" style={{
                         backgroundColor: "#ffffff",
                         border: "1px solid #e5e2dd",
@@ -404,7 +419,6 @@ export default function Home() {
                           alt={a.title}
                           style={{ width: "100%", height: "100%", objectFit: "cover", display: "block" }}
                         />
-                        {/* overlay gradient + caption */}
                         <div style={{
                           position: "absolute", bottom: 0, left: 0, right: 0,
                           background: "linear-gradient(transparent, rgba(0,0,0,0.72))",
@@ -420,7 +434,6 @@ export default function Home() {
                         </div>
                       </div>
                     ))}
-                    {/* dot indicators */}
                     <div style={{ position: "absolute", bottom: "10px", right: "12px", display: "flex", gap: "5px", zIndex: 10 }}>
                       {slideImages.map((_, idx) => (
                         <button key={idx} onClick={() => setActiveSlide(idx)} style={{
@@ -441,13 +454,13 @@ export default function Home() {
       </section>
 
       {/* ── PROYEK WIKIMEDIA ──────────────────────────────────────────────── */}
-      <section style={{ backgroundColor: "#1a3a5c", padding: "80px 24px", position: "relative", overflow: "hidden" }}>
+      <section className="section-dark" style={{ backgroundColor: "#1a3a5c", padding: "80px 24px", position: "relative", overflow: "hidden" }}>
         <div style={{ position: "absolute", inset: 0, backgroundImage: `linear-gradient(rgba(255,255,255,0.03) 1px, transparent 1px), linear-gradient(90deg, rgba(255,255,255,0.03) 1px, transparent 1px)`, backgroundSize: "60px 60px" }} />
         <div style={{ position: "absolute", top: "-100px", right: "-100px", width: "400px", height: "400px", borderRadius: "50%", background: "radial-gradient(circle, rgba(139,26,42,0.18) 0%, transparent 70%)", pointerEvents: "none" }} />
         <div style={{ position: "absolute", bottom: "-80px", left: "-80px", width: "300px", height: "300px", borderRadius: "50%", background: "radial-gradient(circle, rgba(30,77,123,0.25) 0%, transparent 70%)", pointerEvents: "none" }} />
 
         <div className="reveal" style={{ maxWidth: "1280px", margin: "0 auto", position: "relative", zIndex: 1 }}>
-          <div style={{ display: "flex", justifyContent: "space-between", alignItems: "flex-end", marginBottom: "40px", paddingBottom: "16px", borderBottom: "2px solid rgba(255,255,255,0.12)" }}>
+          <div className="section-border-shimmer reveal" style={{ display: "flex", justifyContent: "space-between", alignItems: "flex-end", marginBottom: "40px", paddingBottom: "16px", borderBottom: "3px solid rgba(255,255,255,0.85)" }}>
             <div>
               <span style={{ fontSize: "11px", fontWeight: "700", letterSpacing: "0.1em", textTransform: "uppercase", color: "#e05070", fontFamily: "var(--font-sans)" }}>◆ Ekosistem</span>
               <h2 style={{ fontSize: "clamp(1.6rem, 3vw, 2.2rem)", fontWeight: "700", color: "#ffffff", fontFamily: "var(--font-serif)", marginTop: "4px" }}>Proyek Wikimedia</h2>

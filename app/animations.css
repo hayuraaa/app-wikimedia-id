@@ -241,3 +241,17 @@
 .hero-title   { animation: hero-enter 0.7s cubic-bezier(0.22, 1, 0.36, 1) 0.25s both; }
 .hero-desc    { animation: hero-enter 0.7s cubic-bezier(0.22, 1, 0.36, 1) 0.4s both; }
 .hero-buttons { animation: hero-enter 0.7s cubic-bezier(0.22, 1, 0.36, 1) 0.55s both; }
+
+/* ── SECTION BORDER SHIMMER — Dark variant (untuk background gelap) ─────── */
+.section-border-shimmer::after {
+  content: "";
+  position: absolute;
+  bottom: 0; left: -100%;
+  width: 60%; height: 3px;
+  background: linear-gradient(90deg, transparent, rgba(139,26,42,0.6), transparent);
+  animation: shimmer-line 3.5s ease-in-out infinite;
+}
+
+.section-dark .section-border-shimmer::after {
+  background: linear-gradient(90deg, transparent, rgba(224,80,112,0.8), transparent);
+}
