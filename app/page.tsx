@@ -192,7 +192,7 @@ export default function Home() {
             </h1>
 
             <p className="hero-desc" style={{ fontSize: "16px", color: "rgba(255,255,255,0.72)", lineHeight: "1.8", marginBottom: "40px", fontFamily: "var(--font-sans)" }}>
-              Wikimedia Indonesia adalah organisasi nirlaba yang mendedikasikan diri untuk mengembangkan dan mendukung proyek-proyek Wikimedia demi kemajuan pengetahuan bebas di seluruh nusantara.
+              Wikimedia Indonesia adalah organisasi nirlaba yang berdedikasi untuk memajukan gerakan pengetahuan terbuka di Indonesia.
             </p>
 
             <div className="hero-buttons" style={{ display: "flex", gap: "16px", flexWrap: "wrap" }}>
