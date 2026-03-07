@@ -303,9 +303,10 @@ export default function RuangPersPage() {
     <>
       {/* ── HEADER ───────────────────────────────────────────────────────── */}
       <section style={{ padding: "40px 24px 36px", position: "relative", overflow: "hidden", backgroundImage: "url('/banner/Mosaik_Budaya_3.png')", backgroundSize: "cover", backgroundPosition: "center" }}>
-        <div style={{ position: "absolute", inset: 0, background: "linear-gradient(135deg, rgba(20,8,8,0.90) 0%, rgba(45,10,15,0.82) 40%, rgba(60,15,20,0.75) 100%)", pointerEvents: "none" }} />
+        <div style={{ position: "absolute", inset: 0, background: "linear-gradient(135deg, rgba(40,22,6,0.92) 0%, rgba(80,44,8,0.84) 40%, rgba(120,72,10,0.72) 100%)", pointerEvents: "none" }} />
         <div style={{ position: "absolute", inset: 0, backgroundImage: `linear-gradient(rgba(255,255,255,0.03) 1px, transparent 1px), linear-gradient(90deg, rgba(255,255,255,0.03) 1px, transparent 1px)`, backgroundSize: "40px 40px", pointerEvents: "none" }} />
-        <div style={{ position: "absolute", top: "-60px", right: "-60px", width: "240px", height: "240px", borderRadius: "50%", background: "radial-gradient(circle, rgba(139,26,42,0.20) 0%, transparent 70%)", pointerEvents: "none" }} />
+        <div style={{ position: "absolute", top: "-60px", right: "-60px", width: "240px", height: "240px", borderRadius: "50%", background: "radial-gradient(circle, rgba(212,160,20,0.28) 0%, transparent 70%)", pointerEvents: "none" }} />
+        <div style={{ position: "absolute", bottom: "-40px", left: "8%", width: "180px", height: "180px", borderRadius: "50%", background: "radial-gradient(circle, rgba(180,100,10,0.18) 0%, transparent 70%)", pointerEvents: "none" }} />
         <div style={{ maxWidth: "1280px", margin: "0 auto", position: "relative", zIndex: 1 }}>
           {/* Breadcrumb */}
           <div style={{ display: "flex", alignItems: "center", gap: "6px", marginBottom: "12px" }}>
@@ -315,11 +316,11 @@ export default function RuangPersPage() {
               Beranda
             </Link>
             <span style={{ fontSize: "11px", color: "rgba(255,255,255,0.25)", fontFamily: "var(--font-sans)" }}>/</span>
-            <span style={{ fontSize: "11px", color: "rgba(255,255,255,0.7)", fontFamily: "var(--font-sans)" }}>Ruang Pers</span>
+            <span style={{ fontSize: "11px", color: "hsla(0, 0%, 100%, 0.70)", fontFamily: "var(--font-sans)" }}>Ruang Pers</span>
             {searchQuery && (
               <>
                 <span style={{ fontSize: "11px", color: "rgba(255,255,255,0.25)", fontFamily: "var(--font-sans)" }}>/</span>
-                <span style={{ fontSize: "11px", color: "#e05070", fontFamily: "var(--font-sans)" }}>Pencarian: "{searchQuery}"</span>
+                <span style={{ fontSize: "11px", color: "#f5c842", fontFamily: "var(--font-sans)" }}>Pencarian: "{searchQuery}"</span>
               </>
             )}
           </div>
@@ -338,7 +339,7 @@ export default function RuangPersPage() {
             </div>
 
             {/* Search */}
-            <div style={{ display: "flex", borderRadius: "3px", overflow: "hidden", border: "1px solid rgba(255,255,255,0.15)" }}>
+            <div style={{ display: "flex", borderRadius: "3px", overflow: "hidden", border: "1px solid rgba(245,200,66,0.25)" }}>
               <input
                 type="text" placeholder="Cari siaran pers..."
                 value={searchInput}

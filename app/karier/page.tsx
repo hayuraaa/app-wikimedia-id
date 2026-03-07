@@ -146,13 +146,19 @@ export default function KarirPage() {
   return (
     <>
       {/* ── HERO ─────────────────────────────────────────────────────────── */}
-      <section style={{ padding: "48px 24px 40px", position: "relative", overflow: "hidden", backgroundImage: "url('/banner/Mosaik_Teknologi.png')", backgroundSize: "cover", backgroundPosition: "center" }}>
+      <section style={{
+        padding: "40px 24px 36px",
+        position: "relative", overflow: "hidden",
+        backgroundImage: "url('/banner/Mosaik_Teknologi.png')",
+        backgroundSize: "cover", backgroundPosition: "center",
+      }}>
         <div style={{ position: "absolute", inset: 0, background: "linear-gradient(135deg, rgba(8,20,45,0.92) 0%, rgba(10,30,65,0.84) 40%, rgba(15,40,80,0.76) 100%)", pointerEvents: "none" }} />
         <div style={{ position: "absolute", inset: 0, backgroundImage: `linear-gradient(rgba(255,255,255,0.03) 1px, transparent 1px), linear-gradient(90deg, rgba(255,255,255,0.03) 1px, transparent 1px)`, backgroundSize: "40px 40px", pointerEvents: "none" }} />
-        <div style={{ position: "absolute", top: "-80px", right: "-80px", width: "300px", height: "300px", borderRadius: "50%", background: "radial-gradient(circle, rgba(139,26,42,0.18) 0%, transparent 70%)", pointerEvents: "none" }} />
+        <div style={{ position: "absolute", top: "-60px", right: "-60px", width: "240px", height: "240px", borderRadius: "50%", background: "radial-gradient(circle, rgba(139,26,42,0.20) 0%, transparent 70%)", pointerEvents: "none" }} />
 
-        <div style={{ maxWidth: "900px", margin: "0 auto", position: "relative", zIndex: 1 }}>
-          <div style={{ display: "flex", alignItems: "center", gap: "6px", marginBottom: "16px" }}>
+        <div style={{ maxWidth: "1280px", margin: "0 auto", position: "relative", zIndex: 1 }}>
+          {/* Breadcrumb */}
+          <div style={{ display: "flex", alignItems: "center", gap: "6px", marginBottom: "12px" }}>
             <Link href="/" style={{ fontSize: "11px", color: "rgba(255,255,255,0.4)", textDecoration: "none", fontFamily: "var(--font-sans)", transition: "color 0.15s" }}
               onMouseEnter={(e) => (e.currentTarget.style.color = "rgba(255,255,255,0.8)")}
               onMouseLeave={(e) => (e.currentTarget.style.color = "rgba(255,255,255,0.4)")}>
@@ -167,7 +173,7 @@ export default function KarirPage() {
             Karier Wikimedia Indonesia
           </h1>
           {!loading && (
-            <p style={{ fontSize: "13px", color: "rgba(255,255,255,0.45)", fontFamily: "var(--font-sans)", margin: "8px 0 0" }}>
+            <p style={{ fontSize: "13px", color: "rgba(255,255,255,0.45)", fontFamily: "var(--font-sans)", margin: "6px 0 0" }}>
               {total > 0 ? `${total} lowongan tersedia` : "Tidak ada lowongan saat ini"}
             </p>
           )}
@@ -175,10 +181,10 @@ export default function KarirPage() {
       </section>
 
       {/* ── CONTENT ──────────────────────────────────────────────────────── */}
-      <section style={{ backgroundColor: "#f8f7f5", padding: "48px 24px 72px", position: "relative" }}>
+      <section style={{ backgroundColor: "#f8f7f5", padding: "36px 24px 60px", position: "relative" }}>
         <div style={{ position: "absolute", inset: 0, backgroundImage: "radial-gradient(rgba(0,0,0,0.03) 1px, transparent 1px)", backgroundSize: "20px 20px", pointerEvents: "none" }} />
 
-        <div style={{ maxWidth: "900px", margin: "0 auto", position: "relative", zIndex: 1, display: "flex", flexDirection: "column", gap: "32px" }}>
+        <div style={{ maxWidth: "1280px", margin: "0 auto", position: "relative", zIndex: 1, display: "flex", flexDirection: "column", gap: "32px" }}>
 
           {/* ── Keterangan ── */}
           <div style={{ backgroundColor: "#fff", border: "1px solid #e5e2dd", borderRadius: "4px", padding: "32px 36px" }}>
@@ -195,7 +201,7 @@ export default function KarirPage() {
 
           {/* ── Lowongan ── */}
           <div>
-            <div style={{ display: "flex", justifyContent: "space-between", alignItems: "flex-end", marginBottom: "16px", paddingBottom: "12px", borderBottom: "3px solid #0d0d0d" }}>
+            <div style={{ display: "flex", justifyContent: "space-between", alignItems: "flex-end", marginBottom: "24px", paddingBottom: "12px", borderBottom: "3px solid #0d0d0d" }}>
               <div>
                 <span style={{ fontSize: "11px", fontWeight: "700", letterSpacing: "0.1em", textTransform: "uppercase" as const, color: "#8b1a2a", fontFamily: "var(--font-sans)" }}>◆ Lowongan</span>
                 <h2 style={{ fontSize: "18px", fontWeight: "700", color: "#0d0d0d", fontFamily: "var(--font-serif)", marginTop: "2px", marginBottom: 0 }}>

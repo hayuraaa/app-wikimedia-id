@@ -53,7 +53,6 @@ function MediaThumbnail({ item }: { item: MediaItem }) {
   const isPdf = item.jenis_media === "wikimedia_commons";
   const isYoutube = item.jenis_media === "youtube";
 
-  // Ambil YouTube ID untuk fallback thumbnail
   const getYouTubeId = (url: string) => {
     const match = url.match(/(?:youtube\.com\/watch\?v=|youtu\.be\/|youtube\.com\/embed\/)([^&\n?#]+)/);
     return match ? match[1] : "";
@@ -93,7 +92,6 @@ function MediaThumbnail({ item }: { item: MediaItem }) {
           style={{
             width: "100%",
             height: "100%",
-            // PDF: contain agar tidak crop, YT: cover
             objectFit: "cover",
             objectPosition: isPdf ? "top" : "center",
             transition: "transform 0.35s",
@@ -113,7 +111,6 @@ function MediaThumbnail({ item }: { item: MediaItem }) {
     );
   }
 
-  // Fallback placeholder
   return (
     <div style={{ width: "100%", height: "100%", display: "flex", flexDirection: "column", alignItems: "center", justifyContent: "center", gap: "10px", backgroundColor: "rgba(220,38,38,0.05)" }}>
       {isPdf ? (
@@ -163,7 +160,6 @@ function MediaCard({ item }: { item: MediaItem }) {
 
         {/* Content */}
         <div style={{ padding: "14px 16px", flex: 1, display: "flex", flexDirection: "column", gap: "8px" }}>
-          {/* Kategori tags */}
           <div style={{ display: "flex", flexWrap: "wrap" as const, gap: "4px" }}>
             {item.kategori.slice(0, 2).map((k) => (
               <span key={k} style={{ fontSize: "10px", fontWeight: "600", color: "#5c5a57", backgroundColor: "#f0eeec", padding: "2px 7px", borderRadius: "2px", fontFamily: "var(--font-sans)" }}>
@@ -172,11 +168,11 @@ function MediaCard({ item }: { item: MediaItem }) {
             ))}
           </div>
 
-          <h3 style={{ fontSize: "13px", fontWeight: "600", color: "#0d0d0d", lineHeight: "1.5", fontFamily: "var(--font-serif)", margin: 0, display: "-webkit-box", WebkitLineClamp: 2, WebkitBoxOrient: "vertical" as const, overflow: "hidden", wordBreak: "break-word"  }}>
+          <h3 style={{ fontSize: "13px", fontWeight: "600", color: "#0d0d0d", lineHeight: "1.5", fontFamily: "var(--font-serif)", margin: 0, display: "-webkit-box", WebkitLineClamp: 2, WebkitBoxOrient: "vertical" as const, overflow: "hidden", wordBreak: "break-word" }}>
             {item.judul}
           </h3>
 
-          <p style={{ fontSize: "12px", color: "#9a9690", lineHeight: "1.6", fontFamily: "var(--font-sans)", display: "-webkit-box", WebkitLineClamp: 2, WebkitBoxOrient: "vertical" as const, overflow: "hidden", margin: 0, flex: 1, wordBreak: "break-word"  }}>
+          <p style={{ fontSize: "12px", color: "#9a9690", lineHeight: "1.6", fontFamily: "var(--font-sans)", display: "-webkit-box", WebkitLineClamp: 2, WebkitBoxOrient: "vertical" as const, overflow: "hidden", margin: 0, flex: 1, wordBreak: "break-word" }}>
             {item.keterangan}
           </p>
 
@@ -444,7 +440,7 @@ export default function MediaPage() {
           </div>
 
           {loading ? (
-            <div style={{ display: "grid", gridTemplateColumns: "repeat(5, 1fr)", gap: "16px" }} className="media-grid">
+            <div style={{ display: "grid", gridTemplateColumns: "repeat(4, 1fr)", gap: "16px" }} className="media-grid">
               {[...Array(8)].map((_, i) => <CardSkeleton key={i} />)}
             </div>
           ) : items.length === 0 ? (
@@ -458,7 +454,7 @@ export default function MediaPage() {
             </div>
           ) : (
             <>
-              <div className="media-grid" style={{ display: "grid", gridTemplateColumns: "repeat(5, 1fr)", gap: "16px" }}>
+              <div className="media-grid" style={{ display: "grid", gridTemplateColumns: "repeat(4, 1fr)", gap: "16px" }}>
                 {items.map((item) => <MediaCard key={item.id} item={item} />)}
               </div>
               {meta && meta.last_page > 1 && (
@@ -470,11 +466,10 @@ export default function MediaPage() {
       </section>
 
       <style>{`
-        @media (max-width: 1280px) { .media-grid { grid-template-columns: repeat(4, 1fr) !important; } }
         @media (max-width: 1100px) { .media-grid { grid-template-columns: repeat(3, 1fr) !important; } }
         @media (max-width: 768px)  { .media-grid { grid-template-columns: repeat(2, 1fr) !important; } }
         @media (max-width: 480px)  { .media-grid { grid-template-columns: 1fr !important; } }
-       `}</style>
+      `}</style>
     </>
   );
 }

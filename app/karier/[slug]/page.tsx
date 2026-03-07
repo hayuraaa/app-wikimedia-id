@@ -63,7 +63,6 @@ export default function KarirDetailPage({ params }: { params: Promise<{ slug: st
       .then((json) => {
         if (json.success) {
           setKarir(json.data);
-          // increment views
           fetch(`${BASE}/karir/${slug}/views`, { method: "POST" }).catch(() => {});
         } else {
           setNotFound(true);
@@ -76,7 +75,7 @@ export default function KarirDetailPage({ params }: { params: Promise<{ slug: st
   if (loading) return (
     <div style={{ backgroundColor: "#f8f7f5", minHeight: "100vh", padding: "60px 24px" }}>
       <ReadingProgress />
-      <div style={{ maxWidth: "900px", margin: "0 auto", display: "flex", flexDirection: "column", gap: "12px" }}>
+      <div style={{ maxWidth: "1280px", margin: "0 auto", display: "flex", flexDirection: "column", gap: "12px" }}>
         <div className="skeleton" style={{ height: "12px", width: "25%", borderRadius: "2px" }} />
         <div className="skeleton" style={{ height: "36px", width: "65%", borderRadius: "2px" }} />
         <div className="skeleton" style={{ height: "13px", width: "40%", borderRadius: "2px", marginBottom: "20px" }} />
@@ -106,25 +105,30 @@ export default function KarirDetailPage({ params }: { params: Promise<{ slug: st
       <ReadingProgress />
 
       {/* ── HERO ─────────────────────────────────────────────────────────── */}
-      <section style={{ padding: "48px 24px 32px", position: "relative", overflow: "hidden", backgroundImage: "url('/banner/Mosaik_Teknologi.png')", backgroundSize: "cover", backgroundPosition: "center" }}>
+      <section style={{
+        padding: "40px 24px 32px",
+        position: "relative", overflow: "hidden",
+        backgroundImage: "url('/banner/Mosaik_Teknologi.png')",
+        backgroundSize: "cover", backgroundPosition: "center",
+      }}>
         <div style={{ position: "absolute", inset: 0, background: "linear-gradient(135deg, rgba(8,20,45,0.92) 0%, rgba(10,30,65,0.84) 40%, rgba(15,40,80,0.76) 100%)", pointerEvents: "none" }} />
         <div style={{ position: "absolute", inset: 0, backgroundImage: `linear-gradient(rgba(255,255,255,0.03) 1px, transparent 1px), linear-gradient(90deg, rgba(255,255,255,0.03) 1px, transparent 1px)`, backgroundSize: "40px 40px", pointerEvents: "none" }} />
-        <div style={{ position: "absolute", top: "-80px", right: "-80px", width: "300px", height: "300px", borderRadius: "50%", background: "radial-gradient(circle, rgba(139,26,42,0.18) 0%, transparent 70%)", pointerEvents: "none" }} />
+        <div style={{ position: "absolute", top: "-60px", right: "-60px", width: "240px", height: "240px", borderRadius: "50%", background: "radial-gradient(circle, rgba(139,26,42,0.20) 0%, transparent 70%)", pointerEvents: "none" }} />
 
-        <div style={{ maxWidth: "900px", margin: "0 auto", position: "relative", zIndex: 1 }}>
+        <div style={{ maxWidth: "1280px", margin: "0 auto", position: "relative", zIndex: 1 }}>
           {/* Breadcrumb */}
-          <div style={{ display: "flex", alignItems: "center", gap: "6px", marginBottom: "20px", flexWrap: "wrap" as const }}>
+          <div style={{ display: "flex", alignItems: "center", gap: "6px", marginBottom: "12px", flexWrap: "wrap" as const }}>
             {[
               { label: "Beranda", href: "/" },
               { label: "Karier", href: "/karier" },
             ].map((b, i) => (
               <span key={i} style={{ display: "flex", alignItems: "center", gap: "6px" }}>
-                <Link href={b.href} style={{ fontSize: "11px", color: "rgba(255,255,255,0.35)", textDecoration: "none", fontFamily: "var(--font-sans)", transition: "color 0.15s" }}
-                  onMouseEnter={(e) => (e.currentTarget.style.color = "rgba(255,255,255,0.75)")}
-                  onMouseLeave={(e) => (e.currentTarget.style.color = "rgba(255,255,255,0.35)")}>
+                <Link href={b.href} style={{ fontSize: "11px", color: "rgba(255,255,255,0.4)", textDecoration: "none", fontFamily: "var(--font-sans)", transition: "color 0.15s" }}
+                  onMouseEnter={(e) => (e.currentTarget.style.color = "rgba(255,255,255,0.8)")}
+                  onMouseLeave={(e) => (e.currentTarget.style.color = "rgba(255,255,255,0.4)")}>
                   {b.label}
                 </Link>
-                <span style={{ fontSize: "11px", color: "rgba(255,255,255,0.2)", fontFamily: "var(--font-sans)" }}>/</span>
+                <span style={{ fontSize: "11px", color: "rgba(255,255,255,0.25)", fontFamily: "var(--font-sans)" }}>/</span>
               </span>
             ))}
             <span style={{ fontSize: "11px", color: "#e05070", fontFamily: "var(--font-sans)" }}>{karir.title}</span>
@@ -148,7 +152,7 @@ export default function KarirDetailPage({ params }: { params: Promise<{ slug: st
             )}
           </div>
 
-          <h1 style={{ fontSize: "clamp(1.6rem, 3vw, 2.4rem)", fontWeight: "700", color: "#fff", fontFamily: "var(--font-serif)", margin: "0 0 20px", lineHeight: "1.2" }}>
+          <h1 style={{ fontSize: "clamp(1.8rem, 3vw, 2.6rem)", fontWeight: "700", color: "#fff", fontFamily: "var(--font-serif)", margin: "0 0 20px", lineHeight: "1.2" }}>
             {karir.title}
           </h1>
 
@@ -169,17 +173,17 @@ export default function KarirDetailPage({ params }: { params: Promise<{ slug: st
       </section>
 
       {/* ── BODY ─────────────────────────────────────────────────────────── */}
-      <section style={{ backgroundColor: "#f8f7f5", padding: "0 24px 64px", position: "relative" }}>
+      <section style={{ backgroundColor: "#f8f7f5", padding: "0 24px 60px", position: "relative" }}>
         <div style={{ position: "absolute", inset: 0, backgroundImage: "radial-gradient(rgba(0,0,0,0.025) 1px, transparent 1px)", backgroundSize: "20px 20px", pointerEvents: "none" }} />
 
-        <div style={{ maxWidth: "900px", margin: "0 auto", position: "relative", zIndex: 1 }}>
+        <div style={{ maxWidth: "1280px", margin: "0 auto", position: "relative", zIndex: 1 }}>
           <div className="karir-layout" style={{ display: "grid", gridTemplateColumns: "1fr 268px", gap: "40px", alignItems: "start" }}>
 
             {/* ── Konten ── */}
             <div>
               {/* Expired banner */}
               {expired && (
-                <div style={{ marginTop: "32px", backgroundColor: "#fff", border: "1px solid #fca5a5", borderLeft: "4px solid #ef4444", borderRadius: "4px", padding: "14px 18px", display: "flex", gap: "10px", alignItems: "center" }}>
+                <div style={{ marginTop: "36px", backgroundColor: "#fff", border: "1px solid #fca5a5", borderLeft: "4px solid #ef4444", borderRadius: "4px", padding: "14px 18px", display: "flex", gap: "10px", alignItems: "center" }}>
                   <svg width="15" height="15" viewBox="0 0 24 24" fill="none" stroke="#ef4444" strokeWidth="2" style={{ flexShrink: 0 }}><circle cx="12" cy="12" r="10"/><line x1="12" y1="8" x2="12" y2="12"/><line x1="12" y1="16" x2="12.01" y2="16"/></svg>
                   <p style={{ fontSize: "13px", color: "#991b1b", fontFamily: "var(--font-sans)", margin: 0, fontWeight: "600" }}>
                     Lowongan ini sudah ditutup pada {formatDate(karir.expires_at!)}.

@@ -348,10 +348,6 @@ function Sidebar({ popular, popularLoading, categories, activeCategory, onCatego
         <div style={{ position: "absolute", top: "-20px", right: "-20px", width: "80px", height: "80px", borderRadius: "50%", background: "radial-gradient(circle, rgba(139,26,42,0.25) 0%, transparent 70%)", pointerEvents: "none" }} />
         <h4 style={{ fontSize: "13px", fontWeight: "700", color: "#fff", fontFamily: "var(--font-serif)", margin: "0 0 8px" }}>Tentang Rubrik</h4>
         <p style={{ fontSize: "12px", color: "rgba(255,255,255,0.6)", lineHeight: "1.7", fontFamily: "var(--font-sans)", margin: "0 0 14px" }}>Kumpulan artikel dan berita terbaru seputar kegiatan, program, dan perkembangan Wikimedia Indonesia.</p>
-        <Link href="/tentang" style={{ display: "inline-flex", alignItems: "center", gap: "5px", fontSize: "11px", fontWeight: "700", letterSpacing: "0.05em", textTransform: "uppercase" as const, color: "#e05070", textDecoration: "none", fontFamily: "var(--font-sans)" }}>
-          Pelajari lebih lanjut
-          <svg width="10" height="10" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2.5"><path d="M5 12h14M12 5l7 7-7 7" /></svg>
-        </Link>
       </div>
     </aside>
   );

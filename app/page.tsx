@@ -132,6 +132,17 @@ export default function Home() {
     return () => clearInterval(interval);
   }, [articles]);
 
+  useEffect(() => {
+    if (typeof window !== "undefined" && window.location.hash === "#artikel-terbaru") {
+      const el = document.getElementById("artikel-terbaru");
+      if (el) {
+        setTimeout(() => {
+          el.scrollIntoView({ behavior: "smooth", block: "start" });
+        }, 300);
+      }
+    }
+  }, []);
+
   const getEventStatus = (ev: EventItem): "berlangsung" | "mendatang" | "selesai" => {
     const now = new Date();
     const mulai = new Date(ev.tanggal_mulai);
@@ -152,8 +163,28 @@ export default function Home() {
     return `${tMulai.toLocaleDateString("id-ID", { day: "numeric", month: "short" })} – ${tSelesai.toLocaleDateString("id-ID", opts)}`;
   };
 
-  const handleSubscribe = () => {
-    if (email) setSubmitted(true);
+  const handleSubscribe = async () => {
+    if (!email.trim()) return;
+    setSubmitStatus("loading");
+    try {
+      const res = await fetch("https://dashboard.wikimedia.or.id/api/v1/subscribe", {
+        method: "POST",
+        headers: { "Content-Type": "application/json" },
+        body: JSON.stringify({ email }),
+      });
+      const json = await res.json();
+      if (json.success) {
+        setSubmitStatus("success");
+        setSubmitMessage(json.message ?? "Email berhasil didaftarkan!");
+        setEmail("");
+      } else {
+        setSubmitStatus("error");
+        setSubmitMessage(json.message ?? "Gagal mendaftarkan email.");
+      }
+    } catch {
+      setSubmitStatus("error");
+      setSubmitMessage("Terjadi kesalahan. Coba lagi.");
+    }
   };
 
   const formatCategory = (cat: string) => {
@@ -168,6 +199,9 @@ export default function Home() {
       )
       .join(" ");
   };
+
+  const [submitStatus, setSubmitStatus] = useState<"idle" | "loading" | "success" | "error">("idle");
+  const [submitMessage, setSubmitMessage] = useState("");
 
   return (
     <>
@@ -196,10 +230,10 @@ export default function Home() {
             </p>
 
             <div className="hero-buttons" style={{ display: "flex", gap: "16px", flexWrap: "wrap" }}>
-              <Link href="/program" className="btn-ripple" style={{ display: "inline-flex", alignItems: "center", gap: "8px", padding: "14px 28px", backgroundColor: "#8b1a2a", color: "#fff", fontSize: "13px", fontWeight: "700", letterSpacing: "0.06em", textTransform: "uppercase", textDecoration: "none", fontFamily: "var(--font-sans)", transition: "all 0.2s", borderRadius: "2px" }}
+              <Link href="/#artikel-terbaru" className="btn-ripple" style={{ display: "inline-flex", alignItems: "center", gap: "8px", padding: "14px 28px", backgroundColor: "#8b1a2a", color: "#fff", fontSize: "13px", fontWeight: "700", letterSpacing: "0.06em", textTransform: "uppercase", textDecoration: "none", fontFamily: "var(--font-sans)", transition: "all 0.2s", borderRadius: "2px" }}
                 onMouseEnter={(e) => (e.currentTarget.style.backgroundColor = "#a82235")}
                 onMouseLeave={(e) => (e.currentTarget.style.backgroundColor = "#8b1a2a")}>
-                Jelajahi Program
+                Jelajahi
                 <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2.5"><path d="M5 12h14M12 5l7 7-7 7" /></svg>
               </Link>
               <Link href="/tentang" className="btn-ripple" style={{ display: "inline-flex", alignItems: "center", gap: "8px", padding: "14px 28px", backgroundColor: "transparent", color: "#ffffff", fontSize: "13px", fontWeight: "700", letterSpacing: "0.06em", textTransform: "uppercase", textDecoration: "none", fontFamily: "var(--font-sans)", border: "1px solid rgba(255,255,255,0.5)", transition: "all 0.2s", borderRadius: "2px" }}
@@ -213,7 +247,7 @@ export default function Home() {
       </section>
 
       {/* ── ARTIKEL TERBARU ──────────────────────────────────────────────── */}
-      <section style={{ backgroundColor: "#ffffff", padding: "80px 24px", position: "relative", overflow: "hidden" }}>
+      <section id="artikel-terbaru" style={{ backgroundColor: "#ffffff", padding: "80px 24px", position: "relative", overflow: "hidden" }}>
         <div style={{ position: "absolute", inset: 0, backgroundImage: "radial-gradient(rgba(0,0,0,0.04) 1px, transparent 1px)", backgroundSize: "22px 22px", pointerEvents: "none" }} />
         <div style={{ position: "absolute", top: "-80px", right: "-80px", width: "320px", height: "320px", borderRadius: "50%", border: "1px solid rgba(26,58,92,0.06)", pointerEvents: "none" }} />
         <div style={{ position: "absolute", top: "-40px", right: "-40px", width: "200px", height: "200px", borderRadius: "50%", border: "1px solid rgba(26,58,92,0.05)", pointerEvents: "none" }} />
@@ -577,48 +611,92 @@ export default function Home() {
             Daftarkan email kamu untuk mendapatkan kabar terbaru tentang program, acara, dan perkembangan Wikimedia Indonesia langsung di kotak masukmu.
           </p>
 
-          {!submitted ? (
-            <div style={{ display: "flex", maxWidth: "480px", margin: "0 auto", flexWrap: "wrap", justifyContent: "center", gap: "12px" }}>
-              <input
-                className="newsletter-input"
-                type="email"
-                placeholder="Alamat email kamu"
-                value={email}
-                onChange={(e) => setEmail(e.target.value)}
-                style={{
-                  flex: 1, minWidth: "240px", padding: "14px 20px", fontSize: "14px",
-                  border: "1px solid rgba(255,255,255,0.2)", borderRadius: "2px",
-                  backgroundColor: "rgba(255,255,255,0.08)", color: "#ffffff",
-                  fontFamily: "var(--font-sans)", outline: "none",
-                }}
-              />
-              <button
-                className="btn-ripple"
-                onClick={handleSubscribe}
-                style={{
-                  padding: "14px 28px", backgroundColor: "#8b1a2a", color: "#fff",
-                  fontSize: "13px", fontWeight: "700", letterSpacing: "0.06em",
-                  textTransform: "uppercase", border: "none", cursor: "pointer",
-                  fontFamily: "var(--font-sans)", transition: "background 0.2s", borderRadius: "2px",
-                }}
-                onMouseEnter={(e) => (e.currentTarget.style.backgroundColor = "#a82235")}
-                onMouseLeave={(e) => (e.currentTarget.style.backgroundColor = "#8b1a2a")}
-              >
-                Berlangganan
-              </button>
+          {submitStatus === "success" ? (
+            <div style={{
+              display: "inline-flex", alignItems: "center", gap: "12px",
+              padding: "16px 24px",
+              backgroundColor: "rgba(22,163,74,0.12)",
+              border: "1px solid rgba(22,163,74,0.3)",
+              borderRadius: "4px",
+            }}>
+              <div style={{
+                width: "28px", height: "28px", borderRadius: "50%",
+                backgroundColor: "rgba(22,163,74,0.15)",
+                display: "flex", alignItems: "center", justifyContent: "center", flexShrink: 0,
+              }}>
+                <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="#4ade80" strokeWidth="2.5">
+                  <path d="M20 6L9 17l-5-5" />
+                </svg>
+              </div>
+              <p style={{ color: "#4ade80", fontFamily: "var(--font-sans)", fontWeight: "600", fontSize: "15px", margin: 0 }}>
+                {submitMessage}
+              </p>
             </div>
           ) : (
-            <div style={{ padding: "20px 32px", backgroundColor: "rgba(22,163,74,0.15)", border: "1px solid rgba(22,163,74,0.3)", borderRadius: "4px", display: "inline-block" }}>
-              <p style={{ color: "#4ade80", fontFamily: "var(--font-sans)", fontWeight: "600", fontSize: "15px" }}>
-                ✓ Terima kasih! Kamu sudah terdaftar.
-              </p>
+            <div style={{ display: "flex", flexDirection: "column", alignItems: "center", gap: "12px" }}>
+              <div style={{
+                display: "flex", maxWidth: "480px", width: "100%",
+                borderRadius: "3px", overflow: "hidden",
+                border: submitStatus === "error" ? "1px solid rgba(220,38,38,0.5)" : "1px solid rgba(255,255,255,0.2)",
+              }}>
+                <input
+                  type="email"
+                  placeholder="Alamat email kamu"
+                  value={email}
+                  onChange={(e) => { setEmail(e.target.value); setSubmitStatus("idle"); }}
+                  onKeyDown={(e) => e.key === "Enter" && handleSubscribe()}
+                  style={{
+                    flex: 1, padding: "14px 20px", fontSize: "14px",
+                    border: "none", outline: "none",
+                    backgroundColor: "rgba(255,255,255,0.08)",
+                    color: "#ffffff", fontFamily: "var(--font-sans)",
+                  }}
+                />
+                <button
+                  onClick={handleSubscribe}
+                  disabled={submitStatus === "loading" || !email.trim()}
+                  style={{
+                    padding: "14px 24px",
+                    backgroundColor: submitStatus === "loading" ? "#a82235" : "#8b1a2a",
+                    color: "#fff", border: "none",
+                    cursor: submitStatus === "loading" || !email.trim() ? "not-allowed" : "pointer",
+                    fontSize: "13px", fontWeight: "700", letterSpacing: "0.06em",
+                    textTransform: "uppercase" as const,
+                    fontFamily: "var(--font-sans)",
+                    display: "flex", alignItems: "center", gap: "7px",
+                    transition: "background 0.2s", whiteSpace: "nowrap" as const,
+                  }}
+                  onMouseEnter={(e) => { if (submitStatus !== "loading") (e.currentTarget as HTMLElement).style.backgroundColor = "#a82235"; }}
+                  onMouseLeave={(e) => { if (submitStatus !== "loading") (e.currentTarget as HTMLElement).style.backgroundColor = "#8b1a2a"; }}
+                >
+                  {submitStatus === "loading" ? (
+                    <>
+                      <svg width="13" height="13" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2"
+                        style={{ animation: "spin 1s linear infinite" }}>
+                        <path d="M21 12a9 9 0 1 1-6.219-8.56" />
+                      </svg>
+                      Mendaftarkan...
+                    </>
+                  ) : (
+                    <>
+                      Berlangganan
+                      <svg width="13" height="13" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2.5">
+                        <path d="M5 12h14M12 5l7 7-7 7" />
+                      </svg>
+                    </>
+                  )}
+                </button>
+              </div>
+              {submitStatus === "error" && (
+                <p style={{ fontSize: "12px", color: "#fca5a5", fontFamily: "var(--font-sans)", margin: 0 }}>
+                  {submitMessage}
+                </p>
+              )}
             </div>
           )}
 
           <p style={{ fontSize: "12px", color: "rgba(255,255,255,0.35)", marginTop: "16px", fontFamily: "var(--font-sans)" }}>
-            Atau{" "}
-            <Link href="/komunitas/bergabung" style={{ color: "rgba(255,255,255,0.6)", textDecoration: "underline" }}>bergabung sebagai kontributor</Link>
-            {" "}dan mulai berkontribusi hari ini.
+            Kami tidak akan mengirim spam. Anda dapat berhenti berlangganan kapan saja.
           </p>
         </div>
       </section>
@@ -626,7 +704,7 @@ export default function Home() {
       <style>{`
         @keyframes pulse { 0%, 100% { opacity: 1; } 50% { opacity: 0.4; } }
         @keyframes shimmer { 0% { opacity: 1; } 50% { opacity: 0.5; } 100% { opacity: 1; } }
-
+        @keyframes spin { from { transform: rotate(0deg); } to { transform: rotate(360deg); } }
         @media (max-width: 768px) {
           .events-grid {
             grid-template-columns: 1fr !important;
@@ -635,6 +713,9 @@ export default function Home() {
           .events-illustration {
             display: none !important;
           }
+        }
+        html {
+          scroll-behavior: smooth;
         }
       `}</style>
     </>

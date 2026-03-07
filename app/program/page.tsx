@@ -247,7 +247,7 @@ export default function ProgramPage() {
             Bergabunglah dengan ribuan sukarelawan dan mitra yang bersama-sama membangun ekosistem pengetahuan terbuka untuk Indonesia.
           </p>
           <div style={{ display: "flex", gap: "12px", justifyContent: "center", flexWrap: "wrap" as const }}>
-            <Link href="/anggota"
+            <Link href="/menjadi-anggota"
               style={{ display: "inline-flex", alignItems: "center", gap: "8px", padding: "12px 28px", backgroundColor: "#8b1a2a", color: "#fff", textDecoration: "none", borderRadius: "3px", fontSize: "13px", fontWeight: "700", fontFamily: "var(--font-sans)", letterSpacing: "0.04em", transition: "background 0.2s" }}
               onMouseEnter={(e) => (e.currentTarget.style.backgroundColor = "#a82235")}
               onMouseLeave={(e) => (e.currentTarget.style.backgroundColor = "#8b1a2a")}>

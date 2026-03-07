@@ -82,7 +82,7 @@ function AccordionItem({ item, isOpen, onToggle }: {
         <div ref={contentRef}>
           <div
             className="faq-answer"
-            style={{ padding: "0 24px 20px", paddingLeft: "24px" }}
+            style={{ padding: "0 24px 20px" }}
             dangerouslySetInnerHTML={{ __html: item.answer }}
           />
         </div>
@@ -158,18 +158,18 @@ export default function FaqPage() {
     <>
       {/* ── HERO ─────────────────────────────────────────────────────────── */}
       <section style={{
-        padding: "56px 24px 48px", position: "relative", overflow: "hidden",
+        padding: "40px 24px 36px", position: "relative", overflow: "hidden",
         backgroundImage: "url('/banner/Mosaik_Budaya_1.png')",
         backgroundSize: "cover", backgroundPosition: "center",
       }}>
         <div style={{ position: "absolute", inset: 0, background: "linear-gradient(135deg, rgba(8,20,45,0.92) 0%, rgba(10,30,65,0.84) 40%, rgba(15,40,80,0.76) 100%)", pointerEvents: "none" }} />
         <div style={{ position: "absolute", inset: 0, backgroundImage: `linear-gradient(rgba(255,255,255,0.03) 1px, transparent 1px), linear-gradient(90deg, rgba(255,255,255,0.03) 1px, transparent 1px)`, backgroundSize: "40px 40px", pointerEvents: "none" }} />
-        <div style={{ position: "absolute", top: "-80px", right: "-80px", width: "320px", height: "320px", borderRadius: "50%", background: "radial-gradient(circle, rgba(139,26,42,0.18) 0%, transparent 70%)", pointerEvents: "none" }} />
+        <div style={{ position: "absolute", top: "-60px", right: "-60px", width: "240px", height: "240px", borderRadius: "50%", background: "radial-gradient(circle, rgba(139,26,42,0.18) 0%, transparent 70%)", pointerEvents: "none" }} />
         <div style={{ position: "absolute", bottom: "-60px", left: "10%", width: "200px", height: "200px", borderRadius: "50%", background: "radial-gradient(circle, rgba(30,77,123,0.15) 0%, transparent 70%)", pointerEvents: "none" }} />
 
-        <div style={{ maxWidth: "860px", margin: "0 auto", position: "relative", zIndex: 1 }}>
+        <div style={{ maxWidth: "1280px", margin: "0 auto", position: "relative", zIndex: 1 }}>
           {/* Breadcrumb */}
-          <div style={{ display: "flex", alignItems: "center", gap: "6px", marginBottom: "20px" }}>
+          <div style={{ display: "flex", alignItems: "center", gap: "6px", marginBottom: "12px" }}>
             <Link href="/" style={{ fontSize: "11px", color: "rgba(255,255,255,0.4)", textDecoration: "none", fontFamily: "var(--font-sans)", transition: "color 0.15s" }}
               onMouseEnter={(e) => (e.currentTarget.style.color = "rgba(255,255,255,0.8)")}
               onMouseLeave={(e) => (e.currentTarget.style.color = "rgba(255,255,255,0.4)")}>
@@ -179,51 +179,54 @@ export default function FaqPage() {
             <span style={{ fontSize: "11px", color: "#e05070", fontFamily: "var(--font-sans)" }}>FAQ</span>
           </div>
 
-          <span style={{ fontSize: "10px", fontWeight: "700", letterSpacing: "0.1em", textTransform: "uppercase" as const, color: "#e05070", fontFamily: "var(--font-sans)" }}>◆ FAQ</span>
-          <h1 style={{ fontSize: "clamp(1.8rem, 3vw, 2.6rem)", fontWeight: "700", color: "#fff", fontFamily: "var(--font-serif)", margin: "8px 0 14px", lineHeight: "1.2" }}>
-            Pertanyaan yang Sering Ditanyakan
-          </h1>
-          <p style={{ fontSize: "14px", color: "rgba(255,255,255,0.55)", fontFamily: "var(--font-sans)", lineHeight: "1.75", margin: "0 0 28px", maxWidth: "620px" }}>
-            Temukan jawaban atas pertanyaan yang sering diajukan seputar Wikimedia Indonesia, Wikipedia, dan berbagai program kami. Halaman ini menyediakan informasi mengenai organisasi, keanggotaan, serta program pendidikan, komunitas, kebudayaan, dan teknologi yang kami jalankan.
-          </p>
+          <div style={{ display: "flex", alignItems: "flex-end", justifyContent: "space-between", flexWrap: "wrap" as const, gap: "20px" }}>
+            <div>
+              <span style={{ fontSize: "10px", fontWeight: "700", letterSpacing: "0.1em", textTransform: "uppercase" as const, color: "#e05070", fontFamily: "var(--font-sans)" }}>◆ FAQ</span>
+              <h1 style={{ fontSize: "clamp(1.8rem, 3vw, 2.6rem)", fontWeight: "700", color: "#fff", fontFamily: "var(--font-serif)", margin: "6px 0 0", lineHeight: "1.2" }}>
+                Pertanyaan yang Sering Ditanyakan
+              </h1>
+              <p style={{ fontSize: "13px", color: "rgba(255,255,255,0.45)", fontFamily: "var(--font-sans)", margin: "6px 0 0" }}>
+                Temukan jawaban seputar Wikimedia Indonesia dan program-program kami
+              </p>
+            </div>
 
-          {/* Search */}
-          <div style={{ display: "flex", borderRadius: "3px", overflow: "hidden", border: "1px solid rgba(255,255,255,0.15)", maxWidth: "520px" }}>
-            <input
-              type="text"
-              placeholder="Cari pertanyaan..."
-              value={searchInput}
-              onChange={(e) => setSearchInput(e.target.value)}
-              onKeyDown={(e) => e.key === "Enter" && handleSearch()}
-              style={{ flex: 1, padding: "12px 18px", fontSize: "13px", backgroundColor: "rgba(255,255,255,0.07)", border: "none", color: "#fff", fontFamily: "var(--font-sans)", outline: "none" }}
-            />
-            {searchQuery && (
-              <button onClick={clearSearch}
-                style={{ padding: "12px 14px", backgroundColor: "rgba(255,255,255,0.07)", border: "none", color: "rgba(255,255,255,0.5)", cursor: "pointer", display: "flex", alignItems: "center" }}>
-                <svg width="13" height="13" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2.5"><path d="M18 6L6 18M6 6l12 12"/></svg>
+            {/* Search */}
+            <div style={{ display: "flex", borderRadius: "3px", overflow: "hidden", border: "1px solid rgba(255,255,255,0.15)" }}>
+              <input
+                type="text"
+                placeholder="Cari pertanyaan..."
+                value={searchInput}
+                onChange={(e) => setSearchInput(e.target.value)}
+                onKeyDown={(e) => e.key === "Enter" && handleSearch()}
+                style={{ padding: "10px 16px", fontSize: "13px", backgroundColor: "rgba(255,255,255,0.06)", border: "none", color: "#fff", fontFamily: "var(--font-sans)", outline: "none", minWidth: "200px" }}
+              />
+              {searchQuery && (
+                <button onClick={clearSearch}
+                  style={{ padding: "10px 14px", backgroundColor: "rgba(255,255,255,0.06)", border: "none", color: "rgba(255,255,255,0.5)", cursor: "pointer", display: "flex", alignItems: "center" }}>
+                  <svg width="13" height="13" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2.5"><path d="M18 6L6 18M6 6l12 12"/></svg>
+                </button>
+              )}
+              <button onClick={handleSearch}
+                style={{ padding: "10px 16px", backgroundColor: "#8b1a2a", border: "none", color: "#fff", cursor: "pointer", display: "flex", alignItems: "center" }}
+                onMouseEnter={(e) => ((e.currentTarget as HTMLElement).style.backgroundColor = "#a82235")}
+                onMouseLeave={(e) => ((e.currentTarget as HTMLElement).style.backgroundColor = "#8b1a2a")}>
+                <svg width="15" height="15" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2"><circle cx="11" cy="11" r="8"/><path d="m21 21-4.35-4.35"/></svg>
               </button>
-            )}
-            <button onClick={handleSearch}
-              style={{ padding: "12px 18px", backgroundColor: "#8b1a2a", border: "none", color: "#fff", cursor: "pointer", display: "flex", alignItems: "center", gap: "7px", fontSize: "12px", fontWeight: "700", fontFamily: "var(--font-sans)", letterSpacing: "0.04em", transition: "background 0.2s" }}
-              onMouseEnter={(e) => ((e.currentTarget as HTMLElement).style.backgroundColor = "#a82235")}
-              onMouseLeave={(e) => ((e.currentTarget as HTMLElement).style.backgroundColor = "#8b1a2a")}>
-              <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2"><circle cx="11" cy="11" r="8"/><path d="m21 21-4.35-4.35"/></svg>
-              Cari
-            </button>
+            </div>
           </div>
         </div>
       </section>
 
       {/* ── CONTENT ──────────────────────────────────────────────────────── */}
-      <section style={{ backgroundColor: "#f8f7f5", padding: "40px 24px 72px", position: "relative" }}>
+      <section style={{ backgroundColor: "#f8f7f5", padding: "36px 24px 60px", position: "relative" }}>
         <div style={{ position: "absolute", inset: 0, backgroundImage: "radial-gradient(rgba(0,0,0,0.03) 1px, transparent 1px)", backgroundSize: "20px 20px", pointerEvents: "none" }} />
 
-        <div style={{ maxWidth: "860px", margin: "0 auto", position: "relative", zIndex: 1 }}>
+        <div style={{ maxWidth: "1280px", margin: "0 auto", position: "relative", zIndex: 1 }}>
 
           {/* ── Search Results ── */}
           {searchQuery && (
             <div style={{ marginBottom: "36px" }}>
-              <div style={{ display: "flex", justifyContent: "space-between", alignItems: "flex-end", marginBottom: "16px", paddingBottom: "12px", borderBottom: "3px solid #0d0d0d" }}>
+              <div style={{ display: "flex", justifyContent: "space-between", alignItems: "flex-end", marginBottom: "24px", paddingBottom: "12px", borderBottom: "3px solid #0d0d0d" }}>
                 <div>
                   <span style={{ fontSize: "11px", fontWeight: "700", letterSpacing: "0.1em", textTransform: "uppercase" as const, color: "#8b1a2a", fontFamily: "var(--font-sans)" }}>◆ Hasil Pencarian</span>
                   <h2 style={{ fontSize: "18px", fontWeight: "700", color: "#0d0d0d", fontFamily: "var(--font-serif)", marginTop: "2px", marginBottom: 0 }}>
