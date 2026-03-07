@@ -190,6 +190,14 @@ function CalendarView({ events }: { events: EventItem[] }) {
   const [calYear, setCalYear] = useState(today.getFullYear());
   const [calMonth, setCalMonth] = useState(today.getMonth());
   const [selectedDay, setSelectedDay] = useState<number | null>(null);
+  const [isMobile, setIsMobile] = useState(false);
+
+  useEffect(() => {
+    const check = () => setIsMobile(window.innerWidth < 640);
+    check();
+    window.addEventListener("resize", check);
+    return () => window.removeEventListener("resize", check);
+  }, []);
 
   const firstDay = new Date(calYear, calMonth, 1).getDay();
   const daysInMonth = new Date(calYear, calMonth + 1, 0).getDate();
@@ -296,6 +304,146 @@ function CalendarView({ events }: { events: EventItem[] }) {
       return range && !range.isMultiDay;
     });
   };
+
+
+  // ── Mobile: compact dot-based calendar ──────────────────────────────────────
+  if (isMobile) {
+    const monthEventsFlat = Array.from(eventsByDate.entries())
+      .sort((a: [number, EventItem[]], b: [number, EventItem[]]) => a[0] - b[0])
+      .flatMap(([, evs]: [number, EventItem[]]) => evs)
+      .filter((ev: EventItem, idx: number, arr: EventItem[]) => arr.findIndex((e: EventItem) => e.id === ev.id) === idx);
+
+    return (
+      <div>
+        {/* Calendar card */}
+        <div style={{ backgroundColor: "#fff", border: "1px solid #e5e2dd", borderRadius: "4px", overflow: "hidden", marginBottom: "12px" }}>
+          {/* Nav */}
+          <div style={{ display: "flex", alignItems: "center", justifyContent: "space-between", padding: "12px 14px", borderBottom: "1px solid #e5e2dd" }}>
+            <button onClick={prevMonth} style={{ display: "flex", alignItems: "center", justifyContent: "center", width: "36px", height: "36px", border: "1px solid #e5e2dd", borderRadius: "3px", background: "#fff", cursor: "pointer", color: "#3a3a3a" }}>
+              <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2"><path d="M15 18l-6-6 6-6"/></svg>
+            </button>
+            <div style={{ textAlign: "center" }}>
+              <div style={{ fontSize: "15px", fontWeight: "700", color: "#0d0d0d", fontFamily: "var(--font-serif)" }}>{MONTHS_ID[calMonth]} {calYear}</div>
+              <div style={{ fontSize: "10px", color: "#9a9690", fontFamily: "var(--font-sans)", marginTop: "1px" }}>{monthEventCount} acara bulan ini</div>
+            </div>
+            <button onClick={nextMonth} style={{ display: "flex", alignItems: "center", justifyContent: "center", width: "36px", height: "36px", border: "1px solid #e5e2dd", borderRadius: "3px", background: "#fff", cursor: "pointer", color: "#3a3a3a" }}>
+              <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2"><path d="M9 18l6-6-6-6"/></svg>
+            </button>
+          </div>
+          {/* Day headers */}
+          <div style={{ display: "grid", gridTemplateColumns: "repeat(7, 1fr)", borderBottom: "1px solid #e5e2dd" }}>
+            {DAYS_ID.map((d, i) => (
+              <div key={d} style={{ padding: "6px 2px", textAlign: "center", fontSize: "9px", fontWeight: "700", letterSpacing: "0.04em", textTransform: "uppercase" as const, color: i === 0 ? "#8b1a2a" : "#9a9690", fontFamily: "var(--font-sans)" }}>{d}</div>
+            ))}
+          </div>
+          {/* Cells — mobile: angka + dot indicator */}
+          <div style={{ display: "grid", gridTemplateColumns: "repeat(7, 1fr)" }}>
+            {Array.from({ length: totalCells }).map((_, i) => {
+              const dayNum = i - firstDay + 1;
+              const isValid = dayNum >= 1 && dayNum <= daysInMonth;
+              const isToday = isValid && calYear === today.getFullYear() && calMonth === today.getMonth() && dayNum === today.getDate();
+              const isSunday = i % 7 === 0;
+              const dayEvs = isValid ? (eventsByDate.get(dayNum) ?? []) : [];
+              const hasEvs = dayEvs.length > 0;
+              const isSelected = selectedDay === dayNum && isValid;
+              const firstEvColor = hasEvs ? statusCfg[getStatus(dayEvs[0])].border : null;
+              const dateColor = isSelected ? "#fff"
+                : hasEvs ? firstEvColor!
+                : isToday ? "#1e4d7b"
+                : isSunday ? "#c0392b"
+                : "#3a3a3a";
+              return (
+                <div key={i}
+                  onClick={() => { if (isValid && hasEvs) setSelectedDay(isSelected ? null : dayNum); }}
+                  style={{
+                    height: "46px",
+                    borderRight: (i + 1) % 7 !== 0 ? "1px solid #f0eeec" : "none",
+                    borderBottom: i < totalCells - 7 ? "1px solid #f0eeec" : "none",
+                    backgroundColor: isSelected ? "#fef2f4" : isToday ? "rgba(30,77,123,0.03)" : "#fff",
+                    cursor: isValid && hasEvs ? "pointer" : "default",
+                    display: "flex", flexDirection: "column" as const, alignItems: "center", justifyContent: "center", gap: "3px",
+                  }}
+                >
+                  {isValid && (
+                    <>
+                      <span style={{
+                        fontSize: "13px", fontWeight: hasEvs || isToday ? "700" : "400",
+                        color: dateColor,
+                        width: "28px", height: "28px",
+                        display: "flex", alignItems: "center", justifyContent: "center",
+                        borderRadius: "50%", fontFamily: "var(--font-sans)",
+                        backgroundColor: isSelected ? "#8b1a2a"
+                          : isToday && !hasEvs ? "rgba(30,77,123,0.12)"
+                          : hasEvs ? `${firstEvColor}18`
+                          : "transparent",
+                      }}>
+                        {dayNum}
+                      </span>
+                      {hasEvs && (
+                        <div style={{ display: "flex", gap: "2px" }}>
+                          {dayEvs.slice(0, 3).map((ev: EventItem, idx: number) => (
+                            <div key={idx} style={{ width: "4px", height: "4px", borderRadius: "50%", backgroundColor: isSelected ? "rgba(139,26,42,0.5)" : statusCfg[getStatus(ev)].border }} />
+                          ))}
+                          {dayEvs.length > 3 && <div style={{ width: "4px", height: "4px", borderRadius: "50%", backgroundColor: "#c5c3bf" }} />}
+                        </div>
+                      )}
+                    </>
+                  )}
+                </div>
+              );
+            })}
+          </div>
+        </div>
+
+        {/* Legend mobile */}
+        <div style={{ display: "flex", gap: "10px", flexWrap: "wrap" as const, marginBottom: "14px", padding: "8px 12px", backgroundColor: "#fff", border: "1px solid #e5e2dd", borderRadius: "4px" }}>
+          {Object.entries(statusCfg).map(([key, cfg]) => (
+            <div key={key} style={{ display: "flex", alignItems: "center", gap: "4px" }}>
+              <div style={{ width: "7px", height: "7px", borderRadius: "50%", backgroundColor: cfg.border }} />
+              <span style={{ fontSize: "10px", color: "#5c5a57", fontFamily: "var(--font-sans)" }}>{cfg.label.replace("● ", "")}</span>
+            </div>
+          ))}
+        </div>
+
+        {/* Selected day panel */}
+        {selectedDay !== null && selectedEvents.length > 0 && (
+          <div style={{ marginBottom: "16px" }}>
+            <div style={{ display: "flex", alignItems: "center", gap: "8px", marginBottom: "10px", paddingBottom: "8px", borderBottom: "2px solid #e5e2dd" }}>
+              <span style={{ fontSize: "14px", fontWeight: "700", color: "#8b1a2a", fontFamily: "var(--font-serif)" }}>
+                {selectedDay} {MONTHS_ID[calMonth]} {calYear}
+              </span>
+              <span style={{ fontSize: "11px", color: "#9a9690", fontFamily: "var(--font-sans)" }}>· {selectedEvents.length} acara</span>
+              <button onClick={() => setSelectedDay(null)} style={{ marginLeft: "auto", background: "none", border: "none", cursor: "pointer", color: "#9a9690", padding: "4px", display: "flex" }}>
+                <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2"><path d="M18 6L6 18M6 6l12 12"/></svg>
+              </button>
+            </div>
+            <div style={{ display: "flex", flexDirection: "column", gap: "8px" }}>
+              {selectedEvents.map((ev) => <EventCard key={ev.id} ev={ev} />)}
+            </div>
+          </div>
+        )}
+
+        {/* Daftar acara bulan ini (kalau tidak ada hari yang dipilih) */}
+        {selectedDay === null && monthEventCount === 0 && (
+          <div style={{ padding: "24px", textAlign: "center", backgroundColor: "#fff", border: "1px solid #e5e2dd", borderRadius: "4px" }}>
+            <p style={{ fontSize: "13px", color: "#9a9690", fontFamily: "var(--font-sans)", margin: 0 }}>Tidak ada acara di {MONTHS_ID[calMonth]} {calYear}.</p>
+          </div>
+        )}
+        {selectedDay === null && monthEventCount > 0 && (
+          <div>
+            <div style={{ fontSize: "10px", fontWeight: "700", color: "#9a9690", letterSpacing: "0.08em", textTransform: "uppercase" as const, fontFamily: "var(--font-sans)", marginBottom: "8px" }}>
+              Acara {MONTHS_ID[calMonth]} {calYear}
+            </div>
+            <div style={{ display: "flex", flexDirection: "column", gap: "8px" }}>
+              {monthEventsFlat.map((ev: EventItem) => <EventCard key={ev.id} ev={ev} />)}
+            </div>
+          </div>
+        )}
+      </div>
+    );
+  }
+
+  // ── Desktop calendar ─────────────────────────────────────────────────────────
 
   return (
     <div>
@@ -536,6 +684,7 @@ export default function AcaraPage() {
   const [search, setSearch]             = useState("");
   const [searchInput, setSearchInput]   = useState("");
   const [page, setPage]                 = useState(1);
+  const [showMobileFilter, setShowMobileFilter] = useState(false);
 
   const BASE = "https://dashboard.wikimedia.or.id/api/v1";
 
@@ -667,18 +816,18 @@ export default function AcaraPage() {
             </div>
 
             {/* Search bar di hero */}
-            <div style={{ display: "flex", borderRadius: "3px", overflow: "hidden", border: "1px solid rgba(245,200,66,0.25)" }}>
+            <div className="hero-search-wrap" style={{ display: "flex", borderRadius: "3px", overflow: "hidden", border: "1px solid rgba(245,200,66,0.25)", width: "100%", maxWidth: "320px" }}>
               <input
                 type="text"
                 placeholder="Cari acara..."
                 value={searchInput}
                 onChange={(e) => setSearchInput(e.target.value)}
                 onKeyDown={(e) => e.key === "Enter" && handleSearch()}
-                style={{ padding: "10px 16px", fontSize: "13px", backgroundColor: "rgba(255,255,255,0.06)", border: "none", color: "#fff", fontFamily: "var(--font-sans)", outline: "none", minWidth: "220px" }}
+                style={{ flex: 1, padding: "10px 14px", fontSize: "13px", backgroundColor: "rgba(255,255,255,0.06)", border: "none", color: "#fff", fontFamily: "var(--font-sans)", outline: "none", minWidth: 0 }}
               />
               <button
                 onClick={handleSearch}
-                style={{ padding: "10px 16px", backgroundColor: "#c8960a", border: "none", color: "#fff", cursor: "pointer", transition: "background 0.2s", display: "flex", alignItems: "center", justifyContent: "center" }}
+                style={{ flexShrink: 0, padding: "10px 14px", backgroundColor: "#c8960a", border: "none", color: "#fff", cursor: "pointer", transition: "background 0.2s", display: "flex", alignItems: "center", justifyContent: "center" }}
                 onMouseEnter={(e) => ((e.currentTarget as HTMLElement).style.backgroundColor = "#daa80c")}
                 onMouseLeave={(e) => ((e.currentTarget as HTMLElement).style.backgroundColor = "#c8960a")}
               >
@@ -693,6 +842,63 @@ export default function AcaraPage() {
       <section style={{ backgroundColor: "#f8f7f5", padding: "36px 24px 60px", minHeight: "60vh", position: "relative" }}>
         <div style={{ position: "absolute", inset: 0, backgroundImage: "radial-gradient(rgba(0,0,0,0.025) 1px, transparent 1px)", backgroundSize: "20px 20px", pointerEvents: "none" }} />
         <div style={{ maxWidth: "1280px", margin: "0 auto", position: "relative", zIndex: 1 }}>
+
+          {/* Mobile: filter toggle bar */}
+          <div className="mobile-filter-bar" style={{ display: "none", alignItems: "center", gap: "8px", marginBottom: "14px", flexWrap: "wrap" as const }}>
+            <button
+              onClick={() => setShowMobileFilter(v => !v)}
+              style={{ display: "flex", alignItems: "center", gap: "6px", padding: "8px 14px", backgroundColor: (hasFilter || showMobileFilter) ? "#8b1a2a" : "#fff", border: `1px solid ${hasFilter || showMobileFilter ? "#8b1a2a" : "#e5e2dd"}`, borderRadius: "3px", color: (hasFilter || showMobileFilter) ? "#fff" : "#3a3a3a", fontSize: "12px", fontWeight: "600", fontFamily: "var(--font-sans)", cursor: "pointer" }}>
+              <svg width="13" height="13" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2"><line x1="4" y1="6" x2="20" y2="6"/><line x1="8" y1="12" x2="16" y2="12"/><line x1="10" y1="18" x2="14" y2="18"/></svg>
+              Filter {hasFilter ? "· aktif" : ""}
+            </button>
+            {hasFilter && (
+              <button onClick={resetFilter} style={{ display: "flex", alignItems: "center", gap: "4px", padding: "8px 12px", backgroundColor: "#fff", border: "1px solid #e5e2dd", borderRadius: "3px", color: "#8b1a2a", fontSize: "11px", fontWeight: "600", fontFamily: "var(--font-sans)", cursor: "pointer" }}>
+                <svg width="11" height="11" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2"><path d="M18 6L6 18M6 6l12 12"/></svg>
+                Reset
+              </button>
+            )}
+            <span style={{ marginLeft: "auto", fontSize: "11px", color: "#9a9690", fontFamily: "var(--font-sans)" }}>{filtered.length} acara</span>
+          </div>
+
+          {/* Mobile: filter drawer */}
+          {showMobileFilter && (
+            <div className="mobile-filter-drawer" style={{ display: "none", marginBottom: "14px", padding: "14px", backgroundColor: "#fff", border: "1px solid #e5e2dd", borderRadius: "4px", flexDirection: "column" as const, gap: "12px" }}>
+              {/* Status */}
+              <div>
+                <div style={{ fontSize: "10px", fontWeight: "700", letterSpacing: "0.07em", textTransform: "uppercase" as const, color: "#8b1a2a", fontFamily: "var(--font-sans)", marginBottom: "6px" }}>Status</div>
+                <div style={{ display: "flex", flexWrap: "wrap" as const, gap: "6px" }}>
+                  {(["semua","mendatang","berlangsung","selesai"] as const).map((s) => {
+                    const labels: Record<string,string> = { semua:"Semua", mendatang:"Mendatang", berlangsung:"Berlangsung", selesai:"Selesai" };
+                    const active = filterStatus === s;
+                    return <button key={s} onClick={() => { setFilterStatus(s); }} style={{ padding: "5px 12px", borderRadius: "20px", border: `1px solid ${active ? "#8b1a2a" : "#e5e2dd"}`, backgroundColor: active ? "#8b1a2a" : "#fff", color: active ? "#fff" : "#3a3a3a", fontSize: "11px", fontWeight: "600", fontFamily: "var(--font-sans)", cursor: "pointer" }}>{labels[s]}</button>;
+                  })}
+                </div>
+              </div>
+              <div>
+                <div style={{ fontSize: "10px", fontWeight: "700", letterSpacing: "0.07em", textTransform: "uppercase" as const, color: "#8b1a2a", fontFamily: "var(--font-sans)", marginBottom: "6px" }}>Jenis</div>
+                <div style={{ display: "flex", flexWrap: "wrap" as const, gap: "6px" }}>
+                  {(["semua","daring","luring","hybrid"] as const).map((j) => {
+                    const labels: Record<string,string> = { semua:"Semua", daring:"Daring", luring:"Luring", hybrid:"Hybrid" };
+                    const active = filterJenis === j;
+                    return <button key={j} onClick={() => { setFilterJenis(j); }} style={{ padding: "5px 12px", borderRadius: "20px", border: `1px solid ${active ? "#8b1a2a" : "#e5e2dd"}`, backgroundColor: active ? "#8b1a2a" : "#fff", color: active ? "#fff" : "#3a3a3a", fontSize: "11px", fontWeight: "600", fontFamily: "var(--font-sans)", cursor: "pointer" }}>{labels[j]}</button>;
+                  })}
+                </div>
+              </div>
+              {availableYears.length > 0 && (
+                <div>
+                  <div style={{ fontSize: "10px", fontWeight: "700", letterSpacing: "0.07em", textTransform: "uppercase" as const, color: "#8b1a2a", fontFamily: "var(--font-sans)", marginBottom: "6px" }}>Tahun</div>
+                  <div style={{ display: "flex", flexWrap: "wrap" as const, gap: "6px" }}>
+                    <button onClick={() => { setFilterYear("semua"); setFilterMonth("semua"); }} style={{ padding: "5px 12px", borderRadius: "20px", border: `1px solid ${filterYear === "semua" ? "#8b1a2a" : "#e5e2dd"}`, backgroundColor: filterYear === "semua" ? "#8b1a2a" : "#fff", color: filterYear === "semua" ? "#fff" : "#3a3a3a", fontSize: "11px", fontWeight: "600", fontFamily: "var(--font-sans)", cursor: "pointer" }}>Semua</button>
+                    {availableYears.map(y => {
+                      const active = filterYear === y;
+                      return <button key={y} onClick={() => { setFilterYear(y); setFilterMonth("semua"); }} style={{ padding: "5px 12px", borderRadius: "20px", border: `1px solid ${active ? "#8b1a2a" : "#e5e2dd"}`, backgroundColor: active ? "#8b1a2a" : "#fff", color: active ? "#fff" : "#3a3a3a", fontSize: "11px", fontWeight: "600", fontFamily: "var(--font-sans)", cursor: "pointer" }}>{y}</button>;
+                    })}
+                  </div>
+                </div>
+              )}
+            </div>
+          )}
+
           <div className="acara-layout" style={{ display: "grid", gridTemplateColumns: "240px 1fr", gap: "28px", alignItems: "start" }}>
 
             {/* ── Sidebar ── */}
@@ -804,7 +1010,7 @@ export default function AcaraPage() {
             {/* ── Main ── */}
             <div>
               {/* Toolbar */}
-              <div style={{ display: "flex", justifyContent: "space-between", alignItems: "center", marginBottom: "20px", paddingBottom: "12px", borderBottom: "3px solid #0d0d0d" }}>
+              <div style={{ display: "flex", justifyContent: "space-between", alignItems: "center", marginBottom: "20px", paddingBottom: "12px", borderBottom: "3px solid #0d0d0d", flexWrap: "wrap" as const, gap: "10px" }}>
                 <div>
                   <span style={{ fontSize: "11px", fontWeight: "700", letterSpacing: "0.1em", textTransform: "uppercase" as const, color: "#8b1a2a", fontFamily: "var(--font-sans)" }}>◆ Agenda</span>
                   <h2 style={{ fontSize: "18px", fontWeight: "700", color: "#0d0d0d", fontFamily: "var(--font-serif)", marginTop: "2px", marginBottom: 0 }}>
@@ -827,7 +1033,7 @@ export default function AcaraPage() {
                           ) : (
                             <svg width="13" height="13" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2"><rect x="3" y="4" width="18" height="18" rx="2"/><line x1="16" y1="2" x2="16" y2="6"/><line x1="8" y1="2" x2="8" y2="6"/><line x1="3" y1="10" x2="21" y2="10"/></svg>
                           )}
-                          {mode === "list" ? "List" : "Kalender"}
+                          <span className="toggle-btn-label">{mode === "list" ? "List" : "Kalender"}</span>
                         </button>
                       );
                     })}
@@ -879,9 +1085,32 @@ export default function AcaraPage() {
       </section>
 
       <style>{`
+        /* ── Skeleton animation ── */
+        .skeleton {
+          background: linear-gradient(90deg, #f0eeec 25%, #e8e5e0 50%, #f0eeec 75%);
+          background-size: 200% 100%;
+          animation: shimmer 1.4s infinite;
+        }
+        @keyframes shimmer { 0% { background-position: 200% 0; } 100% { background-position: -200% 0; } }
+
+        /* ── Desktop: sidebar muncul, mobile filter tersembunyi ── */
+        @media (min-width: 901px) {
+          .mobile-filter-bar    { display: none !important; }
+          .mobile-filter-drawer { display: none !important; }
+        }
+
+        /* ── Tablet / Mobile (<= 900px) ── */
         @media (max-width: 900px) {
-          .acara-layout { grid-template-columns: 1fr !important; }
-          .acara-layout aside { position: static !important; }
+          .acara-layout         { grid-template-columns: 1fr !important; }
+          .acara-layout aside   { display: none !important; }
+          .mobile-filter-bar    { display: flex !important; }
+          .mobile-filter-drawer { display: flex !important; }
+          .hero-search-wrap     { max-width: 100% !important; }
+        }
+
+        /* ── Small mobile (<= 480px) ── */
+        @media (max-width: 480px) {
+          .toggle-btn-label { display: none; }
         }
       `}</style>
     </>
