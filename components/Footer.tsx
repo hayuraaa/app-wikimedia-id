@@ -1,4 +1,5 @@
-"use client";
+// ✅ SERVER COMPONENT — hapus "use client"
+// Hover effects pindah ke CSS class, tidak butuh JS
 
 import Image from "next/image";
 import Link from "next/link";
@@ -10,13 +11,13 @@ const footerLinks = {
     { label: "Acara", href: "/acara" },
     { label: "Karier", href: "/karier" },
   ],
-  "Program": [
+  Program: [
     { label: "Pendidikan", href: "https://pendidikan.wikimedia.or.id" },
     { label: "Teknologi & Data", href: "https://datatek.wikimedia.or.id" },
     { label: "Kebudayaan", href: "https://kebudayaan.wikimedia.or.id" },
     { label: "Komunitas", href: "https://komunitas.wikimedia.or.id" },
   ],
-  "Informasi": [
+  Informasi: [
     { label: "Kebijakan Privasi", href: "/kebijakan-privasi" },
     { label: "Syarat Penggunaan", href: "/syarat-penggunaan" },
     { label: "FAQ", href: "/faq" },
@@ -85,45 +86,86 @@ export default function Footer() {
 
   return (
     <footer style={{ backgroundColor: "#0d0d0d", color: "#f8f8f6" }}>
-      <div style={{ height: "3px", background: "linear-gradient(90deg, #8b1a2a 0%, #1a3a5c 50%, #1e4d7b 100%)" }} />
+      <div
+        style={{
+          height: "3px",
+          background:
+            "linear-gradient(90deg, #8b1a2a 0%, #1a3a5c 50%, #1e4d7b 100%)",
+        }}
+      />
 
-      <div style={{ maxWidth: "1280px", margin: "0 auto", padding: "56px 24px 40px" }}>
-        <div style={{ display: "grid", gridTemplateColumns: "repeat(auto-fit, minmax(180px, 1fr))", gap: "40px" }}>
-
+      <div
+        style={{
+          maxWidth: "1280px",
+          margin: "0 auto",
+          padding: "56px 24px 40px",
+        }}
+      >
+        <div
+          style={{
+            display: "grid",
+            gridTemplateColumns: "repeat(auto-fit, minmax(180px, 1fr))",
+            gap: "40px",
+          }}
+        >
           {/* Brand */}
           <div>
-            <div style={{ position: "relative", height: "38px", width: "170px", marginBottom: "16px" }}>
+            <div
+              style={{
+                position: "relative",
+                height: "38px",
+                width: "170px",
+                marginBottom: "16px",
+              }}
+            >
               <Image
                 src="https://upload.wikimedia.org/wikipedia/commons/0/0e/Logo_WMID_2018_Mendatar.png"
                 alt="Wikimedia Indonesia"
                 fill
-                style={{ objectFit: "contain", objectPosition: "left", filter: "brightness(0) invert(1)" }}
+                style={{
+                  objectFit: "contain",
+                  objectPosition: "left",
+                  filter: "brightness(0) invert(1)",
+                }}
               />
             </div>
 
-            {/* Address */}
             <div style={{ marginBottom: "12px" }}>
-              <p style={{ fontSize: "12px", color: "rgba(255,255,255,0.4)", lineHeight: "1.7", fontFamily: "var(--font-sans)", margin: 0 }}>
-                TCC Batavia Tower One, Lt. 6<br />
-                Jalan K.H. Mas Mansyur No. 126<br />
-                Karet Tengsin, Tanah Abang<br />
+              <p
+                style={{
+                  fontSize: "12px",
+                  color: "rgba(255,255,255,0.4)",
+                  lineHeight: "1.7",
+                  fontFamily: "var(--font-sans)",
+                  margin: 0,
+                }}
+              >
+                TCC Batavia Tower One, Lt. 6
+                <br />
+                Jalan K.H. Mas Mansyur No. 126
+                <br />
+                Karet Tengsin, Tanah Abang
+                <br />
                 Jakarta Pusat 10220, Indonesia
               </p>
             </div>
 
-            {/* Email */}
             <div style={{ marginBottom: "20px" }}>
               <a
                 href="mailto:info@wikimedia.or.id"
-                style={{ fontSize: "12px", color: "rgba(255,255,255,0.45)", fontFamily: "var(--font-sans)", textDecoration: "none", transition: "color 0.2s" }}
-                onMouseEnter={(e) => (e.currentTarget.style.color = "#f8f8f6")}
-                onMouseLeave={(e) => (e.currentTarget.style.color = "rgba(255,255,255,0.45)")}
+                className="footer-email"
+                style={{
+                  fontSize: "12px",
+                  color: "rgba(255,255,255,0.45)",
+                  fontFamily: "var(--font-sans)",
+                  textDecoration: "none",
+                }}
               >
                 info@wikimedia.or.id
               </a>
             </div>
 
-            {/* Social icons */}
+            {/* Social icons — hover via CSS */}
             <div style={{ display: "flex", flexWrap: "wrap", gap: "8px" }}>
               {socialLinks.map((s) => (
                 <a
@@ -132,14 +174,7 @@ export default function Footer() {
                   target="_blank"
                   rel="noopener noreferrer"
                   aria-label={s.label}
-                  style={{
-                    display: "flex", alignItems: "center", justifyContent: "center",
-                    width: "32px", height: "32px", borderRadius: "50%",
-                    border: "1px solid rgba(255,255,255,0.15)",
-                    color: "rgba(255,255,255,0.5)", textDecoration: "none", transition: "all 0.2s",
-                  }}
-                  onMouseEnter={(e) => { e.currentTarget.style.backgroundColor = "#8b1a2a"; e.currentTarget.style.borderColor = "#8b1a2a"; e.currentTarget.style.color = "#fff"; }}
-                  onMouseLeave={(e) => { e.currentTarget.style.backgroundColor = "transparent"; e.currentTarget.style.borderColor = "rgba(255,255,255,0.15)"; e.currentTarget.style.color = "rgba(255,255,255,0.5)"; }}
+                  className="footer-social"
                 >
                   {s.icon}
                 </a>
@@ -150,23 +185,44 @@ export default function Footer() {
           {/* Nav columns */}
           {Object.entries(footerLinks).map(([title, links]) => (
             <div key={title}>
-              <h4 style={{
-                fontSize: "11px", fontWeight: "700", letterSpacing: "0.1em", textTransform: "uppercase",
-                color: "#f8f8f6", marginBottom: "14px", fontFamily: "var(--font-sans)",
-                paddingBottom: "10px", borderBottom: "1px solid rgba(255,255,255,0.1)",
-              }}>
+              <h4
+                style={{
+                  fontSize: "11px",
+                  fontWeight: "700",
+                  letterSpacing: "0.1em",
+                  textTransform: "uppercase",
+                  color: "#f8f8f6",
+                  marginBottom: "14px",
+                  fontFamily: "var(--font-sans)",
+                  paddingBottom: "10px",
+                  borderBottom: "1px solid rgba(255,255,255,0.1)",
+                }}
+              >
                 {title}
               </h4>
-              <ul style={{ listStyle: "none", padding: 0, margin: 0, display: "flex", flexDirection: "column", gap: "10px" }}>
+              <ul
+                style={{
+                  listStyle: "none",
+                  padding: 0,
+                  margin: 0,
+                  display: "flex",
+                  flexDirection: "column",
+                  gap: "10px",
+                }}
+              >
                 {links.map((link) => (
                   <li key={link.label}>
                     <Link
                       href={link.href}
-                      target={link.href.startsWith("https://") ? "_blank" : undefined}
-                      rel={link.href.startsWith("https://") ? "noopener noreferrer" : undefined}
-                      style={{ fontSize: "13px", color: "rgba(255,255,255,0.5)", textDecoration: "none", fontFamily: "var(--font-sans)", transition: "color 0.2s" }}
-                      onMouseEnter={(e) => (e.currentTarget.style.color = "#f8f8f6")}
-                      onMouseLeave={(e) => (e.currentTarget.style.color = "rgba(255,255,255,0.5)")}
+                      target={
+                        link.href.startsWith("https://") ? "_blank" : undefined
+                      }
+                      rel={
+                        link.href.startsWith("https://")
+                          ? "noopener noreferrer"
+                          : undefined
+                      }
+                      className="footer-nav-link"
                     >
                       {link.label}
                     </Link>
@@ -180,34 +236,103 @@ export default function Footer() {
 
       {/* Bottom bar */}
       <div style={{ borderTop: "1px solid rgba(255,255,255,0.08)", padding: "20px 24px" }}>
-        <div style={{ maxWidth: "1280px", margin: "0 auto", display: "flex", flexWrap: "wrap", justifyContent: "space-between", alignItems: "center", gap: "12px" }}>
-          <p style={{ fontSize: "12px", color: "rgba(255,255,255,0.35)", fontFamily: "var(--font-sans)", margin: 0 }}>
-            © {currentYear} Wikimedia Indonesia. Semua konten situs ini dirilis di bawah{" "}
+        <div
+          style={{
+            maxWidth: "1280px",
+            margin: "0 auto",
+            display: "flex",
+            flexWrap: "wrap",
+            justifyContent: "space-between",
+            alignItems: "center",
+            gap: "12px",
+          }}
+        >
+          <p
+            style={{
+              fontSize: "12px",
+              color: "rgba(255,255,255,0.35)",
+              fontFamily: "var(--font-sans)",
+              margin: 0,
+            }}
+          >
+            © {currentYear} Wikimedia Indonesia. Semua konten situs ini dirilis
+            di bawah{" "}
             <a
               href="https://creativecommons.org/licenses/by-sa/4.0/"
               target="_blank"
               rel="noopener noreferrer"
-              style={{ color: "rgba(255,255,255,0.5)", textDecoration: "underline" }}
+              className="footer-cc-link"
             >
               Lisensi Creative Commons Attribution-ShareAlike
             </a>{" "}
             kecuali dinyatakan lain.
           </p>
           <div style={{ display: "flex", gap: "20px" }}>
-            {["Kebijakan Privasi", "Syarat Penggunaan", "Peta Situs"].map((t) => (
-              <Link
-                key={t}
-                href="#"
-                style={{ fontSize: "12px", color: "rgba(255,255,255,0.35)", textDecoration: "none", fontFamily: "var(--font-sans)", transition: "color 0.2s" }}
-                onMouseEnter={(e) => (e.currentTarget.style.color = "#f8f8f6")}
-                onMouseLeave={(e) => (e.currentTarget.style.color = "rgba(255,255,255,0.35)")}
-              >
-                {t}
-              </Link>
-            ))}
+            {["Kebijakan Privasi", "Syarat Penggunaan", "Peta Situs"].map(
+              (t) => (
+                <Link key={t} href="#" className="footer-bottom-link">
+                  {t}
+                </Link>
+              )
+            )}
           </div>
         </div>
       </div>
+
+      {/* ✅ Semua hover via CSS — tidak butuh JS/useClient */}
+      <style>{`
+        .footer-email {
+          transition: color 0.2s;
+        }
+        .footer-email:hover {
+          color: #f8f8f6 !important;
+        }
+        .footer-social {
+          display: flex;
+          align-items: center;
+          justify-content: center;
+          width: 32px;
+          height: 32px;
+          border-radius: 50%;
+          border: 1px solid rgba(255,255,255,0.15);
+          color: rgba(255,255,255,0.5);
+          text-decoration: none;
+          transition: all 0.2s;
+        }
+        .footer-social:hover {
+          background-color: #8b1a2a;
+          border-color: #8b1a2a;
+          color: #fff;
+        }
+        .footer-nav-link {
+          font-size: 13px;
+          color: rgba(255,255,255,0.5);
+          text-decoration: none;
+          font-family: var(--font-sans);
+          transition: color 0.2s;
+        }
+        .footer-nav-link:hover {
+          color: #f8f8f6;
+        }
+        .footer-cc-link {
+          color: rgba(255,255,255,0.5);
+          text-decoration: underline;
+          transition: color 0.2s;
+        }
+        .footer-cc-link:hover {
+          color: #f8f8f6;
+        }
+        .footer-bottom-link {
+          font-size: 12px;
+          color: rgba(255,255,255,0.35);
+          text-decoration: none;
+          font-family: var(--font-sans);
+          transition: color 0.2s;
+        }
+        .footer-bottom-link:hover {
+          color: #f8f8f6;
+        }
+      `}</style>
     </footer>
   );
 }
