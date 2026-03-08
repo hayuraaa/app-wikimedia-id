@@ -1,9 +1,9 @@
 "use client";
 
-import { useState, useEffect } from "react";
+import { useState, useEffect, useCallback } from "react";
 import Image from "next/image";
 import Link from "next/link";
-import { useRouter } from "next/navigation";
+import { useRouter, useSearchParams, usePathname } from "next/navigation";
 import type { Author, Article, Meta } from "@/app/rubrik/author/[slug]/page";
 
 // ─── Helpers ─────────────────────────────────────────────────────────────────
@@ -194,21 +194,45 @@ export default function AuthorClient({
   initialArticles: Article[];
   initialMeta: Meta | null;
 }) {
+  const router = useRouter();
+  const pathname = usePathname();
+  const searchParams = useSearchParams();
+
+  // ── Baca page dari URL ────────────────────────────────────────────────────
+  const pageFromUrl = Number(searchParams.get("page") ?? "1") || 1;
+
   const [author] = useState<Author | null>(initialAuthor);
   const [articles, setArticles] = useState<Article[]>(initialArticles);
   const [meta, setMeta] = useState<Meta | null>(initialMeta);
   const [articlesLoading, setArticlesLoading] = useState(false);
-  const [currentPage, setCurrentPage] = useState(1);
 
   const PER_PAGE = 12;
   const BASE = "https://dashboard.wikimedia.or.id/api/v1";
 
-  // Skip fetch halaman pertama — data sudah dari server
+  const authorName = author?.name ?? slug.replace(/-/g, " ").replace(/\b\w/g, (c) => c.toUpperCase());
+  const authorInitial = authorName.charAt(0).toUpperCase();
+
+  // ── Helper: update URL tanpa reload ──────────────────────────────────────
+  const pushPage = useCallback(
+    (page: number) => {
+      const params = new URLSearchParams();
+      if (page > 1) params.set("page", String(page));
+      const qs = params.toString();
+      router.push(`${pathname}${qs ? `?${qs}` : ""}`, { scroll: false });
+    },
+    [router, pathname]
+  );
+
+  // ── Sinkronisasi URL → data ───────────────────────────────────────────────
   useEffect(() => {
-    if (currentPage === 1) return;
+    if (pageFromUrl === 1) {
+      setArticles(initialArticles);
+      setMeta(initialMeta);
+      return;
+    }
     setArticlesLoading(true);
     window.scrollTo({ top: 0, behavior: "smooth" });
-    fetch(`${BASE}/articles/author/${slug}?per_page=${PER_PAGE}&page=${currentPage}`)
+    fetch(`${BASE}/articles/author/${slug}?per_page=${PER_PAGE}&page=${pageFromUrl}`)
       .then((r) => r.json())
       .then((json) => {
         if (json.success) {
@@ -218,10 +242,7 @@ export default function AuthorClient({
       })
       .catch(() => {})
       .finally(() => setArticlesLoading(false));
-  }, [slug, currentPage]);
-
-  const authorName = author?.name ?? slug.replace(/-/g, " ").replace(/\b\w/g, (c) => c.toUpperCase());
-  const authorInitial = authorName.charAt(0).toUpperCase();
+  }, [pageFromUrl]); // eslint-disable-line react-hooks/exhaustive-deps
 
   return (
     <>
@@ -249,6 +270,12 @@ export default function AuthorClient({
             <span style={{ fontSize: "11px", color: "#e05070", fontFamily: "var(--font-sans)" }}>Penulis</span>
             <span style={{ fontSize: "11px", color: "rgba(255,255,255,0.2)", fontFamily: "var(--font-sans)" }}>/</span>
             <span style={{ fontSize: "11px", color: "rgba(255,255,255,0.7)", fontFamily: "var(--font-sans)" }}>{authorName}</span>
+            {pageFromUrl > 1 && (
+              <>
+                <span style={{ fontSize: "11px", color: "rgba(255,255,255,0.2)", fontFamily: "var(--font-sans)" }}>/</span>
+                <span style={{ fontSize: "11px", color: "rgba(255,255,255,0.5)", fontFamily: "var(--font-sans)" }}>Halaman {pageFromUrl}</span>
+              </>
+            )}
           </div>
 
           {/* Author profile */}
@@ -271,6 +298,7 @@ export default function AuthorClient({
               {meta && (
                 <p style={{ fontSize: "12px", color: "rgba(255,255,255,0.35)", fontFamily: "var(--font-sans)", margin: author?.bio ? "6px 0 0" : "0" }}>
                   {meta.total.toLocaleString("id-ID")} artikel ditulis
+                  {meta.last_page > 1 && ` · Halaman ${pageFromUrl} dari ${meta.last_page}`}
                 </p>
               )}
             </div>
@@ -319,7 +347,7 @@ export default function AuthorClient({
                 {articles.map((a) => <ArticleCard key={a.id} article={a} />)}
               </div>
               {meta && meta.last_page > 1 && (
-                <Pagination meta={meta} onPageChange={(p) => setCurrentPage(p)} />
+                <Pagination meta={meta} onPageChange={pushPage} />
               )}
             </>
           )}

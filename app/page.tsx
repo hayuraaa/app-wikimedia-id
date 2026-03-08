@@ -16,7 +16,7 @@ export type Article = {
   featured_image: string | null;
   published_at: string;
   views: number;
-  authors: { id: number; name: string }[];
+  authors: { id: number; name: string; slug: string }[];
   categories: string[];
 };
 

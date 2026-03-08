@@ -3,7 +3,7 @@
 import { useState, useEffect, useCallback } from "react";
 import Image from "next/image";
 import Link from "next/link";
-import { useRouter } from "next/navigation";
+import { useRouter, useSearchParams, usePathname } from "next/navigation";
 import type { Article, Meta } from "@/app/rubrik/kategori/[slug]/page";
 
 // ─── Helpers ─────────────────────────────────────────────────────────────────
@@ -107,7 +107,7 @@ function ArticleCard({ article }: { article: Article }) {
           <div style={{ display: "flex", alignItems: "center", justifyContent: "space-between", paddingTop: "10px", borderTop: "1px solid #f0eeec", marginTop: "auto" }}>
             {article.authors?.[0] ? (
               <span
-                onClick={(e) => { e.preventDefault(); e.stopPropagation(); router.push(`/rubrik/author/${article.authors[0].name.toLowerCase().replace(/\s+/g, "-")}`); }}
+                onClick={(e) => { e.preventDefault(); e.stopPropagation(); router.push(`/rubrik/author/${article.authors[0].slug}`); }}
                 style={{ fontSize: "11px", color: "#5c5a57", fontFamily: "var(--font-sans)", overflow: "hidden", textOverflow: "ellipsis", whiteSpace: "nowrap" as const, maxWidth: "65%", cursor: "pointer", transition: "color 0.15s" }}
                 onMouseEnter={(e) => (e.currentTarget.style.color = "#1e4d7b")}
                 onMouseLeave={(e) => (e.currentTarget.style.color = "#5c5a57")}
@@ -210,11 +210,15 @@ export default function KategoriClient({
   initialOtherCategories: { name: string; count: number }[];
 }) {
   const router = useRouter();
+  const pathname = usePathname();
+  const searchParams = useSearchParams();
+
+  // ── Baca page dari URL ────────────────────────────────────────────────────
+  const pageFromUrl = Number(searchParams.get("page") ?? "1") || 1;
 
   const [articles, setArticles] = useState<Article[]>(initialArticles);
   const [meta, setMeta] = useState<Meta | null>(initialMeta);
   const [loading, setLoading] = useState(false);
-  const [currentPage, setCurrentPage] = useState(1);
   const [otherCategories] = useState(initialOtherCategories);
 
   const PER_PAGE = 12;
@@ -222,6 +226,18 @@ export default function KategoriClient({
   const accent = getCategoryAccent(slug);
   const categoryName = formatCategory(slug);
 
+  // ── Helper: update URL tanpa reload ──────────────────────────────────────
+  const pushPage = useCallback(
+    (page: number) => {
+      const params = new URLSearchParams();
+      if (page > 1) params.set("page", String(page));
+      const qs = params.toString();
+      router.push(`${pathname}${qs ? `?${qs}` : ""}`, { scroll: false });
+    },
+    [router, pathname]
+  );
+
+  // ── Fetch artikel ─────────────────────────────────────────────────────────
   const fetchArticles = useCallback(async (page: number) => {
     setLoading(true);
     window.scrollTo({ top: 0, behavior: "smooth" });
@@ -239,11 +255,15 @@ export default function KategoriClient({
     }
   }, [slug]);
 
-  // Skip fetch halaman pertama — data sudah dari server
+  // ── Sinkronisasi URL → data ───────────────────────────────────────────────
   useEffect(() => {
-    if (currentPage === 1) return;
-    fetchArticles(currentPage);
-  }, [currentPage, fetchArticles]);
+    if (pageFromUrl === 1) {
+      setArticles(initialArticles);
+      setMeta(initialMeta);
+      return;
+    }
+    fetchArticles(pageFromUrl);
+  }, [pageFromUrl]); // eslint-disable-line react-hooks/exhaustive-deps
 
   return (
     <>
@@ -265,6 +285,12 @@ export default function KategoriClient({
               onMouseLeave={(e) => (e.currentTarget.style.color = "rgba(255,255,255,0.35)")}>Rubrik</Link>
             <span style={{ fontSize: "11px", color: "rgba(255,255,255,0.2)", fontFamily: "var(--font-sans)" }}>/</span>
             <span style={{ fontSize: "11px", color: accent.text, fontFamily: "var(--font-sans)" }}>{categoryName}</span>
+            {pageFromUrl > 1 && (
+              <>
+                <span style={{ fontSize: "11px", color: "rgba(255,255,255,0.2)", fontFamily: "var(--font-sans)" }}>/</span>
+                <span style={{ fontSize: "11px", color: "rgba(255,255,255,0.5)", fontFamily: "var(--font-sans)" }}>Halaman {pageFromUrl}</span>
+              </>
+            )}
           </div>
 
           {/* Category header */}
@@ -277,6 +303,7 @@ export default function KategoriClient({
               {meta && (
                 <p style={{ fontSize: "12px", color: "rgba(255,255,255,0.35)", fontFamily: "var(--font-sans)", margin: 0 }}>
                   {meta.total.toLocaleString("id-ID")} artikel dalam kategori ini
+                  {meta.last_page > 1 && ` · Halaman ${pageFromUrl} dari ${meta.last_page}`}
                 </p>
               )}
             </div>
@@ -293,7 +320,6 @@ export default function KategoriClient({
 
             {/* ── Kiri: artikel ── */}
             <div>
-              {/* Section header */}
               <div style={{ display: "flex", justifyContent: "space-between", alignItems: "flex-end", marginBottom: "24px", paddingBottom: "12px", borderBottom: "3px solid #0d0d0d" }}>
                 <div>
                   <span style={{ fontSize: "11px", fontWeight: "700", letterSpacing: "0.1em", textTransform: "uppercase" as const, color: accent.text, fontFamily: "var(--font-sans)" }}>◆ {categoryName}</span>
@@ -323,7 +349,7 @@ export default function KategoriClient({
                     {articles.map((a) => <ArticleCard key={a.id} article={a} />)}
                   </div>
                   {meta && meta.last_page > 1 && (
-                    <Pagination meta={meta} onPageChange={(p) => setCurrentPage(p)} />
+                    <Pagination meta={meta} onPageChange={pushPage} />
                   )}
                 </>
               )}
@@ -332,7 +358,6 @@ export default function KategoriClient({
             {/* ── Kanan: sidebar ── */}
             <aside style={{ display: "flex", flexDirection: "column", gap: "20px", position: "sticky", top: "88px" }}>
 
-              {/* Kategori lain */}
               {otherCategories.length > 0 && (
                 <div style={{ backgroundColor: "#fff", border: "1px solid #e5e2dd", borderRadius: "4px", overflow: "hidden" }}>
                   <div style={{ padding: "14px 18px", borderBottom: "3px solid #0d0d0d" }}>
@@ -340,7 +365,6 @@ export default function KategoriClient({
                   </div>
                   <div style={{ padding: "8px 0" }}>
                     {otherCategories.map(({ name, count }) => {
-                      const a = getCategoryAccent(name);
                       return (
                         <button key={name}
                           onClick={() => router.push(`/rubrik/kategori/${name}`)}
@@ -348,9 +372,7 @@ export default function KategoriClient({
                           onMouseEnter={(e) => { (e.currentTarget as HTMLElement).style.background = "rgba(139,26,42,0.04)"; (e.currentTarget as HTMLElement).style.borderLeftColor = "#8b1a2a"; }}
                           onMouseLeave={(e) => { (e.currentTarget as HTMLElement).style.background = "transparent"; (e.currentTarget as HTMLElement).style.borderLeftColor = "transparent"; }}
                         >
-                          <div style={{ display: "flex", alignItems: "center", gap: "8px" }}>
-                            <span style={{ fontSize: "13px", color: "#3a3a3a", fontFamily: "var(--font-sans)", textAlign: "left" as const }}>{formatCategory(name)}</span>
-                          </div>
+                          <span style={{ fontSize: "13px", color: "#3a3a3a", fontFamily: "var(--font-sans)", textAlign: "left" as const }}>{formatCategory(name)}</span>
                           <span style={{ fontSize: "10px", fontWeight: "600", color: "#6b6966", backgroundColor: "#f0eeec", padding: "1px 7px", borderRadius: "10px", fontFamily: "var(--font-sans)", flexShrink: 0 }}>{count}</span>
                         </button>
                       );
@@ -359,7 +381,6 @@ export default function KategoriClient({
                 </div>
               )}
 
-              {/* Back to rubrik */}
               <Link href="/rubrik"
                 style={{ display: "flex", alignItems: "center", justifyContent: "center", gap: "8px", padding: "12px 18px", backgroundColor: "#0d0d0d", color: "#fff", textDecoration: "none", borderRadius: "4px", fontSize: "12px", fontWeight: "700", letterSpacing: "0.05em", textTransform: "uppercase" as const, fontFamily: "var(--font-sans)", transition: "background 0.2s" }}
                 onMouseEnter={(e) => (e.currentTarget.style.backgroundColor = "#8b1a2a")}

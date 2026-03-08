@@ -3,7 +3,7 @@
 import { useState, useEffect, useCallback } from "react";
 import Image from "next/image";
 import Link from "next/link";
-import { useRouter } from "next/navigation";
+import { useRouter, useSearchParams, usePathname } from "next/navigation";
 import type { Article, Meta, PopularArticle } from "@/app/rubrik/page";
 
 // ─── Helpers ──────────────────────────────────────────────────────────────────
@@ -132,7 +132,7 @@ function ArticleCard({ article }: { article: Article }) {
                 onClick={(e) => {
                   e.preventDefault();
                   e.stopPropagation();
-                  router.push(`/rubrik/author/${article.authors[0].name.toLowerCase().replace(/\s+/g, "-")}`);
+                  router.push(`/rubrik/author/${article.authors[0].slug}`);
                 }}
                 style={{
                   fontSize: "11px", color: "#5c5a57", fontFamily: "var(--font-sans)",
@@ -340,18 +340,38 @@ export default function RubrikClient({
   initialPopular: PopularArticle[];
   initialCategories: { name: string; count: number }[];
 }) {
+  const router = useRouter();
+  const pathname = usePathname();
+  const searchParams = useSearchParams();
+
+  // ── Baca state awal dari URL ──────────────────────────────────────────────
+  const pageFromUrl = Number(searchParams.get("page") ?? "1") || 1;
+  const categoryFromUrl = searchParams.get("kategori") ?? null;
+  const queryFromUrl = searchParams.get("q") ?? "";
+
   const [articles, setArticles] = useState<Article[]>(initialArticles);
   const [meta, setMeta] = useState<Meta | null>(initialMeta);
-  const [loading, setLoading] = useState(false); // false karena data sudah ada dari server
+  const [loading, setLoading] = useState(false);
   const [popular] = useState<PopularArticle[]>(initialPopular);
   const [categories] = useState<{ name: string; count: number }[]>(initialCategories);
-  const [currentPage, setCurrentPage] = useState(1);
-  const [activeCategory, setActiveCategory] = useState<string | null>(null);
-  const [searchQuery, setSearchQuery] = useState("");
-  const [searchInput, setSearchInput] = useState("");
+  const [searchInput, setSearchInput] = useState(queryFromUrl);
 
   const PER_PAGE = 12;
 
+  // ── Helper: update URL tanpa reload ──────────────────────────────────────
+  const pushUrl = useCallback(
+    (page: number, category: string | null, query: string) => {
+      const params = new URLSearchParams();
+      if (page > 1) params.set("page", String(page));
+      if (category) params.set("kategori", category);
+      if (query) params.set("q", query);
+      const qs = params.toString();
+      router.push(`${pathname}${qs ? `?${qs}` : ""}`, { scroll: false });
+    },
+    [router, pathname]
+  );
+
+  // ── Fetch artikel ─────────────────────────────────────────────────────────
   const fetchArticles = useCallback(async (page: number, category: string | null, query: string) => {
     setLoading(true);
     window.scrollTo({ top: 0, behavior: "smooth" });
@@ -377,27 +397,41 @@ export default function RubrikClient({
     }
   }, []);
 
-  // Hanya fetch ulang kalau ada perubahan filter/page/search
-  // Halaman 1 tanpa filter sudah ada dari server, skip fetch pertama
+  // ── Sinkronisasi URL → data ───────────────────────────────────────────────
+  // Setiap kali URL params berubah, fetch data yang sesuai.
+  // Khusus kondisi awal (page 1, tanpa filter), pakai data SSR — skip fetch.
   useEffect(() => {
-    if (currentPage === 1 && !activeCategory && !searchQuery) return;
-    fetchArticles(currentPage, activeCategory, searchQuery);
-  }, [currentPage, activeCategory, searchQuery, fetchArticles]);
+    if (pageFromUrl === 1 && !categoryFromUrl && !queryFromUrl) {
+      // Kondisi default: gunakan data dari server
+      setArticles(initialArticles);
+      setMeta(initialMeta);
+      return;
+    }
+    fetchArticles(pageFromUrl, categoryFromUrl, queryFromUrl);
+  }, [pageFromUrl, categoryFromUrl, queryFromUrl]); // eslint-disable-line react-hooks/exhaustive-deps
+
+  // ── Handler ───────────────────────────────────────────────────────────────
+
+  const handlePageChange = (page: number) => {
+    pushUrl(page, categoryFromUrl, queryFromUrl);
+  };
 
   const handleCategoryClick = (cat: string | null) => {
-    setActiveCategory(cat);
-    setCurrentPage(1);
-    setSearchQuery("");
     setSearchInput("");
+    pushUrl(1, cat, "");
   };
 
   const handleSearch = () => {
     if (!searchInput.trim()) return;
-    setSearchQuery(searchInput.trim());
-    setActiveCategory(null);
-    setCurrentPage(1);
+    pushUrl(1, null, searchInput.trim());
   };
 
+  const handleClearFilter = () => {
+    setSearchInput("");
+    pushUrl(1, null, "");
+  };
+
+  // ── Render ────────────────────────────────────────────────────────────────
   return (
     <>
       {/* ── HEADER ───────────────────────────────────────────────────────── */}
@@ -416,15 +450,15 @@ export default function RubrikClient({
             </Link>
             <span style={{ fontSize: "11px", color: "rgba(255,255,255,0.25)", fontFamily: "var(--font-sans)" }}>/</span>
             <span style={{ fontSize: "11px", color: "rgba(255,255,255,0.7)", fontFamily: "var(--font-sans)" }}>Rubrik</span>
-            {activeCategory && (<><span style={{ fontSize: "11px", color: "rgba(255,255,255,0.25)", fontFamily: "var(--font-sans)" }}>/</span><span style={{ fontSize: "11px", color: "#e05070", fontFamily: "var(--font-sans)" }}>{formatCategory(activeCategory)}</span></>)}
-            {searchQuery && (<><span style={{ fontSize: "11px", color: "rgba(255,255,255,0.25)", fontFamily: "var(--font-sans)" }}>/</span><span style={{ fontSize: "11px", color: "#e05070", fontFamily: "var(--font-sans)" }}>Pencarian: "{searchQuery}"</span></>)}
+            {categoryFromUrl && (<><span style={{ fontSize: "11px", color: "rgba(255,255,255,0.25)", fontFamily: "var(--font-sans)" }}>/</span><span style={{ fontSize: "11px", color: "#e05070", fontFamily: "var(--font-sans)" }}>{formatCategory(categoryFromUrl)}</span></>)}
+            {queryFromUrl && (<><span style={{ fontSize: "11px", color: "rgba(255,255,255,0.25)", fontFamily: "var(--font-sans)" }}>/</span><span style={{ fontSize: "11px", color: "#e05070", fontFamily: "var(--font-sans)" }}>Pencarian: "{queryFromUrl}"</span></>)}
           </div>
 
           <div style={{ display: "flex", alignItems: "flex-end", justifyContent: "space-between", flexWrap: "wrap", gap: "20px" }}>
             <div>
               <span style={{ fontSize: "10px", fontWeight: "700", letterSpacing: "0.1em", textTransform: "uppercase" as const, color: "#e05070", fontFamily: "var(--font-sans)" }}>◆ Rubrik</span>
               <h1 style={{ fontSize: "clamp(1.8rem, 3vw, 2.6rem)", fontWeight: "700", color: "#fff", fontFamily: "var(--font-serif)", margin: "6px 0 0", lineHeight: "1.2" }}>
-                {activeCategory ? formatCategory(activeCategory) : searchQuery ? `Hasil: "${searchQuery}"` : "Artikel & Berita"}
+                {categoryFromUrl ? formatCategory(categoryFromUrl) : queryFromUrl ? `Hasil: "${queryFromUrl}"` : "Artikel & Berita"}
               </h1>
               {meta && (
                 <p style={{ fontSize: "13px", color: "rgba(255,255,255,0.45)", fontFamily: "var(--font-sans)", margin: "6px 0 0" }}>
@@ -462,12 +496,12 @@ export default function RubrikClient({
         <div style={{ maxWidth: "1280px", margin: "0 auto", position: "relative", zIndex: 1 }}>
 
           {/* Filter chip */}
-          {(activeCategory || searchQuery) && (
+          {(categoryFromUrl || queryFromUrl) && (
             <div style={{ display: "flex", alignItems: "center", gap: "8px", marginBottom: "20px" }}>
               <span style={{ fontSize: "12px", color: "#5c5a57", fontFamily: "var(--font-sans)" }}>Filter aktif:</span>
               <span style={{ display: "inline-flex", alignItems: "center", gap: "6px", padding: "3px 10px", backgroundColor: "rgba(139,26,42,0.1)", border: "1px solid rgba(139,26,42,0.25)", borderRadius: "100px", fontSize: "12px", fontWeight: "600", color: "#8b1a2a", fontFamily: "var(--font-sans)" }}>
-                {activeCategory ? formatCategory(activeCategory) : `"${searchQuery}"`}
-                <button onClick={() => { setActiveCategory(null); setSearchQuery(""); setSearchInput(""); setCurrentPage(1); }} style={{ background: "none", border: "none", cursor: "pointer", padding: 0, color: "#8b1a2a", display: "flex", alignItems: "center" }}>
+                {categoryFromUrl ? formatCategory(categoryFromUrl) : `"${queryFromUrl}"`}
+                <button onClick={handleClearFilter} style={{ background: "none", border: "none", cursor: "pointer", padding: 0, color: "#8b1a2a", display: "flex", alignItems: "center" }}>
                   <svg width="12" height="12" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2.5"><path d="M18 6L6 18M6 6l12 12" /></svg>
                 </button>
               </span>
@@ -483,7 +517,7 @@ export default function RubrikClient({
                 <div>
                   <span style={{ fontSize: "11px", fontWeight: "700", letterSpacing: "0.1em", textTransform: "uppercase" as const, color: "#8b1a2a", fontFamily: "var(--font-sans)" }}>◆ Terkini</span>
                   <h2 style={{ fontSize: "18px", fontWeight: "700", color: "#0d0d0d", fontFamily: "var(--font-serif)", marginTop: "2px", marginBottom: 0 }}>
-                    {activeCategory ? formatCategory(activeCategory) : searchQuery ? "Hasil Pencarian" : "Semua Artikel"}
+                    {categoryFromUrl ? formatCategory(categoryFromUrl) : queryFromUrl ? "Hasil Pencarian" : "Semua Artikel"}
                   </h2>
                 </div>
                 {meta && <span style={{ fontSize: "12px", color: "#6b6966", fontFamily: "var(--font-sans)" }}>{meta.total.toLocaleString("id-ID")} artikel</span>}
@@ -497,7 +531,7 @@ export default function RubrikClient({
                 <div style={{ padding: "60px 24px", textAlign: "center", backgroundColor: "#fff", border: "1px solid #e5e2dd", borderRadius: "4px" }}>
                   <span style={{ fontSize: "40px", opacity: 0.2 }}>🔍</span>
                   <p style={{ fontSize: "15px", color: "#6b6966", fontFamily: "var(--font-sans)", marginTop: "12px" }}>Tidak ada artikel ditemukan.</p>
-                  <button onClick={() => { setActiveCategory(null); setSearchQuery(""); setSearchInput(""); setCurrentPage(1); }} style={{ marginTop: "16px", padding: "8px 20px", backgroundColor: "#8b1a2a", color: "#fff", border: "none", borderRadius: "3px", fontSize: "12px", fontWeight: "700", fontFamily: "var(--font-sans)", cursor: "pointer" }}>
+                  <button onClick={handleClearFilter} style={{ marginTop: "16px", padding: "8px 20px", backgroundColor: "#8b1a2a", color: "#fff", border: "none", borderRadius: "3px", fontSize: "12px", fontWeight: "700", fontFamily: "var(--font-sans)", cursor: "pointer" }}>
                     Tampilkan Semua
                   </button>
                 </div>
@@ -506,7 +540,7 @@ export default function RubrikClient({
                   <div className="articles-grid" style={{ display: "grid", gridTemplateColumns: "repeat(3, 1fr)", gap: "20px" }}>
                     {articles.map((a) => <ArticleCard key={a.id} article={a} />)}
                   </div>
-                  {meta && meta.last_page > 1 && <Pagination meta={meta} onPageChange={(p) => setCurrentPage(p)} />}
+                  {meta && meta.last_page > 1 && <Pagination meta={meta} onPageChange={handlePageChange} />}
                 </>
               )}
             </div>
@@ -516,7 +550,7 @@ export default function RubrikClient({
               popular={popular}
               popularLoading={false}
               categories={categories}
-              activeCategory={activeCategory}
+              activeCategory={categoryFromUrl}
               onCategoryClick={handleCategoryClick}
             />
           </div>

@@ -222,7 +222,7 @@ export default function ArticleClient({
                     {article.authors.map((a, i) => (
                       <span key={a.id}>
                         <span
-                          onClick={() => router.push(`/rubrik/author/${a.name.toLowerCase().replace(/\s+/g, "-")}`)}
+                          onClick={() => router.push(`/rubrik/author/${a.slug}`)}
                           style={{ fontSize: "13px", fontWeight: "600", color: "rgba(255,255,255,0.9)", fontFamily: "var(--font-sans)", cursor: "pointer", transition: "color 0.15s" }}
                           onMouseEnter={(e) => (e.currentTarget.style.color = "#e05070")}
                           onMouseLeave={(e) => (e.currentTarget.style.color = "rgba(255,255,255,0.9)")}
