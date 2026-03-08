@@ -2,6 +2,7 @@
 
 import { useEffect } from "react";
 import { useScrollReveal } from "@/hooks/useScrollReveal";
+import Image from "next/image";
 import Link from "next/link";
 
 export default function HeroSection() {
@@ -20,6 +21,16 @@ export default function HeroSection() {
 
   return (
     <section style={{ position: "relative", minHeight: "90vh", display: "flex", alignItems: "center", overflow: "hidden" }}>
+      {/* LCP preload hint */}
+      <Image
+        src="/Foto_bersama_para_peserta_WikiNusantara_2024.webp"
+        alt=""
+        fill
+        priority
+        fetchPriority="high"
+        style={{ objectFit: "cover", objectPosition: "center top", opacity: 0, pointerEvents: "none" }}
+        aria-hidden="true"
+      />
       <div className="hero-parallax" style={{ position: "absolute", inset: 0, backgroundImage: "url('/Foto_bersama_para_peserta_WikiNusantara_2024.webp')", backgroundSize: "cover", backgroundPosition: "center top", backgroundRepeat: "no-repeat" }} />
       <div style={{ position: "absolute", inset: 0, background: "linear-gradient(90deg, rgba(8,8,8,0.88) 0%, rgba(8,8,8,0.72) 35%, rgba(8,8,8,0.3) 60%, rgba(8,8,8,0.05) 100%)" }} />
       <div style={{ position: "absolute", inset: 0, backgroundImage: `linear-gradient(rgba(255,255,255,0.04) 1px, transparent 1px), linear-gradient(90deg, rgba(255,255,255,0.04) 1px, transparent 1px)`, backgroundSize: "60px 60px" }} />

@@ -185,7 +185,7 @@ export default function Footer() {
           {/* Nav columns */}
           {Object.entries(footerLinks).map(([title, links]) => (
             <div key={title}>
-              <h4
+              <p
                 style={{
                   fontSize: "11px",
                   fontWeight: "700",
@@ -199,7 +199,7 @@ export default function Footer() {
                 }}
               >
                 {title}
-              </h4>
+              </p>
               <ul
                 style={{
                   listStyle: "none",

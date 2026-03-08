@@ -61,9 +61,15 @@ export default function ArticlesSection({ articles }: { articles: Article[] }) {
                 <article className="card-glow" style={{ border: "1px solid #e5e2dd", borderRadius: "4px", overflow: "hidden", height: "100%", backgroundColor: "#fff", display: "flex", flexDirection: "column" }}>
                   <div style={{ height: "180px", backgroundColor: "#f0eeec", overflow: "hidden", borderBottom: "1px solid #e5e2dd", position: "relative" }}>
                     {a.featured_image ? (
-                      <Image src={a.featured_image} alt={a.title} fill sizes="(max-width: 768px) 100vw, (max-width: 1280px) 50vw, 25vw" style={{ objectFit: "cover", transition: "transform 0.3s" }}
+                      <Image
+                        src={a.featured_image}
+                        alt={a.title}
+                        fill
+                        sizes="(max-width: 640px) calc(100vw - 48px), (max-width: 1280px) calc(50vw - 36px), 320px"
+                        style={{ objectFit: "cover", transition: "transform 0.3s" }}
                         onMouseEnter={(e) => (e.currentTarget.style.transform = "scale(1.05)")}
-                        onMouseLeave={(e) => (e.currentTarget.style.transform = "scale(1)")} />
+                        onMouseLeave={(e) => (e.currentTarget.style.transform = "scale(1)")}
+                      />
                     ) : (
                       <div style={{ width: "100%", height: "100%", display: "flex", alignItems: "center", justifyContent: "center" }}>
                         <span style={{ fontSize: "40px", opacity: 0.2 }}>📰</span>
