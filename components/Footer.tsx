@@ -122,6 +122,7 @@ export default function Footer() {
                 src="/Logo_WMID_2018_Mendatar.png"
                 alt="Wikimedia Indonesia"
                 fill
+                sizes="170px"
                 style={{
                   objectFit: "contain",
                   objectPosition: "left",

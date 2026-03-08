@@ -380,7 +380,7 @@ export default function Header() {
               alt="Wikimedia Indonesia"
               width={190}
               height={40}
-              style={{ objectFit: "contain", objectPosition: "left center" }}
+              style={{ objectFit: "contain", objectPosition: "left center", width: "auto" }}
               priority
             />
           </div>
