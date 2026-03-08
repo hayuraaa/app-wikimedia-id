@@ -13,7 +13,7 @@ const footerLinks = {
   ],
   Program: [
     { label: "Pendidikan", href: "https://pendidikan.wikimedia.or.id" },
-    { label: "Teknologi & Data", href: "https://datatek.wikimedia.or.id" },
+    { label: "Data & Teknologi", href: "https://datatek.wikimedia.or.id" },
     { label: "Kebudayaan", href: "https://kebudayaan.wikimedia.or.id" },
     { label: "Komunitas", href: "https://komunitas.wikimedia.or.id" },
   ],
@@ -119,7 +119,7 @@ export default function Footer() {
               }}
             >
               <Image
-                src="https://upload.wikimedia.org/wikipedia/commons/0/0e/Logo_WMID_2018_Mendatar.png"
+                src="/Logo_WMID_2018_Mendatar.png"
                 alt="Wikimedia Indonesia"
                 fill
                 style={{
@@ -134,7 +134,7 @@ export default function Footer() {
               <p
                 style={{
                   fontSize: "12px",
-                  color: "rgba(255,255,255,0.4)",
+                  color: "rgba(255,255,255,0.6)",
                   lineHeight: "1.7",
                   fontFamily: "var(--font-sans)",
                   margin: 0,
@@ -250,7 +250,7 @@ export default function Footer() {
           <p
             style={{
               fontSize: "12px",
-              color: "rgba(255,255,255,0.35)",
+              color: "rgba(255,255,255,0.55)",
               fontFamily: "var(--font-sans)",
               margin: 0,
             }}
@@ -324,7 +324,7 @@ export default function Footer() {
         }
         .footer-bottom-link {
           font-size: 12px;
-          color: rgba(255,255,255,0.35);
+          color: rgba(255,255,255,0.55);
           text-decoration: none;
           font-family: var(--font-sans);
           transition: color 0.2s;

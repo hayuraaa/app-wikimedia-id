@@ -65,7 +65,7 @@ export default function ArticlesSection({ articles }: { articles: Article[] }) {
                         src={a.featured_image}
                         alt={a.title}
                         fill
-                        sizes="(max-width: 640px) calc(100vw - 48px), (max-width: 1280px) calc(50vw - 36px), 320px"
+                        sizes="(max-width: 640px) calc(100vw - 48px), (max-width: 1024px) calc(50vw - 36px), 320px"
                         style={{ objectFit: "cover", transition: "transform 0.3s" }}
                         onMouseEnter={(e) => (e.currentTarget.style.transform = "scale(1.05)")}
                         onMouseLeave={(e) => (e.currentTarget.style.transform = "scale(1)")}
@@ -84,7 +84,7 @@ export default function ArticlesSection({ articles }: { articles: Article[] }) {
                             <button
                               key={cat}
                               onClick={(e) => { e.preventDefault(); e.stopPropagation(); router.push(`/rubrik/kategori/${cat}`); }}
-                              style={{ fontSize: "10px", fontWeight: "700", letterSpacing: "0.04em", color: "#1e4d7b", backgroundColor: "rgba(30,77,123,0.08)", padding: "2px 8px", borderRadius: "2px", fontFamily: "var(--font-sans)", cursor: "pointer", transition: "all 0.15s", border: "none" }}
+                              style={{ fontSize: "10px", fontWeight: "700", letterSpacing: "0.04em", color: "#1e4d7b", backgroundColor: "rgba(30,77,123,0.08)", padding: "6px 8px", borderRadius: "2px", fontFamily: "var(--font-sans)", cursor: "pointer", transition: "all 0.15s", border: "none" }}
                               onMouseEnter={(e) => { e.currentTarget.style.backgroundColor = "rgba(30,77,123,0.18)"; e.currentTarget.style.color = "#0d2a4d"; }}
                               onMouseLeave={(e) => { e.currentTarget.style.backgroundColor = "rgba(30,77,123,0.08)"; e.currentTarget.style.color = "#1e4d7b"; }}
                             >
@@ -105,7 +105,14 @@ export default function ArticlesSection({ articles }: { articles: Article[] }) {
                       {a.authors?.[0] ? (
                         <button
                           onClick={(e) => { e.preventDefault(); e.stopPropagation(); router.push(`/rubrik/author/${a.authors[0].name.toLowerCase().replace(/\s+/g, "-")}`); }}
-                          style={{ fontSize: "11px", color: "#5c5a57", fontFamily: "var(--font-sans)", overflow: "hidden", textOverflow: "ellipsis", whiteSpace: "nowrap", maxWidth: "65%", cursor: "pointer", transition: "color 0.15s", background: "none", border: "none", padding: 0 }}
+                          style={{ 
+                            fontSize: "11px", color: "#5c5a57", fontFamily: "var(--font-sans)", 
+                            overflow: "hidden", textOverflow: "ellipsis", whiteSpace: "nowrap", 
+                            maxWidth: "65%", cursor: "pointer", transition: "color 0.15s", 
+                            background: "none", border: "none", 
+                            padding: "6px 0",  // naik dari 0
+                            minHeight: "24px",
+                          }}
                           onMouseEnter={(e) => (e.currentTarget.style.color = "#1e4d7b")}
                           onMouseLeave={(e) => (e.currentTarget.style.color = "#5c5a57")}
                         >

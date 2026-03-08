@@ -376,7 +376,7 @@ export default function Header() {
         <Link href="/" style={{ display: "flex", alignItems: "center", textDecoration: "none", flexShrink: 0 }}>
           <div style={{ position: "relative", height: "40px", width: "190px" }}>
             <Image
-              src="https://upload.wikimedia.org/wikipedia/commons/0/0e/Logo_WMID_2018_Mendatar.png"
+              src="/Logo_WMID_2018_Mendatar.png"
               alt="Wikimedia Indonesia"
               width={190}
               height={40}
@@ -571,7 +571,7 @@ export default function Header() {
               style={{ flex: 1, padding: "10px 14px", fontSize: "13px", border: "none", outline: "none", fontFamily: "var(--font-sans)", color: "#0d0d0d" }}
               onKeyDown={(e) => { if (e.key === "Enter") { const v = (e.target as HTMLInputElement).value.trim(); if (v) { setMenuOpen(false); router.push(`/cari?q=${encodeURIComponent(v)}`); } } }}
             />
-            <button style={{ padding: "10px 14px", backgroundColor: "#8b1a2a", border: "none", color: "#fff", cursor: "pointer" }}>
+            <button aria-label="Cari" style={{ padding: "10px 14px", backgroundColor: "#8b1a2a", border: "none", color: "#fff", cursor: "pointer" }}>
               <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2"><circle cx="11" cy="11" r="8"/><path d="m21 21-4.35-4.35"/></svg>
             </button>
           </div>

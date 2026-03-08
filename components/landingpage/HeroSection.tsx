@@ -28,8 +28,9 @@ export default function HeroSection() {
         fill
         priority
         fetchPriority="high"
-        style={{ objectFit: "cover", objectPosition: "center top", opacity: 0, pointerEvents: "none" }}
         aria-hidden="true"
+        sizes="100vw"
+        style={{ objectFit: "cover", objectPosition: "center top", opacity: 0, pointerEvents: "none" }}
       />
       <div className="hero-parallax" style={{ position: "absolute", inset: 0, backgroundImage: "url('/Foto_bersama_para_peserta_WikiNusantara_2024.webp')", backgroundSize: "cover", backgroundPosition: "center top", backgroundRepeat: "no-repeat" }} />
       <div style={{ position: "absolute", inset: 0, background: "linear-gradient(90deg, rgba(8,8,8,0.88) 0%, rgba(8,8,8,0.72) 35%, rgba(8,8,8,0.3) 60%, rgba(8,8,8,0.05) 100%)" }} />
