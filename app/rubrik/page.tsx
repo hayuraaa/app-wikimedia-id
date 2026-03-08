@@ -1,4 +1,5 @@
 // SERVER COMPONENT — fetch halaman pertama + popular + categories di server
+import { Suspense } from "react";
 import RubrikClient from "@/components/rubrik/RubrikClient";
 
 const PER_PAGE = 12;
@@ -76,7 +77,6 @@ async function getCategories(): Promise<{ name: string; count: number }[]> {
 }
 
 export default async function RubrikPage() {
-  // Fetch semua paralel di server
   const [{ data: articles, meta }, popular, categories] = await Promise.all([
     getArticles(),
     getPopular(),
@@ -84,11 +84,13 @@ export default async function RubrikPage() {
   ]);
 
   return (
-    <RubrikClient
-      initialArticles={articles}
-      initialMeta={meta}
-      initialPopular={popular}
-      initialCategories={categories}
-    />
+    <Suspense fallback={null}>
+      <RubrikClient
+        initialArticles={articles}
+        initialMeta={meta}
+        initialPopular={popular}
+        initialCategories={categories}
+      />
+    </Suspense>
   );
 }

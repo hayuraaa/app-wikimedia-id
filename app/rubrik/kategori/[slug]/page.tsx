@@ -1,3 +1,4 @@
+import { Suspense } from "react";
 import KategoriClient from "@/components/rubrik/KategoriClient";
 
 export type Article = {
@@ -63,11 +64,13 @@ export default async function CategoryPage({
   ]);
 
   return (
-    <KategoriClient
-      slug={slug}
-      initialArticles={articles}
-      initialMeta={meta}
-      initialOtherCategories={otherCategories}
-    />
+    <Suspense fallback={null}>
+      <KategoriClient
+        slug={slug}
+        initialArticles={articles}
+        initialMeta={meta}
+        initialOtherCategories={otherCategories}
+      />
+    </Suspense>
   );
 }

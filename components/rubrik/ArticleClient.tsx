@@ -387,7 +387,7 @@ export default function ArticleClient({
                         </div>
                         <div>
                           <span
-                            onClick={() => router.push(`/rubrik/author/${a.name.toLowerCase().replace(/\s+/g, "-")}`)}
+                            onClick={() => router.push(`/rubrik/author/${a.slug}`)}
                             style={{ fontSize: "14px", fontWeight: "700", color: "#0d0d0d", fontFamily: "var(--font-serif)", cursor: "pointer", transition: "color 0.15s" }}
                             onMouseEnter={(e) => (e.currentTarget.style.color = "#8b1a2a")}
                             onMouseLeave={(e) => (e.currentTarget.style.color = "#0d0d0d")}

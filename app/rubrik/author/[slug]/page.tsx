@@ -1,3 +1,4 @@
+import { Suspense } from "react";
 import { notFound } from "next/navigation";
 import AuthorClient from "@/components/rubrik/AuthorClient";
 
@@ -67,11 +68,13 @@ export default async function AuthorPage({
   if (!meta && articles.length === 0) notFound();
 
   return (
-    <AuthorClient
-      slug={slug}
-      initialAuthor={author}
-      initialArticles={articles}
-      initialMeta={meta}
-    />
+    <Suspense fallback={null}>
+      <AuthorClient
+        slug={slug}
+        initialAuthor={author}
+        initialArticles={articles}
+        initialMeta={meta}
+      />
+    </Suspense>
   );
 }
