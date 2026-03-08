@@ -75,40 +75,40 @@ export default function ArticlesSection({ articles }: { articles: Article[] }) {
                       {a.categories?.length > 0 ? (
                         <div style={{ display: "flex", gap: "4px", flexWrap: "wrap", flex: 1 }}>
                           {a.categories.map((cat) => (
-                            <span
+                            <button
                               key={cat}
                               onClick={(e) => { e.preventDefault(); e.stopPropagation(); router.push(`/rubrik/kategori/${cat}`); }}
-                              style={{ fontSize: "10px", fontWeight: "700", letterSpacing: "0.04em", color: "#1e4d7b", backgroundColor: "rgba(30,77,123,0.08)", padding: "2px 8px", borderRadius: "2px", fontFamily: "var(--font-sans)", cursor: "pointer", transition: "all 0.15s" }}
+                              style={{ fontSize: "10px", fontWeight: "700", letterSpacing: "0.04em", color: "#1e4d7b", backgroundColor: "rgba(30,77,123,0.08)", padding: "2px 8px", borderRadius: "2px", fontFamily: "var(--font-sans)", cursor: "pointer", transition: "all 0.15s", border: "none" }}
                               onMouseEnter={(e) => { e.currentTarget.style.backgroundColor = "rgba(30,77,123,0.18)"; e.currentTarget.style.color = "#0d2a4d"; }}
                               onMouseLeave={(e) => { e.currentTarget.style.backgroundColor = "rgba(30,77,123,0.08)"; e.currentTarget.style.color = "#1e4d7b"; }}
                             >
                               {formatCategory(cat)}
-                            </span>
+                            </button>
                           ))}
                         </div>
                       ) : <span style={{ flex: 1 }} />}
-                      <span style={{ fontSize: "11px", color: "#9a9690", fontFamily: "var(--font-sans)", whiteSpace: "nowrap", flexShrink: 0 }}>
+                      <span style={{ fontSize: "11px", color: "#6b6966", fontFamily: "var(--font-sans)", whiteSpace: "nowrap", flexShrink: 0 }}>
                         {new Date(a.published_at).toLocaleDateString("id-ID", { day: "numeric", month: "short", year: "numeric" })}
                       </span>
                     </div>
                     <h3 style={{ fontSize: "15px", fontWeight: "600", color: "#0d0d0d", lineHeight: "1.5", fontFamily: "var(--font-serif)", margin: 0 }}>{a.title}</h3>
-                    <p style={{ fontSize: "12px", color: "#9a9690", lineHeight: "1.6", fontFamily: "var(--font-sans)", display: "-webkit-box", WebkitLineClamp: 2, WebkitBoxOrient: "vertical", overflow: "hidden", margin: 0, flex: 1 }}>
+                    <p style={{ fontSize: "12px", color: "#6b6966", lineHeight: "1.6", fontFamily: "var(--font-sans)", display: "-webkit-box", WebkitLineClamp: 2, WebkitBoxOrient: "vertical", overflow: "hidden", margin: 0, flex: 1 }}>
                       {a.excerpt}
                     </p>
                     <div style={{ display: "flex", alignItems: "center", justifyContent: "space-between", paddingTop: "10px", borderTop: "1px solid #f0eeec", marginTop: "auto" }}>
                       {a.authors?.[0] ? (
-                        <span
+                        <button
                           onClick={(e) => { e.preventDefault(); e.stopPropagation(); router.push(`/rubrik/author/${a.authors[0].name.toLowerCase().replace(/\s+/g, "-")}`); }}
-                          style={{ fontSize: "11px", color: "#5c5a57", fontFamily: "var(--font-sans)", overflow: "hidden", textOverflow: "ellipsis", whiteSpace: "nowrap", maxWidth: "65%", cursor: "pointer", transition: "color 0.15s" }}
+                          style={{ fontSize: "11px", color: "#5c5a57", fontFamily: "var(--font-sans)", overflow: "hidden", textOverflow: "ellipsis", whiteSpace: "nowrap", maxWidth: "65%", cursor: "pointer", transition: "color 0.15s", background: "none", border: "none", padding: 0 }}
                           onMouseEnter={(e) => (e.currentTarget.style.color = "#1e4d7b")}
                           onMouseLeave={(e) => (e.currentTarget.style.color = "#5c5a57")}
                         >
                           {a.authors[0].name}
-                        </span>
+                        </button>
                       ) : (
                         <span style={{ fontSize: "11px", color: "#5c5a57", fontFamily: "var(--font-sans)" }}>—</span>
                       )}
-                      <span style={{ display: "flex", alignItems: "center", gap: "4px", fontSize: "11px", color: "#9a9690", fontFamily: "var(--font-sans)", flexShrink: 0 }}>
+                      <span style={{ display: "flex", alignItems: "center", gap: "4px", fontSize: "11px", color: "#6b6966", fontFamily: "var(--font-sans)", flexShrink: 0 }}>
                         <svg width="12" height="12" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2"><path d="M1 12s4-8 11-8 11 8 11 8-4 8-11 8-11-8-11-8z"/><circle cx="12" cy="12" r="3"/></svg>
                         {a.views.toLocaleString("id-ID")}
                       </span>

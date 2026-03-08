@@ -172,16 +172,16 @@ function MediaCard({ item }: { item: MediaItem }) {
             {item.judul}
           </h3>
 
-          <p style={{ fontSize: "12px", color: "#9a9690", lineHeight: "1.6", fontFamily: "var(--font-sans)", display: "-webkit-box", WebkitLineClamp: 2, WebkitBoxOrient: "vertical" as const, overflow: "hidden", margin: 0, flex: 1, wordBreak: "break-word" }}>
+          <p style={{ fontSize: "12px", color: "#6b6966", lineHeight: "1.6", fontFamily: "var(--font-sans)", display: "-webkit-box", WebkitLineClamp: 2, WebkitBoxOrient: "vertical" as const, overflow: "hidden", margin: 0, flex: 1, wordBreak: "break-word" }}>
             {item.keterangan}
           </p>
 
           <div style={{ display: "flex", alignItems: "center", justifyContent: "space-between", paddingTop: "10px", borderTop: "1px solid #f0eeec", marginTop: "auto" }}>
-            <span style={{ fontSize: "11px", color: "#9a9690", fontFamily: "var(--font-sans)" }}>
+            <span style={{ fontSize: "11px", color: "#6b6966", fontFamily: "var(--font-sans)" }}>
               {formatDate(item.created_at)}
             </span>
             <div style={{ display: "flex", alignItems: "center", gap: "10px" }}>
-              <span style={{ display: "flex", alignItems: "center", gap: "4px", fontSize: "11px", color: "#9a9690", fontFamily: "var(--font-sans)" }}>
+              <span style={{ display: "flex", alignItems: "center", gap: "4px", fontSize: "11px", color: "#6b6966", fontFamily: "var(--font-sans)" }}>
                 <svg width="11" height="11" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2"><path d="M1 12s4-8 11-8 11 8 11 8-4 8-11 8-11-8-11-8z"/><circle cx="12" cy="12" r="3"/></svg>
                 {item.views.toLocaleString("id-ID")}
               </span>
@@ -237,7 +237,7 @@ function Pagination({ meta, onPageChange }: { meta: Meta; onPageChange: (p: numb
       </button>
       {pages.map((p, idx) =>
         p === "..." ? (
-          <span key={`e-${idx}`} style={{ minWidth: "36px", height: "36px", display: "flex", alignItems: "center", justifyContent: "center", fontSize: "13px", color: "#9a9690" }}>···</span>
+          <span key={`e-${idx}`} style={{ minWidth: "36px", height: "36px", display: "flex", alignItems: "center", justifyContent: "center", fontSize: "13px", color: "#6b6966" }}>···</span>
         ) : (
           <button key={p}
             style={{ ...btn, backgroundColor: p === current_page ? "#8b1a2a" : "#fff", borderColor: p === current_page ? "#8b1a2a" : "#e5e2dd", color: p === current_page ? "#fff" : "#3a3a3a", fontWeight: p === current_page ? "700" : "500" }}
@@ -436,7 +436,7 @@ export default function MediaPage() {
                 {searchQuery ? `Hasil: "${searchQuery}"` : jenisFilter === "youtube" ? "Video YouTube" : jenisFilter === "wikimedia_commons" ? "PDF & Materi" : "Semua Materi"}
               </h2>
             </div>
-            {meta && <span style={{ fontSize: "12px", color: "#9a9690", fontFamily: "var(--font-sans)" }}>{meta.total.toLocaleString("id-ID")} materi</span>}
+            {meta && <span style={{ fontSize: "12px", color: "#6b6966", fontFamily: "var(--font-sans)" }}>{meta.total.toLocaleString("id-ID")} materi</span>}
           </div>
 
           {loading ? (
@@ -446,7 +446,7 @@ export default function MediaPage() {
           ) : items.length === 0 ? (
             <div style={{ padding: "60px 24px", textAlign: "center", backgroundColor: "#fff", border: "1px solid #e5e2dd", borderRadius: "4px" }}>
               <span style={{ fontSize: "40px", opacity: 0.2 }}>🔍</span>
-              <p style={{ fontSize: "15px", color: "#9a9690", fontFamily: "var(--font-sans)", marginTop: "12px" }}>Tidak ada materi ditemukan.</p>
+              <p style={{ fontSize: "15px", color: "#6b6966", fontFamily: "var(--font-sans)", marginTop: "12px" }}>Tidak ada materi ditemukan.</p>
               <button onClick={() => { setJenisFilter(""); setKategoriFilter(""); handleClearSearch(); }}
                 style={{ marginTop: "16px", padding: "8px 20px", backgroundColor: "#8b1a2a", color: "#fff", border: "none", borderRadius: "3px", fontSize: "12px", fontWeight: "700", fontFamily: "var(--font-sans)", cursor: "pointer" }}>
                 Reset Filter

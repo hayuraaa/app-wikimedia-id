@@ -62,7 +62,7 @@ const getDuration = (mulai: string, selesai: string) => {
 const statusCfg = {
   berlangsung: { label: "● Sedang Berlangsung", color: "#16a34a", bg: "rgba(22,163,74,0.1)",  border: "#16a34a" },
   mendatang:   { label: "Mendatang",            color: "#1e4d7b", bg: "rgba(30,77,123,0.1)",  border: "#1e4d7b" },
-  selesai:     { label: "Telah Selesai",         color: "#9a9690", bg: "rgba(0,0,0,0.05)",    border: "#c5c3bf" },
+  selesai:     { label: "Telah Selesai",         color: "#6b6966 ", bg: "rgba(0,0,0,0.05)",    border: "#c5c3bf" },
 };
 
 const jenisCfg: Record<string, { label: string; color: string; desc: string }> = {
@@ -149,7 +149,7 @@ export default function AcaraDetailPage({ params }: { params: Promise<{ slug: st
       <div style={{ backgroundColor: "#f8f7f5", minHeight: "60vh", display: "flex", alignItems: "center", justifyContent: "center", padding: "40px 24px" }}>
         <div style={{ textAlign: "center" }}>
           <h2 style={{ fontSize: "24px", fontWeight: "700", color: "#0d0d0d", fontFamily: "var(--font-serif)", margin: "16px 0 8px" }}>Acara Tidak Ditemukan</h2>
-          <p style={{ fontSize: "14px", color: "#9a9690", fontFamily: "var(--font-sans)", marginBottom: "24px" }}>Acara yang kamu cari tidak ditemukan atau telah dihapus.</p>
+          <p style={{ fontSize: "14px", color: "#6b6966 ", fontFamily: "var(--font-sans)", marginBottom: "24px" }}>Acara yang kamu cari tidak ditemukan atau telah dihapus.</p>
           <Link href="/acara" style={{ display: "inline-flex", alignItems: "center", gap: "8px", padding: "10px 24px", backgroundColor: "#8b1a2a", color: "#fff", textDecoration: "none", borderRadius: "3px", fontSize: "13px", fontWeight: "700", fontFamily: "var(--font-sans)" }}>
             ← Kembali ke Acara
           </Link>
@@ -273,7 +273,7 @@ export default function AcaraDetailPage({ params }: { params: Promise<{ slug: st
                           </div>
                           <div>
                             <div style={{ fontSize: "13px", fontWeight: "600", color: "#0d0d0d", fontFamily: "var(--font-sans)" }}>{l.judul_link}</div>
-                            <div style={{ fontSize: "11px", color: "#9a9690", fontFamily: "var(--font-sans)", marginTop: "1px", overflow: "hidden", textOverflow: "ellipsis", whiteSpace: "nowrap" as const, maxWidth: "340px" }}>{l.url}</div>
+                            <div style={{ fontSize: "11px", color: "#6b6966 ", fontFamily: "var(--font-sans)", marginTop: "1px", overflow: "hidden", textOverflow: "ellipsis", whiteSpace: "nowrap" as const, maxWidth: "340px" }}>{l.url}</div>
                           </div>
                         </div>
                         <svg width="13" height="13" viewBox="0 0 24 24" fill="none" stroke="#1e4d7b" strokeWidth="2" style={{ flexShrink: 0 }}><path d="M18 13v6a2 2 0 01-2 2H5a2 2 0 01-2-2V8a2 2 0 012-2h6"/><polyline points="15 3 21 3 21 9"/><line x1="10" y1="14" x2="21" y2="3"/></svg>
@@ -340,7 +340,7 @@ export default function AcaraDetailPage({ params }: { params: Promise<{ slug: st
                       <div key={i} style={{ display: "flex", alignItems: "flex-start", gap: "10px", padding: "12px 18px", borderBottom: "1px solid #f0eeec" }}>
                         <div style={{ color: "#8b1a2a", flexShrink: 0, marginTop: "1px" }}>{icon}</div>
                         <div>
-                          <div style={{ fontSize: "10px", fontWeight: "600", color: "#9a9690", textTransform: "uppercase" as const, letterSpacing: "0.06em", fontFamily: "var(--font-sans)", marginBottom: "2px" }}>{label}</div>
+                          <div style={{ fontSize: "10px", fontWeight: "600", color: "#6b6966 ", textTransform: "uppercase" as const, letterSpacing: "0.06em", fontFamily: "var(--font-sans)", marginBottom: "2px" }}>{label}</div>
                           <div style={{ fontSize: "13px", color: extra ?? "#0d0d0d", fontFamily: "var(--font-sans)", fontWeight: extra ? "600" : "400" }}>{value}</div>
                         </div>
                       </div>
@@ -348,7 +348,7 @@ export default function AcaraDetailPage({ params }: { params: Promise<{ slug: st
 
                     {/* Status */}
                     <div style={{ padding: "14px 18px" }}>
-                      <div style={{ fontSize: "10px", fontWeight: "600", color: "#9a9690", textTransform: "uppercase" as const, letterSpacing: "0.06em", fontFamily: "var(--font-sans)", marginBottom: "8px" }}>Status</div>
+                      <div style={{ fontSize: "10px", fontWeight: "600", color: "#6b6966 ", textTransform: "uppercase" as const, letterSpacing: "0.06em", fontFamily: "var(--font-sans)", marginBottom: "8px" }}>Status</div>
                       <span style={{ display: "inline-flex", alignItems: "center", fontSize: "12px", fontWeight: "700", color: cfg.color, backgroundColor: cfg.bg, padding: "5px 14px", borderRadius: "3px", fontFamily: "var(--font-sans)", border: `1px solid ${cfg.border}30` }}>
                         {cfg.label}
                       </span>
@@ -383,7 +383,7 @@ export default function AcaraDetailPage({ params }: { params: Promise<{ slug: st
                             <div style={{ fontSize: "12px", fontWeight: "600", color: "#0d0d0d", fontFamily: "var(--font-serif)", lineHeight: "1.4", display: "-webkit-box", WebkitLineClamp: 2, WebkitBoxOrient: "vertical" as const, overflow: "hidden" }}>
                               {ev.judul}
                             </div>
-                            <div style={{ fontSize: "10px", color: "#9a9690", fontFamily: "var(--font-sans)", marginTop: "3px" }}>
+                            <div style={{ fontSize: "10px", color: "#6b6966 ", fontFamily: "var(--font-sans)", marginTop: "3px" }}>
                               {new Date(ev.tanggal_mulai).toLocaleDateString("id-ID", { day: "numeric", month: "short", year: "numeric" })}
                             </div>
                           </div>

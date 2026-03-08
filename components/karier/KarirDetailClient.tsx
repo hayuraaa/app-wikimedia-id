@@ -185,13 +185,13 @@ export default function KarirDetailClient({ karir }: { karir: Karir }) {
                 </div>
                 <div style={{ padding: "16px 18px", display: "flex", flexDirection: "column", gap: "0" }}>
                   {[
-                    { label: "Tanggal Dibuka", value: formatDate(karir.published_at), icon: <svg width="12" height="12" viewBox="0 0 24 24" fill="none" stroke="#9a9690" strokeWidth="2"><rect x="3" y="4" width="18" height="18" rx="2"/><line x1="16" y1="2" x2="16" y2="6"/><line x1="8" y1="2" x2="8" y2="6"/><line x1="3" y1="10" x2="21" y2="10"/></svg> },
-                    ...(karir.expires_at ? [{ label: "Batas Pendaftaran", value: formatDate(karir.expires_at), highlight: expiring, icon: <svg width="12" height="12" viewBox="0 0 24 24" fill="none" stroke={expiring ? "#d97706" : "#9a9690"} strokeWidth="2"><circle cx="12" cy="12" r="10"/><polyline points="12 6 12 12 16 14"/></svg> }] : []),
+                    { label: "Tanggal Dibuka", value: formatDate(karir.published_at), icon: <svg width="12" height="12" viewBox="0 0 24 24" fill="none" stroke="#6b6966" strokeWidth="2"><rect x="3" y="4" width="18" height="18" rx="2"/><line x1="16" y1="2" x2="16" y2="6"/><line x1="8" y1="2" x2="8" y2="6"/><line x1="3" y1="10" x2="21" y2="10"/></svg> },
+                    ...(karir.expires_at ? [{ label: "Batas Pendaftaran", value: formatDate(karir.expires_at), highlight: expiring, icon: <svg width="12" height="12" viewBox="0 0 24 24" fill="none" stroke={expiring ? "#d97706" : "#6b6966"} strokeWidth="2"><circle cx="12" cy="12" r="10"/><polyline points="12 6 12 12 16 14"/></svg> }] : []),
                   ].map((row, i) => (
                     <div key={i} style={{ display: "flex", alignItems: "flex-start", gap: "10px", padding: "12px 0", ...(i > 0 ? { borderTop: "1px solid #f0eeec" } : {}) }}>
                       <span style={{ flexShrink: 0, marginTop: "3px" }}>{row.icon}</span>
                       <div>
-                        <span style={{ fontSize: "10px", fontWeight: "700", color: "#9a9690", fontFamily: "var(--font-sans)", letterSpacing: "0.05em", textTransform: "uppercase" as const, display: "block" }}>{row.label}</span>
+                        <span style={{ fontSize: "10px", fontWeight: "700", color: "#6b6966", fontFamily: "var(--font-sans)", letterSpacing: "0.05em", textTransform: "uppercase" as const, display: "block" }}>{row.label}</span>
                         <span style={{ fontSize: "12px", color: (row as any).highlight ? "#d97706" : "#0d0d0d", fontFamily: "var(--font-sans)", marginTop: "2px", display: "block", fontWeight: (row as any).highlight ? "600" : "400" }}>
                           {row.value}
                         </span>

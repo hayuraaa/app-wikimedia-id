@@ -101,7 +101,7 @@ function RelatedCard({ article }: { article: RelatedArticle }) {
                 {formatCategory(article.categories[0])}
               </span>
             )}
-            <span style={{ fontSize: "10px", color: "#9a9690", fontFamily: "var(--font-sans)", whiteSpace: "nowrap" as const, marginLeft: "auto" }}>
+            <span style={{ fontSize: "10px", color: "#6b6966", fontFamily: "var(--font-sans)", whiteSpace: "nowrap" as const, marginLeft: "auto" }}>
               {formatDateShort(article.published_at)}
             </span>
           </div>
@@ -109,8 +109,8 @@ function RelatedCard({ article }: { article: RelatedArticle }) {
             {article.title}
           </h3>
           <div style={{ display: "flex", alignItems: "center", justifyContent: "space-between", marginTop: "auto", paddingTop: "8px", borderTop: "1px solid #f0eeec" }}>
-            <span style={{ fontSize: "10px", color: "#9a9690", fontFamily: "var(--font-sans)" }}>{article.authors?.[0]?.name ?? "—"}</span>
-            <span style={{ display: "flex", alignItems: "center", gap: "3px", fontSize: "10px", color: "#9a9690", fontFamily: "var(--font-sans)" }}>
+            <span style={{ fontSize: "10px", color: "#6b6966", fontFamily: "var(--font-sans)" }}>{article.authors?.[0]?.name ?? "—"}</span>
+            <span style={{ display: "flex", alignItems: "center", gap: "3px", fontSize: "10px", color: "#6b6966", fontFamily: "var(--font-sans)" }}>
               <svg width="10" height="10" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2"><path d="M1 12s4-8 11-8 11 8 11 8-4 8-11 8-11-8-11-8z" /><circle cx="12" cy="12" r="3" /></svg>
               {article.views.toLocaleString("id-ID")}
             </span>
@@ -304,7 +304,7 @@ export default function ArticleClient({
               {/* Keywords */}
               {article.keywords?.length > 0 && (
                 <div style={{ marginTop: "40px", paddingTop: "24px", borderTop: "1px solid #e5e2dd" }}>
-                  <span style={{ fontSize: "11px", fontWeight: "700", letterSpacing: "0.08em", textTransform: "uppercase" as const, color: "#9a9690", fontFamily: "var(--font-sans)", display: "block", marginBottom: "10px" }}>
+                  <span style={{ fontSize: "11px", fontWeight: "700", letterSpacing: "0.08em", textTransform: "uppercase" as const, color: "#6b6966", fontFamily: "var(--font-sans)", display: "block", marginBottom: "10px" }}>
                     Kata Kunci
                   </span>
                   <div style={{ display: "flex", flexWrap: "wrap" as const, gap: "6px" }}>
@@ -327,7 +327,7 @@ export default function ArticleClient({
                 </Link>
 
                 <div style={{ display: "flex", gap: "8px" }}>
-                  <span style={{ fontSize: "12px", color: "#9a9690", fontFamily: "var(--font-sans)", alignSelf: "center" }}>Bagikan:</span>
+                  <span style={{ fontSize: "12px", color: "#6b6966", fontFamily: "var(--font-sans)", alignSelf: "center" }}>Bagikan:</span>
                   {/* Twitter/X */}
                   <a
                     href={`https://twitter.com/intent/tweet?text=${encodeURIComponent(article.title)}&url=${encodeURIComponent(pageUrl)}`}
@@ -394,7 +394,7 @@ export default function ArticleClient({
                           >
                             {a.name}
                           </span>
-                          <p style={{ fontSize: "12px", color: "#9a9690", fontFamily: "var(--font-sans)", margin: "2px 0 0" }}>Kontributor Wikimedia Indonesia</p>
+                          <p style={{ fontSize: "12px", color: "#6b6966", fontFamily: "var(--font-sans)", margin: "2px 0 0" }}>Kontributor Wikimedia Indonesia</p>
                         </div>
                       </div>
                     ))}
@@ -451,7 +451,7 @@ export default function ArticleClient({
                               </span>
                             )}
                             <p style={{ fontSize: "12px", fontWeight: "600", color: "#0d0d0d", lineHeight: "1.4", fontFamily: "var(--font-serif)", margin: "0 0 3px", display: "-webkit-box", WebkitLineClamp: 2, WebkitBoxOrient: "vertical" as const, overflow: "hidden" }}>{a.title}</p>
-                            <span style={{ fontSize: "10px", color: "#9a9690", fontFamily: "var(--font-sans)" }}>{formatDateShort(a.published_at)}</span>
+                            <span style={{ fontSize: "10px", color: "#6b6966", fontFamily: "var(--font-sans)" }}>{formatDateShort(a.published_at)}</span>
                           </div>
                         </div>
                       </Link>
@@ -484,7 +484,7 @@ export default function ArticleClient({
                           </span>
                           <div style={{ flex: 1, minWidth: 0 }}>
                             <p style={{ fontSize: "12px", fontWeight: "600", color: "#0d0d0d", lineHeight: "1.4", fontFamily: "var(--font-serif)", margin: "0 0 3px", display: "-webkit-box", WebkitLineClamp: 2, WebkitBoxOrient: "vertical" as const, overflow: "hidden" }}>{a.title}</p>
-                            <span style={{ fontSize: "10px", color: "#9a9690", fontFamily: "var(--font-sans)" }}>{formatDateShort(a.published_at)}</span>
+                            <span style={{ fontSize: "10px", color: "#6b6966", fontFamily: "var(--font-sans)" }}>{formatDateShort(a.published_at)}</span>
                           </div>
                         </div>
                       </Link>

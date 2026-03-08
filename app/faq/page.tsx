@@ -70,7 +70,7 @@ function AccordionItem({ item, isOpen, onToggle }: {
         }}>
           <svg
             width="10" height="10" viewBox="0 0 24 24" fill="none"
-            stroke={isOpen ? "#fff" : "#9a9690"} strokeWidth="2.5"
+            stroke={isOpen ? "#fff" : "#6b6966"} strokeWidth="2.5"
             style={{ transform: isOpen ? "rotate(180deg)" : "rotate(0deg)", transition: "transform 0.25s" }}
           >
             <path d="M6 9l6 6 6-6"/>
@@ -233,7 +233,7 @@ export default function FaqPage() {
                     "{searchQuery}"
                   </h2>
                 </div>
-                <span style={{ fontSize: "12px", color: "#9a9690", fontFamily: "var(--font-sans)" }}>
+                <span style={{ fontSize: "12px", color: "#6b6966", fontFamily: "var(--font-sans)" }}>
                   {searchResults.length} hasil
                 </span>
               </div>
@@ -242,7 +242,7 @@ export default function FaqPage() {
                 <Skeleton />
               ) : searchResults.length === 0 ? (
                 <div style={{ backgroundColor: "#fff", border: "1px solid #e5e2dd", borderRadius: "4px", padding: "40px 24px", textAlign: "center" }}>
-                  <p style={{ fontSize: "14px", color: "#9a9690", fontFamily: "var(--font-sans)", margin: 0 }}>
+                  <p style={{ fontSize: "14px", color: "#6b6966", fontFamily: "var(--font-sans)", margin: 0 }}>
                     Tidak ada hasil untuk "<strong>{searchQuery}</strong>"
                   </p>
                 </div>
@@ -289,7 +289,7 @@ export default function FaqPage() {
                       <h2 style={{ fontSize: "16px", fontWeight: "700", color: "#0d0d0d", fontFamily: "var(--font-serif)", margin: 0 }}>
                         {category.name}
                       </h2>
-                      <span style={{ fontSize: "11px", color: "#9a9690", fontFamily: "var(--font-sans)" }}>
+                      <span style={{ fontSize: "11px", color: "#6b6966", fontFamily: "var(--font-sans)" }}>
                         {category.items.length} pertanyaan
                       </span>
                     </div>

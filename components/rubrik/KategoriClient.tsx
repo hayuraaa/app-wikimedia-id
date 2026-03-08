@@ -94,14 +94,14 @@ function ArticleCard({ article }: { article: Article }) {
                 })}
               </div>
             ) : <span style={{ flex: 1 }} />}
-            <span style={{ fontSize: "11px", color: "#9a9690", fontFamily: "var(--font-sans)", whiteSpace: "nowrap" as const, flexShrink: 0 }}>
+            <span style={{ fontSize: "11px", color: "#6b6966", fontFamily: "var(--font-sans)", whiteSpace: "nowrap" as const, flexShrink: 0 }}>
               {formatDateShort(article.published_at)}
             </span>
           </div>
           <h3 style={{ fontSize: "15px", fontWeight: "600", color: "#0d0d0d", lineHeight: "1.5", fontFamily: "var(--font-serif)", margin: 0 }}>
             {article.title}
           </h3>
-          <p style={{ fontSize: "12px", color: "#9a9690", lineHeight: "1.6", fontFamily: "var(--font-sans)", display: "-webkit-box", WebkitLineClamp: 2, WebkitBoxOrient: "vertical" as const, overflow: "hidden", margin: 0, flex: 1 }}>
+          <p style={{ fontSize: "12px", color: "#6b6966", lineHeight: "1.6", fontFamily: "var(--font-sans)", display: "-webkit-box", WebkitLineClamp: 2, WebkitBoxOrient: "vertical" as const, overflow: "hidden", margin: 0, flex: 1 }}>
             {article.excerpt}
           </p>
           <div style={{ display: "flex", alignItems: "center", justifyContent: "space-between", paddingTop: "10px", borderTop: "1px solid #f0eeec", marginTop: "auto" }}>
@@ -115,7 +115,7 @@ function ArticleCard({ article }: { article: Article }) {
                 {article.authors[0].name}
               </span>
             ) : <span style={{ fontSize: "11px", color: "#5c5a57", fontFamily: "var(--font-sans)" }}>—</span>}
-            <span style={{ display: "flex", alignItems: "center", gap: "4px", fontSize: "11px", color: "#9a9690", fontFamily: "var(--font-sans)" }}>
+            <span style={{ display: "flex", alignItems: "center", gap: "4px", fontSize: "11px", color: "#6b6966", fontFamily: "var(--font-sans)" }}>
               <svg width="12" height="12" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2"><path d="M1 12s4-8 11-8 11 8 11 8-4 8-11 8-11-8-11-8z"/><circle cx="12" cy="12" r="3"/></svg>
               {article.views.toLocaleString("id-ID")}
             </span>
@@ -175,7 +175,7 @@ function Pagination({ meta, onPageChange }: { meta: Meta; onPageChange: (p: numb
       </button>
       {pages.map((p, idx) =>
         p === "..." ? (
-          <span key={`e-${idx}`} style={{ minWidth: "36px", height: "36px", display: "flex", alignItems: "center", justifyContent: "center", fontSize: "13px", color: "#9a9690", fontFamily: "var(--font-sans)" }}>···</span>
+          <span key={`e-${idx}`} style={{ minWidth: "36px", height: "36px", display: "flex", alignItems: "center", justifyContent: "center", fontSize: "13px", color: "#6b6966", fontFamily: "var(--font-sans)" }}>···</span>
         ) : (
           <button key={p}
             style={{ ...btn, backgroundColor: p === current_page ? "#8b1a2a" : "#fff", borderColor: p === current_page ? "#8b1a2a" : "#e5e2dd", color: p === current_page ? "#fff" : "#3a3a3a", fontWeight: p === current_page ? "700" : "500" }}
@@ -301,7 +301,7 @@ export default function KategoriClient({
                     Semua Artikel
                   </h2>
                 </div>
-                {meta && <span style={{ fontSize: "12px", color: "#9a9690", fontFamily: "var(--font-sans)" }}>{meta.total.toLocaleString("id-ID")} artikel</span>}
+                {meta && <span style={{ fontSize: "12px", color: "#6b6966", fontFamily: "var(--font-sans)" }}>{meta.total.toLocaleString("id-ID")} artikel</span>}
               </div>
 
               {loading ? (
@@ -310,7 +310,7 @@ export default function KategoriClient({
                 </div>
               ) : articles.length === 0 ? (
                 <div style={{ padding: "60px 24px", textAlign: "center", backgroundColor: "#fff", border: "1px solid #e5e2dd", borderRadius: "4px" }}>
-                  <p style={{ fontSize: "15px", color: "#9a9690", fontFamily: "var(--font-sans)", marginTop: "12px" }}>
+                  <p style={{ fontSize: "15px", color: "#6b6966", fontFamily: "var(--font-sans)", marginTop: "12px" }}>
                     Belum ada artikel dalam kategori ini.
                   </p>
                   <Link href="/rubrik" style={{ display: "inline-flex", marginTop: "16px", padding: "8px 20px", backgroundColor: "#8b1a2a", color: "#fff", textDecoration: "none", borderRadius: "3px", fontSize: "12px", fontWeight: "700", fontFamily: "var(--font-sans)" }}>
@@ -351,7 +351,7 @@ export default function KategoriClient({
                           <div style={{ display: "flex", alignItems: "center", gap: "8px" }}>
                             <span style={{ fontSize: "13px", color: "#3a3a3a", fontFamily: "var(--font-sans)", textAlign: "left" as const }}>{formatCategory(name)}</span>
                           </div>
-                          <span style={{ fontSize: "10px", fontWeight: "600", color: "#9a9690", backgroundColor: "#f0eeec", padding: "1px 7px", borderRadius: "10px", fontFamily: "var(--font-sans)", flexShrink: 0 }}>{count}</span>
+                          <span style={{ fontSize: "10px", fontWeight: "600", color: "#6b6966", backgroundColor: "#f0eeec", padding: "1px 7px", borderRadius: "10px", fontFamily: "var(--font-sans)", flexShrink: 0 }}>{count}</span>
                         </button>
                       );
                     })}

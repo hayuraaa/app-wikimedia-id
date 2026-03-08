@@ -116,7 +116,7 @@ function SearchDropdown({
       ) : results.length === 0 ? (
         <div style={{ padding: "32px 20px", textAlign: "center" }}>
           <div style={{ fontSize: "28px", marginBottom: "8px", opacity: 0.25 }}>🔍</div>
-          <p style={{ fontSize: "13px", color: "#9a9690", fontFamily: "var(--font-sans)", margin: 0 }}>
+          <p style={{ fontSize: "13px", color: "#6b6966", fontFamily: "var(--font-sans)", margin: 0 }}>
             Tidak ada hasil untuk <strong style={{ color: "#0d0d0d" }}>"{query}"</strong>
           </p>
         </div>
@@ -201,7 +201,7 @@ function SearchDropdown({
                       </p>
                       {item.excerpt && (
                         <p style={{
-                          fontSize: "11px", color: "#9a9690", fontFamily: "var(--font-sans)",
+                          fontSize: "11px", color: "#6b6966", fontFamily: "var(--font-sans)",
                           lineHeight: "1.5", margin: 0,
                           overflow: "hidden", textOverflow: "ellipsis", whiteSpace: "nowrap",
                         }}>
@@ -230,7 +230,7 @@ function SearchDropdown({
             <span style={{ fontSize: "11px", color: "#c5c3bf", fontFamily: "var(--font-sans)" }}>
               {results.length} hasil ditemukan
             </span>
-            <span style={{ fontSize: "11px", color: "#9a9690", fontFamily: "var(--font-sans)" }}>
+            <span style={{ fontSize: "11px", color: "#6b6966", fontFamily: "var(--font-sans)" }}>
               Enter untuk cari semua
             </span>
           </div>
@@ -377,8 +377,11 @@ export default function Header() {
           <div style={{ position: "relative", height: "40px", width: "190px" }}>
             <Image
               src="https://upload.wikimedia.org/wikipedia/commons/0/0e/Logo_WMID_2018_Mendatar.png"
-              alt="Wikimedia Indonesia" fill
-              style={{ objectFit: "contain", objectPosition: "left center" }} priority
+              alt="Wikimedia Indonesia"
+              width={190}
+              height={40}
+              style={{ objectFit: "contain", objectPosition: "left center" }}
+              priority
             />
           </div>
         </Link>
@@ -511,15 +514,15 @@ export default function Header() {
               {searchOpen && (
                 <div style={{ width: "32px", height: "36px", display: "flex", alignItems: "center", justifyContent: "center", flexShrink: 0 }}>
                   {searching ? (
-                    <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="#9a9690" strokeWidth="2"
+                    <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="#6b6966" strokeWidth="2"
                       style={{ animation: "spin 0.8s linear infinite" }}>
                       <path d="M21 12a9 9 0 1 1-6.219-8.56"/>
                     </svg>
                   ) : searchQuery ? (
                     <button onClick={() => { setSearchQuery(""); setResults([]); inputRef.current?.focus(); }}
-                      style={{ background: "none", border: "none", cursor: "pointer", display: "flex", alignItems: "center", justifyContent: "center", width: "20px", height: "20px", borderRadius: "50%", color: "#9a9690", transition: "all 0.15s" }}
+                      style={{ background: "none", border: "none", cursor: "pointer", display: "flex", alignItems: "center", justifyContent: "center", width: "20px", height: "20px", borderRadius: "50%", color: "#6b6966", transition: "all 0.15s" }}
                       onMouseEnter={(e) => { e.currentTarget.style.backgroundColor = "#f3f4f6"; e.currentTarget.style.color = "#0d0d0d"; }}
-                      onMouseLeave={(e) => { e.currentTarget.style.backgroundColor = "transparent"; e.currentTarget.style.color = "#9a9690"; }}
+                      onMouseLeave={(e) => { e.currentTarget.style.backgroundColor = "transparent"; e.currentTarget.style.color = "#6b6966"; }}
                     >
                       <svg width="12" height="12" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2.5"><path d="M18 6L6 18M6 6l12 12"/></svg>
                     </button>

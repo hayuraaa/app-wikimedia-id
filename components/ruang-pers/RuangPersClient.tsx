@@ -61,7 +61,7 @@ function PressReleaseCard({ pr, featured = false }: { pr: PressRelease; featured
               <span style={{ fontSize: "10px", fontWeight: "700", letterSpacing: "0.1em", textTransform: "uppercase" as const, color: "#8b1a2a", backgroundColor: "rgba(139,26,42,0.08)", padding: "3px 10px", borderRadius: "2px", fontFamily: "var(--font-sans)" }}>
                 ◆ Siaran Pers
               </span>
-              <span style={{ fontSize: "11px", color: "#9a9690", fontFamily: "var(--font-sans)" }}>
+              <span style={{ fontSize: "11px", color: "#6b6966", fontFamily: "var(--font-sans)" }}>
                 {formatDateLong(pr.published_at)}
               </span>
             </div>
@@ -115,20 +115,20 @@ function PressReleaseCard({ pr, featured = false }: { pr: PressRelease; featured
           )}
         </div>
         <div style={{ padding: "16px 18px", flex: 1, display: "flex", flexDirection: "column", gap: "8px" }}>
-          <span style={{ fontSize: "11px", color: "#9a9690", fontFamily: "var(--font-sans)" }}>
+          <span style={{ fontSize: "11px", color: "#6b6966", fontFamily: "var(--font-sans)" }}>
             {formatDateShort(pr.published_at)}
           </span>
           <h3 style={{ fontSize: "14px", fontWeight: "600", color: "#0d0d0d", lineHeight: "1.5", fontFamily: "var(--font-serif)", margin: 0 }}>
             {pr.title}
           </h3>
-          <p style={{ fontSize: "12px", color: "#9a9690", lineHeight: "1.6", fontFamily: "var(--font-sans)", display: "-webkit-box", WebkitLineClamp: 2, WebkitBoxOrient: "vertical" as const, overflow: "hidden", margin: 0, flex: 1 }}>
+          <p style={{ fontSize: "12px", color: "#6b6966", lineHeight: "1.6", fontFamily: "var(--font-sans)", display: "-webkit-box", WebkitLineClamp: 2, WebkitBoxOrient: "vertical" as const, overflow: "hidden", margin: 0, flex: 1 }}>
             {stripHtml(pr.excerpt)}
           </p>
           <div style={{ display: "flex", alignItems: "center", justifyContent: "space-between", paddingTop: "10px", borderTop: "1px solid #f0eeec", marginTop: "auto" }}>
             <span style={{ fontSize: "11px", color: "#5c5a57", fontFamily: "var(--font-sans)" }}>
               {pr.creator?.name ?? "—"}
             </span>
-            <span style={{ display: "flex", alignItems: "center", gap: "4px", fontSize: "11px", color: "#9a9690", fontFamily: "var(--font-sans)" }}>
+            <span style={{ display: "flex", alignItems: "center", gap: "4px", fontSize: "11px", color: "#6b6966", fontFamily: "var(--font-sans)" }}>
               <svg width="12" height="12" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2"><path d="M1 12s4-8 11-8 11 8 11 8-4 8-11 8-11-8-11-8z"/><circle cx="12" cy="12" r="3"/></svg>
               {pr.views.toLocaleString("id-ID")}
             </span>
@@ -206,7 +206,7 @@ function Pagination({ meta, onPageChange }: { meta: Meta; onPageChange: (p: numb
       </button>
       {pages.map((p, idx) =>
         p === "..." ? (
-          <span key={`e-${idx}`} style={{ minWidth: "36px", height: "36px", display: "flex", alignItems: "center", justifyContent: "center", fontSize: "13px", color: "#9a9690", fontFamily: "var(--font-sans)" }}>···</span>
+          <span key={`e-${idx}`} style={{ minWidth: "36px", height: "36px", display: "flex", alignItems: "center", justifyContent: "center", fontSize: "13px", color: "#6b6966", fontFamily: "var(--font-sans)" }}>···</span>
         ) : (
           <button key={p}
             style={{ ...btn, backgroundColor: p === current_page ? "#8b1a2a" : "#fff", borderColor: p === current_page ? "#8b1a2a" : "#e5e2dd", color: p === current_page ? "#fff" : "#3a3a3a", fontWeight: p === current_page ? "700" : "500" }}
@@ -380,7 +380,7 @@ export default function RuangPersClient({
                 {searchQuery ? "Hasil Pencarian" : "Semua Siaran Pers"}
               </h2>
             </div>
-            {meta && <span style={{ fontSize: "12px", color: "#9a9690", fontFamily: "var(--font-sans)" }}>{meta.total.toLocaleString("id-ID")} siaran pers</span>}
+            {meta && <span style={{ fontSize: "12px", color: "#6b6966", fontFamily: "var(--font-sans)" }}>{meta.total.toLocaleString("id-ID")} siaran pers</span>}
           </div>
 
           {loading ? (
@@ -393,7 +393,7 @@ export default function RuangPersClient({
           ) : pressReleases.length === 0 ? (
             <div style={{ padding: "60px 24px", textAlign: "center", backgroundColor: "#fff", border: "1px solid #e5e2dd", borderRadius: "4px" }}>
               <span style={{ fontSize: "40px", opacity: 0.2 }}>🔍</span>
-              <p style={{ fontSize: "15px", color: "#9a9690", fontFamily: "var(--font-sans)", marginTop: "12px" }}>Tidak ada siaran pers ditemukan.</p>
+              <p style={{ fontSize: "15px", color: "#6b6966", fontFamily: "var(--font-sans)", marginTop: "12px" }}>Tidak ada siaran pers ditemukan.</p>
               <button onClick={handleClearSearch} style={{ marginTop: "16px", padding: "8px 20px", backgroundColor: "#8b1a2a", color: "#fff", border: "none", borderRadius: "3px", fontSize: "12px", fontWeight: "700", fontFamily: "var(--font-sans)", cursor: "pointer" }}>
                 Tampilkan Semua
               </button>

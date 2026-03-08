@@ -211,7 +211,7 @@ export default function PressReleaseClient({
                 </Link>
 
                 <div style={{ display: "flex", gap: "8px" }}>
-                  <span style={{ fontSize: "12px", color: "#9a9690", fontFamily: "var(--font-sans)", alignSelf: "center" }}>Bagikan:</span>
+                  <span style={{ fontSize: "12px", color: "#6b6966", fontFamily: "var(--font-sans)", alignSelf: "center" }}>Bagikan:</span>
                   {/* Twitter/X */}
                   <a href={`https://twitter.com/intent/tweet?text=${encodeURIComponent(pr.title)}&url=${encodeURIComponent(pageUrl)}`}
                     target="_blank" rel="noopener noreferrer"
@@ -285,23 +285,23 @@ export default function PressReleaseClient({
                 </div>
                 <div style={{ padding: "16px 18px", display: "flex", flexDirection: "column", gap: "12px" }}>
                   <div style={{ display: "flex", alignItems: "flex-start", gap: "10px" }}>
-                    <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="#9a9690" strokeWidth="2" style={{ flexShrink: 0, marginTop: "2px" }}><rect x="3" y="4" width="18" height="18" rx="2"/><line x1="16" y1="2" x2="16" y2="6"/><line x1="8" y1="2" x2="8" y2="6"/><line x1="3" y1="10" x2="21" y2="10"/></svg>
+                    <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="#6b6966" strokeWidth="2" style={{ flexShrink: 0, marginTop: "2px" }}><rect x="3" y="4" width="18" height="18" rx="2"/><line x1="16" y1="2" x2="16" y2="6"/><line x1="8" y1="2" x2="8" y2="6"/><line x1="3" y1="10" x2="21" y2="10"/></svg>
                     <div>
-                      <span style={{ fontSize: "10px", fontWeight: "700", color: "#9a9690", fontFamily: "var(--font-sans)", letterSpacing: "0.05em", textTransform: "uppercase" as const, display: "block" }}>Tanggal Rilis</span>
+                      <span style={{ fontSize: "10px", fontWeight: "700", color: "#6b6966", fontFamily: "var(--font-sans)", letterSpacing: "0.05em", textTransform: "uppercase" as const, display: "block" }}>Tanggal Rilis</span>
                       <span style={{ fontSize: "13px", color: "#0d0d0d", fontFamily: "var(--font-sans)", marginTop: "2px", display: "block" }}>{formatDateLong(pr.published_at)}</span>
                     </div>
                   </div>
                   <div style={{ borderTop: "1px solid #f0eeec", paddingTop: "12px", display: "flex", alignItems: "flex-start", gap: "10px" }}>
-                    <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="#9a9690" strokeWidth="2" style={{ flexShrink: 0, marginTop: "2px" }}><path d="M20 21v-2a4 4 0 0 0-4-4H8a4 4 0 0 0-4 4v2"/><circle cx="12" cy="7" r="4"/></svg>
+                    <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="#6b6966" strokeWidth="2" style={{ flexShrink: 0, marginTop: "2px" }}><path d="M20 21v-2a4 4 0 0 0-4-4H8a4 4 0 0 0-4 4v2"/><circle cx="12" cy="7" r="4"/></svg>
                     <div>
-                      <span style={{ fontSize: "10px", fontWeight: "700", color: "#9a9690", fontFamily: "var(--font-sans)", letterSpacing: "0.05em", textTransform: "uppercase" as const, display: "block" }}>Penerbit</span>
+                      <span style={{ fontSize: "10px", fontWeight: "700", color: "#6b6966", fontFamily: "var(--font-sans)", letterSpacing: "0.05em", textTransform: "uppercase" as const, display: "block" }}>Penerbit</span>
                       <span style={{ fontSize: "13px", color: "#0d0d0d", fontFamily: "var(--font-sans)", marginTop: "2px", display: "block" }}>{pr.creator?.name}</span>
                     </div>
                   </div>
                   <div style={{ borderTop: "1px solid #f0eeec", paddingTop: "12px", display: "flex", alignItems: "flex-start", gap: "10px" }}>
-                    <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="#9a9690" strokeWidth="2" style={{ flexShrink: 0, marginTop: "2px" }}><path d="M1 12s4-8 11-8 11 8 11 8-4 8-11 8-11-8-11-8z"/><circle cx="12" cy="12" r="3"/></svg>
+                    <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="#6b6966" strokeWidth="2" style={{ flexShrink: 0, marginTop: "2px" }}><path d="M1 12s4-8 11-8 11 8 11 8-4 8-11 8-11-8-11-8z"/><circle cx="12" cy="12" r="3"/></svg>
                     <div>
-                      <span style={{ fontSize: "10px", fontWeight: "700", color: "#9a9690", fontFamily: "var(--font-sans)", letterSpacing: "0.05em", textTransform: "uppercase" as const, display: "block" }}>Tayangan</span>
+                      <span style={{ fontSize: "10px", fontWeight: "700", color: "#6b6966", fontFamily: "var(--font-sans)", letterSpacing: "0.05em", textTransform: "uppercase" as const, display: "block" }}>Tayangan</span>
                       <span style={{ fontSize: "13px", color: "#0d0d0d", fontFamily: "var(--font-sans)", marginTop: "2px", display: "block" }}>{pr.views.toLocaleString("id-ID")}</span>
                     </div>
                   </div>
@@ -334,7 +334,7 @@ export default function PressReleaseClient({
                             <p style={{ fontSize: "12px", fontWeight: "600", color: "#0d0d0d", lineHeight: "1.4", fontFamily: "var(--font-serif)", margin: "0 0 3px", display: "-webkit-box", WebkitLineClamp: 2, WebkitBoxOrient: "vertical" as const, overflow: "hidden" }}>
                               {a.title}
                             </p>
-                            <span style={{ fontSize: "10px", color: "#9a9690", fontFamily: "var(--font-sans)" }}>{formatDateShort(a.published_at)}</span>
+                            <span style={{ fontSize: "10px", color: "#6b6966", fontFamily: "var(--font-sans)" }}>{formatDateShort(a.published_at)}</span>
                           </div>
                         </div>
                       </Link>

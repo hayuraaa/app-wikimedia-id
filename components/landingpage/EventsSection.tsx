@@ -72,17 +72,17 @@ export default function EventsSection({
                 </div>
               ))
             ) : events.length === 0 ? (
-              <div style={{ padding: "40px 24px", textAlign: "center", color: "#9a9690", fontFamily: "var(--font-sans)", fontSize: "14px" }}>
+              <div style={{ padding: "40px 24px", textAlign: "center", color: "#6b6966 ", fontFamily: "var(--font-sans)", fontSize: "14px" }}>
                 Tidak ada acara mendatang saat ini.
               </div>
             ) : (
               events.map((ev) => {
                 const status = getEventStatus(ev);
                 const borderColor = status === "berlangsung" ? "#16a34a" : status === "selesai" ? "#c5c3bf" : "#1a3a5c";
-                const badgeColor = status === "berlangsung" ? "#16a34a" : status === "selesai" ? "#9a9690" : "#1e4d7b";
+                const badgeColor = status === "berlangsung" ? "#16a34a" : status === "selesai" ? "#6b6966 " : "#1e4d7b";
                 const badgeBg = status === "berlangsung" ? "rgba(22,163,74,0.08)" : status === "selesai" ? "rgba(0,0,0,0.05)" : "rgba(30,77,123,0.08)";
                 const badgeLabel = status === "berlangsung" ? "● Berlangsung" : status === "selesai" ? "Selesai" : "Mendatang";
-                const dateColor = status === "berlangsung" ? "#16a34a" : status === "selesai" ? "#9a9690" : "#1a3a5c";
+                const dateColor = status === "berlangsung" ? "#16a34a" : status === "selesai" ? "#6b6966 " : "#1a3a5c";
                 return (
                   <Link key={ev.id} href={`/acara/${ev.slug}`} style={{ textDecoration: "none" }}>
                     <div className="event-card" style={{
@@ -102,7 +102,7 @@ export default function EventsSection({
                         <div style={{ fontSize: "18px", fontWeight: "700", color: dateColor, fontFamily: "var(--font-serif)", lineHeight: 1 }}>
                           {new Date(ev.tanggal_mulai).getDate()}
                         </div>
-                        <div style={{ fontSize: "9px", fontWeight: "600", color: "#9a9690", textTransform: "uppercase", letterSpacing: "0.06em", fontFamily: "var(--font-sans)", marginTop: "1px" }}>
+                        <div style={{ fontSize: "9px", fontWeight: "600", color: "#6b6966 ", textTransform: "uppercase", letterSpacing: "0.06em", fontFamily: "var(--font-sans)", marginTop: "1px" }}>
                           {new Date(ev.tanggal_mulai).toLocaleDateString("id-ID", { month: "short" })}
                         </div>
                       </div>
@@ -112,13 +112,13 @@ export default function EventsSection({
                           <span style={{ fontSize: "9px", fontWeight: "700", letterSpacing: "0.07em", textTransform: "uppercase", color: badgeColor, backgroundColor: badgeBg, padding: "1px 6px", borderRadius: "2px", fontFamily: "var(--font-sans)" }}>
                             {badgeLabel}
                           </span>
-                          <span style={{ fontSize: "10px", color: "#9a9690", fontFamily: "var(--font-sans)", display: "flex", alignItems: "center", gap: "3px" }}>
+                          <span style={{ fontSize: "10px", color: "#6b6966 ", fontFamily: "var(--font-sans)", display: "flex", alignItems: "center", gap: "3px" }}>
                             <svg width="9" height="9" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2"><path d="M21 10c0 7-9 13-9 13s-9-6-9-13a9 9 0 0 1 18 0z"/><circle cx="12" cy="10" r="3"/></svg>
                             {ev.lokasi}
                           </span>
                         </div>
                         <h3 style={{ fontSize: "13px", fontWeight: "600", color: status === "selesai" ? "#5c5a57" : "#0d0d0d", fontFamily: "var(--font-serif)", lineHeight: "1.35", margin: 0 }}>{ev.judul}</h3>
-                        <p style={{ fontSize: "10px", color: "#9a9690", fontFamily: "var(--font-sans)", marginTop: "2px" }}>
+                        <p style={{ fontSize: "10px", color: "#6b6966 ", fontFamily: "var(--font-sans)", marginTop: "2px" }}>
                           {formatTanggal(ev.tanggal_mulai, ev.tanggal_selesai)}
                         </p>
                       </div>
@@ -167,7 +167,7 @@ export default function EventsSection({
                   ))}
                   <div style={{ position: "absolute", bottom: "10px", right: "12px", display: "flex", gap: "5px", zIndex: 10 }}>
                     {slideImages.map((_, idx) => (
-                      <button key={idx} onClick={() => setActiveSlide(idx)} style={{
+                      <button key={idx} onClick={() => setActiveSlide(idx)} aria-label={`Slide ${idx + 1}`} style={{
                         width: idx === activeSlide ? "18px" : "6px",
                         height: "6px", borderRadius: "3px",
                         backgroundColor: idx === activeSlide ? "#e05070" : "rgba(255,255,255,0.5)",

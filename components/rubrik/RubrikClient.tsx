@@ -106,7 +106,7 @@ function ArticleCard({ article }: { article: Article }) {
             ) : (
               <span style={{ flex: 1 }} />
             )}
-            <span style={{ fontSize: "11px", color: "#9a9690", fontFamily: "var(--font-sans)", whiteSpace: "nowrap", flexShrink: 0 }}>
+            <span style={{ fontSize: "11px", color: "#6b6966", fontFamily: "var(--font-sans)", whiteSpace: "nowrap", flexShrink: 0 }}>
               {formatDateShort(article.published_at)}
             </span>
           </div>
@@ -118,7 +118,7 @@ function ArticleCard({ article }: { article: Article }) {
 
           {/* Excerpt */}
           <p style={{
-            fontSize: "12px", color: "#9a9690", lineHeight: "1.6", fontFamily: "var(--font-sans)",
+            fontSize: "12px", color: "#6b6966", lineHeight: "1.6", fontFamily: "var(--font-sans)",
             display: "-webkit-box", WebkitLineClamp: 2, WebkitBoxOrient: "vertical", overflow: "hidden",
             margin: 0, flex: 1,
           }}>
@@ -147,7 +147,7 @@ function ArticleCard({ article }: { article: Article }) {
             ) : (
               <span style={{ fontSize: "11px", color: "#5c5a57", fontFamily: "var(--font-sans)" }}>—</span>
             )}
-            <span style={{ display: "flex", alignItems: "center", gap: "4px", fontSize: "11px", color: "#9a9690", fontFamily: "var(--font-sans)", flexShrink: 0 }}>
+            <span style={{ display: "flex", alignItems: "center", gap: "4px", fontSize: "11px", color: "#6b6966", fontFamily: "var(--font-sans)", flexShrink: 0 }}>
               <svg width="12" height="12" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2">
                 <path d="M1 12s4-8 11-8 11 8 11 8-4 8-11 8-11-8-11-8z" /><circle cx="12" cy="12" r="3" />
               </svg>
@@ -212,7 +212,7 @@ function Pagination({ meta, onPageChange }: { meta: Meta; onPageChange: (p: numb
       </button>
       {pages.map((p, idx) =>
         p === "..." ? (
-          <span key={`e-${idx}`} style={{ minWidth: "36px", height: "36px", display: "flex", alignItems: "center", justifyContent: "center", fontSize: "13px", color: "#9a9690", fontFamily: "var(--font-sans)" }}>···</span>
+          <span key={`e-${idx}`} style={{ minWidth: "36px", height: "36px", display: "flex", alignItems: "center", justifyContent: "center", fontSize: "13px", color: "#6b6966", fontFamily: "var(--font-sans)" }}>···</span>
         ) : (
           <button
             key={p}
@@ -273,7 +273,7 @@ function Sidebar({ popular, popularLoading, categories, activeCategory, onCatego
               onMouseLeave={(e) => { if (activeCategory !== name) (e.currentTarget as HTMLElement).style.background = "transparent"; }}
             >
               <span style={{ fontSize: "13px", fontWeight: activeCategory === name ? "600" : "400", color: activeCategory === name ? "#8b1a2a" : "#3a3a3a", fontFamily: "var(--font-sans)", textAlign: "left" as const }}>{formatCategory(name)}</span>
-              <span style={{ fontSize: "10px", fontWeight: "600", color: "#9a9690", backgroundColor: "#f0eeec", padding: "1px 7px", borderRadius: "10px", fontFamily: "var(--font-sans)", flexShrink: 0 }}>{count}</span>
+              <span style={{ fontSize: "10px", fontWeight: "600", color: "#6b6966", backgroundColor: "#f0eeec", padding: "1px 7px", borderRadius: "10px", fontFamily: "var(--font-sans)", flexShrink: 0 }}>{count}</span>
             </button>
           ))}
         </div>
@@ -303,10 +303,10 @@ function Sidebar({ popular, popularLoading, categories, activeCategory, onCatego
                     onMouseEnter={(e) => { (e.currentTarget as HTMLElement).style.background = "#faf9f7"; }}
                     onMouseLeave={(e) => { (e.currentTarget as HTMLElement).style.background = "transparent"; }}
                   >
-                    <span style={{ flexShrink: 0, width: "22px", height: "22px", borderRadius: "50%", display: "flex", alignItems: "center", justifyContent: "center", fontSize: "10px", fontWeight: "700", fontFamily: "var(--font-sans)", backgroundColor: idx < 3 ? "#8b1a2a" : "#f0eeec", color: idx < 3 ? "#fff" : "#9a9690", marginTop: "1px" }}>{idx + 1}</span>
+                    <span style={{ flexShrink: 0, width: "22px", height: "22px", borderRadius: "50%", display: "flex", alignItems: "center", justifyContent: "center", fontSize: "10px", fontWeight: "700", fontFamily: "var(--font-sans)", backgroundColor: idx < 3 ? "#8b1a2a" : "#f0eeec", color: idx < 3 ? "#fff" : "#6b6966", marginTop: "1px" }}>{idx + 1}</span>
                     <div style={{ flex: 1, minWidth: 0 }}>
                       <p style={{ fontSize: "12px", fontWeight: "600", color: "#0d0d0d", lineHeight: "1.45", fontFamily: "var(--font-serif)", margin: "0 0 4px", display: "-webkit-box", WebkitLineClamp: 2, WebkitBoxOrient: "vertical", overflow: "hidden" }}>{a.title}</p>
-                      <span style={{ display: "flex", alignItems: "center", gap: "3px", fontSize: "10px", color: "#9a9690", fontFamily: "var(--font-sans)" }}>
+                      <span style={{ display: "flex", alignItems: "center", gap: "3px", fontSize: "10px", color: "#6b6966", fontFamily: "var(--font-sans)" }}>
                         <svg width="10" height="10" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2"><path d="M1 12s4-8 11-8 11 8 11 8-4 8-11 8-11-8-11-8z" /><circle cx="12" cy="12" r="3" /></svg>
                         {a.views.toLocaleString("id-ID")} tayangan
                       </span>
@@ -486,7 +486,7 @@ export default function RubrikClient({
                     {activeCategory ? formatCategory(activeCategory) : searchQuery ? "Hasil Pencarian" : "Semua Artikel"}
                   </h2>
                 </div>
-                {meta && <span style={{ fontSize: "12px", color: "#9a9690", fontFamily: "var(--font-sans)" }}>{meta.total.toLocaleString("id-ID")} artikel</span>}
+                {meta && <span style={{ fontSize: "12px", color: "#6b6966", fontFamily: "var(--font-sans)" }}>{meta.total.toLocaleString("id-ID")} artikel</span>}
               </div>
 
               {loading ? (
@@ -496,7 +496,7 @@ export default function RubrikClient({
               ) : articles.length === 0 ? (
                 <div style={{ padding: "60px 24px", textAlign: "center", backgroundColor: "#fff", border: "1px solid #e5e2dd", borderRadius: "4px" }}>
                   <span style={{ fontSize: "40px", opacity: 0.2 }}>🔍</span>
-                  <p style={{ fontSize: "15px", color: "#9a9690", fontFamily: "var(--font-sans)", marginTop: "12px" }}>Tidak ada artikel ditemukan.</p>
+                  <p style={{ fontSize: "15px", color: "#6b6966", fontFamily: "var(--font-sans)", marginTop: "12px" }}>Tidak ada artikel ditemukan.</p>
                   <button onClick={() => { setActiveCategory(null); setSearchQuery(""); setSearchInput(""); setCurrentPage(1); }} style={{ marginTop: "16px", padding: "8px 20px", backgroundColor: "#8b1a2a", color: "#fff", border: "none", borderRadius: "3px", fontSize: "12px", fontWeight: "700", fontFamily: "var(--font-sans)", cursor: "pointer" }}>
                     Tampilkan Semua
                   </button>

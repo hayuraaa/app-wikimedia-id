@@ -52,7 +52,7 @@ const formatTanggal = (mulai: string, selesai: string) => {
 const statusCfg = {
   berlangsung: { label: "● Berlangsung", color: "#16a34a", bg: "rgba(22,163,74,0.1)",  border: "#16a34a" },
   mendatang:   { label: "Mendatang",     color: "#1e4d7b", bg: "rgba(30,77,123,0.1)",  border: "#1e4d7b" },
-  selesai:     { label: "Selesai",       color: "#9a9690", bg: "rgba(0,0,0,0.05)",     border: "#c5c3bf" },
+  selesai:     { label: "Selesai",       color: "#6b6966 ", bg: "rgba(0,0,0,0.05)",     border: "#c5c3bf" },
 };
 
 const jenisCfg: Record<string, { label: string; color: string }> = {
@@ -79,7 +79,7 @@ function EventCard({ ev }: { ev: EventItem }) {
       >
         <div style={{ flexShrink: 0, textAlign: "center", width: "42px" }}>
           <div style={{ fontSize: "20px", fontWeight: "700", color: cfg.color, fontFamily: "var(--font-serif)", lineHeight: 1 }}>{mulai.getDate()}</div>
-          <div style={{ fontSize: "9px", fontWeight: "700", color: "#9a9690", textTransform: "uppercase" as const, letterSpacing: "0.06em", fontFamily: "var(--font-sans)", marginTop: "2px" }}>{MONTHS_ID[mulai.getMonth()].slice(0, 3)}</div>
+          <div style={{ fontSize: "9px", fontWeight: "700", color: "#6b6966 ", textTransform: "uppercase" as const, letterSpacing: "0.06em", fontFamily: "var(--font-sans)", marginTop: "2px" }}>{MONTHS_ID[mulai.getMonth()].slice(0, 3)}</div>
           <div style={{ fontSize: "9px", color: "#c5c3bf", fontFamily: "var(--font-sans)", marginTop: "1px" }}>{mulai.getFullYear()}</div>
         </div>
         <div style={{ width: "1px", backgroundColor: "#e5e2dd", alignSelf: "stretch", flexShrink: 0 }} />
@@ -87,13 +87,13 @@ function EventCard({ ev }: { ev: EventItem }) {
           <div style={{ display: "flex", alignItems: "center", gap: "6px", flexWrap: "wrap" as const, marginBottom: "5px" }}>
             <span style={{ fontSize: "9px", fontWeight: "700", letterSpacing: "0.07em", textTransform: "uppercase" as const, color: cfg.color, backgroundColor: cfg.bg, padding: "2px 8px", borderRadius: "2px", fontFamily: "var(--font-sans)" }}>{cfg.label}</span>
             <span style={{ fontSize: "9px", fontWeight: "600", textTransform: "uppercase" as const, color: jenis.color, backgroundColor: `${jenis.color}18`, padding: "2px 8px", borderRadius: "2px", fontFamily: "var(--font-sans)" }}>{jenis.label}</span>
-            <span style={{ display: "flex", alignItems: "center", gap: "3px", fontSize: "10px", color: "#9a9690", fontFamily: "var(--font-sans)" }}>
+            <span style={{ display: "flex", alignItems: "center", gap: "3px", fontSize: "10px", color: "#6b6966 ", fontFamily: "var(--font-sans)" }}>
               <svg width="9" height="9" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2"><path d="M21 10c0 7-9 13-9 13s-9-6-9-13a9 9 0 0 1 18 0z"/><circle cx="12" cy="10" r="3"/></svg>
               {ev.lokasi}
             </span>
           </div>
           <h3 style={{ fontSize: "14px", fontWeight: "600", color: status === "selesai" ? "#5c5a57" : "#0d0d0d", fontFamily: "var(--font-serif)", lineHeight: "1.4", margin: "0 0 3px" }}>{ev.judul}</h3>
-          <p style={{ fontSize: "11px", color: "#9a9690", fontFamily: "var(--font-sans)", margin: "0 0 6px" }}>{formatTanggal(ev.tanggal_mulai, ev.tanggal_selesai)}</p>
+          <p style={{ fontSize: "11px", color: "#6b6966 ", fontFamily: "var(--font-sans)", margin: "0 0 6px" }}>{formatTanggal(ev.tanggal_mulai, ev.tanggal_selesai)}</p>
           <p style={{ fontSize: "12px", color: "#7a7874", fontFamily: "var(--font-sans)", lineHeight: "1.6", margin: 0, display: "-webkit-box", WebkitLineClamp: 2, WebkitBoxOrient: "vertical" as const, overflow: "hidden" }}>
             {ev.deskripsi.replace(/\n/g, " ").trim()}
           </p>
@@ -166,7 +166,7 @@ function Pagination({ current, total, onChange }: { current: number; total: numb
         <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2"><path d="M15 18l-6-6 6-6"/></svg>
       </button>
       {pages.map((p, i) => p === "..." ? (
-        <span key={`e${i}`} style={{ minWidth: "36px", height: "36px", display: "flex", alignItems: "center", justifyContent: "center", fontSize: "13px", color: "#9a9690", fontFamily: "var(--font-sans)" }}>···</span>
+        <span key={`e${i}`} style={{ minWidth: "36px", height: "36px", display: "flex", alignItems: "center", justifyContent: "center", fontSize: "13px", color: "#6b6966 ", fontFamily: "var(--font-sans)" }}>···</span>
       ) : (
         <button key={p} style={btn(p === current)} onClick={() => onChange(p as number)}
           onMouseEnter={(e) => { if (p !== current) { (e.currentTarget as HTMLElement).style.borderColor = "#8b1a2a"; (e.currentTarget as HTMLElement).style.color = "#8b1a2a"; } }}
@@ -324,7 +324,7 @@ function CalendarView({ events }: { events: EventItem[] }) {
             </button>
             <div style={{ textAlign: "center" }}>
               <div style={{ fontSize: "15px", fontWeight: "700", color: "#0d0d0d", fontFamily: "var(--font-serif)" }}>{MONTHS_ID[calMonth]} {calYear}</div>
-              <div style={{ fontSize: "10px", color: "#9a9690", fontFamily: "var(--font-sans)", marginTop: "1px" }}>{monthEventCount} acara bulan ini</div>
+              <div style={{ fontSize: "10px", color: "#6b6966 ", fontFamily: "var(--font-sans)", marginTop: "1px" }}>{monthEventCount} acara bulan ini</div>
             </div>
             <button onClick={nextMonth} style={{ display: "flex", alignItems: "center", justifyContent: "center", width: "36px", height: "36px", border: "1px solid #e5e2dd", borderRadius: "3px", background: "#fff", cursor: "pointer", color: "#3a3a3a" }}>
               <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2"><path d="M9 18l6-6-6-6"/></svg>
@@ -333,7 +333,7 @@ function CalendarView({ events }: { events: EventItem[] }) {
           {/* Day headers */}
           <div style={{ display: "grid", gridTemplateColumns: "repeat(7, 1fr)", borderBottom: "1px solid #e5e2dd" }}>
             {DAYS_ID.map((d, i) => (
-              <div key={d} style={{ padding: "6px 2px", textAlign: "center", fontSize: "9px", fontWeight: "700", letterSpacing: "0.04em", textTransform: "uppercase" as const, color: i === 0 ? "#8b1a2a" : "#9a9690", fontFamily: "var(--font-sans)" }}>{d}</div>
+              <div key={d} style={{ padding: "6px 2px", textAlign: "center", fontSize: "9px", fontWeight: "700", letterSpacing: "0.04em", textTransform: "uppercase" as const, color: i === 0 ? "#8b1a2a" : "#6b6966 ", fontFamily: "var(--font-sans)" }}>{d}</div>
             ))}
           </div>
           {/* Cells — mobile: angka + dot indicator */}
@@ -412,8 +412,8 @@ function CalendarView({ events }: { events: EventItem[] }) {
               <span style={{ fontSize: "14px", fontWeight: "700", color: "#8b1a2a", fontFamily: "var(--font-serif)" }}>
                 {selectedDay} {MONTHS_ID[calMonth]} {calYear}
               </span>
-              <span style={{ fontSize: "11px", color: "#9a9690", fontFamily: "var(--font-sans)" }}>· {selectedEvents.length} acara</span>
-              <button onClick={() => setSelectedDay(null)} style={{ marginLeft: "auto", background: "none", border: "none", cursor: "pointer", color: "#9a9690", padding: "4px", display: "flex" }}>
+              <span style={{ fontSize: "11px", color: "#6b6966 ", fontFamily: "var(--font-sans)" }}>· {selectedEvents.length} acara</span>
+              <button onClick={() => setSelectedDay(null)} style={{ marginLeft: "auto", background: "none", border: "none", cursor: "pointer", color: "#6b6966 ", padding: "4px", display: "flex" }}>
                 <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2"><path d="M18 6L6 18M6 6l12 12"/></svg>
               </button>
             </div>
@@ -426,12 +426,12 @@ function CalendarView({ events }: { events: EventItem[] }) {
         {/* Daftar acara bulan ini (kalau tidak ada hari yang dipilih) */}
         {selectedDay === null && monthEventCount === 0 && (
           <div style={{ padding: "24px", textAlign: "center", backgroundColor: "#fff", border: "1px solid #e5e2dd", borderRadius: "4px" }}>
-            <p style={{ fontSize: "13px", color: "#9a9690", fontFamily: "var(--font-sans)", margin: 0 }}>Tidak ada acara di {MONTHS_ID[calMonth]} {calYear}.</p>
+            <p style={{ fontSize: "13px", color: "#6b6966 ", fontFamily: "var(--font-sans)", margin: 0 }}>Tidak ada acara di {MONTHS_ID[calMonth]} {calYear}.</p>
           </div>
         )}
         {selectedDay === null && monthEventCount > 0 && (
           <div>
-            <div style={{ fontSize: "10px", fontWeight: "700", color: "#9a9690", letterSpacing: "0.08em", textTransform: "uppercase" as const, fontFamily: "var(--font-sans)", marginBottom: "8px" }}>
+            <div style={{ fontSize: "10px", fontWeight: "700", color: "#6b6966 ", letterSpacing: "0.08em", textTransform: "uppercase" as const, fontFamily: "var(--font-sans)", marginBottom: "8px" }}>
               Acara {MONTHS_ID[calMonth]} {calYear}
             </div>
             <div style={{ display: "flex", flexDirection: "column", gap: "8px" }}>
@@ -459,7 +459,7 @@ function CalendarView({ events }: { events: EventItem[] }) {
           </button>
           <div style={{ textAlign: "center" }}>
             <div style={{ fontSize: "16px", fontWeight: "700", color: "#0d0d0d", fontFamily: "var(--font-serif)" }}>{MONTHS_ID[calMonth]} {calYear}</div>
-            <div style={{ fontSize: "11px", color: "#9a9690", fontFamily: "var(--font-sans)", marginTop: "1px" }}>{monthEventCount} acara bulan ini</div>
+            <div style={{ fontSize: "11px", color: "#6b6966 ", fontFamily: "var(--font-sans)", marginTop: "1px" }}>{monthEventCount} acara bulan ini</div>
           </div>
           <button onClick={nextMonth}
             style={{ display: "flex", alignItems: "center", justifyContent: "center", width: "32px", height: "32px", border: "1px solid #e5e2dd", borderRadius: "3px", background: "#fff", cursor: "pointer", transition: "all 0.15s", color: "#3a3a3a" }}
@@ -472,7 +472,7 @@ function CalendarView({ events }: { events: EventItem[] }) {
         {/* Day headers */}
         <div style={{ display: "grid", gridTemplateColumns: "repeat(7, 1fr)", borderBottom: "1px solid #e5e2dd" }}>
           {DAYS_ID.map((d, i) => (
-            <div key={d} style={{ padding: "8px 4px", textAlign: "center", fontSize: "10px", fontWeight: "700", letterSpacing: "0.05em", textTransform: "uppercase" as const, color: i === 0 ? "#8b1a2a" : "#9a9690", fontFamily: "var(--font-sans)" }}>{d}</div>
+            <div key={d} style={{ padding: "8px 4px", textAlign: "center", fontSize: "10px", fontWeight: "700", letterSpacing: "0.05em", textTransform: "uppercase" as const, color: i === 0 ? "#8b1a2a" : "#6b6966 ", fontFamily: "var(--font-sans)" }}>{d}</div>
           ))}
         </div>
 
@@ -618,7 +618,7 @@ function CalendarView({ events }: { events: EventItem[] }) {
                     {/* Overflow indicator */}
                     {dayEvs.length > 2 && (
                       <div style={{ paddingLeft: "6px" }}>
-                        <span style={{ fontSize: "8px", color: "#9a9690", fontFamily: "var(--font-sans)" }}>+{dayEvs.length - 2} lagi</span>
+                        <span style={{ fontSize: "8px", color: "#6b6966 ", fontFamily: "var(--font-sans)" }}>+{dayEvs.length - 2} lagi</span>
                       </div>
                     )}
                   </div>
@@ -638,7 +638,7 @@ function CalendarView({ events }: { events: EventItem[] }) {
           </div>
         ))}
         <div style={{ display: "flex", alignItems: "center", gap: "5px", marginLeft: "auto" }}>
-          <span style={{ fontSize: "11px", color: "#9a9690", fontFamily: "var(--font-sans)" }}>Klik tanggal untuk melihat detail acara</span>
+          <span style={{ fontSize: "11px", color: "#6b6966 ", fontFamily: "var(--font-sans)" }}>Klik tanggal untuk melihat detail acara</span>
         </div>
       </div>
 
@@ -649,8 +649,8 @@ function CalendarView({ events }: { events: EventItem[] }) {
             <span style={{ fontSize: "15px", fontWeight: "700", color: "#8b1a2a", fontFamily: "var(--font-serif)" }}>
               {selectedDay} {MONTHS_ID[calMonth]} {calYear}
             </span>
-            <span style={{ fontSize: "12px", color: "#9a9690", fontFamily: "var(--font-sans)" }}>· {selectedEvents.length} acara</span>
-            <button onClick={() => setSelectedDay(null)} style={{ marginLeft: "auto", background: "none", border: "none", cursor: "pointer", color: "#9a9690", display: "flex", alignItems: "center", gap: "4px", fontSize: "11px", fontFamily: "var(--font-sans)" }}>
+            <span style={{ fontSize: "12px", color: "#6b6966 ", fontFamily: "var(--font-sans)" }}>· {selectedEvents.length} acara</span>
+            <button onClick={() => setSelectedDay(null)} style={{ marginLeft: "auto", background: "none", border: "none", cursor: "pointer", color: "#6b6966 ", display: "flex", alignItems: "center", gap: "4px", fontSize: "11px", fontFamily: "var(--font-sans)" }}>
               <svg width="12" height="12" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2"><path d="M18 6L6 18M6 6l12 12"/></svg>
               Tutup
             </button>
@@ -663,7 +663,7 @@ function CalendarView({ events }: { events: EventItem[] }) {
 
       {selectedDay === null && monthEventCount === 0 && (
         <div style={{ padding: "32px", textAlign: "center", backgroundColor: "#fff", border: "1px solid #e5e2dd", borderRadius: "4px" }}>
-          <p style={{ fontSize: "13px", color: "#9a9690", fontFamily: "var(--font-sans)", margin: 0 }}>Tidak ada acara di {MONTHS_ID[calMonth]} {calYear}.</p>
+          <p style={{ fontSize: "13px", color: "#6b6966 ", fontFamily: "var(--font-sans)", margin: 0 }}>Tidak ada acara di {MONTHS_ID[calMonth]} {calYear}.</p>
         </div>
       )}
     </div>
@@ -857,7 +857,7 @@ export default function AcaraPage() {
                 Reset
               </button>
             )}
-            <span style={{ marginLeft: "auto", fontSize: "11px", color: "#9a9690", fontFamily: "var(--font-sans)" }}>{filtered.length} acara</span>
+            <span style={{ marginLeft: "auto", fontSize: "11px", color: "#6b6966 ", fontFamily: "var(--font-sans)" }}>{filtered.length} acara</span>
           </div>
 
           {/* Mobile: filter drawer */}
@@ -912,7 +912,7 @@ export default function AcaraPage() {
                 <div style={{ padding: "6px 0" }}>
                   {(["semua","mendatang","berlangsung","selesai"] as const).map((s) => {
                     const labels: Record<string,string> = { semua:"Semua", mendatang:"Mendatang", berlangsung:"Berlangsung", selesai:"Selesai" };
-                    const colors: Record<string,string> = { semua:"#0d0d0d", mendatang:"#1e4d7b", berlangsung:"#16a34a", selesai:"#9a9690" };
+                    const colors: Record<string,string> = { semua:"#0d0d0d", mendatang:"#1e4d7b", berlangsung:"#16a34a", selesai:"#6b6966 " };
                     const active = filterStatus === s;
                     return (
                       <button key={s} onClick={() => setFilterStatus(s)} style={sidebarBtn(active)}
@@ -920,7 +920,7 @@ export default function AcaraPage() {
                         onMouseLeave={(e) => { if (!active) (e.currentTarget as HTMLElement).style.background = "transparent"; }}>
                         <span style={{ fontSize: "12px", color: active ? "#8b1a2a" : colors[s], fontFamily: "var(--font-sans)", fontWeight: active ? "700" : "500" }}>{labels[s]}</span>
                         {s !== "semua" && !loading && (
-                          <span style={{ fontSize: "10px", color: "#9a9690", backgroundColor: "#f0eeec", padding: "1px 7px", borderRadius: "10px", fontFamily: "var(--font-sans)" }}>
+                          <span style={{ fontSize: "10px", color: "#6b6966 ", backgroundColor: "#f0eeec", padding: "1px 7px", borderRadius: "10px", fontFamily: "var(--font-sans)" }}>
                             {events.filter((e) => getStatus(e) === s).length}
                           </span>
                         )}
@@ -963,7 +963,7 @@ export default function AcaraPage() {
                     {availableYears.map((y) => (
                       <button key={y} onClick={() => { setFilterYear(y); setFilterMonth("semua"); }} style={sidebarBtn(filterYear === y)}>
                         <span style={{ fontSize: "12px", color: filterYear === y ? "#8b1a2a" : "#3a3a3a", fontFamily: "var(--font-sans)", fontWeight: filterYear === y ? "700" : "500" }}>{y}</span>
-                        <span style={{ fontSize: "10px", color: "#9a9690", backgroundColor: "#f0eeec", padding: "1px 7px", borderRadius: "10px", fontFamily: "var(--font-sans)" }}>
+                        <span style={{ fontSize: "10px", color: "#6b6966 ", backgroundColor: "#f0eeec", padding: "1px 7px", borderRadius: "10px", fontFamily: "var(--font-sans)" }}>
                           {events.filter((e) => new Date(e.tanggal_mulai).getFullYear() === y).length}
                         </span>
                       </button>
@@ -1018,14 +1018,14 @@ export default function AcaraPage() {
                   </h2>
                 </div>
                 <div style={{ display: "flex", alignItems: "center", gap: "12px" }}>
-                  {!loading && <span style={{ fontSize: "12px", color: "#9a9690", fontFamily: "var(--font-sans)" }}>{filtered.length} acara</span>}
+                  {!loading && <span style={{ fontSize: "12px", color: "#6b6966 ", fontFamily: "var(--font-sans)" }}>{filtered.length} acara</span>}
                   {/* Toggle */}
                   <div style={{ display: "flex", border: "1px solid #e5e2dd", borderRadius: "3px", overflow: "hidden" }}>
                     {(["list","calendar"] as ViewMode[]).map((mode) => {
                       const active = viewMode === mode;
                       return (
                         <button key={mode} onClick={() => setViewMode(mode)}
-                          style={{ padding: "7px 14px", border: "none", borderRight: mode === "list" ? "1px solid #e5e2dd" : "none", backgroundColor: active ? "#0d0d0d" : "#fff", color: active ? "#fff" : "#9a9690", cursor: "pointer", display: "flex", alignItems: "center", gap: "5px", fontSize: "11px", fontWeight: "600", fontFamily: "var(--font-sans)", transition: "all 0.15s" }}
+                          style={{ padding: "7px 14px", border: "none", borderRight: mode === "list" ? "1px solid #e5e2dd" : "none", backgroundColor: active ? "#0d0d0d" : "#fff", color: active ? "#fff" : "#6b6966 ", cursor: "pointer", display: "flex", alignItems: "center", gap: "5px", fontSize: "11px", fontWeight: "600", fontFamily: "var(--font-sans)", transition: "all 0.15s" }}
                           onMouseEnter={(e) => { if (!active) (e.currentTarget as HTMLElement).style.backgroundColor = "#f8f7f5"; }}
                           onMouseLeave={(e) => { if (!active) (e.currentTarget as HTMLElement).style.backgroundColor = "#fff"; }}>
                           {mode === "list" ? (
@@ -1050,7 +1050,7 @@ export default function AcaraPage() {
                 <CalendarView events={filtered} />
               ) : filtered.length === 0 ? (
                 <div style={{ padding: "60px 24px", textAlign: "center", backgroundColor: "#fff", border: "1px solid #e5e2dd", borderRadius: "4px" }}>
-                  <p style={{ fontSize: "15px", color: "#9a9690", fontFamily: "var(--font-sans)" }}>Tidak ada acara yang sesuai filter.</p>
+                  <p style={{ fontSize: "15px", color: "#6b6966 ", fontFamily: "var(--font-sans)" }}>Tidak ada acara yang sesuai filter.</p>
                   <button onClick={resetFilter} style={{ marginTop: "12px", padding: "8px 20px", borderRadius: "3px", border: "none", backgroundColor: "#8b1a2a", color: "#fff", fontSize: "12px", fontWeight: "700", fontFamily: "var(--font-sans)", cursor: "pointer" }}>
                     Reset Filter
                   </button>
@@ -1063,10 +1063,10 @@ export default function AcaraPage() {
                         <div style={{ display: "flex", alignItems: "center", gap: "10px", marginBottom: "10px" }}>
                           <div style={{ display: "flex", alignItems: "baseline", gap: "5px" }}>
                             <span style={{ fontSize: "15px", fontWeight: "700", color: "#0d0d0d", fontFamily: "var(--font-serif)" }}>{MONTHS_ID[month]}</span>
-                            <span style={{ fontSize: "12px", color: "#9a9690", fontFamily: "var(--font-sans)" }}>{year}</span>
+                            <span style={{ fontSize: "12px", color: "#6b6966 ", fontFamily: "var(--font-sans)" }}>{year}</span>
                           </div>
                           <div style={{ flex: 1, height: "1px", backgroundColor: "#e5e2dd" }} />
-                          <span style={{ fontSize: "10px", color: "#9a9690", fontFamily: "var(--font-sans)" }}>{evs.length} acara</span>
+                          <span style={{ fontSize: "10px", color: "#6b6966 ", fontFamily: "var(--font-sans)" }}>{evs.length} acara</span>
                         </div>
                         <div style={{ display: "flex", flexDirection: "column", gap: "8px" }}>
                           {evs.map((ev) => <EventCard key={ev.id} ev={ev} />)}

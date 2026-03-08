@@ -465,7 +465,7 @@ export default function TentangPage() {
               <span style={{ fontSize: "11px", fontWeight: "700", letterSpacing: "0.1em", textTransform: "uppercase" as const, color: "#8b1a2a", fontFamily: "var(--font-sans)" }}>◆ Galeri</span>
               <h2 style={{ fontSize: "1.4rem", fontWeight: "700", color: "#0d0d0d", fontFamily: "var(--font-serif)", marginTop: "4px", marginBottom: 0 }}>Kegiatan Wikimedia Indonesia</h2>
             </div>
-            <span style={{ fontSize: "11px", color: "#9a9690", fontFamily: "var(--font-sans)" }}>Klik foto · Gunakan ← → atau ESC</span>
+            <span style={{ fontSize: "11px", color: "#6b6966", fontFamily: "var(--font-sans)" }}>Klik foto · Gunakan ← → atau ESC</span>
           </div>
           <MasonryGallery />
         </div>

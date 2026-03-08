@@ -158,7 +158,7 @@ export default function SyaratPenggunaanPage() {
 
             {/* ── TOC Sidebar ── */}
             <nav style={{ position: "sticky", top: "88px" }}>
-              <p style={{ fontSize: "10px", fontWeight: "700", color: "#9a9690", fontFamily: "var(--font-sans)", letterSpacing: "0.1em", textTransform: "uppercase" as const, margin: "0 0 10px" }}>Daftar Isi</p>
+              <p style={{ fontSize: "10px", fontWeight: "700", color: "#6b6966", fontFamily: "var(--font-sans)", letterSpacing: "0.1em", textTransform: "uppercase" as const, margin: "0 0 10px" }}>Daftar Isi</p>
               <div style={{ display: "flex", flexDirection: "column", gap: "2px" }}>
                 {SECTIONS.map((s) => (
                   <a key={s.num} href={`#section-${s.num}`}
@@ -212,7 +212,7 @@ export default function SyaratPenggunaanPage() {
                     <div>
                       <h2 style={{ fontSize: "15px", fontWeight: "700", color: "#0d0d0d", fontFamily: "var(--font-serif)", margin: 0, lineHeight: "1.4" }}>{s.title}</h2>
                       {(s as any).emphasis && (
-                        <span style={{ fontSize: "10px", color: "#9a9690", fontFamily: "var(--font-sans)", fontStyle: "italic" }}>Dicetak tebal untuk menambah penekanan</span>
+                        <span style={{ fontSize: "10px", color: "#6b6966", fontFamily: "var(--font-sans)", fontStyle: "italic" }}>Dicetak tebal untuk menambah penekanan</span>
                       )}
                     </div>
                   </div>

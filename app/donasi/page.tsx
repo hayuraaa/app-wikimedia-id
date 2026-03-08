@@ -61,7 +61,7 @@ function DonasiIlustrasi() {
       <line x1="160" y1="258" x2="275" y2="258" stroke="#e5e2dd" strokeWidth="1" />
 
       {/* Tagline at bottom */}
-      <text x="210" y="280" textAnchor="middle" fontSize="10" fill="#9a9690" fontFamily="sans-serif" letterSpacing="1">
+      <text x="210" y="280" textAnchor="middle" fontSize="10" fill="#6b6966" fontFamily="sans-serif" letterSpacing="1">
         Bersama membebaskan pengetahuan
       </text>
     </svg>

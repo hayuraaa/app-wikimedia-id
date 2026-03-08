@@ -71,12 +71,12 @@ function KarirCard({ item }: { item: Karir }) {
 
           {/* Meta */}
           <div style={{ display: "flex", gap: "16px", flexWrap: "wrap" as const }}>
-            <span style={{ fontSize: "11px", color: "#9a9690", fontFamily: "var(--font-sans)", display: "flex", alignItems: "center", gap: "5px" }}>
+            <span style={{ fontSize: "11px", color: "#6b6966", fontFamily: "var(--font-sans)", display: "flex", alignItems: "center", gap: "5px" }}>
               <svg width="11" height="11" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2"><rect x="3" y="4" width="18" height="18" rx="2"/><line x1="16" y1="2" x2="16" y2="6"/><line x1="8" y1="2" x2="8" y2="6"/><line x1="3" y1="10" x2="21" y2="10"/></svg>
               Dibuka: {formatDate(item.published_at)}
             </span>
             {item.expires_at && (
-              <span style={{ fontSize: "11px", color: expiring ? "#d97706" : "#9a9690", fontFamily: "var(--font-sans)", display: "flex", alignItems: "center", gap: "5px" }}>
+              <span style={{ fontSize: "11px", color: expiring ? "#d97706" : "#6b6966", fontFamily: "var(--font-sans)", display: "flex", alignItems: "center", gap: "5px" }}>
                 <svg width="11" height="11" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2"><circle cx="12" cy="12" r="10"/><polyline points="12 6 12 12 16 14"/></svg>
                 Batas: {formatDate(item.expires_at)}
               </span>
@@ -163,19 +163,19 @@ export default function KarierClient({ items, total }: { items: Karir[]; total: 
                 </h2>
               </div>
               {total > 0 && (
-                <span style={{ fontSize: "12px", color: "#9a9690", fontFamily: "var(--font-sans)" }}>{total} lowongan</span>
+                <span style={{ fontSize: "12px", color: "#6b6966", fontFamily: "var(--font-sans)" }}>{total} lowongan</span>
               )}
             </div>
 
             {items.length === 0 ? (
               <div style={{ backgroundColor: "#fff", border: "1px solid #e5e2dd", borderRadius: "4px", padding: "52px 24px", textAlign: "center" }}>
                 <div style={{ width: "52px", height: "52px", borderRadius: "50%", backgroundColor: "#f0eeec", display: "flex", alignItems: "center", justifyContent: "center", margin: "0 auto 16px" }}>
-                  <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="#9a9690" strokeWidth="1.5"><rect x="2" y="7" width="20" height="14" rx="2"/><path d="M16 7V5a2 2 0 0 0-2-2h-4a2 2 0 0 0-2 2v2"/><line x1="12" y1="12" x2="12" y2="16"/><line x1="10" y1="14" x2="14" y2="14"/></svg>
+                  <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="#6b6966" strokeWidth="1.5"><rect x="2" y="7" width="20" height="14" rx="2"/><path d="M16 7V5a2 2 0 0 0-2-2h-4a2 2 0 0 0-2 2v2"/><line x1="12" y1="12" x2="12" y2="16"/><line x1="10" y1="14" x2="14" y2="14"/></svg>
                 </div>
                 <p style={{ fontSize: "15px", fontWeight: "600", color: "#3a3a3a", fontFamily: "var(--font-serif)", margin: "0 0 6px" }}>
                   Saat ini tidak ada lowongan tersedia
                 </p>
-                <p style={{ fontSize: "13px", color: "#9a9690", fontFamily: "var(--font-sans)", margin: 0 }}>
+                <p style={{ fontSize: "13px", color: "#6b6966", fontFamily: "var(--font-sans)", margin: 0 }}>
                   Pantau terus halaman ini untuk informasi lowongan terbaru.
                 </p>
               </div>

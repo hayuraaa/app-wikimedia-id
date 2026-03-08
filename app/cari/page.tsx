@@ -120,7 +120,7 @@ function Pagination({ current, total, onChange }: { current: number; total: numb
       </button>
       {pages.map((p, idx) =>
         p === "..." ? (
-          <span key={`e-${idx}`} style={{ minWidth: "32px", height: "32px", display: "flex", alignItems: "center", justifyContent: "center", fontSize: "12px", color: "#9a9690", fontFamily: "var(--font-sans)" }}>···</span>
+          <span key={`e-${idx}`} style={{ minWidth: "32px", height: "32px", display: "flex", alignItems: "center", justifyContent: "center", fontSize: "12px", color: "#6b6966", fontFamily: "var(--font-sans)" }}>···</span>
         ) : (
           <button key={p}
             style={{ ...btn, backgroundColor: p === current ? "#8b1a2a" : "#fff", borderColor: p === current ? "#8b1a2a" : "#e5e2dd", color: p === current ? "#fff" : "#3a3a3a", fontWeight: p === current ? "700" : "500" }}
@@ -198,8 +198,8 @@ function ResultCard({ result, query }: { result: SearchResult; query: string }) 
             }}>
               {m.icon}{m.label}
             </span>
-            {result.date && <span style={{ fontSize: "11px", color: "#9a9690", fontFamily: "var(--font-sans)" }}>{formatDate(result.date)}</span>}
-            {result.meta && <span style={{ fontSize: "11px", color: "#9a9690", fontFamily: "var(--font-sans)" }}>· {result.meta}</span>}
+            {result.date && <span style={{ fontSize: "11px", color: "#6b6966", fontFamily: "var(--font-sans)" }}>{formatDate(result.date)}</span>}
+            {result.meta && <span style={{ fontSize: "11px", color: "#6b6966", fontFamily: "var(--font-sans)" }}>· {result.meta}</span>}
           </div>
           <h3 style={{ fontSize: "14px", fontWeight: "700", color: "#0d0d0d", lineHeight: "1.45", fontFamily: "var(--font-serif)", margin: 0 }}>
             {highlightText(result.title, query)}
@@ -230,7 +230,7 @@ function EmptyState({ query }: { query: string }) {
       <h3 style={{ fontSize: "17px", fontWeight: "700", color: "#0d0d0d", fontFamily: "var(--font-serif)", margin: "0 0 8px" }}>
         Tidak ada hasil untuk "{query}"
       </h3>
-      <p style={{ fontSize: "13px", color: "#9a9690", fontFamily: "var(--font-sans)", lineHeight: "1.7", marginBottom: "20px" }}>
+      <p style={{ fontSize: "13px", color: "#6b6966", fontFamily: "var(--font-sans)", lineHeight: "1.7", marginBottom: "20px" }}>
         Coba gunakan kata kunci yang berbeda atau lebih umum.
       </p>
       <div style={{ display: "flex", gap: "8px", justifyContent: "center", flexWrap: "wrap" }}>
@@ -455,7 +455,7 @@ function SearchPageInner() {
               <div style={{ backgroundColor: "#fff", border: "1px solid #e5e2dd", borderRadius: "4px", overflow: "hidden" }}>
                 <div style={{ height: "3px", background: "linear-gradient(90deg, #8b1a2a, #1e4d7b)" }} />
                 <div style={{ padding: "14px 14px 10px" }}>
-                  <p style={{ fontSize: "9px", fontWeight: "700", letterSpacing: "0.1em", textTransform: "uppercase" as const, color: "#9a9690", fontFamily: "var(--font-sans)", margin: "0 0 10px" }}>
+                  <p style={{ fontSize: "9px", fontWeight: "700", letterSpacing: "0.1em", textTransform: "uppercase" as const, color: "#6b6966", fontFamily: "var(--font-sans)", margin: "0 0 10px" }}>
                     Filter Tipe
                   </p>
                   {FILTERS.map((f) => {
@@ -480,7 +480,7 @@ function SearchPageInner() {
                           {f.label}
                         </span>
                         {count > 0 && (
-                          <span style={{ fontSize: "10px", fontWeight: "700", color: isActive ? (tm ? tm.color : "#0d0d0d") : "#9a9690", backgroundColor: isActive ? (tm ? tm.bg : "rgba(13,13,13,0.08)") : "#f0eeec", padding: "1px 7px", borderRadius: "100px", fontFamily: "var(--font-sans)" }}>
+                          <span style={{ fontSize: "10px", fontWeight: "700", color: isActive ? (tm ? tm.color : "#0d0d0d") : "#6b6966", backgroundColor: isActive ? (tm ? tm.bg : "rgba(13,13,13,0.08)") : "#f0eeec", padding: "1px 7px", borderRadius: "100px", fontFamily: "var(--font-sans)" }}>
                             {count}
                           </span>
                         )}
@@ -489,9 +489,9 @@ function SearchPageInner() {
                   })}
                 </div>
                 <div style={{ padding: "10px 14px", borderTop: "1px solid #f5f4f2" }}>
-                  <Link href="/" style={{ display: "flex", alignItems: "center", gap: "6px", fontSize: "12px", color: "#9a9690", fontFamily: "var(--font-sans)", textDecoration: "none", transition: "color 0.15s" }}
+                  <Link href="/" style={{ display: "flex", alignItems: "center", gap: "6px", fontSize: "12px", color: "#6b6966", fontFamily: "var(--font-sans)", textDecoration: "none", transition: "color 0.15s" }}
                     onMouseEnter={(e) => (e.currentTarget.style.color = "#8b1a2a")}
-                    onMouseLeave={(e) => (e.currentTarget.style.color = "#9a9690")}>
+                    onMouseLeave={(e) => (e.currentTarget.style.color = "#6b6966")}>
                     <svg width="11" height="11" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2"><path d="M15 18l-6-6 6-6"/></svg>
                     Kembali ke Beranda
                   </Link>
@@ -514,7 +514,7 @@ function SearchPageInner() {
                   )}
                 </div>
                 {!loading && searched && filteredAll.length > 0 && (
-                  <span style={{ fontSize: "12px", color: "#9a9690", fontFamily: "var(--font-sans)" }}>
+                  <span style={{ fontSize: "12px", color: "#6b6966", fontFamily: "var(--font-sans)" }}>
                     {filteredAll.length} hasil
                     {totalPages > 1 && ` · hal. ${currentPage}/${totalPages}`}
                   </span>
@@ -525,7 +525,7 @@ function SearchPageInner() {
               {!activeQuery ? (
                 <div style={{ backgroundColor: "#fff", border: "1px solid #e5e2dd", borderRadius: "4px", padding: "60px 24px", textAlign: "center" }}>
                   <div style={{ fontSize: "44px", marginBottom: "14px", opacity: 0.2 }}>🔍</div>
-                  <p style={{ fontSize: "14px", color: "#9a9690", fontFamily: "var(--font-sans)", margin: 0 }}>
+                  <p style={{ fontSize: "14px", color: "#6b6966", fontFamily: "var(--font-sans)", margin: 0 }}>
                     Ketik kata kunci di atas untuk mulai mencari.
                   </p>
                 </div>
@@ -535,7 +535,7 @@ function SearchPageInner() {
                 <EmptyState query={activeQuery} />
               ) : filteredAll.length === 0 ? (
                 <div style={{ backgroundColor: "#fff", border: "1px solid #e5e2dd", borderRadius: "4px", padding: "40px 24px", textAlign: "center" }}>
-                  <p style={{ fontSize: "14px", color: "#9a9690", fontFamily: "var(--font-sans)", margin: 0 }}>
+                  <p style={{ fontSize: "14px", color: "#6b6966", fontFamily: "var(--font-sans)", margin: 0 }}>
                     Tidak ada hasil untuk filter ini.
                   </p>
                   <button onClick={() => handleFilterChange("semua")}

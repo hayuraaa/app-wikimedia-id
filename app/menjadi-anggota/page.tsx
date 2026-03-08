@@ -69,15 +69,15 @@ function RegistrationCard() {
         borderLeft: `4px solid ${isPerpanjangOpen ? "#f59e0b" : "#e5e2dd"}`,
         borderRadius: "4px", padding: "18px 20px",
       }}>
-        <span style={{ fontSize: "10px", fontWeight: "700", letterSpacing: "0.08em", textTransform: "uppercase" as const, color: isPerpanjangOpen ? "#92400e" : "#9a9690", fontFamily: "var(--font-sans)" }}>
+        <span style={{ fontSize: "10px", fontWeight: "700", letterSpacing: "0.08em", textTransform: "uppercase" as const, color: isPerpanjangOpen ? "#92400e" : "#6b6966", fontFamily: "var(--font-sans)" }}>
           {isPerpanjangOpen ? "⚠ Perpanjangan" : "◆ Perpanjangan"}
         </span>
         <h3 style={{ fontSize: "13px", fontWeight: "700", color: "#0d0d0d", fontFamily: "var(--font-serif)", margin: "8px 0 6px", lineHeight: "1.4" }}>
           Perpanjangan Keanggotaan
         </h3>
         <div style={{ display: "flex", alignItems: "center", gap: "6px", marginBottom: "8px" }}>
-          <svg width="11" height="11" viewBox="0 0 24 24" fill="none" stroke="#9a9690" strokeWidth="2"><rect x="3" y="4" width="18" height="18" rx="2"/><line x1="16" y1="2" x2="16" y2="6"/><line x1="8" y1="2" x2="8" y2="6"/><line x1="3" y1="10" x2="21" y2="10"/></svg>
-          <span style={{ fontSize: "11px", color: "#9a9690", fontFamily: "var(--font-sans)", fontWeight: "600" }}>Setiap tahun: 1 November – 31 Desember</span>
+          <svg width="11" height="11" viewBox="0 0 24 24" fill="none" stroke="#6b6966" strokeWidth="2"><rect x="3" y="4" width="18" height="18" rx="2"/><line x1="16" y1="2" x2="16" y2="6"/><line x1="8" y1="2" x2="8" y2="6"/><line x1="3" y1="10" x2="21" y2="10"/></svg>
+          <span style={{ fontSize: "11px", color: "#6b6966", fontFamily: "var(--font-sans)", fontWeight: "600" }}>Setiap tahun: 1 November – 31 Desember</span>
         </div>
         <p style={{ fontSize: "12px", color: "#5c5a57", fontFamily: "var(--font-sans)", margin: "0 0 12px", lineHeight: "1.65" }}>
           {isPerpanjangOpen
@@ -93,7 +93,7 @@ function RegistrationCard() {
             <svg width="12" height="12" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2.5"><path d="M5 12h14M12 5l7 7-7 7"/></svg>
           </a>
         ) : (
-          <div style={{ fontSize: "11px", color: "#9a9690", fontFamily: "var(--font-sans)", fontStyle: "italic" }}>
+          <div style={{ fontSize: "11px", color: "#6b6966", fontFamily: "var(--font-sans)", fontStyle: "italic" }}>
             Tombol perpanjangan akan muncul saat periode dibuka.
           </div>
         )}
@@ -127,7 +127,7 @@ function PendaftaranPerpanjanganSection() {
               fontSize: "10px", fontWeight: "700", padding: "2px 8px", borderRadius: "100px",
               fontFamily: "var(--font-sans)", letterSpacing: "0.05em", textTransform: "uppercase" as const,
               backgroundColor: isDaftarOpen ? "rgba(139,26,42,0.1)" : "#f0eeec",
-              color: isDaftarOpen ? "#8b1a2a" : "#9a9690",
+              color: isDaftarOpen ? "#8b1a2a" : "#6b6966",
               border: isDaftarOpen ? "1px solid rgba(139,26,42,0.2)" : "1px solid #e5e2dd",
             }}>
               {isDaftarOpen ? `\u25CF Dibuka \u2014 ${year}` : "Belum Dibuka"}
@@ -139,7 +139,7 @@ function PendaftaranPerpanjanganSection() {
           <p style={{ fontSize: "13px", color: "#5c5a57", fontFamily: "var(--font-sans)", margin: "0 0 4px", lineHeight: "1.65" }}>
             Dibuka setiap tahun pada <strong>1 Januari &ndash; 28 Februari</strong>.
           </p>
-          <p style={{ fontSize: "13px", color: isDaftarOpen ? "#8b1a2a" : "#9a9690", fontFamily: "var(--font-sans)", margin: 0, lineHeight: "1.65", fontWeight: isDaftarOpen ? "600" : "400" }}>
+          <p style={{ fontSize: "13px", color: isDaftarOpen ? "#8b1a2a" : "#6b6966", fontFamily: "var(--font-sans)", margin: 0, lineHeight: "1.65", fontWeight: isDaftarOpen ? "600" : "400" }}>
             {isDaftarOpen
               ? `Pendaftaran anggota baru ${year} sedang berlangsung. Segera daftarkan diri Anda sebelum 28 Februari ${year}!`
               : `Pendaftaran akan dibuka kembali pada 1 Januari ${year + 1}. Daftarkan email Anda untuk mendapat pengingat.`}
@@ -169,7 +169,7 @@ function PendaftaranPerpanjanganSection() {
               fontSize: "10px", fontWeight: "700", padding: "2px 8px", borderRadius: "100px",
               fontFamily: "var(--font-sans)", letterSpacing: "0.05em", textTransform: "uppercase" as const,
               backgroundColor: isPerpanjangOpen ? "rgba(245,158,11,0.1)" : "#f0eeec",
-              color: isPerpanjangOpen ? "#92400e" : "#9a9690",
+              color: isPerpanjangOpen ? "#92400e" : "#6b6966",
               border: isPerpanjangOpen ? "1px solid rgba(245,158,11,0.3)" : "1px solid #e5e2dd",
             }}>
               {isPerpanjangOpen ? `\u25CF Dibuka \u2014 ${year}` : "Belum Dibuka"}
@@ -181,7 +181,7 @@ function PendaftaranPerpanjanganSection() {
           <p style={{ fontSize: "13px", color: "#5c5a57", fontFamily: "var(--font-sans)", margin: "0 0 4px", lineHeight: "1.65" }}>
             Dibuka setiap tahun pada <strong>1 November &ndash; 31 Desember</strong>.
           </p>
-          <p style={{ fontSize: "13px", color: isPerpanjangOpen ? "#92400e" : "#9a9690", fontFamily: "var(--font-sans)", margin: 0, lineHeight: "1.65", fontWeight: isPerpanjangOpen ? "600" : "400" }}>
+          <p style={{ fontSize: "13px", color: isPerpanjangOpen ? "#92400e" : "#6b6966", fontFamily: "var(--font-sans)", margin: 0, lineHeight: "1.65", fontWeight: isPerpanjangOpen ? "600" : "400" }}>
             {isPerpanjangOpen
               ? `Perpanjangan keanggotaan ${year} sedang berlangsung. Segera perpanjang sebelum 31 Desember ${year}!`
               : `Perpanjangan akan dibuka kembali pada 1 November ${year}. Keanggotaan aktif berlaku hingga 31 Desember setiap tahunnya.`}
@@ -269,7 +269,7 @@ function SubscribeForm() {
           {status === "error" && (
             <p style={{ fontSize: "12px", color: "#dc2626", fontFamily: "var(--font-sans)", margin: "8px 0 0" }}>{message}</p>
           )}
-          <p style={{ fontSize: "11px", color: "#9a9690", fontFamily: "var(--font-sans)", margin: "10px 0 0", lineHeight: "1.6" }}>
+          <p style={{ fontSize: "11px", color: "#6b6966", fontFamily: "var(--font-sans)", margin: "10px 0 0", lineHeight: "1.6" }}>
             Kami tidak akan mengirim spam. Anda dapat berhenti berlangganan kapan saja.
           </p>
         </div>
@@ -379,7 +379,7 @@ export default function MenjadiAnggotaPage() {
                         <div style={{ padding: "11px 14px", backgroundColor: "#f8f7f5", borderRadius: "3px", border: "1px solid #e5e2dd" }}>
                           <span style={{ fontSize: "10px", fontWeight: "700", color: "#5c5a57", fontFamily: "var(--font-sans)", display: "block", marginBottom: "2px" }}>PELAJAR / MAHASISWA (S1)</span>
                           <span style={{ fontSize: "17px", fontWeight: "700", color: "#0d0d0d", fontFamily: "var(--font-sans)" }}>{opsi.pelajar}</span>
-                          <span style={{ fontSize: "10px", color: "#9a9690", fontFamily: "var(--font-sans)", display: "block", marginTop: "3px" }}>*lampirkan kartu tanda pelajar/mahasiswa yang masih berlaku</span>
+                          <span style={{ fontSize: "10px", color: "#6b6966", fontFamily: "var(--font-sans)", display: "block", marginTop: "3px" }}>*lampirkan kartu tanda pelajar/mahasiswa yang masih berlaku</span>
                         </div>
                       </div>
                     </div>
@@ -427,7 +427,7 @@ export default function MenjadiAnggotaPage() {
                     { label: "Masa Berlaku", value: "1 tahun" },
                   ].map((row, i) => (
                     <div key={i} style={{ display: "flex", justifyContent: "space-between", alignItems: "center", padding: "10px 0", ...(i > 0 ? { borderTop: "1px solid #f0eeec" } : {}) }}>
-                      <span style={{ fontSize: "12px", color: "#9a9690", fontFamily: "var(--font-sans)" }}>{row.label}</span>
+                      <span style={{ fontSize: "12px", color: "#6b6966", fontFamily: "var(--font-sans)" }}>{row.label}</span>
                       <span style={{ fontSize: "12px", fontWeight: "700", color: "#0d0d0d", fontFamily: "var(--font-sans)" }}>{row.value}</span>
                     </div>
                   ))}
