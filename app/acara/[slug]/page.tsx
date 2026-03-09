@@ -71,6 +71,12 @@ const jenisCfg: Record<string, { label: string; color: string; desc: string }> =
   hybrid: { label: "Hybrid",  color: "#502878", desc: "Kombinasi daring dan tatap muka" },
 };
 
+const normalizeUrl = (url: string) => {
+  if (!url) return "#";
+  if (/^https?:\/\//i.test(url)) return url;
+  return `https://${url}`;
+};
+
 // ─── Countdown ────────────────────────────────────────────────────────────────
 
 function Countdown({ targetDate }: { targetDate: string }) {
@@ -263,7 +269,7 @@ export default function AcaraDetailPage({ params }: { params: Promise<{ slug: st
                   </div>
                   <div style={{ padding: "16px 24px", display: "flex", flexDirection: "column", gap: "8px" }}>
                     {event.links.map((l) => (
-                      <a key={l.id} href={l.url} target="_blank" rel="noopener noreferrer"
+                      <a key={l.id} href={normalizeUrl(l.url)} target="_blank" rel="noopener noreferrer"
                         style={{ display: "flex", alignItems: "center", justifyContent: "space-between", gap: "12px", padding: "12px 16px", border: "1px solid #e5e2dd", borderRadius: "3px", textDecoration: "none", backgroundColor: "#fafaf9", transition: "all 0.15s" }}
                         onMouseEnter={(e) => { (e.currentTarget as HTMLElement).style.borderColor = "#1e4d7b"; (e.currentTarget as HTMLElement).style.backgroundColor = "rgba(30,77,123,0.04)"; }}
                         onMouseLeave={(e) => { (e.currentTarget as HTMLElement).style.borderColor = "#e5e2dd"; (e.currentTarget as HTMLElement).style.backgroundColor = "#fafaf9"; }}>

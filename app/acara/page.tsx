@@ -61,6 +61,12 @@ const jenisCfg: Record<string, { label: string; color: string }> = {
   hybrid: { label: "Hybrid", color: "#502878" },
 };
 
+const normalizeUrl = (url: string) => {
+  if (!url) return "#";
+  if (/^https?:\/\//i.test(url)) return url;
+  return `https://${url}`;
+};
+
 // ─── Event Card ───────────────────────────────────────────────────────────────
 
 function EventCard({ ev }: { ev: EventItem }) {
@@ -100,7 +106,7 @@ function EventCard({ ev }: { ev: EventItem }) {
           {ev.links.length > 0 && (
             <div style={{ display: "flex", gap: "6px", flexWrap: "wrap" as const, marginTop: "8px" }}>
               {ev.links.map((l) => (
-                <a key={l.id} href={l.url} target="_blank" rel="noopener noreferrer" onClick={(e) => e.stopPropagation()}
+                <a key={l.id} href={normalizeUrl(l.url)} target="_blank" rel="noopener noreferrer" onClick={(e) => e.stopPropagation()}
                   style={{ fontSize: "10px", fontWeight: "600", color: "#1e4d7b", backgroundColor: "rgba(30,77,123,0.08)", padding: "2px 10px", borderRadius: "2px", textDecoration: "none", fontFamily: "var(--font-sans)", display: "inline-flex", alignItems: "center", gap: "4px", transition: "all 0.15s" }}
                   onMouseEnter={(e) => { e.currentTarget.style.backgroundColor = "rgba(30,77,123,0.18)"; }}
                   onMouseLeave={(e) => { e.currentTarget.style.backgroundColor = "rgba(30,77,123,0.08)"; }}>
