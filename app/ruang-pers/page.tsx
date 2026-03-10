@@ -1,4 +1,11 @@
+import type { Metadata } from "next";
 import RuangPersClient from "@/components/ruang-pers/RuangPersClient";
+
+export const metadata: Metadata = {
+  title: "Ruang Pers – Wikimedia Indonesia",
+  description:
+    "Siaran pers dan pengumuman resmi dari Wikimedia Indonesia.",
+};
 
 export type PressRelease = {
   id: number;

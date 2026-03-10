@@ -1,5 +1,34 @@
 import { notFound } from "next/navigation";
 import ArticleClient from "@/components/rubrik/ArticleClient";
+import type { Metadata } from "next";
+
+
+export async function generateMetadata({
+  params,
+}: {
+  params: Promise<{ slug: string }>;
+}): Promise<Metadata> {
+  const { slug } = await params;
+  const article = await getArticle(slug);
+
+  if (!article) {
+    return {
+      title: "Artikel Tidak Ditemukan – Wikimedia Indonesia",
+    };
+  }
+
+  return {
+    title: `${article.title} – Wikimedia Indonesia`,
+    description: article.excerpt
+      ? article.excerpt.substring(0, 160).trim()
+      : article.content.replace(/<[^>]*>/g, "").substring(0, 160).trim(),
+    openGraph: {
+      title: article.title,
+      description: article.excerpt ?? "",
+      images: article.featured_image ? [article.featured_image] : [],
+    },
+  };
+}
 
 // ─── Types ────────────────────────────────────────────────────────────────────
 

@@ -48,7 +48,7 @@ async function getArticles(): Promise<Article[]> {
   try {
     const res = await fetch(
       "https://dashboard.wikimedia.or.id/api/v1/articles?per_page=4",
-      { next: { revalidate: 3600 } }
+      { next: { revalidate: 300 } }
     );
     const json = await res.json();
     return json.success ? json.data : [];
@@ -61,7 +61,7 @@ async function getEvents(): Promise<EventItem[]> {
   try {
     const res = await fetch(
       "https://dashboard.wikimedia.or.id/api/v1/events/upcoming/list?limit=5",
-      { next: { revalidate: 3600 } }
+      { next: { revalidate: 300 } }
     );
     const json = await res.json();
     if (json.success && json.data?.length > 0) {
@@ -69,7 +69,7 @@ async function getEvents(): Promise<EventItem[]> {
     }
     const fallbackRes = await fetch(
       "https://dashboard.wikimedia.or.id/api/v1/events?upcoming=false",
-      { next: { revalidate: 3600 } }
+      { next: { revalidate: 300 } }
     );
     const fallback = await fallbackRes.json();
     if (fallback.success) {

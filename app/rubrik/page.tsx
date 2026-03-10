@@ -1,6 +1,12 @@
 // SERVER COMPONENT — fetch halaman pertama + popular + categories di server
 import { Suspense } from "react";
 import RubrikClient from "@/components/rubrik/RubrikClient";
+import type { Metadata } from "next";
+
+export const metadata: Metadata = {
+  title: "Rubrik – Wikimedia Indonesia",
+  description: "Kumpulan artikel terbaru dari Wikimedia Indonesia.",
+};
 
 const PER_PAGE = 12;
 

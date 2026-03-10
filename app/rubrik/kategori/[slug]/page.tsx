@@ -1,5 +1,20 @@
 import { Suspense } from "react";
 import KategoriClient from "@/components/rubrik/KategoriClient";
+import type { Metadata } from "next";
+
+export async function generateMetadata({
+  params,
+}: {
+  params: Promise<{ slug: string }>;
+}): Promise<Metadata> {
+  const { slug } = await params;
+  const kategori = decodeURIComponent(slug);
+
+  return {
+    title: `${kategori} – Rubrik Wikimedia Indonesia`,
+    description: `Kumpulan artikel dalam kategori ${kategori} dari Wikimedia Indonesia.`,
+  };
+}
 
 export type Article = {
   id: number;

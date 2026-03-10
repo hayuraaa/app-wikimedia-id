@@ -1,5 +1,20 @@
 import { notFound } from "next/navigation";
+import type { Metadata } from "next";
 import PressReleaseClient from "@/components/ruang-pers/PressReleaseClient";
+
+export async function generateMetadata({
+  params,
+}: {
+  params: Promise<{ slug: string }>;
+}): Promise<Metadata> {
+  const { slug } = await params;
+  const pr = await getPressRelease(slug);
+  if (!pr) return { title: "Siaran Pers Tidak Ditemukan – Wikimedia Indonesia" };
+  return {
+    title: `${pr.title} – Wikimedia Indonesia`,
+    description: pr.content.replace(/<[^>]*>/g, "").substring(0, 160).trim(),
+  };
+}
 
 // ─── Types ────────────────────────────────────────────────────────────────────
 

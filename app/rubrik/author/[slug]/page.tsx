@@ -1,6 +1,29 @@
 import { Suspense } from "react";
 import { notFound } from "next/navigation";
 import AuthorClient from "@/components/rubrik/AuthorClient";
+import type { Metadata } from "next";
+
+export async function generateMetadata({
+  params,
+}: {
+  params: Promise<{ slug: string }>;
+}): Promise<Metadata> {
+  const { slug } = await params;
+  const { author } = await getAuthorArticles(slug);
+
+  if (!author) {
+    return {
+      title: "Penulis Tidak Ditemukan – Wikimedia Indonesia",
+    };
+  }
+
+  return {
+    title: `Artikel oleh ${author.name} – Wikimedia Indonesia`,
+    description: author.bio
+      ? author.bio.substring(0, 160).trim()
+      : `Kumpulan artikel yang ditulis oleh ${author.name} di Wikimedia Indonesia.`,
+  };
+}
 
 // ─── Types ────────────────────────────────────────────────────────────────────
 

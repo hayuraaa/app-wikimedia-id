@@ -24,7 +24,7 @@ const BASE = "https://dashboard.wikimedia.or.id/api/v1";
 async function getKarir(slug: string): Promise<Karir | null> {
   try {
     const res = await fetch(`${BASE}/karir/${slug}`, {
-      next: { revalidate: 3600 },
+      next: { revalidate: 300 },
     });
     const json = await res.json();
     return json.success ? json.data : null;
