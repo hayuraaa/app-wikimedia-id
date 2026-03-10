@@ -59,29 +59,32 @@ async function getArticles(): Promise<Article[]> {
 
 async function getEvents(): Promise<EventItem[]> {
   try {
+    // Ambil semua event (tanpa filter upcoming)
     const res = await fetch(
-      "https://dashboard.wikimedia.or.id/api/v1/events/upcoming/list?limit=5",
+      "https://dashboard.wikimedia.or.id/api/v1/events?upcoming=false&per_page=50",
       { next: { revalidate: 300 } }
     );
     const json = await res.json();
-    if (json.success && json.data?.length > 0) {
-      return json.data.slice(0, 5);
-    }
-    const fallbackRes = await fetch(
-      "https://dashboard.wikimedia.or.id/api/v1/events?upcoming=false",
-      { next: { revalidate: 300 } }
+    if (!json.success) return [];
+
+    const all = json.data as EventItem[];
+    const now = new Date();
+
+    // Pisah: berlangsung/mendatang vs selesai
+    const active = all.filter(
+      (ev) => new Date(ev.tanggal_selesai) >= now
+    ).sort(
+      (a, b) => new Date(a.tanggal_mulai).getTime() - new Date(b.tanggal_mulai).getTime()
     );
-    const fallback = await fallbackRes.json();
-    if (fallback.success) {
-      return (fallback.data as EventItem[])
-        .sort(
-          (a, b) =>
-            new Date(b.tanggal_mulai).getTime() -
-            new Date(a.tanggal_mulai).getTime()
-        )
-        .slice(0, 5);
-    }
-    return [];
+
+    const past = all.filter(
+      (ev) => new Date(ev.tanggal_selesai) < now
+    ).sort(
+      (a, b) => new Date(b.tanggal_mulai).getTime() - new Date(a.tanggal_mulai).getTime()
+    );
+
+    // Gabung: utamakan active, kekurangan diisi dari past
+    return [...active, ...past].slice(0, 5);
   } catch {
     return [];
   }
