@@ -3,6 +3,7 @@ import { Source_Serif_4, Source_Sans_3 } from "next/font/google";
 import "./globals.css";
 import Header from "@/components/Header";
 import Footer from "@/components/Footer";
+import Analytics from "@/components/Analytics";
 
 const sourceSerif = Source_Serif_4({
   subsets: ["latin"],
@@ -35,6 +36,7 @@ export default function RootLayout({
         className={`${sourceSerif.variable} ${sourceSans.variable} antialiased`}
         suppressHydrationWarning
       >
+        <Analytics />
         <Header />
         <main className="min-h-screen">{children}</main>
         <Footer />

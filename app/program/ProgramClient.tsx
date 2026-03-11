@@ -190,7 +190,7 @@ export default function ProgramPage() {
                   </div>
                   <div>
                     <span style={{ fontSize: "10px", fontWeight: "700", letterSpacing: "0.08em", textTransform: "uppercase" as const, color: program.color, fontFamily: "var(--font-sans)", display: "block", marginBottom: "4px" }}>
-                      Program {String(idx + 1).padStart(2, "0")}
+                      Program
                     </span>
                     <h2 style={{ fontSize: "clamp(1.2rem, 2vw, 1.6rem)", fontWeight: "700", color: "#0d0d0d", fontFamily: "var(--font-serif)", margin: 0, lineHeight: "1.25" }}>
                       {program.label}
