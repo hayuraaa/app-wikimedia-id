@@ -136,64 +136,63 @@ function MediaThumbnail({ item }: { item: MediaItem }) {
 // ─── Card ─────────────────────────────────────────────────────────────────────
 
 function MediaCard({ item }: { item: MediaItem }) {
+  const handleOpen = () => {
+    fetch(`${BASE}/media/${item.slug}`).catch(() => {});
+    window.open(item.url_media, "_blank", "noopener,noreferrer");
+  };
+
   return (
-    <a
-      href={item.url_media}
-      target="_blank"
-      rel="noopener noreferrer"
-      style={{ textDecoration: "none", display: "block", height: "100%", minWidth: 0 }}
+    <article
+      className="media-card"
+      onClick={handleOpen}
+      style={{ border: "1px solid #e5e2dd", borderRadius: "4px", overflow: "hidden", height: "100%", minWidth: 0, backgroundColor: "#fff", display: "flex", flexDirection: "column", cursor: "pointer", transition: "box-shadow 0.2s, transform 0.2s" }}
+      onMouseEnter={(e) => { (e.currentTarget as HTMLElement).style.boxShadow = "0 4px 20px rgba(0,0,0,0.10)"; (e.currentTarget as HTMLElement).style.transform = "translateY(-2px)"; const img = e.currentTarget.querySelector(".media-thumb-img") as HTMLElement; if (img) img.style.transform = "scale(1.04)"; }}
+      onMouseLeave={(e) => { (e.currentTarget as HTMLElement).style.boxShadow = "none"; (e.currentTarget as HTMLElement).style.transform = "translateY(0)"; const img = e.currentTarget.querySelector(".media-thumb-img") as HTMLElement; if (img) img.style.transform = "scale(1)"; }}
     >
-      <article
-        className="media-card"
-        style={{ border: "1px solid #e5e2dd", borderRadius: "4px", overflow: "hidden", height: "100%", minWidth: 0, backgroundColor: "#fff", display: "flex", flexDirection: "column", cursor: "pointer", transition: "box-shadow 0.2s, transform 0.2s" }}
-        onMouseEnter={(e) => { (e.currentTarget as HTMLElement).style.boxShadow = "0 4px 20px rgba(0,0,0,0.10)"; (e.currentTarget as HTMLElement).style.transform = "translateY(-2px)"; const img = e.currentTarget.querySelector(".media-thumb-img") as HTMLElement; if (img) img.style.transform = "scale(1.04)"; }}
-        onMouseLeave={(e) => { (e.currentTarget as HTMLElement).style.boxShadow = "none"; (e.currentTarget as HTMLElement).style.transform = "translateY(0)"; const img = e.currentTarget.querySelector(".media-thumb-img") as HTMLElement; if (img) img.style.transform = "scale(1)"; }}
-      >
-        {/* Thumbnail */}
-        <div style={{
-          height: item.jenis_media === "wikimedia_commons" ? "320px" : "180px",
-          flexShrink: 0, backgroundColor: "#f5f4f2", overflow: "hidden",
-          borderBottom: "1px solid #e5e2dd", position: "relative",
-        }}>
-          <MediaThumbnail item={item} />
-        </div>
+      {/* Thumbnail */}
+      <div style={{
+        height: item.jenis_media === "wikimedia_commons" ? "320px" : "180px",
+        flexShrink: 0, backgroundColor: "#f5f4f2", overflow: "hidden",
+        borderBottom: "1px solid #e5e2dd", position: "relative",
+      }}>
+        <MediaThumbnail item={item} />
+      </div>
 
-        {/* Content */}
-        <div style={{ padding: "14px 16px", flex: 1, display: "flex", flexDirection: "column", gap: "8px" }}>
-          <div style={{ display: "flex", flexWrap: "wrap" as const, gap: "4px" }}>
-            {item.kategori.slice(0, 2).map((k) => (
-              <span key={k} style={{ fontSize: "10px", fontWeight: "600", color: "#5c5a57", backgroundColor: "#f0eeec", padding: "2px 7px", borderRadius: "2px", fontFamily: "var(--font-sans)" }}>
-                {KATEGORI_LABELS[k] ?? k}
-              </span>
-            ))}
-          </div>
-
-          <h3 style={{ fontSize: "13px", fontWeight: "600", color: "#0d0d0d", lineHeight: "1.5", fontFamily: "var(--font-serif)", margin: 0, display: "-webkit-box", WebkitLineClamp: 2, WebkitBoxOrient: "vertical" as const, overflow: "hidden", wordBreak: "break-word" }}>
-            {item.judul}
-          </h3>
-
-          <p style={{ fontSize: "12px", color: "#6b6966", lineHeight: "1.6", fontFamily: "var(--font-sans)", display: "-webkit-box", WebkitLineClamp: 2, WebkitBoxOrient: "vertical" as const, overflow: "hidden", margin: 0, flex: 1, wordBreak: "break-word" }}>
-            {item.keterangan}
-          </p>
-
-          <div style={{ display: "flex", alignItems: "center", justifyContent: "space-between", paddingTop: "10px", borderTop: "1px solid #f0eeec", marginTop: "auto" }}>
-            <span style={{ fontSize: "11px", color: "#6b6966", fontFamily: "var(--font-sans)" }}>
-              {formatDate(item.created_at)}
+      {/* Content */}
+      <div style={{ padding: "14px 16px", flex: 1, display: "flex", flexDirection: "column", gap: "8px" }}>
+        <div style={{ display: "flex", flexWrap: "wrap" as const, gap: "4px" }}>
+          {item.kategori.slice(0, 2).map((k) => (
+            <span key={k} style={{ fontSize: "10px", fontWeight: "600", color: "#5c5a57", backgroundColor: "#f0eeec", padding: "2px 7px", borderRadius: "2px", fontFamily: "var(--font-sans)" }}>
+              {KATEGORI_LABELS[k] ?? k}
             </span>
-            <div style={{ display: "flex", alignItems: "center", gap: "10px" }}>
-              <span style={{ display: "flex", alignItems: "center", gap: "4px", fontSize: "11px", color: "#6b6966", fontFamily: "var(--font-sans)" }}>
-                <svg width="11" height="11" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2"><path d="M1 12s4-8 11-8 11 8 11 8-4 8-11 8-11-8-11-8z"/><circle cx="12" cy="12" r="3"/></svg>
-                {item.views.toLocaleString("id-ID")}
-              </span>
-              <span style={{ display: "flex", alignItems: "center", gap: "4px", fontSize: "11px", color: "#8b1a2a", fontWeight: "600", fontFamily: "var(--font-sans)" }}>
-                Buka
-                <svg width="11" height="11" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2.5"><path d="M18 13v6a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2V8a2 2 0 0 1 2-2h6"/><polyline points="15 3 21 3 21 9"/><line x1="10" y1="14" x2="21" y2="3"/></svg>
-              </span>
-            </div>
+          ))}
+        </div>
+
+        <h3 style={{ fontSize: "13px", fontWeight: "600", color: "#0d0d0d", lineHeight: "1.5", fontFamily: "var(--font-serif)", margin: 0, display: "-webkit-box", WebkitLineClamp: 2, WebkitBoxOrient: "vertical" as const, overflow: "hidden", wordBreak: "break-word" }}>
+          {item.judul}
+        </h3>
+
+        <p style={{ fontSize: "12px", color: "#6b6966", lineHeight: "1.6", fontFamily: "var(--font-sans)", display: "-webkit-box", WebkitLineClamp: 2, WebkitBoxOrient: "vertical" as const, overflow: "hidden", margin: 0, flex: 1, wordBreak: "break-word" }}>
+          {item.keterangan}
+        </p>
+
+        <div style={{ display: "flex", alignItems: "center", justifyContent: "space-between", paddingTop: "10px", borderTop: "1px solid #f0eeec", marginTop: "auto" }}>
+          <span style={{ fontSize: "11px", color: "#6b6966", fontFamily: "var(--font-sans)" }}>
+            {formatDate(item.created_at)}
+          </span>
+          <div style={{ display: "flex", alignItems: "center", gap: "10px" }}>
+            <span style={{ display: "flex", alignItems: "center", gap: "4px", fontSize: "11px", color: "#6b6966", fontFamily: "var(--font-sans)" }}>
+              <svg width="11" height="11" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2"><path d="M1 12s4-8 11-8 11 8 11 8-4 8-11 8-11-8-11-8z"/><circle cx="12" cy="12" r="3"/></svg>
+              {item.views.toLocaleString("id-ID")}
+            </span>
+            <span style={{ display: "flex", alignItems: "center", gap: "4px", fontSize: "11px", color: "#8b1a2a", fontWeight: "600", fontFamily: "var(--font-sans)" }}>
+              Buka
+              <svg width="11" height="11" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2.5"><path d="M18 13v6a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2V8a2 2 0 0 1 2-2h6"/><polyline points="15 3 21 3 21 9"/><line x1="10" y1="14" x2="21" y2="3"/></svg>
+            </span>
           </div>
         </div>
-      </article>
-    </a>
+      </div>
+    </article>
   );
 }
 
