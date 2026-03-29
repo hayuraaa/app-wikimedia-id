@@ -13,10 +13,9 @@ export async function POST(req: NextRequest) {
   if (path) {
     revalidatePath(path);
   } else {
-    // Revalidate semua halaman yang berkaitan dengan events
+    revalidatePath("/");
     revalidatePath("/acara");
     revalidatePath("/acara/[slug]", "page");
-    revalidatePath("/");
   }
 
   return Response.json({ revalidated: true, path: path ?? "all" });

@@ -62,7 +62,7 @@ async function getEvents(): Promise<EventItem[]> {
     // Ambil semua event (tanpa filter upcoming)
     const res = await fetch(
       "https://dashboard.wikimedia.or.id/api/v1/events?upcoming=false&per_page=50",
-      { next: { revalidate: 300 } }
+      { next: { revalidate: 300, tags: ["events"] } }
     );
     const json = await res.json();
     if (!json.success) return [];

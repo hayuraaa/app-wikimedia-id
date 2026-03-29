@@ -25,7 +25,7 @@ const BASE = "https://dashboard.wikimedia.or.id/api/v1";
 async function getEvent(slug: string): Promise<EventItem | null> {
   try {
     const res = await fetch(`${BASE}/events/${slug}`, {
-      next: { revalidate: 300 }, // cache 5 menit
+      next: { revalidate: 300, tags: ["events"] },
     });
     if (!res.ok) return null;
     const json = await res.json();
@@ -38,7 +38,7 @@ async function getEvent(slug: string): Promise<EventItem | null> {
 async function getOtherEvents(slug: string): Promise<EventItem[]> {
   try {
     const res = await fetch(`${BASE}/events/upcoming/list?limit=5`, {
-      next: { revalidate: 300 },
+      next: { revalidate: 300, tags: ["events"] },
     });
     if (!res.ok) return [];
     const json = await res.json();

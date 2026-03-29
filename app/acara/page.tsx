@@ -33,7 +33,7 @@ export default async function Page() {
 
   try {
     const res = await fetch(`${BASE}/events?upcoming=false&per_page=500`, {
-      next: { revalidate: 300 }, // cache 5 menit
+      next: { revalidate: 300, tags: ["events"] },
     });
     if (!res.ok) throw new Error(`HTTP ${res.status}`);
     const json = await res.json();
