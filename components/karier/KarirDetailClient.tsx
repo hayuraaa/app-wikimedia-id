@@ -9,7 +9,7 @@ import type { Karir } from "@/app/karier/[slug]/page";
 const BASE = "https://dashboard.wikimedia.or.id/api/v1";
 
 const formatDate = (d: string) =>
-  new Date(d).toLocaleDateString("id-ID", { day: "numeric", month: "long", year: "numeric" });
+  new Date(d).toLocaleDateString("id-ID", { day: "numeric", month: "long", year: "numeric", timeZone: "Asia/Jakarta" });
 
 const isExpired = (exp: string | null) => (exp ? new Date(exp) < new Date() : false);
 

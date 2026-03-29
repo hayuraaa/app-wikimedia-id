@@ -94,7 +94,7 @@ export default function ArticlesSection({ articles }: { articles: Article[] }) {
                         </div>
                       ) : <span style={{ flex: 1 }} />}
                       <span style={{ fontSize: "11px", color: "#6b6966", fontFamily: "var(--font-sans)", whiteSpace: "nowrap", flexShrink: 0 }}>
-                        {new Date(a.published_at).toLocaleDateString("id-ID", { day: "numeric", month: "short", year: "numeric" })}
+                        {new Date(a.published_at).toLocaleDateString("id-ID", { day: "numeric", month: "short", year: "numeric", timeZone: "Asia/Jakarta" })}
                       </span>
                     </div>
                     <h3 style={{ fontSize: "15px", fontWeight: "600", color: "#0d0d0d", lineHeight: "1.5", fontFamily: "var(--font-serif)", margin: 0 }}>{a.title}</h3>

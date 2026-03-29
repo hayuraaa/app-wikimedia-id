@@ -6,7 +6,7 @@ import type { Karir } from "@/app/karier/page";
 // ─── Helpers ──────────────────────────────────────────────────────────────────
 
 const formatDate = (d: string) =>
-  new Date(d).toLocaleDateString("id-ID", { day: "numeric", month: "long", year: "numeric" });
+  new Date(d).toLocaleDateString("id-ID", { day: "numeric", month: "long", year: "numeric", timeZone: "Asia/Jakarta" });
 
 const isExpiringSoon = (exp: string | null) => {
   if (!exp) return false;

@@ -13,6 +13,7 @@ const formatDateLong = (dateStr: string) =>
     day: "numeric",
     month: "long",
     year: "numeric",
+    timeZone: "Asia/Jakarta",
   });
 
 const formatDateShort = (dateStr: string) =>
@@ -20,6 +21,7 @@ const formatDateShort = (dateStr: string) =>
     day: "numeric",
     month: "short",
     year: "numeric",
+    timeZone: "Asia/Jakarta",
   });
 
 const BASE_URL = "https://dashboard.wikimedia.or.id";

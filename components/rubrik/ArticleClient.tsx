@@ -23,12 +23,12 @@ const formatCategory = (cat: string) => {
 
 const formatDateLong = (dateStr: string) =>
   new Date(dateStr).toLocaleDateString("id-ID", {
-    weekday: "long", day: "numeric", month: "long", year: "numeric",
+    weekday: "long", day: "numeric", month: "long", year: "numeric", timeZone: "Asia/Jakarta",
   });
 
 const formatDateShort = (dateStr: string) =>
   new Date(dateStr).toLocaleDateString("id-ID", {
-    day: "numeric", month: "short", year: "numeric",
+    day: "numeric", month: "short", year: "numeric", timeZone: "Asia/Jakarta",
   });
 
 const BASE_URL = "https://dashboard.wikimedia.or.id";

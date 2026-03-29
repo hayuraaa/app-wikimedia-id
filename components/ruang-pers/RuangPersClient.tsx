@@ -12,6 +12,7 @@ const formatDateLong = (dateStr: string) =>
     day: "numeric",
     month: "long",
     year: "numeric",
+    timeZone: "Asia/Jakarta",
   });
 
 const formatDateShort = (dateStr: string) =>
@@ -19,6 +20,7 @@ const formatDateShort = (dateStr: string) =>
     day: "numeric",
     month: "short",
     year: "numeric",
+    timeZone: "Asia/Jakarta",
   });
 
 const stripHtml = (html: string) => html.replace(/<[^>]*>/g, "").replace(/&nbsp;/g, " ").trim();

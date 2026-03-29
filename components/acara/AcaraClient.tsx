@@ -18,6 +18,16 @@ const PER_PAGE = 15;
 
 // ─── Helpers ─────────────────────────────────────────────────────────────────
 
+const WIB = "Asia/Jakarta";
+
+// Ekstrak komponen tanggal dalam timezone WIB agar konsisten di server (UTC) maupun browser.
+const wibParts = (d: string | Date) => {
+  const dt = typeof d === "string" ? new Date(d) : d;
+  const [y, m, day] = new Intl.DateTimeFormat("en-CA", { timeZone: WIB })
+    .format(dt).split("-").map(Number);
+  return { year: y, month: m - 1, date: day }; // month 0-indexed
+};
+
 const getStatus = (ev: EventItem): EventStatus => {
   const now = new Date();
   const mulai = new Date(ev.tanggal_mulai);
@@ -30,11 +40,14 @@ const getStatus = (ev: EventItem): EventStatus => {
 const formatTanggal = (mulai: string, selesai: string) => {
   const tMulai = new Date(mulai);
   const tSelesai = new Date(selesai);
-  const opts: Intl.DateTimeFormatOptions = { day: "numeric", month: "long", year: "numeric" };
-  if (tMulai.toDateString() === tSelesai.toDateString()) return tMulai.toLocaleDateString("id-ID", opts);
-  if (tMulai.getMonth() === tSelesai.getMonth() && tMulai.getFullYear() === tSelesai.getFullYear())
-    return `${tMulai.getDate()}–${tSelesai.toLocaleDateString("id-ID", opts)}`;
-  return `${tMulai.toLocaleDateString("id-ID", { day: "numeric", month: "short" })} – ${tSelesai.toLocaleDateString("id-ID", opts)}`;
+  const opts: Intl.DateTimeFormatOptions = { day: "numeric", month: "long", year: "numeric", timeZone: WIB };
+  const mpM = wibParts(mulai);
+  const mpS = wibParts(selesai);
+  const sameDay = mpM.year === mpS.year && mpM.month === mpS.month && mpM.date === mpS.date;
+  if (sameDay) return tMulai.toLocaleDateString("id-ID", opts);
+  if (mpM.month === mpS.month && mpM.year === mpS.year)
+    return `${mpM.date}–${tSelesai.toLocaleDateString("id-ID", opts)}`;
+  return `${tMulai.toLocaleDateString("id-ID", { day: "numeric", month: "short", timeZone: WIB })} – ${tSelesai.toLocaleDateString("id-ID", opts)}`;
 };
 
 const statusCfg = {
@@ -62,7 +75,7 @@ function EventCard({ ev }: { ev: EventItem }) {
   const status = getStatus(ev);
   const cfg = statusCfg[status];
   const jenis = jenisCfg[ev.jenis_acara] ?? { label: ev.jenis_acara, color: "#5c5a57" };
-  const mulai = new Date(ev.tanggal_mulai);
+  const mpMulai = wibParts(ev.tanggal_mulai);
 
   return (
     <div onClick={() => router.push(`/acara/${ev.slug}`)} style={{ textDecoration: "none", display: "block", cursor: "pointer" }}>
@@ -72,9 +85,9 @@ function EventCard({ ev }: { ev: EventItem }) {
         onMouseLeave={(e) => { (e.currentTarget as HTMLElement).style.boxShadow = "none"; (e.currentTarget as HTMLElement).style.transform = "none"; }}
       >
         <div style={{ flexShrink: 0, textAlign: "center", width: "42px" }}>
-          <div style={{ fontSize: "20px", fontWeight: "700", color: cfg.color, fontFamily: "var(--font-serif)", lineHeight: 1 }}>{mulai.getDate()}</div>
-          <div style={{ fontSize: "9px", fontWeight: "700", color: "#6b6966", textTransform: "uppercase" as const, letterSpacing: "0.06em", fontFamily: "var(--font-sans)", marginTop: "2px" }}>{MONTHS_ID[mulai.getMonth()].slice(0, 3)}</div>
-          <div style={{ fontSize: "9px", color: "#c5c3bf", fontFamily: "var(--font-sans)", marginTop: "1px" }}>{mulai.getFullYear()}</div>
+          <div style={{ fontSize: "20px", fontWeight: "700", color: cfg.color, fontFamily: "var(--font-serif)", lineHeight: 1 }}>{mpMulai.date}</div>
+          <div style={{ fontSize: "9px", fontWeight: "700", color: "#6b6966", textTransform: "uppercase" as const, letterSpacing: "0.06em", fontFamily: "var(--font-sans)", marginTop: "2px" }}>{MONTHS_ID[mpMulai.month].slice(0, 3)}</div>
+          <div style={{ fontSize: "9px", color: "#c5c3bf", fontFamily: "var(--font-sans)", marginTop: "1px" }}>{mpMulai.year}</div>
         </div>
         <div style={{ width: "1px", backgroundColor: "#e5e2dd", alignSelf: "stretch", flexShrink: 0 }} />
         <div style={{ flex: 1, minWidth: 0 }}>
@@ -204,8 +217,9 @@ function CalendarView({ events }: { events: EventItem[] }) {
       const selesai = new Date(ev.tanggal_selesai);
       const cur = new Date(mulai);
       while (cur <= selesai) {
-        if (cur.getFullYear() === calYear && cur.getMonth() === calMonth) {
-          const d = cur.getDate();
+        const cp = wibParts(cur);
+        if (cp.year === calYear && cp.month === calMonth) {
+          const d = cp.date;
           if (!map.has(d)) map.set(d, []);
           if (!map.get(d)!.find((e) => e.id === ev.id)) map.get(d)!.push(ev);
         }
@@ -217,20 +231,26 @@ function CalendarView({ events }: { events: EventItem[] }) {
 
   const eventRanges = useMemo(() => {
     const map = new Map<number, { startDay: number; endDay: number; isMultiDay: boolean }>();
+    const daysInCalMonth = new Date(calYear, calMonth + 1, 0).getDate();
     for (const ev of events) {
-      const mulai = new Date(ev.tanggal_mulai);
-      const selesai = new Date(ev.tanggal_selesai);
-      if (mulai.toDateString() === selesai.toDateString()) {
-        if (mulai.getFullYear() === calYear && mulai.getMonth() === calMonth) {
-          map.set(ev.id, { startDay: mulai.getDate(), endDay: mulai.getDate(), isMultiDay: false });
+      const mpM = wibParts(ev.tanggal_mulai);
+      const mpS = wibParts(ev.tanggal_selesai);
+      const sameDay = mpM.year === mpS.year && mpM.month === mpS.month && mpM.date === mpS.date;
+      if (sameDay) {
+        if (mpM.year === calYear && mpM.month === calMonth) {
+          map.set(ev.id, { startDay: mpM.date, endDay: mpM.date, isMultiDay: false });
         }
       } else {
-        const monthStart = new Date(calYear, calMonth, 1);
-        const monthEnd = new Date(calYear, calMonth + 1, 0);
-        const clampedStart = mulai < monthStart ? monthStart : mulai;
-        const clampedEnd = selesai > monthEnd ? monthEnd : selesai;
-        if (clampedStart <= monthEnd && clampedEnd >= monthStart) {
-          map.set(ev.id, { startDay: clampedStart.getDate(), endDay: clampedEnd.getDate(), isMultiDay: true });
+        // Tentukan hari mulai dan selesai dalam bulan ini (WIB)
+        const startsBeforeMonth = mpM.year < calYear || (mpM.year === calYear && mpM.month < calMonth);
+        const startsInMonth    = mpM.year === calYear && mpM.month === calMonth;
+        const endsAfterMonth   = mpS.year > calYear || (mpS.year === calYear && mpS.month > calMonth);
+        const endsInMonth      = mpS.year === calYear && mpS.month === calMonth;
+        const spansMonth = (startsBeforeMonth || startsInMonth) && (endsAfterMonth || endsInMonth);
+        if (spansMonth) {
+          const startDay = startsBeforeMonth ? 1 : mpM.date;
+          const endDay   = endsAfterMonth ? daysInCalMonth : mpS.date;
+          map.set(ev.id, { startDay, endDay, isMultiDay: true });
         }
       }
     }
@@ -525,18 +545,18 @@ export default function AcaraClient({ initialEvents }: { initialEvents: EventIte
   const handleSearch = () => setSearch(searchInput.trim());
 
   const availableYears = useMemo(() => {
-    const years = new Set(events.map((e) => new Date(e.tanggal_mulai).getFullYear()));
+    const years = new Set(events.map((e) => wibParts(e.tanggal_mulai).year));
     return Array.from(years).sort((a, b) => b - a);
   }, [events]);
 
   const filtered = useMemo(() => {
     return events.filter((ev) => {
       const status = getStatus(ev);
-      const mulai = new Date(ev.tanggal_mulai);
+      const mp = wibParts(ev.tanggal_mulai);
       if (filterStatus !== "semua" && status !== filterStatus) return false;
       if (filterJenis !== "semua" && ev.jenis_acara !== filterJenis) return false;
-      if (filterYear !== "semua" && mulai.getFullYear() !== filterYear) return false;
-      if (filterMonth !== "semua" && mulai.getMonth() !== filterMonth) return false;
+      if (filterYear !== "semua" && mp.year !== filterYear) return false;
+      if (filterMonth !== "semua" && mp.month !== filterMonth) return false;
       if (search.trim()) {
         const q = search.toLowerCase();
         if (!ev.judul.toLowerCase().includes(q) && !ev.lokasi.toLowerCase().includes(q) && !ev.deskripsi.toLowerCase().includes(q)) return false;
@@ -553,8 +573,8 @@ export default function AcaraClient({ initialEvents }: { initialEvents: EventIte
   const grouped = useMemo(() => {
     const map = new Map<string, EventItem[]>();
     for (const ev of paginated) {
-      const d = new Date(ev.tanggal_mulai);
-      const key = `${d.getFullYear()}-${d.getMonth()}`;
+      const mp = wibParts(ev.tanggal_mulai);
+      const key = `${mp.year}-${mp.month}`;
       if (!map.has(key)) map.set(key, []);
       map.get(key)!.push(ev);
     }
@@ -738,7 +758,7 @@ export default function AcaraClient({ initialEvents }: { initialEvents: EventIte
                       <button key={y} onClick={() => { setFilterYear(y); setFilterMonth("semua"); }} style={sidebarBtn(filterYear === y)}>
                         <span style={{ fontSize: "12px", color: filterYear === y ? "#8b1a2a" : "#3a3a3a", fontFamily: "var(--font-sans)", fontWeight: filterYear === y ? "700" : "500" }}>{y}</span>
                         <span style={{ fontSize: "10px", color: "#6b6966", backgroundColor: "#f0eeec", padding: "1px 7px", borderRadius: "10px", fontFamily: "var(--font-sans)" }}>
-                          {events.filter((e) => new Date(e.tanggal_mulai).getFullYear() === y).length}
+                          {events.filter((e) => wibParts(e.tanggal_mulai).year === y).length}
                         </span>
                       </button>
                     ))}
@@ -756,7 +776,7 @@ export default function AcaraClient({ initialEvents }: { initialEvents: EventIte
                       <span style={{ fontSize: "12px", color: filterMonth === "semua" ? "#8b1a2a" : "#3a3a3a", fontFamily: "var(--font-sans)", fontWeight: filterMonth === "semua" ? "700" : "500" }}>Semua Bulan</span>
                     </button>
                     {MONTHS_ID.map((m, idx) => {
-                      const hasEvs = events.some((e) => { const d = new Date(e.tanggal_mulai); return d.getFullYear() === filterYear && d.getMonth() === idx; });
+                      const hasEvs = events.some((e) => { const mp = wibParts(e.tanggal_mulai); return mp.year === filterYear && mp.month === idx; });
                       if (!hasEvs) return null;
                       const active = filterMonth === idx;
                       return (

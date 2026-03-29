@@ -21,15 +21,25 @@ const getStatus = (ev: EventItem): EventStatus => {
   return "mendatang";
 };
 
+const WIB = "Asia/Jakarta";
+
+const wibParts = (dateStr: string) => {
+  const [y, m, day] = new Intl.DateTimeFormat("en-CA", { timeZone: WIB })
+    .format(new Date(dateStr)).split("-").map(Number);
+  return { year: y, month: m - 1, date: day };
+};
+
 const formatTanggalLong = (mulai: string, selesai: string) => {
   const tMulai = new Date(mulai);
   const tSelesai = new Date(selesai);
-  const opts: Intl.DateTimeFormatOptions = { day: "numeric", month: "long", year: "numeric" };
-  if (tMulai.toDateString() === tSelesai.toDateString())
-    return tMulai.toLocaleDateString("id-ID", opts);
-  if (tMulai.getMonth() === tSelesai.getMonth() && tMulai.getFullYear() === tSelesai.getFullYear())
-    return `${tMulai.getDate()}–${tSelesai.toLocaleDateString("id-ID", opts)}`;
-  return `${tMulai.toLocaleDateString("id-ID", { day: "numeric", month: "long" })} – ${tSelesai.toLocaleDateString("id-ID", opts)}`;
+  const opts: Intl.DateTimeFormatOptions = { day: "numeric", month: "long", year: "numeric", timeZone: WIB };
+  const mpM = wibParts(mulai);
+  const mpS = wibParts(selesai);
+  const sameDay = mpM.year === mpS.year && mpM.month === mpS.month && mpM.date === mpS.date;
+  if (sameDay) return tMulai.toLocaleDateString("id-ID", opts);
+  if (mpM.month === mpS.month && mpM.year === mpS.year)
+    return `${mpM.date}–${tSelesai.toLocaleDateString("id-ID", opts)}`;
+  return `${tMulai.toLocaleDateString("id-ID", { day: "numeric", month: "long", timeZone: WIB })} – ${tSelesai.toLocaleDateString("id-ID", opts)}`;
 };
 
 const formatTime = (dateStr: string) =>
@@ -304,7 +314,7 @@ export default function AcaraDetailClient({
                               {ev.judul}
                             </div>
                             <div style={{ fontSize: "10px", color: "#6b6966", fontFamily: "var(--font-sans)", marginTop: "3px" }}>
-                              {new Date(ev.tanggal_mulai).toLocaleDateString("id-ID", { day: "numeric", month: "short", year: "numeric" })}
+                              {new Date(ev.tanggal_mulai).toLocaleDateString("id-ID", { day: "numeric", month: "short", year: "numeric", timeZone: WIB })}
                             </div>
                           </div>
                         </Link>

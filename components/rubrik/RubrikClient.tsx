@@ -26,6 +26,7 @@ const formatDateShort = (dateStr: string) =>
     day: "numeric",
     month: "short",
     year: "numeric",
+    timeZone: "Asia/Jakarta",
   });
 
 // ─── Article Card ─────────────────────────────────────────────────────────────

@@ -14,15 +14,21 @@ function getEventStatus(ev: EventItem): "berlangsung" | "mendatang" | "selesai" 
   return "mendatang";
 }
 
+const WIB = "Asia/Jakarta";
+
 function formatTanggal(mulai: string, selesai: string) {
   const tMulai = new Date(mulai);
   const tSelesai = new Date(selesai);
-  const opts: Intl.DateTimeFormatOptions = { day: "numeric", month: "short", year: "numeric" };
-  if (tMulai.toDateString() === tSelesai.toDateString()) return tMulai.toLocaleDateString("id-ID", opts);
-  if (tMulai.getMonth() === tSelesai.getMonth() && tMulai.getFullYear() === tSelesai.getFullYear()) {
-    return `${tMulai.getDate()}–${tSelesai.toLocaleDateString("id-ID", opts)}`;
+  const opts: Intl.DateTimeFormatOptions = { day: "numeric", month: "short", year: "numeric", timeZone: WIB };
+  const sameDay = tMulai.toLocaleDateString("id-ID", { timeZone: WIB }) === tSelesai.toLocaleDateString("id-ID", { timeZone: WIB });
+  if (sameDay) return tMulai.toLocaleDateString("id-ID", opts);
+  const sameMonth =
+    tMulai.toLocaleDateString("id-ID", { month: "numeric", year: "numeric", timeZone: WIB }) ===
+    tSelesai.toLocaleDateString("id-ID", { month: "numeric", year: "numeric", timeZone: WIB });
+  if (sameMonth) {
+    return `${tMulai.toLocaleDateString("id-ID", { day: "numeric", timeZone: WIB })}–${tSelesai.toLocaleDateString("id-ID", opts)}`;
   }
-  return `${tMulai.toLocaleDateString("id-ID", { day: "numeric", month: "short" })} – ${tSelesai.toLocaleDateString("id-ID", opts)}`;
+  return `${tMulai.toLocaleDateString("id-ID", { day: "numeric", month: "short", timeZone: WIB })} – ${tSelesai.toLocaleDateString("id-ID", opts)}`;
 }
 
 export default function EventsSection({
@@ -100,10 +106,10 @@ export default function EventsSection({
                       onMouseLeave={(e) => { (e.currentTarget as HTMLElement).style.boxShadow = "none"; (e.currentTarget as HTMLElement).style.transform = "none"; }}>
                       <div style={{ flexShrink: 0, textAlign: "center", minWidth: "36px" }}>
                         <div style={{ fontSize: "18px", fontWeight: "700", color: dateColor, fontFamily: "var(--font-serif)", lineHeight: 1 }}>
-                          {new Date(ev.tanggal_mulai).getDate()}
+                          {new Date(ev.tanggal_mulai).toLocaleDateString("id-ID", { day: "numeric", timeZone: WIB })}
                         </div>
                         <div style={{ fontSize: "9px", fontWeight: "600", color: "#6b6966 ", textTransform: "uppercase", letterSpacing: "0.06em", fontFamily: "var(--font-sans)", marginTop: "1px" }}>
-                          {new Date(ev.tanggal_mulai).toLocaleDateString("id-ID", { month: "short" })}
+                          {new Date(ev.tanggal_mulai).toLocaleDateString("id-ID", { month: "short", timeZone: WIB })}
                         </div>
                       </div>
                       <div style={{ width: "1px", backgroundColor: "#e5e2dd", flexShrink: 0, alignSelf: "stretch" }} />
