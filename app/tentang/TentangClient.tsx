@@ -235,7 +235,7 @@ function ContactForm() {
   ) => setForm((p) => ({ ...p, [k]: e.target.value }));
 
   const handleSubmit = async () => {
-    if (!form.nama || !form.email || !form.telepon || !form.subjek || !form.pesan) {
+    if (!form.nama || !form.email || !form.subjek || !form.pesan) {
       setStatus("error");
       setMsg("Harap lengkapi semua kolom yang wajib diisi.");
       return;
@@ -247,7 +247,7 @@ function ContactForm() {
         headers: { "Content-Type": "application/json" },
         body: JSON.stringify({
           name: form.nama,
-          phone: form.telepon,
+          phone: form.telepon || "00000",
           email: form.email,
           message: `Subjek: ${form.subjek}\n\n${form.pesan}`,
         }),
@@ -314,7 +314,7 @@ function ContactForm() {
       </div>
       <div className="form-row" style={{ display: "grid", gridTemplateColumns: "1fr 1fr", gap: "14px" }}>
         <div>
-          <label style={labelStyle}>Nomor Telepon <span style={{ color: "#c0392b" }}>*</span></label>
+          <label style={labelStyle}>Nomor Telepon <span style={{ fontSize: "10px", color: "#9a9690", fontWeight: "400" }}>(opsional)</span></label>
           <input type="tel" placeholder="+62 8xx xxxx xxxx" value={form.telepon} onChange={set("telepon")} style={inputStyle}
             onFocus={(e) => Object.assign(e.target.style, focusStyle)} onBlur={(e) => Object.assign(e.target.style, blurStyle)} />
         </div>
