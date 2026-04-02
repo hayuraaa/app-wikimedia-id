@@ -393,10 +393,6 @@ export default function TentangPage() {
             <span style={{ fontSize: "11px", color: "rgba(255,255,255,0.25)", fontFamily: "var(--font-sans)" }}>/</span>
             <span style={{ fontSize: "11px", color: "#3b8ed4", fontFamily: "var(--font-sans)" }}>Tentang Kami</span>
           </div>
-          <div className="hero-badge" style={{ display: "inline-flex", alignItems: "center", gap: "8px", marginBottom: "14px", padding: "6px 14px", border: "1px solid rgba(12,87,168,0.6)", borderRadius: "2px", backgroundColor: "rgba(12,87,168,0.12)" }}>
-            <span className="hero-badge-dot" style={{ display: "block", width: "6px", height: "6px", borderRadius: "50%", backgroundColor: "#3b8ed4" }} />
-            <span style={{ fontSize: "10px", fontWeight: "700", letterSpacing: "0.1em", textTransform: "uppercase" as const, color: "#3b8ed4", fontFamily: "var(--font-sans)" }}>Tentang Kami</span>
-          </div>
           <h1 className="hero-title" style={{ fontSize: "clamp(1.7rem, 3vw, 2.5rem)", fontWeight: "700", color: "#fff", fontFamily: "var(--font-serif)", margin: "0 0 12px", lineHeight: "1.2" }}>
             Tentang Wikimedia Indonesia
           </h1>
