@@ -55,16 +55,9 @@ export default function EventsSection({
       <div style={{ position: "absolute", top: 0, left: 0, width: "4px", height: "100%", background: "linear-gradient(180deg, #8b1a2a, transparent)", opacity: 0.3, pointerEvents: "none" }} />
 
       <div style={{ maxWidth: "1280px", margin: "0 auto", position: "relative", zIndex: 1 }}>
-        <div className="section-border-shimmer reveal" style={{ display: "flex", justifyContent: "space-between", alignItems: "flex-end", marginBottom: "40px", paddingBottom: "16px", borderBottom: "3px solid #0d0d0d" }}>
-          <div>
-            <span style={{ fontSize: "11px", fontWeight: "700", letterSpacing: "0.1em", textTransform: "uppercase", color: "#8b1a2a", fontFamily: "var(--font-sans)" }}>◆ Kalender</span>
-            <h2 style={{ fontSize: "clamp(1.6rem, 3vw, 2.2rem)", fontWeight: "700", color: "#0d0d0d", fontFamily: "var(--font-serif)", marginTop: "4px" }}>Acara Mendatang</h2>
-          </div>
-          <Link href="/acara" style={{ fontSize: "13px", fontWeight: "600", color: "#1e4d7b", textDecoration: "none", fontFamily: "var(--font-sans)", letterSpacing: "0.04em", whiteSpace: "nowrap" }}
-            onMouseEnter={(e) => (e.currentTarget.style.color = "#8b1a2a")}
-            onMouseLeave={(e) => (e.currentTarget.style.color = "#1e4d7b")}>
-            Lihat Semua →
-          </Link>
+        <div className="section-border-shimmer reveal" style={{ marginBottom: "40px", paddingBottom: "16px", borderBottom: "3px solid #0d0d0d" }}>
+          <span style={{ fontSize: "11px", fontWeight: "700", letterSpacing: "0.1em", textTransform: "uppercase", color: "#8b1a2a", fontFamily: "var(--font-sans)" }}>◆ Kalender</span>
+          <h2 style={{ fontSize: "clamp(1.6rem, 3vw, 2.2rem)", fontWeight: "700", color: "#0d0d0d", fontFamily: "var(--font-serif)", marginTop: "4px" }}>Acara Mendatang</h2>
         </div>
 
         <div className="events-grid" style={{ display: "grid", gridTemplateColumns: "1fr 480px", gap: "36px", alignItems: "center" }}>
@@ -134,6 +127,11 @@ export default function EventsSection({
                 );
               })
             )}
+            <Link href="/acara" style={{ display: "inline-block", marginTop: "4px", fontSize: "13px", fontWeight: "600", color: "#1e4d7b", textDecoration: "none", fontFamily: "var(--font-sans)", letterSpacing: "0.04em" }}
+              onMouseEnter={(e) => (e.currentTarget.style.color = "#8b1a2a")}
+              onMouseLeave={(e) => (e.currentTarget.style.color = "#1e4d7b")}>
+              Lihat Semua →
+            </Link>
           </div>
 
           <div className="events-illustration" style={{ display: "flex", alignItems: "center", justifyContent: "center", width: "480px" }}>
