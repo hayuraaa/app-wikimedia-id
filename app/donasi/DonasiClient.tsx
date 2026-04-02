@@ -95,7 +95,6 @@ export default function DonasiPage() {
             <span style={{ fontSize: "11px", color: "#3b8ed4", fontFamily: "var(--font-sans)" }}>Donasi</span>
           </div>
 
-          <span style={{ fontSize: "10px", fontWeight: "700", letterSpacing: "0.1em", textTransform: "uppercase" as const, color: "#e05070", fontFamily: "var(--font-sans)" }}>◆ Donasi</span>
           <h1 style={{ fontSize: "clamp(1.7rem, 3vw, 2.5rem)", fontWeight: "700", color: "#fff", fontFamily: "var(--font-serif)", margin: "6px 0 10px", lineHeight: "1.2" }}>
             Dukung Pengetahuan Bebas
           </h1>
