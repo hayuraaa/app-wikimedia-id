@@ -60,7 +60,7 @@ function PressReleaseCard({ pr, featured = false }: { pr: PressRelease; featured
           )}
           <div style={{ padding: "32px 36px", display: "flex", flexDirection: "column", gap: "12px", justifyContent: "center" }}>
             <div style={{ display: "flex", alignItems: "center", gap: "10px" }}>
-              <span style={{ fontSize: "10px", fontWeight: "700", letterSpacing: "0.1em", textTransform: "uppercase" as const, color: "#8b1a2a", backgroundColor: "rgba(139,26,42,0.08)", padding: "3px 10px", borderRadius: "2px", fontFamily: "var(--font-sans)" }}>
+              <span style={{ fontSize: "10px", fontWeight: "700", letterSpacing: "0.1em", textTransform: "uppercase" as const, color: "#0C57A8", backgroundColor: "rgba(12,87,168,0.08)", padding: "3px 10px", borderRadius: "2px", fontFamily: "var(--font-sans)" }}>
                 ◆ Siaran Pers
               </span>
               <span style={{ fontSize: "11px", color: "#6b6966", fontFamily: "var(--font-sans)" }}>
@@ -74,10 +74,10 @@ function PressReleaseCard({ pr, featured = false }: { pr: PressRelease; featured
               {stripHtml(pr.excerpt)}
             </p>
             <div style={{ display: "flex", alignItems: "center", gap: "6px", marginTop: "4px" }}>
-              <span style={{ fontSize: "12px", fontWeight: "600", color: "#8b1a2a", fontFamily: "var(--font-sans)" }}>
+              <span style={{ fontSize: "12px", fontWeight: "600", color: "#0C57A8", fontFamily: "var(--font-sans)" }}>
                 Baca selengkapnya
               </span>
-              <svg width="13" height="13" viewBox="0 0 24 24" fill="none" stroke="#8b1a2a" strokeWidth="2.5"><path d="M5 12h14M12 5l7 7-7 7"/></svg>
+              <svg width="13" height="13" viewBox="0 0 24 24" fill="none" stroke="#0C57A8" strokeWidth="2.5"><path d="M5 12h14M12 5l7 7-7 7"/></svg>
             </div>
           </div>
         </article>
@@ -201,7 +201,7 @@ function Pagination({ meta, onPageChange }: { meta: Meta; onPageChange: (p: numb
       <button
         style={{ ...btn, color: current_page === 1 ? "#c5c3bf" : "#3a3a3a", cursor: current_page === 1 ? "not-allowed" : "pointer" }}
         disabled={current_page === 1} onClick={() => onPageChange(current_page - 1)}
-        onMouseEnter={(e) => { if (current_page !== 1) (e.currentTarget as HTMLElement).style.borderColor = "#8b1a2a"; }}
+        onMouseEnter={(e) => { if (current_page !== 1) (e.currentTarget as HTMLElement).style.borderColor = "#0C57A8"; }}
         onMouseLeave={(e) => { (e.currentTarget as HTMLElement).style.borderColor = "#e5e2dd"; }}
       >
         <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2"><path d="M15 18l-6-6 6-6"/></svg>
@@ -211,9 +211,9 @@ function Pagination({ meta, onPageChange }: { meta: Meta; onPageChange: (p: numb
           <span key={`e-${idx}`} style={{ minWidth: "36px", height: "36px", display: "flex", alignItems: "center", justifyContent: "center", fontSize: "13px", color: "#6b6966", fontFamily: "var(--font-sans)" }}>···</span>
         ) : (
           <button key={p}
-            style={{ ...btn, backgroundColor: p === current_page ? "#8b1a2a" : "#fff", borderColor: p === current_page ? "#8b1a2a" : "#e5e2dd", color: p === current_page ? "#fff" : "#3a3a3a", fontWeight: p === current_page ? "700" : "500" }}
+            style={{ ...btn, backgroundColor: p === current_page ? "#0C57A8" : "#fff", borderColor: p === current_page ? "#0C57A8" : "#e5e2dd", color: p === current_page ? "#fff" : "#3a3a3a", fontWeight: p === current_page ? "700" : "500" }}
             onClick={() => onPageChange(p as number)}
-            onMouseEnter={(e) => { if (p !== current_page) { (e.currentTarget as HTMLElement).style.borderColor = "#8b1a2a"; (e.currentTarget as HTMLElement).style.color = "#8b1a2a"; } }}
+            onMouseEnter={(e) => { if (p !== current_page) { (e.currentTarget as HTMLElement).style.borderColor = "#0C57A8"; (e.currentTarget as HTMLElement).style.color = "#0C57A8"; } }}
             onMouseLeave={(e) => { if (p !== current_page) { (e.currentTarget as HTMLElement).style.borderColor = "#e5e2dd"; (e.currentTarget as HTMLElement).style.color = "#3a3a3a"; } }}
           >
             {p}
@@ -223,7 +223,7 @@ function Pagination({ meta, onPageChange }: { meta: Meta; onPageChange: (p: numb
       <button
         style={{ ...btn, color: current_page === last_page ? "#c5c3bf" : "#3a3a3a", cursor: current_page === last_page ? "not-allowed" : "pointer" }}
         disabled={current_page === last_page} onClick={() => onPageChange(current_page + 1)}
-        onMouseEnter={(e) => { if (current_page !== last_page) (e.currentTarget as HTMLElement).style.borderColor = "#8b1a2a"; }}
+        onMouseEnter={(e) => { if (current_page !== last_page) (e.currentTarget as HTMLElement).style.borderColor = "#0C57A8"; }}
         onMouseLeave={(e) => { (e.currentTarget as HTMLElement).style.borderColor = "#e5e2dd"; }}
       >
         <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2"><path d="M9 18l6-6-6-6"/></svg>
@@ -298,7 +298,7 @@ export default function RuangPersClient({
     <>
       {/* ── HEADER ───────────────────────────────────────────────────────── */}
       <section style={{ padding: "40px 24px 36px", position: "relative", overflow: "hidden", backgroundImage: "url('/banner/Mosaik_Budaya_3.png')", backgroundSize: "cover", backgroundPosition: "center" }}>
-        <div style={{ position: "absolute", inset: 0, background: "linear-gradient(135deg, rgba(40,22,6,0.92) 0%, rgba(80,44,8,0.84) 40%, rgba(120,72,10,0.72) 100%)", pointerEvents: "none" }} />
+        <div style={{ position: "absolute", inset: 0, background: "linear-gradient(135deg, rgba(8,20,45,0.92) 0%, rgba(10,30,65,0.84) 40%, rgba(15,40,80,0.76) 100%)", pointerEvents: "none" }} />
         <div style={{ position: "absolute", inset: 0, backgroundImage: `linear-gradient(rgba(255,255,255,0.03) 1px, transparent 1px), linear-gradient(90deg, rgba(255,255,255,0.03) 1px, transparent 1px)`, backgroundSize: "40px 40px", pointerEvents: "none" }} />
         <div style={{ position: "absolute", top: "-60px", right: "-60px", width: "240px", height: "240px", borderRadius: "50%", background: "radial-gradient(circle, rgba(212,160,20,0.28) 0%, transparent 70%)", pointerEvents: "none" }} />
         <div style={{ position: "absolute", bottom: "-40px", left: "8%", width: "180px", height: "180px", borderRadius: "50%", background: "radial-gradient(circle, rgba(180,100,10,0.18) 0%, transparent 70%)", pointerEvents: "none" }} />
@@ -344,9 +344,9 @@ export default function RuangPersClient({
               />
               <button
                 onClick={handleSearch}
-                style={{ padding: "10px 16px", backgroundColor: "#8b1a2a", border: "none", color: "#fff", cursor: "pointer", transition: "background 0.2s", display: "flex", alignItems: "center", justifyContent: "center" }}
-                onMouseEnter={(e) => ((e.currentTarget as HTMLElement).style.backgroundColor = "#a82235")}
-                onMouseLeave={(e) => ((e.currentTarget as HTMLElement).style.backgroundColor = "#8b1a2a")}
+                style={{ padding: "10px 16px", backgroundColor: "#0C57A8", border: "none", color: "#fff", cursor: "pointer", transition: "background 0.2s", display: "flex", alignItems: "center", justifyContent: "center" }}
+                onMouseEnter={(e) => ((e.currentTarget as HTMLElement).style.backgroundColor = "#0a4a8f")}
+                onMouseLeave={(e) => ((e.currentTarget as HTMLElement).style.backgroundColor = "#0C57A8")}
               >
                 <svg width="15" height="15" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2"><circle cx="11" cy="11" r="8"/><path d="m21 21-4.35-4.35"/></svg>
               </button>
@@ -365,9 +365,9 @@ export default function RuangPersClient({
           {searchQuery && (
             <div style={{ display: "flex", alignItems: "center", gap: "8px", marginBottom: "20px" }}>
               <span style={{ fontSize: "12px", color: "#5c5a57", fontFamily: "var(--font-sans)" }}>Filter aktif:</span>
-              <span style={{ display: "inline-flex", alignItems: "center", gap: "6px", padding: "3px 10px", backgroundColor: "rgba(139,26,42,0.1)", border: "1px solid rgba(139,26,42,0.25)", borderRadius: "100px", fontSize: "12px", fontWeight: "600", color: "#8b1a2a", fontFamily: "var(--font-sans)" }}>
+              <span style={{ display: "inline-flex", alignItems: "center", gap: "6px", padding: "3px 10px", backgroundColor: "rgba(12,87,168,0.1)", border: "1px solid rgba(12,87,168,0.25)", borderRadius: "100px", fontSize: "12px", fontWeight: "600", color: "#0C57A8", fontFamily: "var(--font-sans)" }}>
                 "{searchQuery}"
-                <button onClick={handleClearSearch} style={{ background: "none", border: "none", cursor: "pointer", padding: 0, color: "#8b1a2a", display: "flex", alignItems: "center" }}>
+                <button onClick={handleClearSearch} style={{ background: "none", border: "none", cursor: "pointer", padding: 0, color: "#0C57A8", display: "flex", alignItems: "center" }}>
                   <svg width="12" height="12" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2.5"><path d="M18 6L6 18M6 6l12 12"/></svg>
                 </button>
               </span>
@@ -377,7 +377,7 @@ export default function RuangPersClient({
           {/* Section header */}
           <div style={{ display: "flex", justifyContent: "space-between", alignItems: "flex-end", marginBottom: "24px", paddingBottom: "12px", borderBottom: "3px solid #0d0d0d" }}>
             <div>
-              <span style={{ fontSize: "11px", fontWeight: "700", letterSpacing: "0.1em", textTransform: "uppercase" as const, color: "#8b1a2a", fontFamily: "var(--font-sans)" }}>◆ Terkini</span>
+              <span style={{ fontSize: "11px", fontWeight: "700", letterSpacing: "0.1em", textTransform: "uppercase" as const, color: "#0C57A8", fontFamily: "var(--font-sans)" }}>◆ Terkini</span>
               <h2 style={{ fontSize: "18px", fontWeight: "700", color: "#0d0d0d", fontFamily: "var(--font-serif)", marginTop: "2px", marginBottom: 0 }}>
                 {searchQuery ? "Hasil Pencarian" : "Semua Siaran Pers"}
               </h2>
@@ -396,7 +396,7 @@ export default function RuangPersClient({
             <div style={{ padding: "60px 24px", textAlign: "center", backgroundColor: "#fff", border: "1px solid #e5e2dd", borderRadius: "4px" }}>
               <span style={{ fontSize: "40px", opacity: 0.2 }}>🔍</span>
               <p style={{ fontSize: "15px", color: "#6b6966", fontFamily: "var(--font-sans)", marginTop: "12px" }}>Tidak ada siaran pers ditemukan.</p>
-              <button onClick={handleClearSearch} style={{ marginTop: "16px", padding: "8px 20px", backgroundColor: "#8b1a2a", color: "#fff", border: "none", borderRadius: "3px", fontSize: "12px", fontWeight: "700", fontFamily: "var(--font-sans)", cursor: "pointer" }}>
+              <button onClick={handleClearSearch} style={{ marginTop: "16px", padding: "8px 20px", backgroundColor: "#0C57A8", color: "#fff", border: "none", borderRadius: "3px", fontSize: "12px", fontWeight: "700", fontFamily: "var(--font-sans)", cursor: "pointer" }}>
                 Tampilkan Semua
               </button>
             </div>

@@ -93,12 +93,12 @@ function ArticleCard({ article }: { article: Article }) {
                     }}
                     style={{
                       fontSize: "10px", fontWeight: "700", letterSpacing: "0.04em",
-                      color: "#1e4d7b", backgroundColor: "rgba(30,77,123,0.08)",
+                      color: "#8b1a2a", backgroundColor: "rgba(139,26,42,0.08)",
                       padding: "2px 8px", borderRadius: "2px",
                       fontFamily: "var(--font-sans)", cursor: "pointer", transition: "all 0.15s",
                     }}
-                    onMouseEnter={(e) => { e.currentTarget.style.backgroundColor = "rgba(30,77,123,0.18)"; e.currentTarget.style.color = "#0d2a4d"; }}
-                    onMouseLeave={(e) => { e.currentTarget.style.backgroundColor = "rgba(30,77,123,0.08)"; e.currentTarget.style.color = "#1e4d7b"; }}
+                    onMouseEnter={(e) => { e.currentTarget.style.backgroundColor = "rgba(139,26,42,0.18)"; e.currentTarget.style.color = "#5e0f1a"; }}
+                    onMouseLeave={(e) => { e.currentTarget.style.backgroundColor = "rgba(139,26,42,0.08)"; e.currentTarget.style.color = "#8b1a2a"; }}
                   >
                     {formatCategory(cat)}
                   </span>
@@ -206,7 +206,7 @@ function Pagination({ meta, onPageChange }: { meta: Meta; onPageChange: (p: numb
       <button
         style={{ ...btn, color: current_page === 1 ? "#c5c3bf" : "#3a3a3a", cursor: current_page === 1 ? "not-allowed" : "pointer" }}
         disabled={current_page === 1} onClick={() => onPageChange(current_page - 1)}
-        onMouseEnter={(e) => { if (current_page !== 1) (e.currentTarget as HTMLElement).style.borderColor = "#8b1a2a"; }}
+        onMouseEnter={(e) => { if (current_page !== 1) (e.currentTarget as HTMLElement).style.borderColor = "#0C57A8"; }}
         onMouseLeave={(e) => { (e.currentTarget as HTMLElement).style.borderColor = "#e5e2dd"; }}
       >
         <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2"><path d="M15 18l-6-6 6-6" /></svg>
@@ -217,9 +217,9 @@ function Pagination({ meta, onPageChange }: { meta: Meta; onPageChange: (p: numb
         ) : (
           <button
             key={p}
-            style={{ ...btn, backgroundColor: p === current_page ? "#8b1a2a" : "#fff", borderColor: p === current_page ? "#8b1a2a" : "#e5e2dd", color: p === current_page ? "#fff" : "#3a3a3a", fontWeight: p === current_page ? "700" : "500" }}
+            style={{ ...btn, backgroundColor: p === current_page ? "#0C57A8" : "#fff", borderColor: p === current_page ? "#0C57A8" : "#e5e2dd", color: p === current_page ? "#fff" : "#3a3a3a", fontWeight: p === current_page ? "700" : "500" }}
             onClick={() => onPageChange(p as number)}
-            onMouseEnter={(e) => { if (p !== current_page) { (e.currentTarget as HTMLElement).style.borderColor = "#8b1a2a"; (e.currentTarget as HTMLElement).style.color = "#8b1a2a"; } }}
+            onMouseEnter={(e) => { if (p !== current_page) { (e.currentTarget as HTMLElement).style.borderColor = "#0C57A8"; (e.currentTarget as HTMLElement).style.color = "#0C57A8"; } }}
             onMouseLeave={(e) => { if (p !== current_page) { (e.currentTarget as HTMLElement).style.borderColor = "#e5e2dd"; (e.currentTarget as HTMLElement).style.color = "#3a3a3a"; } }}
           >
             {p}
@@ -229,7 +229,7 @@ function Pagination({ meta, onPageChange }: { meta: Meta; onPageChange: (p: numb
       <button
         style={{ ...btn, color: current_page === last_page ? "#c5c3bf" : "#3a3a3a", cursor: current_page === last_page ? "not-allowed" : "pointer" }}
         disabled={current_page === last_page} onClick={() => onPageChange(current_page + 1)}
-        onMouseEnter={(e) => { if (current_page !== last_page) (e.currentTarget as HTMLElement).style.borderColor = "#8b1a2a"; }}
+        onMouseEnter={(e) => { if (current_page !== last_page) (e.currentTarget as HTMLElement).style.borderColor = "#0C57A8"; }}
         onMouseLeave={(e) => { (e.currentTarget as HTMLElement).style.borderColor = "#e5e2dd"; }}
       >
         <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2"><path d="M9 18l6-6-6-6" /></svg>
@@ -253,27 +253,27 @@ function Sidebar({ popular, popularLoading, categories, activeCategory, onCatego
       {/* Kategori */}
       <div style={{ backgroundColor: "#fff", border: "1px solid #e5e2dd", borderRadius: "4px", overflow: "hidden" }}>
         <div style={{ padding: "14px 18px", borderBottom: "3px solid #0d0d0d", display: "flex", alignItems: "center", gap: "8px" }}>
-          <span style={{ fontSize: "10px", fontWeight: "700", letterSpacing: "0.08em", textTransform: "uppercase" as const, color: "#8b1a2a", fontFamily: "var(--font-sans)" }}>◆</span>
+          <span style={{ fontSize: "10px", fontWeight: "700", letterSpacing: "0.08em", textTransform: "uppercase" as const, color: "#0C57A8", fontFamily: "var(--font-sans)" }}>◆</span>
           <h3 style={{ fontSize: "14px", fontWeight: "700", color: "#0d0d0d", fontFamily: "var(--font-serif)", margin: 0 }}>Kategori</h3>
         </div>
         <div style={{ padding: "8px 0" }}>
           <button
             onClick={() => onCategoryClick(null)}
-            style={{ width: "100%", padding: "8px 18px", display: "flex", alignItems: "center", justifyContent: "space-between", background: activeCategory === null ? "rgba(139,26,42,0.07)" : "transparent", border: "none", borderLeft: activeCategory === null ? "3px solid #8b1a2a" : "3px solid transparent", cursor: "pointer", transition: "all 0.15s" }}
-            onMouseEnter={(e) => { if (activeCategory !== null) (e.currentTarget as HTMLElement).style.background = "rgba(139,26,42,0.04)"; }}
+            style={{ width: "100%", padding: "8px 18px", display: "flex", alignItems: "center", justifyContent: "space-between", background: activeCategory === null ? "rgba(12,87,168,0.07)" : "transparent", border: "none", borderLeft: activeCategory === null ? "3px solid #0C57A8" : "3px solid transparent", cursor: "pointer", transition: "all 0.15s" }}
+            onMouseEnter={(e) => { if (activeCategory !== null) (e.currentTarget as HTMLElement).style.background = "rgba(12,87,168,0.04)"; }}
             onMouseLeave={(e) => { if (activeCategory !== null) (e.currentTarget as HTMLElement).style.background = "transparent"; }}
           >
-            <span style={{ fontSize: "13px", fontWeight: activeCategory === null ? "600" : "400", color: activeCategory === null ? "#8b1a2a" : "#3a3a3a", fontFamily: "var(--font-sans)" }}>Semua Artikel</span>
+            <span style={{ fontSize: "13px", fontWeight: activeCategory === null ? "600" : "400", color: activeCategory === null ? "#0C57A8" : "#3a3a3a", fontFamily: "var(--font-sans)" }}>Semua Artikel</span>
           </button>
           {categories.map(({ name, count }) => (
             <button
               key={name}
               onClick={() => onCategoryClick(name)}
-              style={{ width: "100%", padding: "8px 18px", display: "flex", alignItems: "center", justifyContent: "space-between", background: activeCategory === name ? "rgba(139,26,42,0.07)" : "transparent", border: "none", borderLeft: activeCategory === name ? "3px solid #8b1a2a" : "3px solid transparent", cursor: "pointer", transition: "all 0.15s" }}
-              onMouseEnter={(e) => { if (activeCategory !== name) (e.currentTarget as HTMLElement).style.background = "rgba(139,26,42,0.04)"; }}
+              style={{ width: "100%", padding: "8px 18px", display: "flex", alignItems: "center", justifyContent: "space-between", background: activeCategory === name ? "rgba(12,87,168,0.07)" : "transparent", border: "none", borderLeft: activeCategory === name ? "3px solid #0C57A8" : "3px solid transparent", cursor: "pointer", transition: "all 0.15s" }}
+              onMouseEnter={(e) => { if (activeCategory !== name) (e.currentTarget as HTMLElement).style.background = "rgba(12,87,168,0.04)"; }}
               onMouseLeave={(e) => { if (activeCategory !== name) (e.currentTarget as HTMLElement).style.background = "transparent"; }}
             >
-              <span style={{ fontSize: "13px", fontWeight: activeCategory === name ? "600" : "400", color: activeCategory === name ? "#8b1a2a" : "#3a3a3a", fontFamily: "var(--font-sans)", textAlign: "left" as const }}>{formatCategory(name)}</span>
+              <span style={{ fontSize: "13px", fontWeight: activeCategory === name ? "600" : "400", color: activeCategory === name ? "#0C57A8" : "#3a3a3a", fontFamily: "var(--font-sans)", textAlign: "left" as const }}>{formatCategory(name)}</span>
               <span style={{ fontSize: "10px", fontWeight: "600", color: "#6b6966", backgroundColor: "#f0eeec", padding: "1px 7px", borderRadius: "10px", fontFamily: "var(--font-sans)", flexShrink: 0 }}>{count}</span>
             </button>
           ))}
@@ -283,7 +283,7 @@ function Sidebar({ popular, popularLoading, categories, activeCategory, onCatego
       {/* Artikel Populer */}
       <div style={{ backgroundColor: "#fff", border: "1px solid #e5e2dd", borderRadius: "4px", overflow: "hidden" }}>
         <div style={{ padding: "14px 18px", borderBottom: "3px solid #0d0d0d", display: "flex", alignItems: "center", gap: "8px" }}>
-          <span style={{ fontSize: "10px", fontWeight: "700", letterSpacing: "0.08em", textTransform: "uppercase" as const, color: "#8b1a2a", fontFamily: "var(--font-sans)" }}>◆</span>
+          <span style={{ fontSize: "10px", fontWeight: "700", letterSpacing: "0.08em", textTransform: "uppercase" as const, color: "#0C57A8", fontFamily: "var(--font-sans)" }}>◆</span>
           <h3 style={{ fontSize: "14px", fontWeight: "700", color: "#0d0d0d", fontFamily: "var(--font-serif)", margin: 0 }}>Artikel Populer</h3>
         </div>
         <div style={{ padding: "4px 0" }}>
@@ -304,7 +304,7 @@ function Sidebar({ popular, popularLoading, categories, activeCategory, onCatego
                     onMouseEnter={(e) => { (e.currentTarget as HTMLElement).style.background = "#faf9f7"; }}
                     onMouseLeave={(e) => { (e.currentTarget as HTMLElement).style.background = "transparent"; }}
                   >
-                    <span style={{ flexShrink: 0, width: "22px", height: "22px", borderRadius: "50%", display: "flex", alignItems: "center", justifyContent: "center", fontSize: "10px", fontWeight: "700", fontFamily: "var(--font-sans)", backgroundColor: idx < 3 ? "#8b1a2a" : "#f0eeec", color: idx < 3 ? "#fff" : "#6b6966", marginTop: "1px" }}>{idx + 1}</span>
+                    <span style={{ flexShrink: 0, width: "22px", height: "22px", borderRadius: "50%", display: "flex", alignItems: "center", justifyContent: "center", fontSize: "10px", fontWeight: "700", fontFamily: "var(--font-sans)", backgroundColor: idx < 3 ? "#0C57A8" : "#f0eeec", color: idx < 3 ? "#fff" : "#6b6966", marginTop: "1px" }}>{idx + 1}</span>
                     <div style={{ flex: 1, minWidth: 0 }}>
                       <p style={{ fontSize: "12px", fontWeight: "600", color: "#0d0d0d", lineHeight: "1.45", fontFamily: "var(--font-serif)", margin: "0 0 4px", display: "-webkit-box", WebkitLineClamp: 2, WebkitBoxOrient: "vertical", overflow: "hidden" }}>{a.title}</p>
                       <span style={{ display: "flex", alignItems: "center", gap: "3px", fontSize: "10px", color: "#6b6966", fontFamily: "var(--font-sans)" }}>
@@ -320,7 +320,7 @@ function Sidebar({ popular, popularLoading, categories, activeCategory, onCatego
 
       {/* Tentang Rubrik */}
       <div style={{ backgroundColor: "#1a3a5c", border: "1px solid rgba(255,255,255,0.1)", borderRadius: "4px", padding: "20px", position: "relative", overflow: "hidden" }}>
-        <div style={{ position: "absolute", top: "-20px", right: "-20px", width: "80px", height: "80px", borderRadius: "50%", background: "radial-gradient(circle, rgba(139,26,42,0.25) 0%, transparent 70%)", pointerEvents: "none" }} />
+        <div style={{ position: "absolute", top: "-20px", right: "-20px", width: "80px", height: "80px", borderRadius: "50%", background: "radial-gradient(circle, rgba(12,87,168,0.25) 0%, transparent 70%)", pointerEvents: "none" }} />
         <h4 style={{ fontSize: "13px", fontWeight: "700", color: "#fff", fontFamily: "var(--font-serif)", margin: "0 0 8px" }}>Tentang Rubrik</h4>
         <p style={{ fontSize: "12px", color: "rgba(255,255,255,0.6)", lineHeight: "1.7", fontFamily: "var(--font-sans)", margin: "0 0 14px" }}>Kumpulan artikel dan berita terbaru seputar kegiatan, program, dan perkembangan Wikimedia Indonesia.</p>
       </div>
@@ -439,7 +439,7 @@ export default function RubrikClient({
       <section style={{ padding: "40px 24px 36px", position: "relative", overflow: "hidden", backgroundImage: "url('/banner/Mosaik_Budaya_1.png')", backgroundSize: "cover", backgroundPosition: "center" }}>
         <div style={{ position: "absolute", inset: 0, background: "linear-gradient(135deg, rgba(8,20,45,0.88) 0%, rgba(10,30,65,0.80) 40%, rgba(15,40,80,0.72) 100%)", pointerEvents: "none" }} />
         <div style={{ position: "absolute", inset: 0, backgroundImage: `linear-gradient(rgba(255,255,255,0.03) 1px, transparent 1px), linear-gradient(90deg, rgba(255,255,255,0.03) 1px, transparent 1px)`, backgroundSize: "40px 40px", pointerEvents: "none" }} />
-        <div style={{ position: "absolute", top: "-60px", right: "-60px", width: "240px", height: "240px", borderRadius: "50%", background: "radial-gradient(circle, rgba(139,26,42,0.20) 0%, transparent 70%)", pointerEvents: "none" }} />
+        <div style={{ position: "absolute", top: "-60px", right: "-60px", width: "240px", height: "240px", borderRadius: "50%", background: "radial-gradient(circle, rgba(12,87,168,0.20) 0%, transparent 70%)", pointerEvents: "none" }} />
 
         <div style={{ maxWidth: "1280px", margin: "0 auto", position: "relative", zIndex: 1 }}>
           {/* Breadcrumb */}
@@ -451,8 +451,8 @@ export default function RubrikClient({
             </Link>
             <span style={{ fontSize: "11px", color: "rgba(255,255,255,0.25)", fontFamily: "var(--font-sans)" }}>/</span>
             <span style={{ fontSize: "11px", color: "rgba(255,255,255,0.7)", fontFamily: "var(--font-sans)" }}>Rubrik</span>
-            {categoryFromUrl && (<><span style={{ fontSize: "11px", color: "rgba(255,255,255,0.25)", fontFamily: "var(--font-sans)" }}>/</span><span style={{ fontSize: "11px", color: "#e05070", fontFamily: "var(--font-sans)" }}>{formatCategory(categoryFromUrl)}</span></>)}
-            {queryFromUrl && (<><span style={{ fontSize: "11px", color: "rgba(255,255,255,0.25)", fontFamily: "var(--font-sans)" }}>/</span><span style={{ fontSize: "11px", color: "#e05070", fontFamily: "var(--font-sans)" }}>Pencarian: "{queryFromUrl}"</span></>)}
+            {categoryFromUrl && (<><span style={{ fontSize: "11px", color: "rgba(255,255,255,0.25)", fontFamily: "var(--font-sans)" }}>/</span><span style={{ fontSize: "11px", color: "#3b8ed4", fontFamily: "var(--font-sans)" }}>{formatCategory(categoryFromUrl)}</span></>)}
+            {queryFromUrl && (<><span style={{ fontSize: "11px", color: "rgba(255,255,255,0.25)", fontFamily: "var(--font-sans)" }}>/</span><span style={{ fontSize: "11px", color: "#3b8ed4", fontFamily: "var(--font-sans)" }}>Pencarian: "{queryFromUrl}"</span></>)}
           </div>
 
           <div style={{ display: "flex", alignItems: "flex-end", justifyContent: "space-between", flexWrap: "wrap", gap: "20px" }}>
@@ -479,9 +479,9 @@ export default function RubrikClient({
               />
               <button
                 onClick={handleSearch}
-                style={{ padding: "10px 16px", backgroundColor: "#8b1a2a", border: "none", color: "#fff", cursor: "pointer", transition: "background 0.2s", display: "flex", alignItems: "center", justifyContent: "center" }}
-                onMouseEnter={(e) => ((e.currentTarget as HTMLElement).style.backgroundColor = "#a82235")}
-                onMouseLeave={(e) => ((e.currentTarget as HTMLElement).style.backgroundColor = "#8b1a2a")}
+                style={{ padding: "10px 16px", backgroundColor: "#0C57A8", border: "none", color: "#fff", cursor: "pointer", transition: "background 0.2s", display: "flex", alignItems: "center", justifyContent: "center" }}
+                onMouseEnter={(e) => ((e.currentTarget as HTMLElement).style.backgroundColor = "#0a4a8f")}
+                onMouseLeave={(e) => ((e.currentTarget as HTMLElement).style.backgroundColor = "#0C57A8")}
               >
                 <svg width="15" height="15" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2"><circle cx="11" cy="11" r="8" /><path d="m21 21-4.35-4.35" /></svg>
               </button>
@@ -500,9 +500,9 @@ export default function RubrikClient({
           {(categoryFromUrl || queryFromUrl) && (
             <div style={{ display: "flex", alignItems: "center", gap: "8px", marginBottom: "20px" }}>
               <span style={{ fontSize: "12px", color: "#5c5a57", fontFamily: "var(--font-sans)" }}>Filter aktif:</span>
-              <span style={{ display: "inline-flex", alignItems: "center", gap: "6px", padding: "3px 10px", backgroundColor: "rgba(139,26,42,0.1)", border: "1px solid rgba(139,26,42,0.25)", borderRadius: "100px", fontSize: "12px", fontWeight: "600", color: "#8b1a2a", fontFamily: "var(--font-sans)" }}>
+              <span style={{ display: "inline-flex", alignItems: "center", gap: "6px", padding: "3px 10px", backgroundColor: "rgba(12,87,168,0.1)", border: "1px solid rgba(12,87,168,0.25)", borderRadius: "100px", fontSize: "12px", fontWeight: "600", color: "#0C57A8", fontFamily: "var(--font-sans)" }}>
                 {categoryFromUrl ? formatCategory(categoryFromUrl) : `"${queryFromUrl}"`}
-                <button onClick={handleClearFilter} style={{ background: "none", border: "none", cursor: "pointer", padding: 0, color: "#8b1a2a", display: "flex", alignItems: "center" }}>
+                <button onClick={handleClearFilter} style={{ background: "none", border: "none", cursor: "pointer", padding: 0, color: "#0C57A8", display: "flex", alignItems: "center" }}>
                   <svg width="12" height="12" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2.5"><path d="M18 6L6 18M6 6l12 12" /></svg>
                 </button>
               </span>
@@ -516,7 +516,7 @@ export default function RubrikClient({
             <div>
               <div className="section-border-shimmer" style={{ display: "flex", justifyContent: "space-between", alignItems: "flex-end", marginBottom: "20px", paddingBottom: "12px", borderBottom: "3px solid #0d0d0d" }}>
                 <div>
-                  <span style={{ fontSize: "11px", fontWeight: "700", letterSpacing: "0.1em", textTransform: "uppercase" as const, color: "#8b1a2a", fontFamily: "var(--font-sans)" }}>◆ Terkini</span>
+                  <span style={{ fontSize: "11px", fontWeight: "700", letterSpacing: "0.1em", textTransform: "uppercase" as const, color: "#0C57A8", fontFamily: "var(--font-sans)" }}>◆ Terkini</span>
                   <h2 style={{ fontSize: "18px", fontWeight: "700", color: "#0d0d0d", fontFamily: "var(--font-serif)", marginTop: "2px", marginBottom: 0 }}>
                     {categoryFromUrl ? formatCategory(categoryFromUrl) : queryFromUrl ? "Hasil Pencarian" : "Semua Artikel"}
                   </h2>
@@ -532,7 +532,7 @@ export default function RubrikClient({
                 <div style={{ padding: "60px 24px", textAlign: "center", backgroundColor: "#fff", border: "1px solid #e5e2dd", borderRadius: "4px" }}>
                   <span style={{ fontSize: "40px", opacity: 0.2 }}>🔍</span>
                   <p style={{ fontSize: "15px", color: "#6b6966", fontFamily: "var(--font-sans)", marginTop: "12px" }}>Tidak ada artikel ditemukan.</p>
-                  <button onClick={handleClearFilter} style={{ marginTop: "16px", padding: "8px 20px", backgroundColor: "#8b1a2a", color: "#fff", border: "none", borderRadius: "3px", fontSize: "12px", fontWeight: "700", fontFamily: "var(--font-sans)", cursor: "pointer" }}>
+                  <button onClick={handleClearFilter} style={{ marginTop: "16px", padding: "8px 20px", backgroundColor: "#0C57A8", color: "#fff", border: "none", borderRadius: "3px", fontSize: "12px", fontWeight: "700", fontFamily: "var(--font-sans)", cursor: "pointer" }}>
                     Tampilkan Semua
                   </button>
                 </div>

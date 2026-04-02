@@ -54,8 +54,8 @@ function ReadingProgress() {
   }, []);
 
   return (
-    <div style={{ position: "fixed", top: 0, left: 0, width: "100%", height: "3px", backgroundColor: "rgba(139,26,42,0.15)", zIndex: 9999, pointerEvents: "none" }}>
-      <div style={{ height: "100%", width: `${progress}%`, background: "linear-gradient(90deg, #8b1a2a, #e05070)", transition: "width 0.1s linear" }} />
+    <div style={{ position: "fixed", top: 0, left: 0, width: "100%", height: "3px", backgroundColor: "rgba(12,87,168,0.15)", zIndex: 9999, pointerEvents: "none" }}>
+      <div style={{ height: "100%", width: `${progress}%`, background: "linear-gradient(90deg, #0C57A8, #3b8ed4)", transition: "width 0.1s linear" }} />
     </div>
   );
 }
@@ -92,7 +92,7 @@ export default function PressReleaseClient({
 
       {/* ── HERO ─────────────────────────────────────────────────────────── */}
       <section style={{ padding: "48px 24px 0", position: "relative", overflow: "hidden", backgroundImage: "url('/banner/Mosaik_Budaya_3.png')", backgroundSize: "cover", backgroundPosition: "center" }}>
-        <div style={{ position: "absolute", inset: 0, background: "linear-gradient(135deg, rgba(40,22,6,0.92) 0%, rgba(80,44,8,0.84) 40%, rgba(120,72,10,0.72) 100%)", pointerEvents: "none" }} />
+        <div style={{ position: "absolute", inset: 0, background: "linear-gradient(135deg, rgba(8,20,45,0.92) 0%, rgba(10,30,65,0.84) 40%, rgba(15,40,80,0.76) 100%)", pointerEvents: "none" }} />
         <div style={{ position: "absolute", inset: 0, backgroundImage: `linear-gradient(rgba(255,255,255,0.03) 1px, transparent 1px), linear-gradient(90deg, rgba(255,255,255,0.03) 1px, transparent 1px)`, backgroundSize: "40px 40px", pointerEvents: "none" }} />
         <div style={{ position: "absolute", top: "-80px", right: "-80px", width: "300px", height: "300px", borderRadius: "50%", background: "radial-gradient(circle, rgba(212,160,20,0.28) 0%, transparent 70%)", pointerEvents: "none" }} />
         <div style={{ position: "absolute", bottom: "-40px", left: "8%", width: "180px", height: "180px", borderRadius: "50%", background: "radial-gradient(circle, rgba(180,100,10,0.18) 0%, transparent 70%)", pointerEvents: "none" }} />
@@ -111,14 +111,14 @@ export default function PressReleaseClient({
               Ruang Pers
             </Link>
             <span style={{ fontSize: "11px", color: "rgba(255,255,255,0.2)", fontFamily: "var(--font-sans)" }}>/</span>
-            <span style={{ fontSize: "11px", color: "#e05070", fontFamily: "var(--font-sans)", maxWidth: "300px", overflow: "hidden", textOverflow: "ellipsis", whiteSpace: "nowrap" as const }}>
+            <span style={{ fontSize: "11px", color: "#3b8ed4", fontFamily: "var(--font-sans)", maxWidth: "300px", overflow: "hidden", textOverflow: "ellipsis", whiteSpace: "nowrap" as const }}>
               {pr.title}
             </span>
           </div>
 
           {/* Badge */}
           <div style={{ marginBottom: "16px" }}>
-            <span style={{ fontSize: "10px", fontWeight: "700", letterSpacing: "0.06em", textTransform: "uppercase" as const, color: "#e05070", backgroundColor: "rgba(224,80,112,0.12)", border: "1px solid rgba(224,80,112,0.25)", padding: "3px 10px", borderRadius: "2px", fontFamily: "var(--font-sans)" }}>
+            <span style={{ fontSize: "10px", fontWeight: "700", letterSpacing: "0.06em", textTransform: "uppercase" as const, color: "#3b8ed4", backgroundColor: "rgba(59,142,212,0.12)", border: "1px solid rgba(59,142,212,0.25)", padding: "3px 10px", borderRadius: "2px", fontFamily: "var(--font-sans)" }}>
               ◆ Siaran Pers
             </span>
           </div>
@@ -132,7 +132,7 @@ export default function PressReleaseClient({
           <div style={{ display: "flex", alignItems: "center", flexWrap: "wrap" as const, gap: "20px", paddingBottom: "28px", borderBottom: "1px solid rgba(255,255,255,0.08)" }}>
             {/* Publisher */}
             <div style={{ display: "flex", alignItems: "center", gap: "8px" }}>
-              <div style={{ width: "32px", height: "32px", borderRadius: "50%", backgroundColor: "rgba(139,26,42,0.4)", border: "1px solid rgba(139,26,42,0.6)", display: "flex", alignItems: "center", justifyContent: "center", flexShrink: 0 }}>
+              <div style={{ width: "32px", height: "32px", borderRadius: "50%", backgroundColor: "rgba(12,87,168,0.4)", border: "1px solid rgba(12,87,168,0.6)", display: "flex", alignItems: "center", justifyContent: "center", flexShrink: 0 }}>
                 <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="rgba(255,255,255,0.6)" strokeWidth="2"><path d="M20 21v-2a4 4 0 0 0-4-4H8a4 4 0 0 0-4 4v2"/><circle cx="12" cy="7" r="4"/></svg>
               </div>
               <div>
@@ -206,7 +206,7 @@ export default function PressReleaseClient({
               {/* Share + back */}
               <div style={{ marginTop: "36px", paddingTop: "24px", borderTop: "2px solid #0d0d0d", display: "flex", alignItems: "center", justifyContent: "space-between", flexWrap: "wrap" as const, gap: "12px" }}>
                 <Link href="/ruang-pers" style={{ display: "inline-flex", alignItems: "center", gap: "7px", fontSize: "12px", fontWeight: "700", letterSpacing: "0.05em", textTransform: "uppercase" as const, color: "#5c5a57", textDecoration: "none", fontFamily: "var(--font-sans)", transition: "color 0.15s" }}
-                  onMouseEnter={(e) => (e.currentTarget.style.color = "#8b1a2a")}
+                  onMouseEnter={(e) => (e.currentTarget.style.color = "#0C57A8")}
                   onMouseLeave={(e) => (e.currentTarget.style.color = "#5c5a57")}>
                   <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2"><path d="M15 18l-6-6 6-6"/></svg>
                   Kembali ke Ruang Pers
@@ -241,7 +241,7 @@ export default function PressReleaseClient({
                   {/* Copy */}
                   <button onClick={handleCopy}
                     style={{ display: "flex", alignItems: "center", justifyContent: "center", width: "34px", height: "34px", borderRadius: "50%", border: "1px solid #e5e2dd", backgroundColor: copied ? "#16a34a" : "#fff", color: copied ? "#fff" : "#5c5a57", cursor: "pointer", transition: "all 0.2s" }}
-                    onMouseEnter={(e) => { if (!copied) { (e.currentTarget as HTMLElement).style.backgroundColor = "#8b1a2a"; (e.currentTarget as HTMLElement).style.borderColor = "#8b1a2a"; (e.currentTarget as HTMLElement).style.color = "#fff"; } }}
+                    onMouseEnter={(e) => { if (!copied) { (e.currentTarget as HTMLElement).style.backgroundColor = "#0C57A8"; (e.currentTarget as HTMLElement).style.borderColor = "#0C57A8"; (e.currentTarget as HTMLElement).style.color = "#fff"; } }}
                     onMouseLeave={(e) => { if (!copied) { (e.currentTarget as HTMLElement).style.backgroundColor = "#fff"; (e.currentTarget as HTMLElement).style.borderColor = "#e5e2dd"; (e.currentTarget as HTMLElement).style.color = "#5c5a57"; } }}
                     title="Salin tautan">
                     {copied
@@ -254,11 +254,11 @@ export default function PressReleaseClient({
 
               {/* Contact info box */}
               {pr.creator?.email && (
-                <div style={{ marginTop: "32px", backgroundColor: "#fff", border: "1px solid #e5e2dd", borderRadius: "4px", borderLeft: "3px solid #8b1a2a", padding: "20px 24px" }}>
-                  <span style={{ fontSize: "10px", fontWeight: "700", letterSpacing: "0.08em", textTransform: "uppercase" as const, color: "#8b1a2a", fontFamily: "var(--font-sans)" }}>◆ Kontak Media</span>
+                <div style={{ marginTop: "32px", backgroundColor: "#fff", border: "1px solid #e5e2dd", borderRadius: "4px", borderLeft: "3px solid #0C57A8", padding: "20px 24px" }}>
+                  <span style={{ fontSize: "10px", fontWeight: "700", letterSpacing: "0.08em", textTransform: "uppercase" as const, color: "#0C57A8", fontFamily: "var(--font-sans)" }}>◆ Kontak Media</span>
                   <div style={{ marginTop: "12px", display: "flex", alignItems: "center", gap: "12px" }}>
-                    <div style={{ width: "40px", height: "40px", borderRadius: "50%", backgroundColor: "rgba(139,26,42,0.1)", border: "2px solid rgba(139,26,42,0.2)", display: "flex", alignItems: "center", justifyContent: "center", flexShrink: 0 }}>
-                      <span style={{ fontSize: "15px", fontWeight: "700", color: "#8b1a2a", fontFamily: "var(--font-serif)" }}>
+                    <div style={{ width: "40px", height: "40px", borderRadius: "50%", backgroundColor: "rgba(12,87,168,0.1)", border: "2px solid rgba(12,87,168,0.2)", display: "flex", alignItems: "center", justifyContent: "center", flexShrink: 0 }}>
+                      <span style={{ fontSize: "15px", fontWeight: "700", color: "#0C57A8", fontFamily: "var(--font-serif)" }}>
                         {pr.creator.name.charAt(0)}
                       </span>
                     </div>
@@ -267,7 +267,7 @@ export default function PressReleaseClient({
                         {pr.creator.name}
                       </span>
                       <a href={`mailto:${pr.creator.email}`} style={{ fontSize: "12px", color: "#1e4d7b", fontFamily: "var(--font-sans)", margin: "2px 0 0", display: "block", textDecoration: "none", transition: "color 0.15s" }}
-                        onMouseEnter={(e) => (e.currentTarget.style.color = "#8b1a2a")}
+                        onMouseEnter={(e) => (e.currentTarget.style.color = "#0C57A8")}
                         onMouseLeave={(e) => (e.currentTarget.style.color = "#1e4d7b")}>
                         {pr.creator.email}
                       </a>
@@ -283,7 +283,7 @@ export default function PressReleaseClient({
               {/* Info box */}
               <div style={{ backgroundColor: "#fff", border: "1px solid #e5e2dd", borderRadius: "4px", overflow: "hidden" }}>
                 <div style={{ padding: "14px 18px", borderBottom: "3px solid #0d0d0d" }}>
-                  <span style={{ fontSize: "10px", fontWeight: "700", letterSpacing: "0.08em", textTransform: "uppercase" as const, color: "#8b1a2a", fontFamily: "var(--font-sans)" }}>◆ Tentang Siaran Pers</span>
+                  <span style={{ fontSize: "10px", fontWeight: "700", letterSpacing: "0.08em", textTransform: "uppercase" as const, color: "#0C57A8", fontFamily: "var(--font-sans)" }}>◆ Tentang Siaran Pers</span>
                 </div>
                 <div style={{ padding: "16px 18px", display: "flex", flexDirection: "column", gap: "12px" }}>
                   <div style={{ display: "flex", alignItems: "flex-start", gap: "10px" }}>
@@ -314,9 +314,9 @@ export default function PressReleaseClient({
               {latest.length > 0 && (
                 <div style={{ backgroundColor: "#fff", border: "1px solid #e5e2dd", borderRadius: "4px", overflow: "hidden" }}>
                   <div style={{ padding: "14px 18px", borderBottom: "3px solid #0d0d0d", display: "flex", justifyContent: "space-between", alignItems: "center" }}>
-                    <span style={{ fontSize: "10px", fontWeight: "700", letterSpacing: "0.08em", textTransform: "uppercase" as const, color: "#8b1a2a", fontFamily: "var(--font-sans)" }}>◆ Terbaru</span>
+                    <span style={{ fontSize: "10px", fontWeight: "700", letterSpacing: "0.08em", textTransform: "uppercase" as const, color: "#0C57A8", fontFamily: "var(--font-sans)" }}>◆ Terbaru</span>
                     <Link href="/ruang-pers" style={{ fontSize: "10px", color: "#1e4d7b", textDecoration: "none", fontFamily: "var(--font-sans)", fontWeight: "600", transition: "color 0.15s" }}
-                      onMouseEnter={(e) => (e.currentTarget.style.color = "#8b1a2a")}
+                      onMouseEnter={(e) => (e.currentTarget.style.color = "#0C57A8")}
                       onMouseLeave={(e) => (e.currentTarget.style.color = "#1e4d7b")}>
                       Lihat semua →
                     </Link>
@@ -347,12 +347,12 @@ export default function PressReleaseClient({
 
               {/* CTA download/contact */}
               <div style={{ backgroundColor: "#1a3a5c", border: "1px solid rgba(255,255,255,0.1)", borderRadius: "4px", padding: "20px", position: "relative", overflow: "hidden" }}>
-                <div style={{ position: "absolute", top: "-20px", right: "-20px", width: "80px", height: "80px", borderRadius: "50%", background: "radial-gradient(circle, rgba(139,26,42,0.25) 0%, transparent 70%)", pointerEvents: "none" }} />
+                <div style={{ position: "absolute", top: "-20px", right: "-20px", width: "80px", height: "80px", borderRadius: "50%", background: "radial-gradient(circle, rgba(12,87,168,0.25) 0%, transparent 70%)", pointerEvents: "none" }} />
                 <h4 style={{ fontSize: "13px", fontWeight: "700", color: "#fff", fontFamily: "var(--font-serif)", margin: "0 0 8px" }}>Pertanyaan Media?</h4>
                 <p style={{ fontSize: "12px", color: "rgba(255,255,255,0.6)", lineHeight: "1.7", fontFamily: "var(--font-sans)", margin: "0 0 14px" }}>
                   Untuk pertanyaan dari media dan jurnalis, silakan hubungi tim kami.
                 </p>
-                <Link href="/tentang#hubungi-kami" style={{ display: "inline-flex", alignItems: "center", gap: "5px", fontSize: "11px", fontWeight: "700", letterSpacing: "0.05em", textTransform: "uppercase" as const, color: "#e05070", textDecoration: "none", fontFamily: "var(--font-sans)" }}>
+                <Link href="/tentang#hubungi-kami" style={{ display: "inline-flex", alignItems: "center", gap: "5px", fontSize: "11px", fontWeight: "700", letterSpacing: "0.05em", textTransform: "uppercase" as const, color: "#3b8ed4", textDecoration: "none", fontFamily: "var(--font-sans)" }}>
                   Hubungi Kami
                   <svg width="10" height="10" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2.5"><path d="M5 12h14M12 5l7 7-7 7"/></svg>
                 </Link>
@@ -374,8 +374,8 @@ export default function PressReleaseClient({
         .article-content h2 { font-size: 1.55em; font-weight: 700; color: #0d0d0d; margin: 2em 0 0.6em; line-height: 1.25; padding-bottom: 8px; border-bottom: 2px solid #e5e2dd; }
         .article-content h3 { font-size: 1.25em; font-weight: 700; color: #0d0d0d; margin: 1.6em 0 0.5em; line-height: 1.3; }
         .article-content a { color: #1e4d7b; text-decoration: underline; text-underline-offset: 3px; transition: color 0.15s; }
-        .article-content a:hover { color: #8b1a2a; }
-        .article-content blockquote { margin: 2em 0; padding: 16px 24px; border-left: 4px solid #8b1a2a; background: rgba(139,26,42,0.04); border-radius: 0 4px 4px 0; font-style: italic; color: #3a3a3a; }
+        .article-content a:hover { color: #0C57A8; }
+        .article-content blockquote { margin: 2em 0; padding: 16px 24px; border-left: 4px solid #0C57A8; background: rgba(12,87,168,0.04); border-radius: 0 4px 4px 0; font-style: italic; color: #3a3a3a; }
         .article-content blockquote p { margin: 0; }
         .article-content ul, .article-content ol { margin: 0 0 1.5em; padding-left: 1.6em; }
         .article-content li { margin-bottom: 0.4em; }

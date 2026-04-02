@@ -102,7 +102,7 @@ function SearchDropdown({
       }}
     >
       {/* Top accent */}
-      <div style={{ height: "3px", background: "linear-gradient(90deg, #8b1a2a, #1e4d7b)" }} />
+      <div style={{ height: "3px", background: "linear-gradient(90deg, #0C57A8, #1e4d7b)" }} />
 
       {loading ? (
         <div style={{ padding: "24px", display: "flex", flexDirection: "column", gap: "10px" }}>
@@ -367,7 +367,7 @@ export default function Header() {
       }}
     >
       {/* Top accent */}
-      <div style={{ height: "3px", background: "linear-gradient(90deg, #8b1a2a 0%, #1a3a5c 50%, #1e4d7b 100%)" }} />
+      <div style={{ height: "3px", background: "linear-gradient(90deg, #0C57A8 0%, #1a3a5c 50%, #1e4d7b 100%)" }} />
 
       {/* Main bar */}
       <div style={{ maxWidth: "1280px", margin: "0 auto", padding: "0 24px", display: "flex", alignItems: "center", justifyContent: "space-between", height: "68px" }}>
@@ -401,11 +401,11 @@ export default function Header() {
             <Link key={item.label} href={item.href} style={{
               padding: "8px 14px", fontSize: "13px", fontWeight: "600",
               letterSpacing: "0.03em", textTransform: "uppercase", textDecoration: "none",
-              color: activeItem === item.label ? "#8b1a2a" : "#3a3a3a",
-              borderBottom: activeItem === item.label ? "2px solid #8b1a2a" : "2px solid transparent",
+              color: activeItem === item.label ? "#0C57A8" : "#3a3a3a",
+              borderBottom: activeItem === item.label ? "2px solid #0C57A8" : "2px solid transparent",
               transition: "all 0.2s", fontFamily: "var(--font-sans)",
             }}
-              onMouseEnter={(e) => { if (activeItem !== item.label) e.currentTarget.style.color = "#8b1a2a"; }}
+              onMouseEnter={(e) => { if (activeItem !== item.label) e.currentTarget.style.color = "#0C57A8"; }}
               onMouseLeave={(e) => { if (activeItem !== item.label) e.currentTarget.style.color = "#3a3a3a"; }}
             >
               {item.label}
@@ -434,7 +434,7 @@ export default function Header() {
                 borderRadius: "4px", boxShadow: "0 8px 24px rgba(0,0,0,0.10)",
                 minWidth: "180px", overflow: "hidden",
               }}>
-                <div style={{ height: "3px", background: "linear-gradient(90deg, #8b1a2a, #1e4d7b)" }} />
+                <div style={{ height: "3px", background: "linear-gradient(90deg, #0C57A8, #1e4d7b)" }} />
                 {moreItems.map((item, idx) => (
                   <Link key={item.label} href={item.href} style={{
                     display: "block", padding: "10px 16px", fontSize: "13px", fontWeight: "500",
@@ -442,7 +442,7 @@ export default function Header() {
                     borderBottom: idx < moreItems.length - 1 ? "1px solid #f5f4f2" : "none",
                     transition: "all 0.15s",
                   }}
-                    onMouseEnter={(e) => { e.currentTarget.style.backgroundColor = "#faf9f7"; e.currentTarget.style.color = "#8b1a2a"; e.currentTarget.style.paddingLeft = "20px"; }}
+                    onMouseEnter={(e) => { e.currentTarget.style.backgroundColor = "#faf9f7"; e.currentTarget.style.color = "#0C57A8"; e.currentTarget.style.paddingLeft = "20px"; }}
                     onMouseLeave={(e) => { e.currentTarget.style.backgroundColor = "transparent"; e.currentTarget.style.color = "#3a3a3a"; e.currentTarget.style.paddingLeft = "16px"; }}
                   >
                     {item.label}
@@ -478,7 +478,7 @@ export default function Header() {
                 style={{
                   display: "flex", alignItems: "center", justifyContent: "center",
                   width: "36px", height: "36px", flexShrink: 0,
-                  background: searchOpen ? "#8b1a2a" : "transparent",
+                  background: searchOpen ? "#0C57A8" : "transparent",
                   border: "none", cursor: "pointer",
                   color: searchOpen ? "#fff" : "#6b7280",
                   transition: "background 0.2s, color 0.2s",
@@ -571,7 +571,7 @@ export default function Header() {
               style={{ flex: 1, padding: "10px 14px", fontSize: "13px", border: "none", outline: "none", fontFamily: "var(--font-sans)", color: "#0d0d0d" }}
               onKeyDown={(e) => { if (e.key === "Enter") { const v = (e.target as HTMLInputElement).value.trim(); if (v) { setMenuOpen(false); router.push(`/cari?q=${encodeURIComponent(v)}`); } } }}
             />
-            <button aria-label="Cari" style={{ padding: "10px 14px", backgroundColor: "#8b1a2a", border: "none", color: "#fff", cursor: "pointer" }}>
+            <button aria-label="Cari" style={{ padding: "10px 14px", backgroundColor: "#0C57A8", border: "none", color: "#fff", cursor: "pointer" }}>
               <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2"><circle cx="11" cy="11" r="8"/><path d="m21 21-4.35-4.35"/></svg>
             </button>
           </div>
@@ -582,8 +582,8 @@ export default function Header() {
             <Link key={item.label} href={item.href} onClick={() => setMenuOpen(false)} style={{
               display: "block", padding: "12px 24px", fontSize: "14px", fontWeight: "600",
               letterSpacing: "0.04em", textTransform: "uppercase", textDecoration: "none",
-              color: activeItem === item.label ? "#8b1a2a" : "#3a3a3a",
-              borderLeft: activeItem === item.label ? "3px solid #8b1a2a" : "3px solid transparent",
+              color: activeItem === item.label ? "#0C57A8" : "#3a3a3a",
+              borderLeft: activeItem === item.label ? "3px solid #0C57A8" : "3px solid transparent",
               transition: "all 0.2s",
             }}>
               {item.label}
@@ -618,7 +618,7 @@ export default function Header() {
           transform: translateY(0) !important;
         }
         .more-dropdown:hover .more-btn {
-          color: #8b1a2a !important;
+          color: #0C57A8 !important;
         }
         @keyframes searchDropIn {
           from { opacity: 0; transform: translateY(-6px); }

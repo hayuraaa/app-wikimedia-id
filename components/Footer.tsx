@@ -90,7 +90,7 @@ export default function Footer() {
         style={{
           height: "3px",
           background:
-            "linear-gradient(90deg, #8b1a2a 0%, #1a3a5c 50%, #1e4d7b 100%)",
+            "linear-gradient(90deg, #0C57A8 0%, #1a3a5c 50%, #1e4d7b 100%)",
         }}
       />
 
@@ -301,8 +301,8 @@ export default function Footer() {
           transition: all 0.2s;
         }
         .footer-social:hover {
-          background-color: #8b1a2a;
-          border-color: #8b1a2a;
+          background-color: #0C57A8;
+          border-color: #0C57A8;
           color: #fff;
         }
         .footer-nav-link {

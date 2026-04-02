@@ -62,14 +62,14 @@ export default function UnsubscribeClient({ token }: { token: string }) {
   return (
     <div style={{ minHeight: "100vh", backgroundColor: "#f8f7f5", display: "flex", alignItems: "center", justifyContent: "center", padding: "24px" }}>
       <div style={{ maxWidth: "440px", width: "100%", backgroundColor: "#fff", borderRadius: "6px", boxShadow: "0 4px 24px rgba(0,0,0,0.08)", overflow: "hidden" }}>
-        <div style={{ height: "3px", background: "linear-gradient(90deg, #8b1a2a, #1e4d7b)" }} />
+        <div style={{ height: "3px", background: "linear-gradient(90deg, #0C57A8, #1e4d7b)" }} />
         <div style={{ padding: "40px 36px", textAlign: "center" }}>
 
           {/* LOADING */}
           {status === "loading" && (
             <>
-              <div style={{ width: "56px", height: "56px", borderRadius: "50%", backgroundColor: "rgba(139,26,42,0.08)", display: "flex", alignItems: "center", justifyContent: "center", margin: "0 auto 20px" }}>
-                <svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="#8b1a2a" strokeWidth="2" style={{ animation: "spin 1s linear infinite" }}>
+              <div style={{ width: "56px", height: "56px", borderRadius: "50%", backgroundColor: "rgba(12,87,168,0.08)", display: "flex", alignItems: "center", justifyContent: "center", margin: "0 auto 20px" }}>
+                <svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="#0C57A8" strokeWidth="2" style={{ animation: "spin 1s linear infinite" }}>
                   <path d="M21 12a9 9 0 1 1-6.219-8.56" />
                 </svg>
               </div>
@@ -97,9 +97,9 @@ export default function UnsubscribeClient({ token }: { token: string }) {
                 <button
                   onClick={handleUnsubscribe}
                   disabled={processing}
-                  style={{ flex: 1, padding: "12px", backgroundColor: "#8b1a2a", color: "#fff", border: "none", borderRadius: "4px", fontSize: "13px", fontWeight: "700", fontFamily: "var(--font-sans)", cursor: processing ? "not-allowed" : "pointer", opacity: processing ? 0.7 : 1, transition: "background 0.2s" }}
-                  onMouseEnter={(e) => { if (!processing) (e.currentTarget as HTMLElement).style.backgroundColor = "#a82235"; }}
-                  onMouseLeave={(e) => { if (!processing) (e.currentTarget as HTMLElement).style.backgroundColor = "#8b1a2a"; }}
+                  style={{ flex: 1, padding: "12px", backgroundColor: "#0C57A8", color: "#fff", border: "none", borderRadius: "4px", fontSize: "13px", fontWeight: "700", fontFamily: "var(--font-sans)", cursor: processing ? "not-allowed" : "pointer", opacity: processing ? 0.7 : 1, transition: "background 0.2s" }}
+                  onMouseEnter={(e) => { if (!processing) (e.currentTarget as HTMLElement).style.backgroundColor = "#0a4a8f"; }}
+                  onMouseLeave={(e) => { if (!processing) (e.currentTarget as HTMLElement).style.backgroundColor = "#0C57A8"; }}
                 >
                   {processing ? "Memproses..." : "Ya, Berhenti"}
                 </button>
@@ -123,7 +123,7 @@ export default function UnsubscribeClient({ token }: { token: string }) {
               <p style={{ fontSize: "12px", color: "#9ca3af", fontFamily: "var(--font-sans)", marginBottom: "28px" }}>
                 Anda dapat berlangganan kembali kapan saja.
               </p>
-              <Link href="https://wikimedia.or.id" style={{ display: "inline-block", padding: "12px 28px", backgroundColor: "#8b1a2a", color: "#fff", borderRadius: "4px", fontSize: "13px", fontWeight: "700", fontFamily: "var(--font-sans)", textDecoration: "none" }}>
+              <Link href="https://wikimedia.or.id" style={{ display: "inline-block", padding: "12px 28px", backgroundColor: "#0C57A8", color: "#fff", borderRadius: "4px", fontSize: "13px", fontWeight: "700", fontFamily: "var(--font-sans)", textDecoration: "none" }}>
                 Kembali ke Beranda
               </Link>
             </>

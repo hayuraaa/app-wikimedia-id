@@ -26,16 +26,16 @@ export default function ArticlesSection({ articles }: { articles: Article[] }) {
       <div style={{ position: "absolute", inset: 0, backgroundImage: "radial-gradient(rgba(0,0,0,0.04) 1px, transparent 1px)", backgroundSize: "22px 22px", pointerEvents: "none" }} />
       <div style={{ position: "absolute", top: "-80px", right: "-80px", width: "320px", height: "320px", borderRadius: "50%", border: "1px solid rgba(26,58,92,0.06)", pointerEvents: "none" }} />
       <div style={{ position: "absolute", top: "-40px", right: "-40px", width: "200px", height: "200px", borderRadius: "50%", border: "1px solid rgba(26,58,92,0.05)", pointerEvents: "none" }} />
-      <div style={{ position: "absolute", bottom: "-40px", left: "-40px", width: "220px", height: "220px", borderRadius: "50%", backgroundColor: "rgba(139,26,42,0.03)", pointerEvents: "none" }} />
+      <div style={{ position: "absolute", bottom: "-40px", left: "-40px", width: "220px", height: "220px", borderRadius: "50%", backgroundColor: "rgba(12,87,168,0.03)", pointerEvents: "none" }} />
 
       <div style={{ maxWidth: "1280px", margin: "0 auto", position: "relative", zIndex: 1 }}>
         <div className="section-border-shimmer reveal" style={{ display: "flex", justifyContent: "space-between", alignItems: "flex-end", marginBottom: "40px", paddingBottom: "16px", borderBottom: "3px solid #0d0d0d" }}>
           <div>
-            <span style={{ fontSize: "11px", fontWeight: "700", letterSpacing: "0.1em", textTransform: "uppercase", color: "#8b1a2a", fontFamily: "var(--font-sans)" }}>◆ Terkini</span>
+            <span style={{ fontSize: "11px", fontWeight: "700", letterSpacing: "0.1em", textTransform: "uppercase", color: "#0C57A8", fontFamily: "var(--font-sans)" }}>◆ Terkini</span>
             <h2 style={{ fontSize: "clamp(1.6rem, 3vw, 2.2rem)", fontWeight: "700", color: "#0d0d0d", fontFamily: "var(--font-serif)", marginTop: "4px" }}>Artikel Terbaru</h2>
           </div>
           <Link href="/rubrik" style={{ fontSize: "13px", fontWeight: "600", color: "#1e4d7b", textDecoration: "none", fontFamily: "var(--font-sans)", letterSpacing: "0.04em", whiteSpace: "nowrap" }}
-            onMouseEnter={(e) => (e.currentTarget.style.color = "#8b1a2a")}
+            onMouseEnter={(e) => (e.currentTarget.style.color = "#0C57A8")}
             onMouseLeave={(e) => (e.currentTarget.style.color = "#1e4d7b")}>
             Lihat Semua →
           </Link>
@@ -84,9 +84,9 @@ export default function ArticlesSection({ articles }: { articles: Article[] }) {
                             <button
                               key={cat}
                               onClick={(e) => { e.preventDefault(); e.stopPropagation(); router.push(`/rubrik/kategori/${cat}`); }}
-                              style={{ fontSize: "10px", fontWeight: "700", letterSpacing: "0.04em", color: "#1e4d7b", backgroundColor: "rgba(30,77,123,0.08)", padding: "6px 8px", borderRadius: "2px", fontFamily: "var(--font-sans)", cursor: "pointer", transition: "all 0.15s", border: "none" }}
-                              onMouseEnter={(e) => { e.currentTarget.style.backgroundColor = "rgba(30,77,123,0.18)"; e.currentTarget.style.color = "#0d2a4d"; }}
-                              onMouseLeave={(e) => { e.currentTarget.style.backgroundColor = "rgba(30,77,123,0.08)"; e.currentTarget.style.color = "#1e4d7b"; }}
+                              style={{ fontSize: "10px", fontWeight: "700", letterSpacing: "0.04em", color: "#8b1a2a", backgroundColor: "rgba(139,26,42,0.08)", padding: "6px 8px", borderRadius: "2px", fontFamily: "var(--font-sans)", cursor: "pointer", transition: "all 0.15s", border: "none" }}
+                              onMouseEnter={(e) => { e.currentTarget.style.backgroundColor = "rgba(139,26,42,0.18)"; e.currentTarget.style.color = "#5e0f1a"; }}
+                              onMouseLeave={(e) => { e.currentTarget.style.backgroundColor = "rgba(139,26,42,0.08)"; e.currentTarget.style.color = "#8b1a2a"; }}
                             >
                               {formatCategory(cat)}
                             </button>

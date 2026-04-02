@@ -117,7 +117,7 @@ export default function ProgramPage() {
         backgroundImage: "url('/banner/Mosaik_Budaya_1.png')",
         backgroundSize: "cover", backgroundPosition: "center",
       }}>
-        <div style={{ position: "absolute", inset: 0, background: "linear-gradient(135deg, rgba(5,25,15,0.92) 0%, rgba(10,40,25,0.84) 40%, rgba(15,55,30,0.76) 100%)", pointerEvents: "none" }} />
+        <div style={{ position: "absolute", inset: 0, background: "linear-gradient(135deg, rgba(8,20,45,0.92) 0%, rgba(10,30,65,0.84) 40%, rgba(15,40,80,0.76) 100%)", pointerEvents: "none" }} />
         <div style={{ position: "absolute", inset: 0, backgroundImage: `linear-gradient(rgba(255,255,255,0.03) 1px, transparent 1px), linear-gradient(90deg, rgba(255,255,255,0.03) 1px, transparent 1px)`, backgroundSize: "40px 40px", pointerEvents: "none" }} />
         <div style={{ position: "absolute", top: "-80px", right: "-80px", width: "360px", height: "360px", borderRadius: "50%", background: "radial-gradient(circle, rgba(20,100,50,0.20) 0%, transparent 70%)", pointerEvents: "none" }} />
 
@@ -129,7 +129,7 @@ export default function ProgramPage() {
               Beranda
             </Link>
             <span style={{ fontSize: "11px", color: "rgba(255,255,255,0.25)", fontFamily: "var(--font-sans)" }}>/</span>
-            <span style={{ fontSize: "11px", color: "#e05070", fontFamily: "var(--font-sans)" }}>Program</span>
+            <span style={{ fontSize: "11px", color: "#3b8ed4", fontFamily: "var(--font-sans)" }}>Program</span>
           </div>
 
           <div style={{ display: "flex", alignItems: "flex-end", justifyContent: "space-between", flexWrap: "wrap" as const, gap: "24px" }}>
@@ -236,7 +236,7 @@ export default function ProgramPage() {
       {/* ── CTA ──────────────────────────────────────────────────────────── */}
       <section style={{ backgroundColor: "#0d0d0d", padding: "64px 24px", position: "relative", overflow: "hidden" }}>
         <div style={{ position: "absolute", inset: 0, backgroundImage: `linear-gradient(rgba(255,255,255,0.025) 1px, transparent 1px), linear-gradient(90deg, rgba(255,255,255,0.025) 1px, transparent 1px)`, backgroundSize: "40px 40px", pointerEvents: "none" }} />
-        <div style={{ position: "absolute", top: "-60px", left: "50%", transform: "translateX(-50%)", width: "400px", height: "400px", borderRadius: "50%", background: "radial-gradient(circle, rgba(139,26,42,0.12) 0%, transparent 70%)", pointerEvents: "none" }} />
+        <div style={{ position: "absolute", top: "-60px", left: "50%", transform: "translateX(-50%)", width: "400px", height: "400px", borderRadius: "50%", background: "radial-gradient(circle, rgba(12,87,168,0.12) 0%, transparent 70%)", pointerEvents: "none" }} />
 
         <div style={{ maxWidth: "640px", margin: "0 auto", textAlign: "center", position: "relative", zIndex: 1 }}>
           <span style={{ fontSize: "10px", fontWeight: "700", letterSpacing: "0.1em", textTransform: "uppercase" as const, color: "#e05070", fontFamily: "var(--font-sans)" }}>◆ Bergabung</span>
@@ -248,9 +248,9 @@ export default function ProgramPage() {
           </p>
           <div style={{ display: "flex", gap: "12px", justifyContent: "center", flexWrap: "wrap" as const }}>
             <Link href="/menjadi-anggota"
-              style={{ display: "inline-flex", alignItems: "center", gap: "8px", padding: "12px 28px", backgroundColor: "#8b1a2a", color: "#fff", textDecoration: "none", borderRadius: "3px", fontSize: "13px", fontWeight: "700", fontFamily: "var(--font-sans)", letterSpacing: "0.04em", transition: "background 0.2s" }}
-              onMouseEnter={(e) => (e.currentTarget.style.backgroundColor = "#a82235")}
-              onMouseLeave={(e) => (e.currentTarget.style.backgroundColor = "#8b1a2a")}>
+              style={{ display: "inline-flex", alignItems: "center", gap: "8px", padding: "12px 28px", backgroundColor: "#0C57A8", color: "#fff", textDecoration: "none", borderRadius: "3px", fontSize: "13px", fontWeight: "700", fontFamily: "var(--font-sans)", letterSpacing: "0.04em", transition: "background 0.2s" }}
+              onMouseEnter={(e) => (e.currentTarget.style.backgroundColor = "#0a4a8f")}
+              onMouseLeave={(e) => (e.currentTarget.style.backgroundColor = "#0C57A8")}>
               Menjadi Anggota
               <svg width="13" height="13" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2.5"><path d="M5 12h14M12 5l7 7-7 7"/></svg>
             </Link>

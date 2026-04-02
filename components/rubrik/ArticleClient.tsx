@@ -61,8 +61,8 @@ function ReadingProgress() {
   }, []);
 
   return (
-    <div style={{ position: "fixed", top: 0, left: 0, width: "100%", height: "3px", backgroundColor: "rgba(139,26,42,0.15)", zIndex: 9999, pointerEvents: "none" }}>
-      <div style={{ height: "100%", width: `${progress}%`, background: "linear-gradient(90deg, #8b1a2a, #e05070)", transition: "width 0.1s linear" }} />
+    <div style={{ position: "fixed", top: 0, left: 0, width: "100%", height: "3px", backgroundColor: "rgba(12,87,168,0.15)", zIndex: 9999, pointerEvents: "none" }}>
+      <div style={{ height: "100%", width: `${progress}%`, background: "linear-gradient(90deg, #0C57A8, #3b8ed4)", transition: "width 0.1s linear" }} />
     </div>
   );
 }
@@ -96,7 +96,7 @@ function RelatedCard({ article }: { article: RelatedArticle }) {
             {article.categories?.[0] && (
               <span
                 onClick={(e) => { e.preventDefault(); e.stopPropagation(); router.push(`/rubrik/kategori/${article.categories[0]}`); }}
-                style={{ fontSize: "9px", fontWeight: "700", letterSpacing: "0.05em", textTransform: "uppercase" as const, color: "#1e4d7b", backgroundColor: "rgba(30,77,123,0.08)", padding: "2px 7px", borderRadius: "2px", fontFamily: "var(--font-sans)", cursor: "pointer" }}
+                style={{ fontSize: "9px", fontWeight: "700", letterSpacing: "0.05em", textTransform: "uppercase" as const, color: "#8b1a2a", backgroundColor: "rgba(139,26,42,0.08)", padding: "2px 7px", borderRadius: "2px", fontFamily: "var(--font-sans)", cursor: "pointer" }}
               >
                 {formatCategory(article.categories[0])}
               </span>
@@ -161,7 +161,7 @@ export default function ArticleClient({
       <section style={{ padding: "48px 24px 0", position: "relative", overflow: "hidden", backgroundImage: "url('/banner/Mosaik_Budaya_1.png')", backgroundSize: "cover", backgroundPosition: "center" }}>
         <div style={{ position: "absolute", inset: 0, background: "linear-gradient(135deg, rgba(8,20,45,0.90) 0%, rgba(10,30,65,0.82) 40%, rgba(15,40,80,0.75) 100%)", pointerEvents: "none" }} />
         <div style={{ position: "absolute", inset: 0, backgroundImage: `linear-gradient(rgba(255,255,255,0.03) 1px, transparent 1px), linear-gradient(90deg, rgba(255,255,255,0.03) 1px, transparent 1px)`, backgroundSize: "40px 40px", pointerEvents: "none" }} />
-        <div style={{ position: "absolute", top: "-80px", right: "-80px", width: "300px", height: "300px", borderRadius: "50%", background: "radial-gradient(circle, rgba(139,26,42,0.18) 0%, transparent 70%)", pointerEvents: "none" }} />
+        <div style={{ position: "absolute", top: "-80px", right: "-80px", width: "300px", height: "300px", borderRadius: "50%", background: "radial-gradient(circle, rgba(12,87,168,0.18) 0%, transparent 70%)", pointerEvents: "none" }} />
 
         <div style={{ maxWidth: "1280px", margin: "0 auto", position: "relative", zIndex: 1 }}>
           {/* Breadcrumb */}
@@ -180,9 +180,9 @@ export default function ArticleClient({
             {article.categories?.[0] && (
               <>
                 <span style={{ fontSize: "11px", color: "rgba(255,255,255,0.2)", fontFamily: "var(--font-sans)" }}>/</span>
-                <Link href={`/rubrik/kategori/${article.categories[0]}`} style={{ fontSize: "11px", color: "#e05070", textDecoration: "none", fontFamily: "var(--font-sans)", transition: "color 0.15s" }}
+                <Link href={`/rubrik/kategori/${article.categories[0]}`} style={{ fontSize: "11px", color: "#3b8ed4", textDecoration: "none", fontFamily: "var(--font-sans)", transition: "color 0.15s" }}
                   onMouseEnter={(e) => (e.currentTarget.style.color = "#f07090")}
-                  onMouseLeave={(e) => (e.currentTarget.style.color = "#e05070")}>
+                  onMouseLeave={(e) => (e.currentTarget.style.color = "#3b8ed4")}>
                   {formatCategory(article.categories[0])}
                 </Link>
               </>
@@ -194,9 +194,9 @@ export default function ArticleClient({
             <div style={{ display: "flex", gap: "6px", flexWrap: "wrap" as const, marginBottom: "16px" }}>
               {article.categories.map((cat) => (
                 <Link key={cat} href={`/rubrik/kategori/${cat}`}
-                  style={{ fontSize: "10px", fontWeight: "700", letterSpacing: "0.06em", textTransform: "uppercase" as const, color: "#e05070", backgroundColor: "rgba(224,80,112,0.12)", border: "1px solid rgba(224,80,112,0.25)", padding: "3px 10px", borderRadius: "2px", fontFamily: "var(--font-sans)", textDecoration: "none", transition: "all 0.15s" }}
-                  onMouseEnter={(e) => { e.currentTarget.style.backgroundColor = "rgba(224,80,112,0.22)"; e.currentTarget.style.color = "#f07090"; }}
-                  onMouseLeave={(e) => { e.currentTarget.style.backgroundColor = "rgba(224,80,112,0.12)"; e.currentTarget.style.color = "#e05070"; }}
+                  style={{ fontSize: "10px", fontWeight: "700", letterSpacing: "0.06em", textTransform: "uppercase" as const, color: "#8b1a2a", backgroundColor: "rgba(139,26,42,0.1)", border: "1px solid rgba(139,26,42,0.25)", padding: "3px 10px", borderRadius: "2px", fontFamily: "var(--font-sans)", textDecoration: "none", transition: "all 0.15s" }}
+                  onMouseEnter={(e) => { e.currentTarget.style.backgroundColor = "rgba(139,26,42,0.2)"; e.currentTarget.style.color = "#5e0f1a"; }}
+                  onMouseLeave={(e) => { e.currentTarget.style.backgroundColor = "rgba(139,26,42,0.1)"; e.currentTarget.style.color = "#8b1a2a"; }}
                 >
                   {formatCategory(cat)}
                 </Link>
@@ -213,7 +213,7 @@ export default function ArticleClient({
           <div style={{ display: "flex", alignItems: "center", flexWrap: "wrap" as const, gap: "20px", paddingBottom: "28px", borderBottom: "1px solid rgba(255,255,255,0.08)" }}>
             {/* Authors */}
             <div style={{ display: "flex", alignItems: "center", gap: "8px" }}>
-              <div style={{ width: "32px", height: "32px", borderRadius: "50%", backgroundColor: "rgba(139,26,42,0.4)", border: "1px solid rgba(139,26,42,0.6)", display: "flex", alignItems: "center", justifyContent: "center", flexShrink: 0 }}>
+              <div style={{ width: "32px", height: "32px", borderRadius: "50%", backgroundColor: "rgba(12,87,168,0.4)", border: "1px solid rgba(12,87,168,0.6)", display: "flex", alignItems: "center", justifyContent: "center", flexShrink: 0 }}>
                 <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="rgba(255,255,255,0.6)" strokeWidth="2"><path d="M20 21v-2a4 4 0 0 0-4-4H8a4 4 0 0 0-4 4v2"/><circle cx="12" cy="7" r="4"/></svg>
               </div>
               <div>
@@ -224,7 +224,7 @@ export default function ArticleClient({
                         <span
                           onClick={() => router.push(`/rubrik/author/${a.slug}`)}
                           style={{ fontSize: "13px", fontWeight: "600", color: "rgba(255,255,255,0.9)", fontFamily: "var(--font-sans)", cursor: "pointer", transition: "color 0.15s" }}
-                          onMouseEnter={(e) => (e.currentTarget.style.color = "#e05070")}
+                          onMouseEnter={(e) => (e.currentTarget.style.color = "#3b8ed4")}
                           onMouseLeave={(e) => (e.currentTarget.style.color = "rgba(255,255,255,0.9)")}
                         >
                           {a.name}
@@ -320,7 +320,7 @@ export default function ArticleClient({
               {/* Share + back */}
               <div style={{ marginTop: "36px", paddingTop: "24px", borderTop: "2px solid #0d0d0d", display: "flex", alignItems: "center", justifyContent: "space-between", flexWrap: "wrap" as const, gap: "12px" }}>
                 <Link href="/rubrik" style={{ display: "inline-flex", alignItems: "center", gap: "7px", fontSize: "12px", fontWeight: "700", letterSpacing: "0.05em", textTransform: "uppercase" as const, color: "#5c5a57", textDecoration: "none", fontFamily: "var(--font-sans)", transition: "color 0.15s" }}
-                  onMouseEnter={(e) => (e.currentTarget.style.color = "#8b1a2a")}
+                  onMouseEnter={(e) => (e.currentTarget.style.color = "#0C57A8")}
                   onMouseLeave={(e) => (e.currentTarget.style.color = "#5c5a57")}>
                   <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2"><path d="M15 18l-6-6 6-6" /></svg>
                   Kembali ke Rubrik
@@ -362,7 +362,7 @@ export default function ArticleClient({
                   <button
                     onClick={handleCopy}
                     style={{ display: "flex", alignItems: "center", justifyContent: "center", width: "34px", height: "34px", borderRadius: "50%", border: "1px solid #e5e2dd", backgroundColor: copied ? "#16a34a" : "#fff", color: copied ? "#fff" : "#5c5a57", cursor: "pointer", transition: "all 0.2s" }}
-                    onMouseEnter={(e) => { if (!copied) { (e.currentTarget as HTMLElement).style.backgroundColor = "#8b1a2a"; (e.currentTarget as HTMLElement).style.borderColor = "#8b1a2a"; (e.currentTarget as HTMLElement).style.color = "#fff"; } }}
+                    onMouseEnter={(e) => { if (!copied) { (e.currentTarget as HTMLElement).style.backgroundColor = "#0C57A8"; (e.currentTarget as HTMLElement).style.borderColor = "#0C57A8"; (e.currentTarget as HTMLElement).style.color = "#fff"; } }}
                     onMouseLeave={(e) => { if (!copied) { (e.currentTarget as HTMLElement).style.backgroundColor = "#fff"; (e.currentTarget as HTMLElement).style.borderColor = "#e5e2dd"; (e.currentTarget as HTMLElement).style.color = "#5c5a57"; } }}
                     title="Salin tautan"
                   >
@@ -377,19 +377,19 @@ export default function ArticleClient({
 
               {/* Author bio card */}
               {article.authors?.length > 0 && (
-                <div style={{ marginTop: "32px", backgroundColor: "#fff", border: "1px solid #e5e2dd", borderRadius: "4px", borderLeft: "3px solid #8b1a2a", padding: "20px 24px" }}>
-                  <span style={{ fontSize: "10px", fontWeight: "700", letterSpacing: "0.08em", textTransform: "uppercase" as const, color: "#8b1a2a", fontFamily: "var(--font-sans)" }}>◆ Tentang Penulis</span>
+                <div style={{ marginTop: "32px", backgroundColor: "#fff", border: "1px solid #e5e2dd", borderRadius: "4px", borderLeft: "3px solid #0C57A8", padding: "20px 24px" }}>
+                  <span style={{ fontSize: "10px", fontWeight: "700", letterSpacing: "0.08em", textTransform: "uppercase" as const, color: "#0C57A8", fontFamily: "var(--font-sans)" }}>◆ Tentang Penulis</span>
                   <div style={{ marginTop: "12px", display: "flex", flexDirection: "column", gap: "10px" }}>
                     {article.authors.map((a) => (
                       <div key={a.id} style={{ display: "flex", alignItems: "center", gap: "12px" }}>
-                        <div style={{ width: "40px", height: "40px", borderRadius: "50%", backgroundColor: "rgba(139,26,42,0.1)", border: "2px solid rgba(139,26,42,0.2)", display: "flex", alignItems: "center", justifyContent: "center", flexShrink: 0 }}>
-                          <span style={{ fontSize: "15px", fontWeight: "700", color: "#8b1a2a", fontFamily: "var(--font-serif)" }}>{a.name.charAt(0)}</span>
+                        <div style={{ width: "40px", height: "40px", borderRadius: "50%", backgroundColor: "rgba(12,87,168,0.1)", border: "2px solid rgba(12,87,168,0.2)", display: "flex", alignItems: "center", justifyContent: "center", flexShrink: 0 }}>
+                          <span style={{ fontSize: "15px", fontWeight: "700", color: "#0C57A8", fontFamily: "var(--font-serif)" }}>{a.name.charAt(0)}</span>
                         </div>
                         <div>
                           <span
                             onClick={() => router.push(`/rubrik/author/${a.slug}`)}
                             style={{ fontSize: "14px", fontWeight: "700", color: "#0d0d0d", fontFamily: "var(--font-serif)", cursor: "pointer", transition: "color 0.15s" }}
-                            onMouseEnter={(e) => (e.currentTarget.style.color = "#8b1a2a")}
+                            onMouseEnter={(e) => (e.currentTarget.style.color = "#0C57A8")}
                             onMouseLeave={(e) => (e.currentTarget.style.color = "#0d0d0d")}
                           >
                             {a.name}
@@ -411,15 +411,15 @@ export default function ArticleClient({
                 <div style={{ backgroundColor: "#fff", border: "1px solid #e5e2dd", borderRadius: "4px", overflow: "hidden" }}>
                   <div style={{ padding: "14px 18px", borderBottom: "3px solid #0d0d0d" }}>
                     <div style={{ display: "flex", justifyContent: "space-between", alignItems: "center", marginBottom: article.categories?.length > 1 ? "8px" : "0" }}>
-                      <span style={{ fontSize: "10px", fontWeight: "700", letterSpacing: "0.08em", textTransform: "uppercase" as const, color: "#8b1a2a", fontFamily: "var(--font-sans)" }}>◆ Artikel Terkait</span>
+                      <span style={{ fontSize: "10px", fontWeight: "700", letterSpacing: "0.08em", textTransform: "uppercase" as const, color: "#0C57A8", fontFamily: "var(--font-sans)" }}>◆ Artikel Terkait</span>
                     </div>
                     {article.categories?.length > 0 && (
                       <div style={{ display: "flex", flexWrap: "wrap" as const, gap: "4px" }}>
                         {article.categories.map((cat) => (
                           <Link key={cat} href={`/rubrik/kategori/${cat}`}
-                            style={{ fontSize: "9px", fontWeight: "700", letterSpacing: "0.05em", textTransform: "uppercase" as const, color: "#1e4d7b", backgroundColor: "rgba(30,77,123,0.08)", border: "1px solid rgba(30,77,123,0.15)", padding: "2px 8px", borderRadius: "2px", fontFamily: "var(--font-sans)", textDecoration: "none", transition: "all 0.15s" }}
-                            onMouseEnter={(e) => { e.currentTarget.style.backgroundColor = "rgba(139,26,42,0.08)"; e.currentTarget.style.borderColor = "rgba(139,26,42,0.2)"; e.currentTarget.style.color = "#8b1a2a"; }}
-                            onMouseLeave={(e) => { e.currentTarget.style.backgroundColor = "rgba(30,77,123,0.08)"; e.currentTarget.style.borderColor = "rgba(30,77,123,0.15)"; e.currentTarget.style.color = "#1e4d7b"; }}
+                            style={{ fontSize: "9px", fontWeight: "700", letterSpacing: "0.05em", textTransform: "uppercase" as const, color: "#8b1a2a", backgroundColor: "rgba(139,26,42,0.08)", border: "1px solid rgba(139,26,42,0.2)", padding: "2px 8px", borderRadius: "2px", fontFamily: "var(--font-sans)", textDecoration: "none", transition: "all 0.15s" }}
+                            onMouseEnter={(e) => { e.currentTarget.style.backgroundColor = "rgba(139,26,42,0.18)"; e.currentTarget.style.borderColor = "rgba(139,26,42,0.3)"; e.currentTarget.style.color = "#5e0f1a"; }}
+                            onMouseLeave={(e) => { e.currentTarget.style.backgroundColor = "rgba(139,26,42,0.08)"; e.currentTarget.style.borderColor = "rgba(139,26,42,0.2)"; e.currentTarget.style.color = "#8b1a2a"; }}
                           >
                             {formatCategory(cat)} →
                           </Link>
@@ -464,9 +464,9 @@ export default function ArticleClient({
               {latest.length > 0 && (
                 <div style={{ backgroundColor: "#fff", border: "1px solid #e5e2dd", borderRadius: "4px", overflow: "hidden" }}>
                   <div style={{ padding: "14px 18px", borderBottom: "3px solid #0d0d0d", display: "flex", justifyContent: "space-between", alignItems: "center" }}>
-                    <span style={{ fontSize: "10px", fontWeight: "700", letterSpacing: "0.08em", textTransform: "uppercase" as const, color: "#8b1a2a", fontFamily: "var(--font-sans)" }}>◆ Terbaru</span>
+                    <span style={{ fontSize: "10px", fontWeight: "700", letterSpacing: "0.08em", textTransform: "uppercase" as const, color: "#0C57A8", fontFamily: "var(--font-sans)" }}>◆ Terbaru</span>
                     <Link href="/rubrik" style={{ fontSize: "10px", color: "#1e4d7b", textDecoration: "none", fontFamily: "var(--font-sans)", fontWeight: "600" }}
-                      onMouseEnter={(e) => (e.currentTarget.style.color = "#8b1a2a")}
+                      onMouseEnter={(e) => (e.currentTarget.style.color = "#0C57A8")}
                       onMouseLeave={(e) => (e.currentTarget.style.color = "#1e4d7b")}>
                       Lihat semua →
                     </Link>
@@ -503,12 +503,12 @@ export default function ArticleClient({
           <div style={{ maxWidth: "1280px", margin: "0 auto" }}>
             <div className="section-border-shimmer" style={{ display: "flex", justifyContent: "space-between", alignItems: "flex-end", marginBottom: "32px", paddingBottom: "14px", borderBottom: "3px solid #0d0d0d" }}>
               <div>
-                <span style={{ fontSize: "11px", fontWeight: "700", letterSpacing: "0.1em", textTransform: "uppercase" as const, color: "#8b1a2a", fontFamily: "var(--font-sans)" }}>◆ Terkait</span>
+                <span style={{ fontSize: "11px", fontWeight: "700", letterSpacing: "0.1em", textTransform: "uppercase" as const, color: "#0C57A8", fontFamily: "var(--font-sans)" }}>◆ Terkait</span>
                 <h2 style={{ fontSize: "clamp(1.4rem, 2.5vw, 1.8rem)", fontWeight: "700", color: "#0d0d0d", fontFamily: "var(--font-serif)", marginTop: "4px", marginBottom: 0 }}>Artikel Lainnya</h2>
               </div>
               {article.categories?.[0] && (
                 <Link href={`/rubrik/kategori/${article.categories[0]}`} style={{ fontSize: "13px", fontWeight: "600", color: "#1e4d7b", textDecoration: "none", fontFamily: "var(--font-sans)", letterSpacing: "0.04em", whiteSpace: "nowrap" as const, transition: "color 0.15s" }}
-                  onMouseEnter={(e) => (e.currentTarget.style.color = "#8b1a2a")}
+                  onMouseEnter={(e) => (e.currentTarget.style.color = "#0C57A8")}
                   onMouseLeave={(e) => (e.currentTarget.style.color = "#1e4d7b")}>
                   Lihat Semua →
                 </Link>
@@ -535,8 +535,8 @@ export default function ArticleClient({
         .article-content h3 { font-size: 1.25em; font-weight: 700; color: #0d0d0d; margin: 1.6em 0 0.5em; line-height: 1.3; }
         .article-content h4 { font-size: 1.1em; font-weight: 700; color: #2a2826; margin: 1.4em 0 0.4em; }
         .article-content a { color: #1e4d7b; text-decoration: underline; text-underline-offset: 3px; transition: color 0.15s; }
-        .article-content a:hover { color: #8b1a2a; }
-        .article-content blockquote { margin: 2em 0; padding: 16px 24px; border-left: 4px solid #8b1a2a; background: rgba(139,26,42,0.04); border-radius: 0 4px 4px 0; font-style: italic; color: #3a3a3a; }
+        .article-content a:hover { color: #0C57A8; }
+        .article-content blockquote { margin: 2em 0; padding: 16px 24px; border-left: 4px solid #0C57A8; background: rgba(12,87,168,0.04); border-radius: 0 4px 4px 0; font-style: italic; color: #3a3a3a; }
         .article-content blockquote p { margin: 0; }
         .article-content ul, .article-content ol { margin: 0 0 1.5em; padding-left: 1.6em; }
         .article-content li { margin-bottom: 0.4em; }
@@ -545,7 +545,7 @@ export default function ArticleClient({
         .article-content figure img { margin: 0; width: 100%; }
         .article-content figcaption { margin-top: 6px; font-size: 0.82em; color: #7a7874; font-style: italic; font-family: var(--font-sans); text-align: center; line-height: 1.45; padding: 0 8px; }
         .article-content figcaption p { margin: 0; }
-        .article-content code { font-family: 'Courier New', monospace; font-size: 0.88em; background: #f0eeec; border: 1px solid #e5e2dd; padding: 1px 6px; border-radius: 3px; color: #8b1a2a; }
+        .article-content code { font-family: 'Courier New', monospace; font-size: 0.88em; background: #f0eeec; border: 1px solid #e5e2dd; padding: 1px 6px; border-radius: 3px; color: #0C57A8; }
         .article-content pre { background: #0d0d0d; color: #f8f8f6; padding: 20px 24px; border-radius: 4px; overflow-x: auto; margin: 1.5em 0; font-size: 0.875em; line-height: 1.6; }
         .article-content pre code { background: none; border: none; padding: 0; color: inherit; font-size: inherit; }
         .article-content table { width: 100%; border-collapse: collapse; margin: 1.5em 0; font-size: 0.9em; font-family: var(--font-sans); }

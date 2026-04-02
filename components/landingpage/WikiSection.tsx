@@ -10,7 +10,7 @@ export default function WikiSection({ wikiProjects }: { wikiProjects: WikiProjec
   return (
     <section className="section-dark" style={{ backgroundColor: "#1a3a5c", padding: "80px 24px", position: "relative", overflow: "hidden" }}>
       <div style={{ position: "absolute", inset: 0, backgroundImage: `linear-gradient(rgba(255,255,255,0.03) 1px, transparent 1px), linear-gradient(90deg, rgba(255,255,255,0.03) 1px, transparent 1px)`, backgroundSize: "60px 60px" }} />
-      <div style={{ position: "absolute", top: "-100px", right: "-100px", width: "400px", height: "400px", borderRadius: "50%", background: "radial-gradient(circle, rgba(139,26,42,0.18) 0%, transparent 70%)", pointerEvents: "none" }} />
+      <div style={{ position: "absolute", top: "-100px", right: "-100px", width: "400px", height: "400px", borderRadius: "50%", background: "radial-gradient(circle, rgba(12,87,168,0.18) 0%, transparent 70%)", pointerEvents: "none" }} />
       <div style={{ position: "absolute", bottom: "-80px", left: "-80px", width: "300px", height: "300px", borderRadius: "50%", background: "radial-gradient(circle, rgba(30,77,123,0.25) 0%, transparent 70%)", pointerEvents: "none" }} />
 
       <div className="reveal" style={{ maxWidth: "1280px", margin: "0 auto", position: "relative", zIndex: 1 }}>
@@ -21,7 +21,7 @@ export default function WikiSection({ wikiProjects }: { wikiProjects: WikiProjec
           </div>
           <a href="https://id.wikimedia.org/wiki/Halaman_Utama" target="_blank" rel="noopener noreferrer"
             style={{ fontSize: "13px", fontWeight: "600", color: "rgba(255,255,255,0.65)", textDecoration: "none", fontFamily: "var(--font-sans)", letterSpacing: "0.04em", whiteSpace: "nowrap" }}
-            onMouseEnter={(e) => (e.currentTarget.style.color = "#e05070")}
+            onMouseEnter={(e) => (e.currentTarget.style.color = "#3b8ed4")}
             onMouseLeave={(e) => (e.currentTarget.style.color = "rgba(255,255,255,0.65)")}>
             Selengkapnya →
           </a>
@@ -42,7 +42,7 @@ export default function WikiSection({ wikiProjects }: { wikiProjects: WikiProjec
                   <button key={p.id} className="wiki-tab-btn" onClick={() => setActiveWikiTab(idx)}
                     style={{
                       padding: "8px 16px", border: "none",
-                      borderBottom: isActive ? "2px solid #e05070" : "2px solid transparent",
+                      borderBottom: isActive ? "2px solid #3b8ed4" : "2px solid transparent",
                       marginBottom: "-2px",
                       background: isActive ? "rgba(255,255,255,0.08)" : "transparent",
                       cursor: "pointer",

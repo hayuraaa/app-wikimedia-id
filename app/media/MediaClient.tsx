@@ -185,7 +185,7 @@ function MediaCard({ item }: { item: MediaItem }) {
               <svg width="11" height="11" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2"><path d="M1 12s4-8 11-8 11 8 11 8-4 8-11 8-11-8-11-8z"/><circle cx="12" cy="12" r="3"/></svg>
               {item.views.toLocaleString("id-ID")}
             </span>
-            <span style={{ display: "flex", alignItems: "center", gap: "4px", fontSize: "11px", color: "#8b1a2a", fontWeight: "600", fontFamily: "var(--font-sans)" }}>
+            <span style={{ display: "flex", alignItems: "center", gap: "4px", fontSize: "11px", color: "#0C57A8", fontWeight: "600", fontFamily: "var(--font-sans)" }}>
               Buka
               <svg width="11" height="11" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2.5"><path d="M18 13v6a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2V8a2 2 0 0 1 2-2h6"/><polyline points="15 3 21 3 21 9"/><line x1="10" y1="14" x2="21" y2="3"/></svg>
             </span>
@@ -239,7 +239,7 @@ function Pagination({ meta, onPageChange }: { meta: Meta; onPageChange: (p: numb
           <span key={`e-${idx}`} style={{ minWidth: "36px", height: "36px", display: "flex", alignItems: "center", justifyContent: "center", fontSize: "13px", color: "#6b6966" }}>···</span>
         ) : (
           <button key={p}
-            style={{ ...btn, backgroundColor: p === current_page ? "#8b1a2a" : "#fff", borderColor: p === current_page ? "#8b1a2a" : "#e5e2dd", color: p === current_page ? "#fff" : "#3a3a3a", fontWeight: p === current_page ? "700" : "500" }}
+            style={{ ...btn, backgroundColor: p === current_page ? "#0C57A8" : "#fff", borderColor: p === current_page ? "#0C57A8" : "#e5e2dd", color: p === current_page ? "#fff" : "#3a3a3a", fontWeight: p === current_page ? "700" : "500" }}
             onClick={() => onPageChange(p as number)}>
             {p}
           </button>
@@ -335,9 +335,9 @@ export default function MediaPage() {
     <>
       {/* ── HERO ─────────────────────────────────────────────────────────── */}
       <section style={{ padding: "40px 24px 36px", position: "relative", overflow: "hidden", backgroundImage: "url('/banner/Mosaik_Budaya_1.png')", backgroundSize: "cover", backgroundPosition: "center" }}>
-        <div style={{ position: "absolute", inset: 0, background: "linear-gradient(135deg, rgba(20,8,8,0.90) 0%, rgba(45,10,15,0.82) 40%, rgba(60,15,20,0.75) 100%)", pointerEvents: "none" }} />
+        <div style={{ position: "absolute", inset: 0, background: "linear-gradient(135deg, rgba(8,20,45,0.92) 0%, rgba(10,30,65,0.84) 40%, rgba(15,40,80,0.76) 100%)", pointerEvents: "none" }} />
         <div style={{ position: "absolute", inset: 0, backgroundImage: `linear-gradient(rgba(255,255,255,0.03) 1px, transparent 1px), linear-gradient(90deg, rgba(255,255,255,0.03) 1px, transparent 1px)`, backgroundSize: "40px 40px", pointerEvents: "none" }} />
-        <div style={{ position: "absolute", top: "-60px", right: "-60px", width: "240px", height: "240px", borderRadius: "50%", background: "radial-gradient(circle, rgba(139,26,42,0.20) 0%, transparent 70%)", pointerEvents: "none" }} />
+        <div style={{ position: "absolute", top: "-60px", right: "-60px", width: "240px", height: "240px", borderRadius: "50%", background: "radial-gradient(circle, rgba(12,87,168,0.20) 0%, transparent 70%)", pointerEvents: "none" }} />
 
         <div style={{ maxWidth: "1280px", margin: "0 auto", position: "relative", zIndex: 1 }}>
           <div style={{ display: "flex", alignItems: "center", gap: "6px", marginBottom: "12px" }}>
@@ -347,7 +347,7 @@ export default function MediaPage() {
               Beranda
             </Link>
             <span style={{ fontSize: "11px", color: "rgba(255,255,255,0.25)", fontFamily: "var(--font-sans)" }}>/</span>
-            <span style={{ fontSize: "11px", color: "#e05070", fontFamily: "var(--font-sans)" }}>Media</span>
+            <span style={{ fontSize: "11px", color: "#3b8ed4", fontFamily: "var(--font-sans)" }}>Media</span>
           </div>
 
           <div style={{ display: "flex", alignItems: "flex-end", justifyContent: "space-between", flexWrap: "wrap" as const, gap: "20px" }}>
@@ -373,9 +373,9 @@ export default function MediaPage() {
                 style={{ padding: "10px 16px", fontSize: "13px", backgroundColor: "rgba(255,255,255,0.06)", border: "none", color: "#fff", fontFamily: "var(--font-sans)", outline: "none", minWidth: "200px" }}
               />
               <button onClick={handleSearch}
-                style={{ padding: "10px 16px", backgroundColor: "#8b1a2a", border: "none", color: "#fff", cursor: "pointer", display: "flex", alignItems: "center" }}
-                onMouseEnter={(e) => ((e.currentTarget as HTMLElement).style.backgroundColor = "#a82235")}
-                onMouseLeave={(e) => ((e.currentTarget as HTMLElement).style.backgroundColor = "#8b1a2a")}>
+                style={{ padding: "10px 16px", backgroundColor: "#0C57A8", border: "none", color: "#fff", cursor: "pointer", display: "flex", alignItems: "center" }}
+                onMouseEnter={(e) => ((e.currentTarget as HTMLElement).style.backgroundColor = "#0a4a8f")}
+                onMouseLeave={(e) => ((e.currentTarget as HTMLElement).style.backgroundColor = "#0C57A8")}>
                 <svg width="15" height="15" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2"><circle cx="11" cy="11" r="8"/><path d="m21 21-4.35-4.35"/></svg>
               </button>
             </div>
@@ -391,7 +391,7 @@ export default function MediaPage() {
             {JENIS_FILTER.map((f) => (
               <button key={f.value}
                 onClick={() => { setJenisFilter(f.value); setCurrentPage(1); }}
-                style={{ padding: "14px 18px", fontSize: "12px", fontWeight: jenisFilter === f.value ? "700" : "500", color: jenisFilter === f.value ? "#8b1a2a" : "#5c5a57", background: "none", border: "none", cursor: "pointer", fontFamily: "var(--font-sans)", borderBottom: jenisFilter === f.value ? "2px solid #8b1a2a" : "2px solid transparent", transition: "all 0.15s", whiteSpace: "nowrap" as const }}>
+                style={{ padding: "14px 18px", fontSize: "12px", fontWeight: jenisFilter === f.value ? "700" : "500", color: jenisFilter === f.value ? "#0C57A8" : "#5c5a57", background: "none", border: "none", cursor: "pointer", fontFamily: "var(--font-sans)", borderBottom: jenisFilter === f.value ? "2px solid #0C57A8" : "2px solid transparent", transition: "all 0.15s", whiteSpace: "nowrap" as const }}>
                 {f.label}
               </button>
             ))}
@@ -402,7 +402,7 @@ export default function MediaPage() {
             {KATEGORI_FILTER.map((f) => (
               <button key={f.value}
                 onClick={() => { setKategoriFilter(f.value); setCurrentPage(1); }}
-                style={{ padding: "14px 16px", fontSize: "12px", fontWeight: kategoriFilter === f.value ? "700" : "500", color: kategoriFilter === f.value ? "#8b1a2a" : "#5c5a57", background: "none", border: "none", cursor: "pointer", fontFamily: "var(--font-sans)", borderBottom: kategoriFilter === f.value ? "2px solid #8b1a2a" : "2px solid transparent", transition: "all 0.15s", whiteSpace: "nowrap" as const }}>
+                style={{ padding: "14px 16px", fontSize: "12px", fontWeight: kategoriFilter === f.value ? "700" : "500", color: kategoriFilter === f.value ? "#0C57A8" : "#5c5a57", background: "none", border: "none", cursor: "pointer", fontFamily: "var(--font-sans)", borderBottom: kategoriFilter === f.value ? "2px solid #0C57A8" : "2px solid transparent", transition: "all 0.15s", whiteSpace: "nowrap" as const }}>
                 {f.label}
               </button>
             ))}
@@ -411,9 +411,9 @@ export default function MediaPage() {
           {/* Clear search chip */}
           {searchQuery && (
             <div style={{ marginLeft: "auto", flexShrink: 0, padding: "0 8px" }}>
-              <span style={{ display: "inline-flex", alignItems: "center", gap: "6px", padding: "3px 10px", backgroundColor: "rgba(139,26,42,0.1)", border: "1px solid rgba(139,26,42,0.25)", borderRadius: "100px", fontSize: "11px", fontWeight: "600", color: "#8b1a2a", fontFamily: "var(--font-sans)" }}>
+              <span style={{ display: "inline-flex", alignItems: "center", gap: "6px", padding: "3px 10px", backgroundColor: "rgba(12,87,168,0.1)", border: "1px solid rgba(12,87,168,0.25)", borderRadius: "100px", fontSize: "11px", fontWeight: "600", color: "#0C57A8", fontFamily: "var(--font-sans)" }}>
                 "{searchQuery}"
-                <button onClick={handleClearSearch} style={{ background: "none", border: "none", cursor: "pointer", padding: 0, color: "#8b1a2a", display: "flex", alignItems: "center" }}>
+                <button onClick={handleClearSearch} style={{ background: "none", border: "none", cursor: "pointer", padding: 0, color: "#0C57A8", display: "flex", alignItems: "center" }}>
                   <svg width="11" height="11" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2.5"><path d="M18 6L6 18M6 6l12 12"/></svg>
                 </button>
               </span>
@@ -430,7 +430,7 @@ export default function MediaPage() {
           {/* Section header */}
           <div style={{ display: "flex", justifyContent: "space-between", alignItems: "flex-end", marginBottom: "24px", paddingBottom: "12px", borderBottom: "3px solid #0d0d0d" }}>
             <div>
-              <span style={{ fontSize: "11px", fontWeight: "700", letterSpacing: "0.1em", textTransform: "uppercase" as const, color: "#8b1a2a", fontFamily: "var(--font-sans)" }}>◆ Koleksi</span>
+              <span style={{ fontSize: "11px", fontWeight: "700", letterSpacing: "0.1em", textTransform: "uppercase" as const, color: "#0C57A8", fontFamily: "var(--font-sans)" }}>◆ Koleksi</span>
               <h2 style={{ fontSize: "18px", fontWeight: "700", color: "#0d0d0d", fontFamily: "var(--font-serif)", marginTop: "2px", marginBottom: 0 }}>
                 {searchQuery ? `Hasil: "${searchQuery}"` : jenisFilter === "youtube" ? "Video YouTube" : jenisFilter === "wikimedia_commons" ? "PDF & Materi" : "Semua Materi"}
               </h2>
@@ -447,7 +447,7 @@ export default function MediaPage() {
               <span style={{ fontSize: "40px", opacity: 0.2 }}>🔍</span>
               <p style={{ fontSize: "15px", color: "#6b6966", fontFamily: "var(--font-sans)", marginTop: "12px" }}>Tidak ada materi ditemukan.</p>
               <button onClick={() => { setJenisFilter(""); setKategoriFilter(""); handleClearSearch(); }}
-                style={{ marginTop: "16px", padding: "8px 20px", backgroundColor: "#8b1a2a", color: "#fff", border: "none", borderRadius: "3px", fontSize: "12px", fontWeight: "700", fontFamily: "var(--font-sans)", cursor: "pointer" }}>
+                style={{ marginTop: "16px", padding: "8px 20px", backgroundColor: "#0C57A8", color: "#fff", border: "none", borderRadius: "3px", fontSize: "12px", fontWeight: "700", fontFamily: "var(--font-sans)", cursor: "pointer" }}>
                 Reset Filter
               </button>
             </div>

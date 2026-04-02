@@ -52,11 +52,11 @@ export default function EventsSection({
   return (
     <section style={{ backgroundColor: "#f8f7f5", padding: "80px 24px", position: "relative", overflow: "hidden" }}>
       <div style={{ position: "absolute", inset: 0, backgroundImage: "repeating-linear-gradient(45deg, rgba(0,0,0,0.015) 0px, rgba(0,0,0,0.015) 1px, transparent 1px, transparent 12px)", pointerEvents: "none" }} />
-      <div style={{ position: "absolute", top: 0, left: 0, width: "4px", height: "100%", background: "linear-gradient(180deg, #8b1a2a, transparent)", opacity: 0.3, pointerEvents: "none" }} />
+      <div style={{ position: "absolute", top: 0, left: 0, width: "4px", height: "100%", background: "linear-gradient(180deg, #0C57A8, transparent)", opacity: 0.3, pointerEvents: "none" }} />
 
       <div style={{ maxWidth: "1280px", margin: "0 auto", position: "relative", zIndex: 1 }}>
         <div className="section-border-shimmer reveal" style={{ marginBottom: "40px", paddingBottom: "16px", borderBottom: "3px solid #0d0d0d" }}>
-          <span style={{ fontSize: "11px", fontWeight: "700", letterSpacing: "0.1em", textTransform: "uppercase", color: "#8b1a2a", fontFamily: "var(--font-sans)" }}>◆ Kalender</span>
+          <span style={{ fontSize: "11px", fontWeight: "700", letterSpacing: "0.1em", textTransform: "uppercase", color: "#0C57A8", fontFamily: "var(--font-sans)" }}>◆ Kalender</span>
           <h2 style={{ fontSize: "clamp(1.6rem, 3vw, 2.2rem)", fontWeight: "700", color: "#0d0d0d", fontFamily: "var(--font-serif)", marginTop: "4px" }}>Acara Mendatang</h2>
         </div>
 
@@ -128,7 +128,7 @@ export default function EventsSection({
               })
             )}
             <Link href="/acara" style={{ display: "inline-block", marginTop: "4px", fontSize: "13px", fontWeight: "600", color: "#1e4d7b", textDecoration: "none", fontFamily: "var(--font-sans)", letterSpacing: "0.04em" }}
-              onMouseEnter={(e) => (e.currentTarget.style.color = "#8b1a2a")}
+              onMouseEnter={(e) => (e.currentTarget.style.color = "#0C57A8")}
               onMouseLeave={(e) => (e.currentTarget.style.color = "#1e4d7b")}>
               Lihat Semua →
             </Link>
@@ -174,7 +174,7 @@ export default function EventsSection({
                       <button key={idx} onClick={() => setActiveSlide(idx)} aria-label={`Slide ${idx + 1}`} style={{
                         width: idx === activeSlide ? "18px" : "6px",
                         height: "6px", borderRadius: "3px",
-                        backgroundColor: idx === activeSlide ? "#e05070" : "rgba(255,255,255,0.5)",
+                        backgroundColor: idx === activeSlide ? "#3b8ed4" : "rgba(255,255,255,0.5)",
                         border: "none", cursor: "pointer", padding: 0,
                         transition: "all 0.3s ease",
                       }} />

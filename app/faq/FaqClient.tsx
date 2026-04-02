@@ -55,7 +55,7 @@ function AccordionItem({ item, isOpen, onToggle }: {
       >
         <span style={{
           fontSize: "14px", fontWeight: isOpen ? "700" : "600",
-          color: isOpen ? "#8b1a2a" : "#0d0d0d",
+          color: isOpen ? "#0C57A8" : "#0d0d0d",
           fontFamily: "var(--font-sans)", lineHeight: "1.55", flex: 1,
           transition: "color 0.2s",
         }}>
@@ -63,9 +63,9 @@ function AccordionItem({ item, isOpen, onToggle }: {
         </span>
         <span style={{
           flexShrink: 0, width: "22px", height: "22px", borderRadius: "50%",
-          border: `1px solid ${isOpen ? "#8b1a2a" : "#e5e2dd"}`,
+          border: `1px solid ${isOpen ? "#0C57A8" : "#e5e2dd"}`,
           display: "flex", alignItems: "center", justifyContent: "center",
-          backgroundColor: isOpen ? "#8b1a2a" : "transparent",
+          backgroundColor: isOpen ? "#0C57A8" : "transparent",
           transition: "all 0.25s", marginTop: "1px",
         }}>
           <svg
@@ -164,7 +164,7 @@ export default function FaqPage() {
       }}>
         <div style={{ position: "absolute", inset: 0, background: "linear-gradient(135deg, rgba(8,20,45,0.92) 0%, rgba(10,30,65,0.84) 40%, rgba(15,40,80,0.76) 100%)", pointerEvents: "none" }} />
         <div style={{ position: "absolute", inset: 0, backgroundImage: `linear-gradient(rgba(255,255,255,0.03) 1px, transparent 1px), linear-gradient(90deg, rgba(255,255,255,0.03) 1px, transparent 1px)`, backgroundSize: "40px 40px", pointerEvents: "none" }} />
-        <div style={{ position: "absolute", top: "-60px", right: "-60px", width: "240px", height: "240px", borderRadius: "50%", background: "radial-gradient(circle, rgba(139,26,42,0.18) 0%, transparent 70%)", pointerEvents: "none" }} />
+        <div style={{ position: "absolute", top: "-60px", right: "-60px", width: "240px", height: "240px", borderRadius: "50%", background: "radial-gradient(circle, rgba(12,87,168,0.18) 0%, transparent 70%)", pointerEvents: "none" }} />
         <div style={{ position: "absolute", bottom: "-60px", left: "10%", width: "200px", height: "200px", borderRadius: "50%", background: "radial-gradient(circle, rgba(30,77,123,0.15) 0%, transparent 70%)", pointerEvents: "none" }} />
 
         <div style={{ maxWidth: "1280px", margin: "0 auto", position: "relative", zIndex: 1 }}>
@@ -176,7 +176,7 @@ export default function FaqPage() {
               Beranda
             </Link>
             <span style={{ fontSize: "11px", color: "rgba(255,255,255,0.25)", fontFamily: "var(--font-sans)" }}>/</span>
-            <span style={{ fontSize: "11px", color: "#e05070", fontFamily: "var(--font-sans)" }}>FAQ</span>
+            <span style={{ fontSize: "11px", color: "#3b8ed4", fontFamily: "var(--font-sans)" }}>FAQ</span>
           </div>
 
           <div style={{ display: "flex", alignItems: "flex-end", justifyContent: "space-between", flexWrap: "wrap" as const, gap: "20px" }}>
@@ -207,9 +207,9 @@ export default function FaqPage() {
                 </button>
               )}
               <button onClick={handleSearch}
-                style={{ padding: "10px 16px", backgroundColor: "#8b1a2a", border: "none", color: "#fff", cursor: "pointer", display: "flex", alignItems: "center" }}
-                onMouseEnter={(e) => ((e.currentTarget as HTMLElement).style.backgroundColor = "#a82235")}
-                onMouseLeave={(e) => ((e.currentTarget as HTMLElement).style.backgroundColor = "#8b1a2a")}>
+                style={{ padding: "10px 16px", backgroundColor: "#0C57A8", border: "none", color: "#fff", cursor: "pointer", display: "flex", alignItems: "center" }}
+                onMouseEnter={(e) => ((e.currentTarget as HTMLElement).style.backgroundColor = "#0a4a8f")}
+                onMouseLeave={(e) => ((e.currentTarget as HTMLElement).style.backgroundColor = "#0C57A8")}>
                 <svg width="15" height="15" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2"><circle cx="11" cy="11" r="8"/><path d="m21 21-4.35-4.35"/></svg>
               </button>
             </div>
@@ -228,7 +228,7 @@ export default function FaqPage() {
             <div style={{ marginBottom: "36px" }}>
               <div style={{ display: "flex", justifyContent: "space-between", alignItems: "flex-end", marginBottom: "24px", paddingBottom: "12px", borderBottom: "3px solid #0d0d0d" }}>
                 <div>
-                  <span style={{ fontSize: "11px", fontWeight: "700", letterSpacing: "0.1em", textTransform: "uppercase" as const, color: "#8b1a2a", fontFamily: "var(--font-sans)" }}>◆ Hasil Pencarian</span>
+                  <span style={{ fontSize: "11px", fontWeight: "700", letterSpacing: "0.1em", textTransform: "uppercase" as const, color: "#0C57A8", fontFamily: "var(--font-sans)" }}>◆ Hasil Pencarian</span>
                   <h2 style={{ fontSize: "18px", fontWeight: "700", color: "#0d0d0d", fontFamily: "var(--font-serif)", marginTop: "2px", marginBottom: 0 }}>
                     "{searchQuery}"
                   </h2>
@@ -253,7 +253,7 @@ export default function FaqPage() {
                       {i > 0 && <div style={{ height: "0", borderTop: "1px solid #e5e2dd" }} />}
                       <div style={{ padding: "6px 0" }}>
                         <div style={{ padding: "10px 24px 0" }}>
-                          <span style={{ fontSize: "10px", fontWeight: "700", color: "#8b1a2a", backgroundColor: "rgba(139,26,42,0.08)", border: "1px solid rgba(139,26,42,0.15)", padding: "2px 8px", borderRadius: "2px", fontFamily: "var(--font-sans)", letterSpacing: "0.05em", textTransform: "uppercase" as const }}>
+                          <span style={{ fontSize: "10px", fontWeight: "700", color: "#0C57A8", backgroundColor: "rgba(12,87,168,0.08)", border: "1px solid rgba(12,87,168,0.15)", padding: "2px 8px", borderRadius: "2px", fontFamily: "var(--font-sans)", letterSpacing: "0.05em", textTransform: "uppercase" as const }}>
                             {item.category.name}
                           </span>
                         </div>
@@ -313,7 +313,7 @@ export default function FaqPage() {
           {/* ── Contact CTA ── */}
           {!loading && (
             <div style={{ marginTop: "40px", backgroundColor: "#0d0d0d", borderRadius: "4px", padding: "32px 36px", display: "flex", alignItems: "center", justifyContent: "space-between", gap: "24px", flexWrap: "wrap" as const, position: "relative", overflow: "hidden" }}>
-              <div style={{ position: "absolute", top: "-40px", right: "-40px", width: "160px", height: "160px", borderRadius: "50%", background: "radial-gradient(circle, rgba(139,26,42,0.2) 0%, transparent 70%)", pointerEvents: "none" }} />
+              <div style={{ position: "absolute", top: "-40px", right: "-40px", width: "160px", height: "160px", borderRadius: "50%", background: "radial-gradient(circle, rgba(12,87,168,0.2) 0%, transparent 70%)", pointerEvents: "none" }} />
               <div style={{ position: "relative", zIndex: 1 }}>
                 <span style={{ fontSize: "10px", fontWeight: "700", letterSpacing: "0.1em", textTransform: "uppercase" as const, color: "#e05070", fontFamily: "var(--font-sans)" }}>◆ Masih Ada Pertanyaan?</span>
                 <h3 style={{ fontSize: "1.1rem", fontWeight: "700", color: "#fff", fontFamily: "var(--font-serif)", margin: "6px 0 6px" }}>
@@ -324,9 +324,9 @@ export default function FaqPage() {
                 </p>
               </div>
               <Link href="/kontak"
-                style={{ display: "inline-flex", alignItems: "center", gap: "8px", padding: "12px 24px", backgroundColor: "#8b1a2a", color: "#fff", textDecoration: "none", borderRadius: "3px", fontSize: "13px", fontWeight: "700", fontFamily: "var(--font-sans)", letterSpacing: "0.04em", transition: "background 0.2s", flexShrink: 0, position: "relative", zIndex: 1 }}
-                onMouseEnter={(e) => ((e.currentTarget as HTMLElement).style.backgroundColor = "#a82235")}
-                onMouseLeave={(e) => ((e.currentTarget as HTMLElement).style.backgroundColor = "#8b1a2a")}>
+                style={{ display: "inline-flex", alignItems: "center", gap: "8px", padding: "12px 24px", backgroundColor: "#0C57A8", color: "#fff", textDecoration: "none", borderRadius: "3px", fontSize: "13px", fontWeight: "700", fontFamily: "var(--font-sans)", letterSpacing: "0.04em", transition: "background 0.2s", flexShrink: 0, position: "relative", zIndex: 1 }}
+                onMouseEnter={(e) => ((e.currentTarget as HTMLElement).style.backgroundColor = "#0a4a8f")}
+                onMouseLeave={(e) => ((e.currentTarget as HTMLElement).style.backgroundColor = "#0C57A8")}>
                 Hubungi Kami
                 <svg width="13" height="13" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2.5"><path d="M5 12h14M12 5l7 7-7 7"/></svg>
               </Link>
@@ -346,7 +346,7 @@ export default function FaqPage() {
         .faq-answer p { margin: 0 0 0.8em; }
         .faq-answer p:last-child { margin-bottom: 0; }
         .faq-answer a { color: #1e4d7b; text-underline-offset: 2px; }
-        .faq-answer a:hover { color: #8b1a2a; }
+        .faq-answer a:hover { color: #0C57A8; }
         .faq-answer strong { font-weight: 700; color: #0d0d0d; }
       `}</style>
     </>

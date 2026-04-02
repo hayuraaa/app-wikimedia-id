@@ -86,7 +86,7 @@ function KarirCard({ item }: { item: Karir }) {
 
         {/* Right */}
         <div style={{ flexShrink: 0, display: "flex", flexDirection: "column", alignItems: "flex-end", gap: "10px" }}>
-          <span style={{ display: "inline-flex", alignItems: "center", gap: "6px", padding: "9px 18px", backgroundColor: "#8b1a2a", color: "#fff", borderRadius: "3px", fontSize: "12px", fontWeight: "700", fontFamily: "var(--font-sans)", letterSpacing: "0.04em", whiteSpace: "nowrap" as const }}>
+          <span style={{ display: "inline-flex", alignItems: "center", gap: "6px", padding: "9px 18px", backgroundColor: "#0C57A8", color: "#fff", borderRadius: "3px", fontSize: "12px", fontWeight: "700", fontFamily: "var(--font-sans)", letterSpacing: "0.04em", whiteSpace: "nowrap" as const }}>
             Lihat Detail
             <svg width="12" height="12" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2.5"><path d="M5 12h14M12 5l7 7-7 7"/></svg>
           </span>
@@ -110,7 +110,7 @@ export default function KarierClient({ items, total }: { items: Karir[]; total: 
       }}>
         <div style={{ position: "absolute", inset: 0, background: "linear-gradient(135deg, rgba(8,20,45,0.92) 0%, rgba(10,30,65,0.84) 40%, rgba(15,40,80,0.76) 100%)", pointerEvents: "none" }} />
         <div style={{ position: "absolute", inset: 0, backgroundImage: `linear-gradient(rgba(255,255,255,0.03) 1px, transparent 1px), linear-gradient(90deg, rgba(255,255,255,0.03) 1px, transparent 1px)`, backgroundSize: "40px 40px", pointerEvents: "none" }} />
-        <div style={{ position: "absolute", top: "-60px", right: "-60px", width: "240px", height: "240px", borderRadius: "50%", background: "radial-gradient(circle, rgba(139,26,42,0.20) 0%, transparent 70%)", pointerEvents: "none" }} />
+        <div style={{ position: "absolute", top: "-60px", right: "-60px", width: "240px", height: "240px", borderRadius: "50%", background: "radial-gradient(circle, rgba(12,87,168,0.20) 0%, transparent 70%)", pointerEvents: "none" }} />
 
         <div style={{ maxWidth: "1280px", margin: "0 auto", position: "relative", zIndex: 1 }}>
           {/* Breadcrumb */}
@@ -121,7 +121,7 @@ export default function KarierClient({ items, total }: { items: Karir[]; total: 
               Beranda
             </Link>
             <span style={{ fontSize: "11px", color: "rgba(255,255,255,0.25)", fontFamily: "var(--font-sans)" }}>/</span>
-            <span style={{ fontSize: "11px", color: "#e05070", fontFamily: "var(--font-sans)" }}>Karier</span>
+            <span style={{ fontSize: "11px", color: "#3b8ed4", fontFamily: "var(--font-sans)" }}>Karier</span>
           </div>
 
           <span style={{ fontSize: "10px", fontWeight: "700", letterSpacing: "0.1em", textTransform: "uppercase" as const, color: "#e05070", fontFamily: "var(--font-sans)" }}>◆ Karier</span>
@@ -157,7 +157,7 @@ export default function KarierClient({ items, total }: { items: Karir[]; total: 
           <div>
             <div style={{ display: "flex", justifyContent: "space-between", alignItems: "flex-end", marginBottom: "24px", paddingBottom: "12px", borderBottom: "3px solid #0d0d0d" }}>
               <div>
-                <span style={{ fontSize: "11px", fontWeight: "700", letterSpacing: "0.1em", textTransform: "uppercase" as const, color: "#8b1a2a", fontFamily: "var(--font-sans)" }}>◆ Lowongan</span>
+                <span style={{ fontSize: "11px", fontWeight: "700", letterSpacing: "0.1em", textTransform: "uppercase" as const, color: "#0C57A8", fontFamily: "var(--font-sans)" }}>◆ Lowongan</span>
                 <h2 style={{ fontSize: "18px", fontWeight: "700", color: "#0d0d0d", fontFamily: "var(--font-serif)", marginTop: "2px", marginBottom: 0 }}>
                   Posisi Tersedia
                 </h2>
@@ -196,7 +196,7 @@ export default function KarierClient({ items, total }: { items: Karir[]; total: 
               <p style={{ fontSize: "13px", fontWeight: "700", color: "#92400e", fontFamily: "var(--font-sans)", margin: "0 0 4px" }}>Peringatan Penipuan</p>
               <p style={{ fontSize: "13px", color: "#5c5a57", lineHeight: "1.7", fontFamily: "var(--font-sans)", margin: 0 }}>
                 Dalam melakukan perekrutan, Wikimedia Indonesia tidak pernah meminta sejumlah uang untuk alasan apapun. Apabila Anda dimintai sejumlah uang, harap melaporkan kepada kami melalui surel:{" "}
-                <a href="mailto:lowongan@wikimedia.or.id" style={{ color: "#8b1a2a", fontWeight: "600", textDecoration: "none" }}>
+                <a href="mailto:lowongan@wikimedia.or.id" style={{ color: "#0C57A8", fontWeight: "600", textDecoration: "none" }}>
                   lowongan@wikimedia.or.id
                 </a>
               </p>

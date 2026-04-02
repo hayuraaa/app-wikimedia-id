@@ -32,8 +32,8 @@ function ReadingProgress() {
     return () => window.removeEventListener("scroll", fn);
   }, []);
   return (
-    <div style={{ position: "fixed", top: 0, left: 0, width: "100%", height: "3px", backgroundColor: "rgba(139,26,42,0.15)", zIndex: 9999, pointerEvents: "none" }}>
-      <div style={{ height: "100%", width: `${p}%`, background: "linear-gradient(90deg, #8b1a2a, #e05070)", transition: "width 0.1s linear" }} />
+    <div style={{ position: "fixed", top: 0, left: 0, width: "100%", height: "3px", backgroundColor: "rgba(12,87,168,0.15)", zIndex: 9999, pointerEvents: "none" }}>
+      <div style={{ height: "100%", width: `${p}%`, background: "linear-gradient(90deg, #0C57A8, #3b8ed4)", transition: "width 0.1s linear" }} />
     </div>
   );
 }
@@ -61,7 +61,7 @@ export default function KarirDetailClient({ karir }: { karir: Karir }) {
       }}>
         <div style={{ position: "absolute", inset: 0, background: "linear-gradient(135deg, rgba(8,20,45,0.92) 0%, rgba(10,30,65,0.84) 40%, rgba(15,40,80,0.76) 100%)", pointerEvents: "none" }} />
         <div style={{ position: "absolute", inset: 0, backgroundImage: `linear-gradient(rgba(255,255,255,0.03) 1px, transparent 1px), linear-gradient(90deg, rgba(255,255,255,0.03) 1px, transparent 1px)`, backgroundSize: "40px 40px", pointerEvents: "none" }} />
-        <div style={{ position: "absolute", top: "-60px", right: "-60px", width: "240px", height: "240px", borderRadius: "50%", background: "radial-gradient(circle, rgba(139,26,42,0.20) 0%, transparent 70%)", pointerEvents: "none" }} />
+        <div style={{ position: "absolute", top: "-60px", right: "-60px", width: "240px", height: "240px", borderRadius: "50%", background: "radial-gradient(circle, rgba(12,87,168,0.20) 0%, transparent 70%)", pointerEvents: "none" }} />
 
         <div style={{ maxWidth: "1280px", margin: "0 auto", position: "relative", zIndex: 1 }}>
           {/* Breadcrumb */}
@@ -79,7 +79,7 @@ export default function KarirDetailClient({ karir }: { karir: Karir }) {
                 <span style={{ fontSize: "11px", color: "rgba(255,255,255,0.25)", fontFamily: "var(--font-sans)" }}>/</span>
               </span>
             ))}
-            <span style={{ fontSize: "11px", color: "#e05070", fontFamily: "var(--font-sans)" }}>{karir.title}</span>
+            <span style={{ fontSize: "11px", color: "#3b8ed4", fontFamily: "var(--font-sans)" }}>{karir.title}</span>
           </div>
 
           {/* Status */}
@@ -149,7 +149,7 @@ export default function KarirDetailClient({ karir }: { karir: Karir }) {
               {/* Back */}
               <div style={{ marginTop: "40px", paddingTop: "20px", borderTop: "2px solid #0d0d0d" }}>
                 <Link href="/karier" style={{ display: "inline-flex", alignItems: "center", gap: "7px", fontSize: "12px", fontWeight: "700", letterSpacing: "0.05em", textTransform: "uppercase" as const, color: "#5c5a57", textDecoration: "none", fontFamily: "var(--font-sans)", transition: "color 0.15s" }}
-                  onMouseEnter={(e) => (e.currentTarget.style.color = "#8b1a2a")}
+                  onMouseEnter={(e) => (e.currentTarget.style.color = "#0C57A8")}
                   onMouseLeave={(e) => (e.currentTarget.style.color = "#5c5a57")}>
                   <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2"><path d="M15 18l-6-6 6-6"/></svg>
                   Kembali ke Karier
@@ -163,15 +163,15 @@ export default function KarirDetailClient({ karir }: { karir: Karir }) {
               {/* CTA */}
               {!expired && karir.link_pendaftaran && (
                 <div style={{ backgroundColor: "#0d0d0d", borderRadius: "4px", padding: "22px", position: "relative", overflow: "hidden" }}>
-                  <div style={{ position: "absolute", top: "-20px", right: "-20px", width: "80px", height: "80px", borderRadius: "50%", background: "radial-gradient(circle, rgba(139,26,42,0.25) 0%, transparent 70%)", pointerEvents: "none" }} />
+                  <div style={{ position: "absolute", top: "-20px", right: "-20px", width: "80px", height: "80px", borderRadius: "50%", background: "radial-gradient(circle, rgba(12,87,168,0.25) 0%, transparent 70%)", pointerEvents: "none" }} />
                   <h4 style={{ fontSize: "14px", fontWeight: "700", color: "#fff", fontFamily: "var(--font-serif)", margin: "0 0 6px" }}>Tertarik Melamar?</h4>
                   <p style={{ fontSize: "12px", color: "rgba(255,255,255,0.45)", fontFamily: "var(--font-sans)", lineHeight: "1.6", margin: "0 0 16px" }}>
                     Baca seluruh deskripsi dengan cermat sebelum mengirimkan lamaran.
                   </p>
                   <a href={karir.link_pendaftaran} target="_blank" rel="noopener noreferrer"
-                    style={{ display: "flex", alignItems: "center", justifyContent: "center", gap: "8px", padding: "11px 16px", backgroundColor: "#8b1a2a", color: "#fff", textDecoration: "none", borderRadius: "3px", fontSize: "13px", fontWeight: "700", fontFamily: "var(--font-sans)", letterSpacing: "0.04em", transition: "background 0.2s" }}
-                    onMouseEnter={(e) => ((e.currentTarget as HTMLElement).style.backgroundColor = "#a82235")}
-                    onMouseLeave={(e) => ((e.currentTarget as HTMLElement).style.backgroundColor = "#8b1a2a")}>
+                    style={{ display: "flex", alignItems: "center", justifyContent: "center", gap: "8px", padding: "11px 16px", backgroundColor: "#0C57A8", color: "#fff", textDecoration: "none", borderRadius: "3px", fontSize: "13px", fontWeight: "700", fontFamily: "var(--font-sans)", letterSpacing: "0.04em", transition: "background 0.2s" }}
+                    onMouseEnter={(e) => ((e.currentTarget as HTMLElement).style.backgroundColor = "#0a4a8f")}
+                    onMouseLeave={(e) => ((e.currentTarget as HTMLElement).style.backgroundColor = "#0C57A8")}>
                     Daftar Sekarang
                     <svg width="13" height="13" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2.5"><path d="M5 12h14M12 5l7 7-7 7"/></svg>
                   </a>
@@ -181,7 +181,7 @@ export default function KarirDetailClient({ karir }: { karir: Karir }) {
               {/* Info */}
               <div style={{ backgroundColor: "#fff", border: "1px solid #e5e2dd", borderRadius: "4px", overflow: "hidden" }}>
                 <div style={{ padding: "13px 18px", borderBottom: "3px solid #0d0d0d" }}>
-                  <span style={{ fontSize: "10px", fontWeight: "700", letterSpacing: "0.08em", textTransform: "uppercase" as const, color: "#8b1a2a", fontFamily: "var(--font-sans)" }}>◆ Info Lowongan</span>
+                  <span style={{ fontSize: "10px", fontWeight: "700", letterSpacing: "0.08em", textTransform: "uppercase" as const, color: "#0C57A8", fontFamily: "var(--font-sans)" }}>◆ Info Lowongan</span>
                 </div>
                 <div style={{ padding: "16px 18px", display: "flex", flexDirection: "column", gap: "0" }}>
                   {[
@@ -205,7 +205,7 @@ export default function KarirDetailClient({ karir }: { karir: Karir }) {
               <div style={{ backgroundColor: "#fffbeb", border: "1px solid #fbbf24", borderRadius: "4px", padding: "14px 16px" }}>
                 <p style={{ fontSize: "11px", color: "#92400e", lineHeight: "1.65", fontFamily: "var(--font-sans)", margin: 0 }}>
                   <strong>⚠ Peringatan:</strong> Wikimedia Indonesia tidak pernah meminta uang dalam proses rekrutmen. Laporkan ke{" "}
-                  <a href="mailto:lowongan@wikimedia.or.id" style={{ color: "#8b1a2a", fontWeight: "600", textDecoration: "none" }}>
+                  <a href="mailto:lowongan@wikimedia.or.id" style={{ color: "#0C57A8", fontWeight: "600", textDecoration: "none" }}>
                     lowongan@wikimedia.or.id
                   </a>
                 </p>
@@ -226,7 +226,7 @@ export default function KarirDetailClient({ karir }: { karir: Karir }) {
         .karir-content li p { margin: 0; }
         .karir-content strong { font-weight: 700; color: #0d0d0d; }
         .karir-content a { color: #1e4d7b; text-underline-offset: 2px; }
-        .karir-content a:hover { color: #8b1a2a; }
+        .karir-content a:hover { color: #0C57A8; }
         @media (max-width: 800px) {
           .karir-layout { grid-template-columns: 1fr !important; }
           .karir-sidebar { position: static !important; order: -1; }

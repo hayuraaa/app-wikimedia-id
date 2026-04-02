@@ -277,7 +277,7 @@ function ContactForm() {
     fontSize: "11px", fontWeight: "700", color: "#5c5a57", fontFamily: "var(--font-sans)",
     letterSpacing: "0.06em", textTransform: "uppercase" as const, display: "block", marginBottom: "6px",
   };
-  const focusStyle = { borderColor: "#8b1a2a", boxShadow: "0 0 0 3px rgba(139,26,42,0.08)" };
+  const focusStyle = { borderColor: "#0C57A8", boxShadow: "0 0 0 3px rgba(12,87,168,0.08)" };
   const blurStyle = { borderColor: "#e5e2dd", boxShadow: "none" };
 
   if (status === "success") {
@@ -291,7 +291,7 @@ function ContactForm() {
           <p style={{ fontSize: "13px", color: "#5c5a57", fontFamily: "var(--font-sans)", margin: 0, lineHeight: "1.65" }}>{msg}</p>
         </div>
         <button onClick={() => setStatus("idle")}
-          style={{ fontSize: "12px", fontWeight: "700", color: "#8b1a2a", fontFamily: "var(--font-sans)", background: "none", border: "none", cursor: "pointer", textDecoration: "underline", textUnderlineOffset: "2px" }}>
+          style={{ fontSize: "12px", fontWeight: "700", color: "#0C57A8", fontFamily: "var(--font-sans)", background: "none", border: "none", cursor: "pointer", textDecoration: "underline", textUnderlineOffset: "2px" }}>
           Kirim pesan lain
         </button>
       </div>
@@ -302,30 +302,30 @@ function ContactForm() {
     <div style={{ display: "flex", flexDirection: "column", gap: "16px" }}>
       <div className="form-row" style={{ display: "grid", gridTemplateColumns: "1fr 1fr", gap: "14px" }}>
         <div>
-          <label style={labelStyle}>Nama Lengkap <span style={{ color: "#8b1a2a" }}>*</span></label>
+          <label style={labelStyle}>Nama Lengkap <span style={{ color: "#c0392b" }}>*</span></label>
           <input type="text" placeholder="Nama Anda" value={form.nama} onChange={set("nama")} style={inputStyle}
             onFocus={(e) => Object.assign(e.target.style, focusStyle)} onBlur={(e) => Object.assign(e.target.style, blurStyle)} />
         </div>
         <div>
-          <label style={labelStyle}>Email <span style={{ color: "#8b1a2a" }}>*</span></label>
+          <label style={labelStyle}>Email <span style={{ color: "#c0392b" }}>*</span></label>
           <input type="email" placeholder="email@domain.com" value={form.email} onChange={set("email")} style={inputStyle}
             onFocus={(e) => Object.assign(e.target.style, focusStyle)} onBlur={(e) => Object.assign(e.target.style, blurStyle)} />
         </div>
       </div>
       <div className="form-row" style={{ display: "grid", gridTemplateColumns: "1fr 1fr", gap: "14px" }}>
         <div>
-          <label style={labelStyle}>Nomor Telepon <span style={{ color: "#8b1a2a" }}>*</span></label>
+          <label style={labelStyle}>Nomor Telepon <span style={{ color: "#c0392b" }}>*</span></label>
           <input type="tel" placeholder="+62 8xx xxxx xxxx" value={form.telepon} onChange={set("telepon")} style={inputStyle}
             onFocus={(e) => Object.assign(e.target.style, focusStyle)} onBlur={(e) => Object.assign(e.target.style, blurStyle)} />
         </div>
         <div>
-          <label style={labelStyle}>Subjek <span style={{ color: "#8b1a2a" }}>*</span></label>
+          <label style={labelStyle}>Subjek <span style={{ color: "#c0392b" }}>*</span></label>
           <input type="text" placeholder="Tuliskan subjek pesan Anda..." value={form.subjek} onChange={set("subjek")} style={inputStyle}
             onFocus={(e) => Object.assign(e.target.style, focusStyle)} onBlur={(e) => Object.assign(e.target.style, blurStyle)} />
         </div>
       </div>
       <div>
-        <label style={labelStyle}>Pesan / Komentar <span style={{ color: "#8b1a2a" }}>*</span></label>
+        <label style={labelStyle}>Pesan / Komentar <span style={{ color: "#c0392b" }}>*</span></label>
         <textarea placeholder="Tuliskan pesan atau pertanyaan Anda di sini..." value={form.pesan} onChange={set("pesan")} rows={5}
           style={{ ...inputStyle, resize: "vertical" as const, minHeight: "120px" }}
           onFocus={(e) => Object.assign(e.target.style, focusStyle)} onBlur={(e) => Object.assign(e.target.style, blurStyle)} />
@@ -340,14 +340,14 @@ function ContactForm() {
         className="btn-ripple"
         style={{
           display: "flex", alignItems: "center", gap: "8px", padding: "13px 28px",
-          backgroundColor: status === "loading" ? "#a82235" : "#8b1a2a",
+          backgroundColor: status === "loading" ? "#0a4a8f" : "#0C57A8",
           color: "#fff", border: "none", borderRadius: "3px",
           fontSize: "13px", fontWeight: "700", fontFamily: "var(--font-sans)",
           letterSpacing: "0.04em", cursor: status === "loading" ? "not-allowed" : "pointer",
           transition: "background 0.2s", alignSelf: "flex-start" as const,
         }}
-        onMouseEnter={(e) => { if (status !== "loading") (e.currentTarget as HTMLElement).style.backgroundColor = "#a82235"; }}
-        onMouseLeave={(e) => { if (status !== "loading") (e.currentTarget as HTMLElement).style.backgroundColor = "#8b1a2a"; }}>
+        onMouseEnter={(e) => { if (status !== "loading") (e.currentTarget as HTMLElement).style.backgroundColor = "#0a4a8f"; }}
+        onMouseLeave={(e) => { if (status !== "loading") (e.currentTarget as HTMLElement).style.backgroundColor = "#0C57A8"; }}>
         {status === "loading"
           ? <><svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2" style={{ animation: "spin 1s linear infinite" }}><path d="M21 12a9 9 0 1 1-6.219-8.56" /></svg>Mengirim...</>
           : <><svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2"><line x1="22" y1="2" x2="11" y2="13" /><polygon points="22 2 15 22 11 13 2 9 22 2" /></svg>Kirim Pesan</>}
@@ -383,7 +383,7 @@ export default function TentangPage() {
         <div className="hero-parallax" style={{ position: "absolute", inset: 0, background: "linear-gradient(135deg, rgba(8,20,45,0.93) 0%, rgba(10,30,65,0.85) 40%, rgba(15,40,80,0.77) 100%)", pointerEvents: "none" }} />
         <div style={{ position: "absolute", inset: 0, backgroundImage: `linear-gradient(rgba(255,255,255,0.03) 1px, transparent 1px), linear-gradient(90deg, rgba(255,255,255,0.03) 1px, transparent 1px)`, backgroundSize: "40px 40px", pointerEvents: "none" }} />
         <div className="hero-dots" />
-        <div style={{ position: "absolute", top: "-60px", right: "-60px", width: "260px", height: "260px", borderRadius: "50%", background: "radial-gradient(circle, rgba(139,26,42,0.18) 0%, transparent 70%)", pointerEvents: "none" }} />
+        <div style={{ position: "absolute", top: "-60px", right: "-60px", width: "260px", height: "260px", borderRadius: "50%", background: "radial-gradient(circle, rgba(12,87,168,0.18) 0%, transparent 70%)", pointerEvents: "none" }} />
 
         <div style={{ maxWidth: "1280px", margin: "0 auto", position: "relative", zIndex: 1 }}>
           <div style={{ display: "flex", alignItems: "center", gap: "6px", marginBottom: "14px" }}>
@@ -391,11 +391,11 @@ export default function TentangPage() {
               onMouseEnter={(e) => (e.currentTarget.style.color = "rgba(255,255,255,0.8)")}
               onMouseLeave={(e) => (e.currentTarget.style.color = "rgba(255,255,255,0.4)")}>Beranda</Link>
             <span style={{ fontSize: "11px", color: "rgba(255,255,255,0.25)", fontFamily: "var(--font-sans)" }}>/</span>
-            <span style={{ fontSize: "11px", color: "#e05070", fontFamily: "var(--font-sans)" }}>Tentang Kami</span>
+            <span style={{ fontSize: "11px", color: "#3b8ed4", fontFamily: "var(--font-sans)" }}>Tentang Kami</span>
           </div>
-          <div className="hero-badge" style={{ display: "inline-flex", alignItems: "center", gap: "8px", marginBottom: "14px", padding: "6px 14px", border: "1px solid rgba(139,26,42,0.6)", borderRadius: "2px", backgroundColor: "rgba(139,26,42,0.12)" }}>
-            <span className="hero-badge-dot" style={{ display: "block", width: "6px", height: "6px", borderRadius: "50%", backgroundColor: "#e05070" }} />
-            <span style={{ fontSize: "10px", fontWeight: "700", letterSpacing: "0.1em", textTransform: "uppercase" as const, color: "#e05070", fontFamily: "var(--font-sans)" }}>Tentang Kami</span>
+          <div className="hero-badge" style={{ display: "inline-flex", alignItems: "center", gap: "8px", marginBottom: "14px", padding: "6px 14px", border: "1px solid rgba(12,87,168,0.6)", borderRadius: "2px", backgroundColor: "rgba(12,87,168,0.12)" }}>
+            <span className="hero-badge-dot" style={{ display: "block", width: "6px", height: "6px", borderRadius: "50%", backgroundColor: "#3b8ed4" }} />
+            <span style={{ fontSize: "10px", fontWeight: "700", letterSpacing: "0.1em", textTransform: "uppercase" as const, color: "#3b8ed4", fontFamily: "var(--font-sans)" }}>Tentang Kami</span>
           </div>
           <h1 className="hero-title" style={{ fontSize: "clamp(1.7rem, 3vw, 2.5rem)", fontWeight: "700", color: "#fff", fontFamily: "var(--font-serif)", margin: "0 0 12px", lineHeight: "1.2" }}>
             Tentang Wikimedia Indonesia
@@ -413,7 +413,7 @@ export default function TentangPage() {
           <div className="tentang-layout" style={{ display: "grid", gridTemplateColumns: "1fr 400px", gap: "40px", alignItems: "start" }}>
             <div className="reveal">
               <div className="section-border-shimmer" style={{ paddingBottom: "10px", marginBottom: "24px", borderBottom: "3px solid #0d0d0d" }}>
-                <span style={{ fontSize: "11px", fontWeight: "700", letterSpacing: "0.1em", textTransform: "uppercase" as const, color: "#8b1a2a", fontFamily: "var(--font-sans)" }}>◆ Sejarah</span>
+                <span style={{ fontSize: "11px", fontWeight: "700", letterSpacing: "0.1em", textTransform: "uppercase" as const, color: "#0C57A8", fontFamily: "var(--font-sans)" }}>◆ Sejarah</span>
                 <h2 style={{ fontSize: "1.4rem", fontWeight: "700", color: "#0d0d0d", fontFamily: "var(--font-serif)", marginTop: "4px", marginBottom: 0 }}>Perjalanan Wikimedia Indonesia</h2>
               </div>
               <div style={{ marginBottom: "32px", display: "flex", flexDirection: "column", gap: "14px" }}>
@@ -426,7 +426,7 @@ export default function TentangPage() {
                 </p>
               </div>
               <div style={{ backgroundColor: "#0d0d0d", borderRadius: "4px", padding: "28px 32px", position: "relative", overflow: "hidden" }}>
-                <div style={{ position: "absolute", top: "-40px", right: "-40px", width: "160px", height: "160px", borderRadius: "50%", background: "radial-gradient(circle, rgba(139,26,42,0.2) 0%, transparent 70%)", pointerEvents: "none" }} />
+                <div style={{ position: "absolute", top: "-40px", right: "-40px", width: "160px", height: "160px", borderRadius: "50%", background: "radial-gradient(circle, rgba(12,87,168,0.2) 0%, transparent 70%)", pointerEvents: "none" }} />
                 <div style={{ position: "absolute", inset: 0, backgroundImage: `linear-gradient(rgba(255,255,255,0.02) 1px, transparent 1px), linear-gradient(90deg, rgba(255,255,255,0.02) 1px, transparent 1px)`, backgroundSize: "30px 30px", pointerEvents: "none" }} />
                 <span style={{ fontSize: "10px", fontWeight: "700", letterSpacing: "0.1em", textTransform: "uppercase" as const, color: "#e05070", fontFamily: "var(--font-sans)" }}>◆ Tujuan Kami</span>
                 <h3 style={{ fontSize: "1.15rem", fontWeight: "700", color: "#fff", fontFamily: "var(--font-serif)", margin: "10px 0 12px", lineHeight: "1.4", position: "relative", zIndex: 1 }}>
@@ -440,7 +440,7 @@ export default function TentangPage() {
 
             <div className="reveal" style={{ position: "sticky", top: "88px" }}>
               <div className="section-border-shimmer" style={{ paddingBottom: "10px", marginBottom: "16px", borderBottom: "3px solid #0d0d0d" }}>
-                <span style={{ fontSize: "11px", fontWeight: "700", letterSpacing: "0.1em", textTransform: "uppercase" as const, color: "#8b1a2a", fontFamily: "var(--font-sans)" }}>◆ Video</span>
+                <span style={{ fontSize: "11px", fontWeight: "700", letterSpacing: "0.1em", textTransform: "uppercase" as const, color: "#0C57A8", fontFamily: "var(--font-sans)" }}>◆ Video</span>
                 <h3 style={{ fontSize: "16px", fontWeight: "700", color: "#0d0d0d", fontFamily: "var(--font-serif)", marginTop: "4px", marginBottom: 0 }}>Mengenal Wikimedia Indonesia</h3>
               </div>
               <div style={{ borderRadius: "6px", overflow: "hidden", position: "relative", aspectRatio: "16/9", backgroundColor: "#0d0d0d", boxShadow: "0 8px 32px rgba(0,0,0,0.18)" }}>
@@ -462,7 +462,7 @@ export default function TentangPage() {
         <div style={{ maxWidth: "1280px", margin: "0 auto" }}>
           <div className="section-border-shimmer reveal" style={{ display: "flex", justifyContent: "space-between", alignItems: "flex-end", paddingBottom: "12px", marginBottom: "24px", borderBottom: "3px solid #0d0d0d" }}>
             <div>
-              <span style={{ fontSize: "11px", fontWeight: "700", letterSpacing: "0.1em", textTransform: "uppercase" as const, color: "#8b1a2a", fontFamily: "var(--font-sans)" }}>◆ Galeri</span>
+              <span style={{ fontSize: "11px", fontWeight: "700", letterSpacing: "0.1em", textTransform: "uppercase" as const, color: "#0C57A8", fontFamily: "var(--font-sans)" }}>◆ Galeri</span>
               <h2 style={{ fontSize: "1.4rem", fontWeight: "700", color: "#0d0d0d", fontFamily: "var(--font-serif)", marginTop: "4px", marginBottom: 0 }}>Kegiatan Wikimedia Indonesia</h2>
             </div>
             <span style={{ fontSize: "11px", color: "#6b6966", fontFamily: "var(--font-sans)" }}>Klik foto · Gunakan ← → atau ESC</span>
@@ -474,7 +474,7 @@ export default function TentangPage() {
       {/* ── KONTAK ───────────────────────────────────────────────────────── */}
       <section id="hubungi-kami" style={{ backgroundColor: "#0d0d0d", padding: "72px 24px", position: "relative", overflow: "hidden" }}>
         <div style={{ position: "absolute", inset: 0, backgroundImage: `linear-gradient(rgba(255,255,255,0.02) 1px, transparent 1px), linear-gradient(90deg, rgba(255,255,255,0.02) 1px, transparent 1px)`, backgroundSize: "40px 40px", pointerEvents: "none" }} />
-        <div style={{ position: "absolute", top: "-80px", left: "-80px", width: "300px", height: "300px", borderRadius: "50%", background: "radial-gradient(circle, rgba(139,26,42,0.12) 0%, transparent 70%)", pointerEvents: "none" }} />
+        <div style={{ position: "absolute", top: "-80px", left: "-80px", width: "300px", height: "300px", borderRadius: "50%", background: "radial-gradient(circle, rgba(12,87,168,0.12) 0%, transparent 70%)", pointerEvents: "none" }} />
         <div style={{ position: "absolute", bottom: "-60px", right: "-60px", width: "240px", height: "240px", borderRadius: "50%", background: "radial-gradient(circle, rgba(30,77,123,0.15) 0%, transparent 70%)", pointerEvents: "none" }} />
 
         <div className="reveal" style={{ maxWidth: "760px", margin: "0 auto", position: "relative", zIndex: 1 }}>

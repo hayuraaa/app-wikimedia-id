@@ -34,7 +34,7 @@ export default function NewsletterSection() {
   return (
     <section style={{ backgroundColor: "#1a3a5c", padding: "80px 24px", position: "relative", overflow: "hidden" }}>
       <div style={{ position: "absolute", inset: 0, backgroundImage: `linear-gradient(rgba(255,255,255,0.03) 1px, transparent 1px), linear-gradient(90deg, rgba(255,255,255,0.03) 1px, transparent 1px)`, backgroundSize: "60px 60px" }} />
-      <div style={{ position: "absolute", top: "-80px", right: "-80px", width: "300px", height: "300px", borderRadius: "50%", backgroundColor: "rgba(139,26,42,0.12)" }} />
+      <div style={{ position: "absolute", top: "-80px", right: "-80px", width: "300px", height: "300px", borderRadius: "50%", backgroundColor: "rgba(12,87,168,0.12)" }} />
 
       <div className="reveal" style={{ maxWidth: "700px", margin: "0 auto", textAlign: "center", position: "relative", zIndex: 1 }}>
         <span style={{ fontSize: "11px", fontWeight: "700", letterSpacing: "0.1em", textTransform: "uppercase", color: "#e05070", fontFamily: "var(--font-sans)" }}>◆ Bergabung</span>
@@ -91,7 +91,7 @@ export default function NewsletterSection() {
                 disabled={submitStatus === "loading" || !email.trim()}
                 style={{
                   padding: "14px 24px",
-                  backgroundColor: submitStatus === "loading" ? "#a82235" : "#8b1a2a",
+                  backgroundColor: submitStatus === "loading" ? "#0a4a8f" : "#0C57A8",
                   color: "#fff", border: "none",
                   cursor: submitStatus === "loading" || !email.trim() ? "not-allowed" : "pointer",
                   fontSize: "13px", fontWeight: "700", letterSpacing: "0.06em",
@@ -100,8 +100,8 @@ export default function NewsletterSection() {
                   display: "flex", alignItems: "center", gap: "7px",
                   transition: "background 0.2s", whiteSpace: "nowrap" as const,
                 }}
-                onMouseEnter={(e) => { if (submitStatus !== "loading") (e.currentTarget as HTMLElement).style.backgroundColor = "#a82235"; }}
-                onMouseLeave={(e) => { if (submitStatus !== "loading") (e.currentTarget as HTMLElement).style.backgroundColor = "#8b1a2a"; }}
+                onMouseEnter={(e) => { if (submitStatus !== "loading") (e.currentTarget as HTMLElement).style.backgroundColor = "#0a4a8f"; }}
+                onMouseLeave={(e) => { if (submitStatus !== "loading") (e.currentTarget as HTMLElement).style.backgroundColor = "#0C57A8"; }}
               >
                 {submitStatus === "loading" ? (
                   <>

@@ -31,16 +31,16 @@ const formatDateShort = (dateStr: string) =>
 
 // Category accent colors
 const categoryAccent: Record<string, { bg: string; text: string; border: string }> = {
-  "berita":             { bg: "rgba(30,77,123,0.1)",  text: "#1e4d7b", border: "rgba(30,77,123,0.25)" },
-  "data-dan-teknologi": { bg: "rgba(42,99,153,0.1)",  text: "#2a6399", border: "rgba(42,99,153,0.25)" },
-  "inspirasi":          { bg: "rgba(139,26,42,0.1)",  text: "#8b1a2a", border: "rgba(139,26,42,0.25)" },
-  "kebudayaan":         { bg: "rgba(120,80,20,0.1)",  text: "#784e14", border: "rgba(120,80,20,0.25)" },
-  "kompetisi":          { bg: "rgba(22,100,74,0.1)",  text: "#16644a", border: "rgba(22,100,74,0.25)" },
-  "komunitas":          { bg: "rgba(80,40,120,0.1)",  text: "#502878", border: "rgba(80,40,120,0.25)" },
-  "pendidikan":         { bg: "rgba(20,80,120,0.1)",  text: "#145078", border: "rgba(20,80,120,0.25)" },
-  "pengumuman":         { bg: "rgba(160,80,20,0.1)",  text: "#a05014", border: "rgba(160,80,20,0.25)" },
-  "sosok":              { bg: "rgba(100,20,80,0.1)",  text: "#641450", border: "rgba(100,20,80,0.25)" },
-  "blog":               { bg: "rgba(60,60,60,0.1)",   text: "#3c3c3c", border: "rgba(60,60,60,0.25)" },
+  "berita":             { bg: "rgba(139,26,42,0.1)", text: "#8b1a2a", border: "rgba(139,26,42,0.25)" },
+  "data-dan-teknologi": { bg: "rgba(139,26,42,0.1)", text: "#8b1a2a", border: "rgba(139,26,42,0.25)" },
+  "inspirasi":          { bg: "rgba(139,26,42,0.1)", text: "#8b1a2a", border: "rgba(139,26,42,0.25)" },
+  "kebudayaan":         { bg: "rgba(139,26,42,0.1)", text: "#8b1a2a", border: "rgba(139,26,42,0.25)" },
+  "kompetisi":          { bg: "rgba(139,26,42,0.1)", text: "#8b1a2a", border: "rgba(139,26,42,0.25)" },
+  "komunitas":          { bg: "rgba(139,26,42,0.1)", text: "#8b1a2a", border: "rgba(139,26,42,0.25)" },
+  "pendidikan":         { bg: "rgba(139,26,42,0.1)", text: "#8b1a2a", border: "rgba(139,26,42,0.25)" },
+  "pengumuman":         { bg: "rgba(139,26,42,0.1)", text: "#8b1a2a", border: "rgba(139,26,42,0.25)" },
+  "sosok":              { bg: "rgba(139,26,42,0.1)", text: "#8b1a2a", border: "rgba(139,26,42,0.25)" },
+  "blog":               { bg: "rgba(139,26,42,0.1)", text: "#8b1a2a", border: "rgba(139,26,42,0.25)" },
 };
 
 const getCategoryAccent = (cat: string) =>
@@ -170,7 +170,7 @@ function Pagination({ meta, onPageChange }: { meta: Meta; onPageChange: (p: numb
     <div style={{ display: "flex", alignItems: "center", justifyContent: "center", gap: "4px", paddingTop: "36px" }}>
       <button style={{ ...btn, color: current_page === 1 ? "#c5c3bf" : "#3a3a3a", cursor: current_page === 1 ? "not-allowed" : "pointer" }}
         disabled={current_page === 1} onClick={() => onPageChange(current_page - 1)}
-        onMouseEnter={(e) => { if (current_page !== 1) (e.currentTarget as HTMLElement).style.borderColor = "#8b1a2a"; }}
+        onMouseEnter={(e) => { if (current_page !== 1) (e.currentTarget as HTMLElement).style.borderColor = "#0C57A8"; }}
         onMouseLeave={(e) => { (e.currentTarget as HTMLElement).style.borderColor = "#e5e2dd"; }}>
         <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2"><path d="M15 18l-6-6 6-6" /></svg>
       </button>
@@ -179,9 +179,9 @@ function Pagination({ meta, onPageChange }: { meta: Meta; onPageChange: (p: numb
           <span key={`e-${idx}`} style={{ minWidth: "36px", height: "36px", display: "flex", alignItems: "center", justifyContent: "center", fontSize: "13px", color: "#6b6966", fontFamily: "var(--font-sans)" }}>···</span>
         ) : (
           <button key={p}
-            style={{ ...btn, backgroundColor: p === current_page ? "#8b1a2a" : "#fff", borderColor: p === current_page ? "#8b1a2a" : "#e5e2dd", color: p === current_page ? "#fff" : "#3a3a3a", fontWeight: p === current_page ? "700" : "500" }}
+            style={{ ...btn, backgroundColor: p === current_page ? "#0C57A8" : "#fff", borderColor: p === current_page ? "#0C57A8" : "#e5e2dd", color: p === current_page ? "#fff" : "#3a3a3a", fontWeight: p === current_page ? "700" : "500" }}
             onClick={() => onPageChange(p as number)}
-            onMouseEnter={(e) => { if (p !== current_page) { (e.currentTarget as HTMLElement).style.borderColor = "#8b1a2a"; (e.currentTarget as HTMLElement).style.color = "#8b1a2a"; } }}
+            onMouseEnter={(e) => { if (p !== current_page) { (e.currentTarget as HTMLElement).style.borderColor = "#0C57A8"; (e.currentTarget as HTMLElement).style.color = "#0C57A8"; } }}
             onMouseLeave={(e) => { if (p !== current_page) { (e.currentTarget as HTMLElement).style.borderColor = "#e5e2dd"; (e.currentTarget as HTMLElement).style.color = "#3a3a3a"; } }}>
             {p}
           </button>
@@ -189,7 +189,7 @@ function Pagination({ meta, onPageChange }: { meta: Meta; onPageChange: (p: numb
       )}
       <button style={{ ...btn, color: current_page === last_page ? "#c5c3bf" : "#3a3a3a", cursor: current_page === last_page ? "not-allowed" : "pointer" }}
         disabled={current_page === last_page} onClick={() => onPageChange(current_page + 1)}
-        onMouseEnter={(e) => { if (current_page !== last_page) (e.currentTarget as HTMLElement).style.borderColor = "#8b1a2a"; }}
+        onMouseEnter={(e) => { if (current_page !== last_page) (e.currentTarget as HTMLElement).style.borderColor = "#0C57A8"; }}
         onMouseLeave={(e) => { (e.currentTarget as HTMLElement).style.borderColor = "#e5e2dd"; }}>
         <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2"><path d="M9 18l6-6-6-6" /></svg>
       </button>
@@ -340,7 +340,7 @@ export default function KategoriClient({
                   <p style={{ fontSize: "15px", color: "#6b6966", fontFamily: "var(--font-sans)", marginTop: "12px" }}>
                     Belum ada artikel dalam kategori ini.
                   </p>
-                  <Link href="/rubrik" style={{ display: "inline-flex", marginTop: "16px", padding: "8px 20px", backgroundColor: "#8b1a2a", color: "#fff", textDecoration: "none", borderRadius: "3px", fontSize: "12px", fontWeight: "700", fontFamily: "var(--font-sans)" }}>
+                  <Link href="/rubrik" style={{ display: "inline-flex", marginTop: "16px", padding: "8px 20px", backgroundColor: "#0C57A8", color: "#fff", textDecoration: "none", borderRadius: "3px", fontSize: "12px", fontWeight: "700", fontFamily: "var(--font-sans)" }}>
                     Lihat Semua Artikel
                   </Link>
                 </div>
@@ -362,7 +362,7 @@ export default function KategoriClient({
               {otherCategories.length > 0 && (
                 <div style={{ backgroundColor: "#fff", border: "1px solid #e5e2dd", borderRadius: "4px", overflow: "hidden" }}>
                   <div style={{ padding: "14px 18px", borderBottom: "3px solid #0d0d0d" }}>
-                    <span style={{ fontSize: "10px", fontWeight: "700", letterSpacing: "0.08em", textTransform: "uppercase" as const, color: "#8b1a2a", fontFamily: "var(--font-sans)" }}>◆ Kategori Lain</span>
+                    <span style={{ fontSize: "10px", fontWeight: "700", letterSpacing: "0.08em", textTransform: "uppercase" as const, color: "#0C57A8", fontFamily: "var(--font-sans)" }}>◆ Kategori Lain</span>
                   </div>
                   <div style={{ padding: "8px 0" }}>
                     {otherCategories.map(({ name, count }) => {
@@ -370,7 +370,7 @@ export default function KategoriClient({
                         <button key={name}
                           onClick={() => router.push(`/rubrik/kategori/${name}`)}
                           style={{ width: "100%", padding: "8px 18px", display: "flex", alignItems: "center", justifyContent: "space-between", background: "transparent", border: "none", borderLeft: "3px solid transparent", cursor: "pointer", transition: "all 0.15s" }}
-                          onMouseEnter={(e) => { (e.currentTarget as HTMLElement).style.background = "rgba(139,26,42,0.04)"; (e.currentTarget as HTMLElement).style.borderLeftColor = "#8b1a2a"; }}
+                          onMouseEnter={(e) => { (e.currentTarget as HTMLElement).style.background = "rgba(12,87,168,0.04)"; (e.currentTarget as HTMLElement).style.borderLeftColor = "#0C57A8"; }}
                           onMouseLeave={(e) => { (e.currentTarget as HTMLElement).style.background = "transparent"; (e.currentTarget as HTMLElement).style.borderLeftColor = "transparent"; }}
                         >
                           <span style={{ fontSize: "13px", color: "#3a3a3a", fontFamily: "var(--font-sans)", textAlign: "left" as const }}>{formatCategory(name)}</span>
@@ -384,7 +384,7 @@ export default function KategoriClient({
 
               <Link href="/rubrik"
                 style={{ display: "flex", alignItems: "center", justifyContent: "center", gap: "8px", padding: "12px 18px", backgroundColor: "#0d0d0d", color: "#fff", textDecoration: "none", borderRadius: "4px", fontSize: "12px", fontWeight: "700", letterSpacing: "0.05em", textTransform: "uppercase" as const, fontFamily: "var(--font-sans)", transition: "background 0.2s" }}
-                onMouseEnter={(e) => (e.currentTarget.style.backgroundColor = "#8b1a2a")}
+                onMouseEnter={(e) => (e.currentTarget.style.backgroundColor = "#0C57A8")}
                 onMouseLeave={(e) => (e.currentTarget.style.backgroundColor = "#0d0d0d")}>
                 <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2"><path d="M15 18l-6-6 6-6" /></svg>
                 Semua Rubrik

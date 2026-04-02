@@ -1,0 +1,12 @@
+{
+  "permissions": {
+    "allow": [
+      "Bash(find .:*)",
+      "Bash(grep -r \"#8b1a2a\\\\|#e05070\\\\|#970302\\\\|#9e1a2e\" --include=\"*.tsx\" --include=\"*.ts\" --include=\"*.css\" ! -path \"./.next/*\" .)",
+      "Bash(sed -i 's/rgba\\(40,22,6,0\\\\.92\\) 0%, rgba\\(80,44,8,0\\\\.84\\) 40%, rgba\\(120,72,10,0\\\\.72\\)/rgba\\(8,20,45,0.92\\) 0%, rgba\\(10,30,65,0.84\\) 40%, rgba\\(15,40,80,0.76\\)/g' components/acara/AcaraClient.tsx components/ruang-pers/RuangPersClient.tsx)",
+      "Bash(sed -i 's/rgba\\(5,25,15,0\\\\.92\\) 0%, rgba\\(10,40,25,0\\\\.84\\) 40%, rgba\\(15,55,30,0\\\\.76\\)/rgba\\(8,20,45,0.92\\) 0%, rgba\\(10,30,65,0.84\\) 40%, rgba\\(15,40,80,0.76\\)/g' app/program/ProgramClient.tsx)",
+      "Bash(sed -i 's/rgba\\(20,8,8,0\\\\.90\\) 0%, rgba\\(45,10,15,0\\\\.82\\) 40%, rgba\\(60,15,20,0\\\\.75\\)/rgba\\(8,20,45,0.92\\) 0%, rgba\\(10,30,65,0.84\\) 40%, rgba\\(15,40,80,0.76\\)/g' app/media/MediaClient.tsx)",
+      "Bash(find C:/Users/yunan/Documents/Wikimedia/app-wikimedia-id -type f \\\\\\( -name \"*.tsx\" -o -name \"*.css\" \\\\\\) ! -path \"*/.next/*\" -exec sed -i 's/#a82235/#0a4a8f/g' {} \\\\;)"
+    ]
+  }
+}

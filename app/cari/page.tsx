@@ -79,7 +79,7 @@ function highlightText(text: string, query: string): React.ReactNode {
   const parts = text.split(new RegExp(`(${query.replace(/[.*+?^${}()|[\]\\]/g, "\\$&")})`, "gi"));
   return parts.map((p, i) =>
     p.toLowerCase() === query.toLowerCase()
-      ? <mark key={i} style={{ backgroundColor: "rgba(139,26,42,0.12)", color: "#8b1a2a", fontWeight: "700", borderRadius: "2px", padding: "0 1px" }}>{p}</mark>
+      ? <mark key={i} style={{ backgroundColor: "rgba(12,87,168,0.12)", color: "#0C57A8", fontWeight: "700", borderRadius: "2px", padding: "0 1px" }}>{p}</mark>
       : p
   );
 }
@@ -113,7 +113,7 @@ function Pagination({ current, total, onChange }: { current: number; total: numb
       <button
         style={{ ...btn, color: current === 1 ? "#c5c3bf" : "#3a3a3a", cursor: current === 1 ? "not-allowed" : "pointer" }}
         disabled={current === 1} onClick={() => onChange(current - 1)}
-        onMouseEnter={(e) => { if (current !== 1) (e.currentTarget as HTMLElement).style.borderColor = "#8b1a2a"; }}
+        onMouseEnter={(e) => { if (current !== 1) (e.currentTarget as HTMLElement).style.borderColor = "#0C57A8"; }}
         onMouseLeave={(e) => { (e.currentTarget as HTMLElement).style.borderColor = "#e5e2dd"; }}
       >
         <svg width="13" height="13" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2"><path d="M15 18l-6-6 6-6"/></svg>
@@ -123,9 +123,9 @@ function Pagination({ current, total, onChange }: { current: number; total: numb
           <span key={`e-${idx}`} style={{ minWidth: "32px", height: "32px", display: "flex", alignItems: "center", justifyContent: "center", fontSize: "12px", color: "#6b6966", fontFamily: "var(--font-sans)" }}>···</span>
         ) : (
           <button key={p}
-            style={{ ...btn, backgroundColor: p === current ? "#8b1a2a" : "#fff", borderColor: p === current ? "#8b1a2a" : "#e5e2dd", color: p === current ? "#fff" : "#3a3a3a", fontWeight: p === current ? "700" : "500" }}
+            style={{ ...btn, backgroundColor: p === current ? "#0C57A8" : "#fff", borderColor: p === current ? "#0C57A8" : "#e5e2dd", color: p === current ? "#fff" : "#3a3a3a", fontWeight: p === current ? "700" : "500" }}
             onClick={() => onChange(p as number)}
-            onMouseEnter={(e) => { if (p !== current) { (e.currentTarget as HTMLElement).style.borderColor = "#8b1a2a"; (e.currentTarget as HTMLElement).style.color = "#8b1a2a"; } }}
+            onMouseEnter={(e) => { if (p !== current) { (e.currentTarget as HTMLElement).style.borderColor = "#0C57A8"; (e.currentTarget as HTMLElement).style.color = "#0C57A8"; } }}
             onMouseLeave={(e) => { if (p !== current) { (e.currentTarget as HTMLElement).style.borderColor = "#e5e2dd"; (e.currentTarget as HTMLElement).style.color = "#3a3a3a"; } }}
           >
             {p}
@@ -135,7 +135,7 @@ function Pagination({ current, total, onChange }: { current: number; total: numb
       <button
         style={{ ...btn, color: current === total ? "#c5c3bf" : "#3a3a3a", cursor: current === total ? "not-allowed" : "pointer" }}
         disabled={current === total} onClick={() => onChange(current + 1)}
-        onMouseEnter={(e) => { if (current !== total) (e.currentTarget as HTMLElement).style.borderColor = "#8b1a2a"; }}
+        onMouseEnter={(e) => { if (current !== total) (e.currentTarget as HTMLElement).style.borderColor = "#0C57A8"; }}
         onMouseLeave={(e) => { (e.currentTarget as HTMLElement).style.borderColor = "#e5e2dd"; }}
       >
         <svg width="13" height="13" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2"><path d="M9 18l6-6-6-6"/></svg>
@@ -375,7 +375,7 @@ function SearchPageInner() {
         {/* Overlay — sama dengan rubrik */}
         <div style={{ position: "absolute", inset: 0, background: "linear-gradient(135deg, rgba(8,20,45,0.88) 0%, rgba(10,30,65,0.80) 40%, rgba(15,40,80,0.72) 100%)", pointerEvents: "none" }} />
         <div style={{ position: "absolute", inset: 0, backgroundImage: `linear-gradient(rgba(255,255,255,0.03) 1px, transparent 1px), linear-gradient(90deg, rgba(255,255,255,0.03) 1px, transparent 1px)`, backgroundSize: "40px 40px", pointerEvents: "none" }} />
-        <div style={{ position: "absolute", top: "-60px", right: "-60px", width: "240px", height: "240px", borderRadius: "50%", background: "radial-gradient(circle, rgba(139,26,42,0.20) 0%, transparent 70%)", pointerEvents: "none" }} />
+        <div style={{ position: "absolute", top: "-60px", right: "-60px", width: "240px", height: "240px", borderRadius: "50%", background: "radial-gradient(circle, rgba(12,87,168,0.20) 0%, transparent 70%)", pointerEvents: "none" }} />
 
         <div style={{ maxWidth: "1280px", margin: "0 auto", position: "relative", zIndex: 1 }}>
           {/* Breadcrumb */}
@@ -390,7 +390,7 @@ function SearchPageInner() {
             {activeQuery && (
               <>
                 <span style={{ fontSize: "11px", color: "rgba(255,255,255,0.25)", fontFamily: "var(--font-sans)" }}>/</span>
-                <span style={{ fontSize: "11px", color: "#e05070", fontFamily: "var(--font-sans)" }}>"{activeQuery}"</span>
+                <span style={{ fontSize: "11px", color: "#3b8ed4", fontFamily: "var(--font-sans)" }}>"{activeQuery}"</span>
               </>
             )}
           </div>
@@ -400,7 +400,7 @@ function SearchPageInner() {
               <span style={{ fontSize: "10px", fontWeight: "700", letterSpacing: "0.1em", textTransform: "uppercase" as const, color: "#e05070", fontFamily: "var(--font-sans)" }}>◆ Pencarian</span>
               <h1 style={{ fontSize: "clamp(1.8rem, 3vw, 2.6rem)", fontWeight: "700", color: "#fff", fontFamily: "var(--font-serif)", margin: "6px 0 0", lineHeight: "1.2" }}>
                 {activeQuery
-                  ? <>Hasil untuk <span style={{ color: "#e05070" }}>"{activeQuery}"</span></>
+                  ? <>Hasil untuk <span style={{ color: "#3b8ed4" }}>"{activeQuery}"</span></>
                   : "Cari Konten"}
               </h1>
               {searched && !loading && (
@@ -433,9 +433,9 @@ function SearchPageInner() {
                 </button>
               )}
               <button onClick={handleSubmit}
-                style={{ padding: "10px 16px", backgroundColor: "#8b1a2a", border: "none", color: "#fff", cursor: "pointer", transition: "background 0.2s", display: "flex", alignItems: "center", justifyContent: "center" }}
-                onMouseEnter={(e) => ((e.currentTarget as HTMLElement).style.backgroundColor = "#a82235")}
-                onMouseLeave={(e) => ((e.currentTarget as HTMLElement).style.backgroundColor = "#8b1a2a")}>
+                style={{ padding: "10px 16px", backgroundColor: "#0C57A8", border: "none", color: "#fff", cursor: "pointer", transition: "background 0.2s", display: "flex", alignItems: "center", justifyContent: "center" }}
+                onMouseEnter={(e) => ((e.currentTarget as HTMLElement).style.backgroundColor = "#0a4a8f")}
+                onMouseLeave={(e) => ((e.currentTarget as HTMLElement).style.backgroundColor = "#0C57A8")}>
                 <svg width="15" height="15" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2"><circle cx="11" cy="11" r="8"/><path d="m21 21-4.35-4.35"/></svg>
               </button>
             </div>
@@ -453,7 +453,7 @@ function SearchPageInner() {
             {/* ── Sidebar ── */}
             <div style={{ position: "sticky", top: "96px" }} className="search-sidebar">
               <div style={{ backgroundColor: "#fff", border: "1px solid #e5e2dd", borderRadius: "4px", overflow: "hidden" }}>
-                <div style={{ height: "3px", background: "linear-gradient(90deg, #8b1a2a, #1e4d7b)" }} />
+                <div style={{ height: "3px", background: "linear-gradient(90deg, #0C57A8, #1e4d7b)" }} />
                 <div style={{ padding: "14px 14px 10px" }}>
                   <p style={{ fontSize: "9px", fontWeight: "700", letterSpacing: "0.1em", textTransform: "uppercase" as const, color: "#6b6966", fontFamily: "var(--font-sans)", margin: "0 0 10px" }}>
                     Filter Tipe
@@ -490,7 +490,7 @@ function SearchPageInner() {
                 </div>
                 <div style={{ padding: "10px 14px", borderTop: "1px solid #f5f4f2" }}>
                   <Link href="/" style={{ display: "flex", alignItems: "center", gap: "6px", fontSize: "12px", color: "#6b6966", fontFamily: "var(--font-sans)", textDecoration: "none", transition: "color 0.15s" }}
-                    onMouseEnter={(e) => (e.currentTarget.style.color = "#8b1a2a")}
+                    onMouseEnter={(e) => (e.currentTarget.style.color = "#0C57A8")}
                     onMouseLeave={(e) => (e.currentTarget.style.color = "#6b6966")}>
                     <svg width="11" height="11" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2"><path d="M15 18l-6-6 6-6"/></svg>
                     Kembali ke Beranda
@@ -504,7 +504,7 @@ function SearchPageInner() {
               {/* Section header */}
               <div id="search-results-top" style={{ display: "flex", justifyContent: "space-between", alignItems: "flex-end", marginBottom: "20px", paddingBottom: "12px", borderBottom: "3px solid #0d0d0d" }}>
                 <div>
-                  <span style={{ fontSize: "11px", fontWeight: "700", letterSpacing: "0.1em", textTransform: "uppercase" as const, color: "#8b1a2a", fontFamily: "var(--font-sans)" }}>
+                  <span style={{ fontSize: "11px", fontWeight: "700", letterSpacing: "0.1em", textTransform: "uppercase" as const, color: "#0C57A8", fontFamily: "var(--font-sans)" }}>
                     ◆ {activeFilter === "semua" ? "Semua Hasil" : TYPE_META[activeFilter as Exclude<ResultType, "semua">]?.label}
                   </span>
                   {activeQuery && (
@@ -539,7 +539,7 @@ function SearchPageInner() {
                     Tidak ada hasil untuk filter ini.
                   </p>
                   <button onClick={() => handleFilterChange("semua")}
-                    style={{ marginTop: "12px", padding: "7px 18px", backgroundColor: "#8b1a2a", color: "#fff", border: "none", borderRadius: "3px", fontSize: "12px", fontWeight: "700", fontFamily: "var(--font-sans)", cursor: "pointer" }}>
+                    style={{ marginTop: "12px", padding: "7px 18px", backgroundColor: "#0C57A8", color: "#fff", border: "none", borderRadius: "3px", fontSize: "12px", fontWeight: "700", fontFamily: "var(--font-sans)", cursor: "pointer" }}>
                     Tampilkan Semua
                   </button>
                 </div>
@@ -572,7 +572,7 @@ export default function SearchPage() {
   return (
     <Suspense fallback={
       <div style={{ minHeight: "100vh", backgroundColor: "#f8f7f5", display: "flex", alignItems: "center", justifyContent: "center" }}>
-        <svg width="28" height="28" viewBox="0 0 24 24" fill="none" stroke="#8b1a2a" strokeWidth="2" style={{ animation: "spin 0.8s linear infinite" }}>
+        <svg width="28" height="28" viewBox="0 0 24 24" fill="none" stroke="#0C57A8" strokeWidth="2" style={{ animation: "spin 0.8s linear infinite" }}>
           <path d="M21 12a9 9 0 1 1-6.219-8.56"/>
         </svg>
         <style>{`@keyframes spin { from{transform:rotate(0deg)} to{transform:rotate(360deg)} }`}</style>
