@@ -189,21 +189,6 @@ export default function ArticleClient({
             )}
           </div>
 
-          {/* Categories */}
-          {article.categories?.length > 0 && (
-            <div style={{ display: "flex", gap: "6px", flexWrap: "wrap" as const, marginBottom: "16px" }}>
-              {article.categories.map((cat) => (
-                <Link key={cat} href={`/rubrik/kategori/${cat}`}
-                  style={{ fontSize: "10px", fontWeight: "700", letterSpacing: "0.06em", textTransform: "uppercase" as const, color: "#8b1a2a", backgroundColor: "rgba(139,26,42,0.1)", border: "1px solid rgba(139,26,42,0.25)", padding: "3px 10px", borderRadius: "2px", fontFamily: "var(--font-sans)", textDecoration: "none", transition: "all 0.15s" }}
-                  onMouseEnter={(e) => { e.currentTarget.style.backgroundColor = "rgba(139,26,42,0.2)"; e.currentTarget.style.color = "#5e0f1a"; }}
-                  onMouseLeave={(e) => { e.currentTarget.style.backgroundColor = "rgba(139,26,42,0.1)"; e.currentTarget.style.color = "#8b1a2a"; }}
-                >
-                  {formatCategory(cat)}
-                </Link>
-              ))}
-            </div>
-          )}
-
           {/* Title */}
           <h1 style={{ fontSize: "clamp(1.8rem, 3.5vw, 3rem)", fontWeight: "700", color: "#ffffff", lineHeight: "1.2", fontFamily: "var(--font-serif)", margin: "0 0 24px", maxWidth: "860px", letterSpacing: "-0.01em" }}>
             {article.title}
@@ -538,8 +523,12 @@ export default function ArticleClient({
         .article-content a:hover { color: #0C57A8; }
         .article-content blockquote { margin: 2em 0; padding: 16px 24px; border-left: 4px solid #0C57A8; background: rgba(12,87,168,0.04); border-radius: 0 4px 4px 0; font-style: italic; color: #3a3a3a; }
         .article-content blockquote p { margin: 0; }
-        .article-content ul, .article-content ol { margin: 0 0 1.5em; padding-left: 1.6em; }
+        .article-content ul { list-style-type: disc; margin: 0 0 1.5em; padding-left: 1.75em; }
+        .article-content ol { list-style-type: decimal; margin: 0 0 1.5em; padding-left: 1.75em; }
+        .article-content ul ul { list-style-type: circle; margin: 0.25em 0 0.25em; }
+        .article-content ul ul ul { list-style-type: square; }
         .article-content li { margin-bottom: 0.4em; }
+        .article-content li > p { margin: 0; }
         .article-content img { max-width: 100%; height: auto; border-radius: 4px; margin: 1.5em 0 0; border: 1px solid #e5e2dd; display: block; }
         .article-content figure { margin: 1.8em 0; }
         .article-content figure img { margin: 0; width: 100%; }
@@ -554,7 +543,19 @@ export default function ArticleClient({
         .article-content tr:hover td { background: #faf9f7; }
         .article-content strong { font-weight: 700; color: #0d0d0d; }
         .article-content em { font-style: italic; }
+        .article-content u { text-decoration: underline; text-underline-offset: 2px; }
+        .article-content s, .article-content del { text-decoration: line-through; color: #6b7280; }
+        .article-content sup { vertical-align: super; font-size: 0.75em; }
+        .article-content sub { vertical-align: sub; font-size: 0.75em; }
+        .article-content mark { background-color: #fef08a; color: inherit; border-radius: 2px; padding: 0 2px; }
         .article-content hr { border: none; border-top: 2px solid #e5e2dd; margin: 2.5em 0; }
+        /* Task List */
+        .article-content ul[data-type="taskList"] { list-style: none; padding-left: 0.25em; }
+        .article-content ul[data-type="taskList"] li { display: flex; align-items: flex-start; gap: 0.5em; }
+        .article-content ul[data-type="taskList"] li > label { flex-shrink: 0; margin-top: 0.2em; }
+        .article-content ul[data-type="taskList"] li > label input[type="checkbox"] { width: 1em; height: 1em; accent-color: #0C57A8; cursor: default; }
+        .article-content ul[data-type="taskList"] li > div { flex: 1; }
+        .article-content ul[data-type="taskList"] li[data-checked="true"] > div { text-decoration: line-through; color: #9ca3af; }
 
         @media (max-width: 900px) {
           .article-layout { grid-template-columns: 1fr !important; }

@@ -287,7 +287,6 @@ export default function AuthorClient({
             </div>
 
             <div>
-              <span style={{ fontSize: "10px", fontWeight: "700", letterSpacing: "0.08em", textTransform: "uppercase" as const, color: "#e05070", fontFamily: "var(--font-sans)" }}>◆ Penulis</span>
               <h1 style={{ fontSize: "clamp(1.6rem, 3vw, 2.4rem)", fontWeight: "700", color: "#ffffff", fontFamily: "var(--font-serif)", margin: "4px 0 6px", lineHeight: "1.2" }}>
                 {authorName}
               </h1>

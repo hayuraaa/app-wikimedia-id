@@ -377,12 +377,29 @@ export default function PressReleaseClient({
         .article-content a:hover { color: #0C57A8; }
         .article-content blockquote { margin: 2em 0; padding: 16px 24px; border-left: 4px solid #0C57A8; background: rgba(12,87,168,0.04); border-radius: 0 4px 4px 0; font-style: italic; color: #3a3a3a; }
         .article-content blockquote p { margin: 0; }
-        .article-content ul, .article-content ol { margin: 0 0 1.5em; padding-left: 1.6em; }
+        .article-content ul { list-style-type: disc; margin: 0 0 1.5em; padding-left: 1.75em; }
+        .article-content ol { list-style-type: decimal; margin: 0 0 1.5em; padding-left: 1.75em; }
+        .article-content ul ul { list-style-type: circle; margin: 0.25em 0 0.25em; }
+        .article-content ul ul ul { list-style-type: square; }
         .article-content li { margin-bottom: 0.4em; }
+        .article-content li > p { margin: 0; }
         .article-content img { max-width: 100%; height: auto; border-radius: 4px; margin: 1.5em 0 0; border: 1px solid #e5e2dd; display: block; }
+        .article-content h4 { font-size: 1.1em; font-weight: 700; color: #2a2826; margin: 1.4em 0 0.4em; }
         .article-content strong { font-weight: 700; color: #0d0d0d; }
         .article-content em { font-style: italic; }
+        .article-content u { text-decoration: underline; text-underline-offset: 2px; }
+        .article-content s, .article-content del { text-decoration: line-through; color: #6b7280; }
+        .article-content sup { vertical-align: super; font-size: 0.75em; }
+        .article-content sub { vertical-align: sub; font-size: 0.75em; }
+        .article-content mark { background-color: #fef08a; color: inherit; border-radius: 2px; padding: 0 2px; }
         .article-content hr { border: none; border-top: 2px solid #e5e2dd; margin: 2.5em 0; }
+        /* Task List */
+        .article-content ul[data-type="taskList"] { list-style: none; padding-left: 0.25em; }
+        .article-content ul[data-type="taskList"] li { display: flex; align-items: flex-start; gap: 0.5em; }
+        .article-content ul[data-type="taskList"] li > label { flex-shrink: 0; margin-top: 0.2em; }
+        .article-content ul[data-type="taskList"] li > label input[type="checkbox"] { width: 1em; height: 1em; accent-color: #0C57A8; cursor: default; }
+        .article-content ul[data-type="taskList"] li > div { flex: 1; }
+        .article-content ul[data-type="taskList"] li[data-checked="true"] > div { text-decoration: line-through; color: #9ca3af; }
 
         @media (max-width: 900px) {
           .pers-detail-layout { grid-template-columns: 1fr !important; }

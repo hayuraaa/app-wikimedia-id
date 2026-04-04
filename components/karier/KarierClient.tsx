@@ -192,7 +192,7 @@ export default function KarierClient({ items, total }: { items: Karir[]; total: 
               <line x1="12" y1="9" x2="12" y2="13"/><line x1="12" y1="17" x2="12.01" y2="17"/>
             </svg>
             <div>
-              <p style={{ fontSize: "13px", fontWeight: "700", color: "#92400e", fontFamily: "var(--font-sans)", margin: "0 0 4px" }}>Peringatan Penipuan</p>
+              <p style={{ fontSize: "13px", fontWeight: "700", color: "#92400e", fontFamily: "var(--font-sans)", margin: "0 0 4px" }}>Peringatan</p>
               <p style={{ fontSize: "13px", color: "#5c5a57", lineHeight: "1.7", fontFamily: "var(--font-sans)", margin: 0 }}>
                 Dalam melakukan perekrutan, Wikimedia Indonesia tidak pernah meminta sejumlah uang untuk alasan apapun. Apabila Anda dimintai sejumlah uang, harap melaporkan kepada kami melalui surel:{" "}
                 <a href="mailto:lowongan@wikimedia.or.id" style={{ color: "#0C57A8", fontWeight: "600", textDecoration: "none" }}>

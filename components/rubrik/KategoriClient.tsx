@@ -297,7 +297,6 @@ export default function KategoriClient({
           {/* Category header */}
           <div style={{ display: "flex", alignItems: "center", gap: "20px", flexWrap: "wrap" as const }}>
             <div>
-              <span style={{ fontSize: "10px", fontWeight: "700", letterSpacing: "0.08em", textTransform: "uppercase" as const, color: accent.text, fontFamily: "var(--font-sans)" }}>◆ Kategori</span>
               <h1 style={{ fontSize: "clamp(1.6rem, 3vw, 2.4rem)", fontWeight: "700", color: "#ffffff", fontFamily: "var(--font-serif)", margin: "4px 0 6px", lineHeight: "1.2" }}>
                 {categoryName}
               </h1>

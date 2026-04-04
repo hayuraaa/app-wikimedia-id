@@ -322,7 +322,7 @@ export default function FaqPage() {
                   Hubungi kami langsung melalui halaman kontak.
                 </p>
               </div>
-              <Link href="/kontak"
+              <Link href="/tentang#hubungi-kami"
                 style={{ display: "inline-flex", alignItems: "center", gap: "8px", padding: "12px 24px", backgroundColor: "#0C57A8", color: "#fff", textDecoration: "none", borderRadius: "3px", fontSize: "13px", fontWeight: "700", fontFamily: "var(--font-sans)", letterSpacing: "0.04em", transition: "background 0.2s", flexShrink: 0, position: "relative", zIndex: 1 }}
                 onMouseEnter={(e) => ((e.currentTarget as HTMLElement).style.backgroundColor = "#0a4a8f")}
                 onMouseLeave={(e) => ((e.currentTarget as HTMLElement).style.backgroundColor = "#0C57A8")}>

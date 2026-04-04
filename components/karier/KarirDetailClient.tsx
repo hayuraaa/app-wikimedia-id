@@ -82,24 +82,6 @@ export default function KarirDetailClient({ karir }: { karir: Karir }) {
             <span style={{ fontSize: "11px", color: "#3b8ed4", fontFamily: "var(--font-sans)" }}>{karir.title}</span>
           </div>
 
-          {/* Status */}
-          <div style={{ display: "flex", gap: "8px", marginBottom: "14px", flexWrap: "wrap" as const }}>
-            {expired ? (
-              <span style={{ fontSize: "10px", fontWeight: "700", letterSpacing: "0.08em", textTransform: "uppercase" as const, color: "rgba(255,255,255,0.5)", backgroundColor: "rgba(255,255,255,0.08)", border: "1px solid rgba(255,255,255,0.12)", padding: "3px 10px", borderRadius: "2px", fontFamily: "var(--font-sans)" }}>
-                ✕ Ditutup
-              </span>
-            ) : (
-              <span style={{ fontSize: "10px", fontWeight: "700", letterSpacing: "0.08em", textTransform: "uppercase" as const, color: "#fff", backgroundColor: "rgba(22,163,74,0.3)", border: "1px solid rgba(22,163,74,0.4)", padding: "3px 10px", borderRadius: "2px", fontFamily: "var(--font-sans)" }}>
-                ● Dibuka
-              </span>
-            )}
-            {expiring && (
-              <span style={{ fontSize: "10px", fontWeight: "700", letterSpacing: "0.08em", textTransform: "uppercase" as const, color: "#fbbf24", backgroundColor: "rgba(217,119,6,0.2)", border: "1px solid rgba(217,119,6,0.35)", padding: "3px 10px", borderRadius: "2px", fontFamily: "var(--font-sans)" }}>
-                ⚠ Segera Tutup
-              </span>
-            )}
-          </div>
-
           <h1 style={{ fontSize: "clamp(1.8rem, 3vw, 2.6rem)", fontWeight: "700", color: "#fff", fontFamily: "var(--font-serif)", margin: "0 0 20px", lineHeight: "1.2" }}>
             {karir.title}
           </h1>
@@ -221,12 +203,31 @@ export default function KarirDetailClient({ karir }: { karir: Karir }) {
         .karir-content p { margin: 0 0 1em; }
         .karir-content h2 { font-size: 1.15em; font-weight: 700; color: #0d0d0d; margin: 1.6em 0 0.5em; font-family: var(--font-serif); }
         .karir-content h3 { font-size: 1.05em; font-weight: 700; color: #0d0d0d; margin: 1.4em 0 0.4em; font-family: var(--font-serif); }
-        .karir-content ol, .karir-content ul { margin: 0 0 1em; padding-left: 1.5em; }
+        .karir-content ul { list-style-type: disc; margin: 0 0 1em; padding-left: 1.75em; }
+        .karir-content ol { list-style-type: decimal; margin: 0 0 1em; padding-left: 1.75em; }
+        .karir-content ul ul { list-style-type: circle; margin: 0.25em 0 0.25em; }
+        .karir-content ul ul ul { list-style-type: square; }
         .karir-content li { margin-bottom: 0.35em; }
         .karir-content li p { margin: 0; }
         .karir-content strong { font-weight: 700; color: #0d0d0d; }
-        .karir-content a { color: #1e4d7b; text-underline-offset: 2px; }
+        .karir-content em { font-style: italic; }
+        .karir-content u { text-decoration: underline; text-underline-offset: 2px; }
+        .karir-content s, .karir-content del { text-decoration: line-through; color: #6b7280; }
+        .karir-content sup { vertical-align: super; font-size: 0.75em; }
+        .karir-content sub { vertical-align: sub; font-size: 0.75em; }
+        .karir-content mark { background-color: #fef08a; color: inherit; border-radius: 2px; padding: 0 2px; }
+        .karir-content a { color: #1e4d7b; text-decoration: underline; text-underline-offset: 2px; transition: color 0.15s; }
         .karir-content a:hover { color: #0C57A8; }
+        .karir-content blockquote { margin: 1.5em 0; padding: 12px 20px; border-left: 4px solid #0C57A8; background: rgba(12,87,168,0.04); border-radius: 0 4px 4px 0; font-style: italic; color: #3a3a3a; }
+        .karir-content blockquote p { margin: 0; }
+        .karir-content code { font-family: 'Courier New', monospace; font-size: 0.88em; background: #f0eeec; border: 1px solid #e5e2dd; padding: 1px 6px; border-radius: 3px; color: #0C57A8; }
+        /* Task List */
+        .karir-content ul[data-type="taskList"] { list-style: none; padding-left: 0.25em; }
+        .karir-content ul[data-type="taskList"] li { display: flex; align-items: flex-start; gap: 0.5em; }
+        .karir-content ul[data-type="taskList"] li > label { flex-shrink: 0; margin-top: 0.2em; }
+        .karir-content ul[data-type="taskList"] li > label input[type="checkbox"] { width: 1em; height: 1em; accent-color: #0C57A8; cursor: default; }
+        .karir-content ul[data-type="taskList"] li > div { flex: 1; }
+        .karir-content ul[data-type="taskList"] li[data-checked="true"] > div { text-decoration: line-through; color: #9ca3af; }
         @media (max-width: 800px) {
           .karir-layout { grid-template-columns: 1fr !important; }
           .karir-sidebar { position: static !important; order: -1; }
