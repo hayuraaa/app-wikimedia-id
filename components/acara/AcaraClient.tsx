@@ -59,7 +59,7 @@ const statusCfg = {
 const jenisCfg: Record<string, { label: string; color: string }> = {
   daring: { label: "Daring", color: "#2a6399" },
   luring: { label: "Luring", color: "#784e14" },
-  hybrid: { label: "Hybrid", color: "#502878" },
+  hybrid: { label: "Gabungan", color: "#502878" },
 };
 
 const normalizeUrl = (url: string) => {
@@ -675,7 +675,7 @@ export default function AcaraClient({ initialEvents }: { initialEvents: EventIte
                 <div style={{ fontSize: "10px", fontWeight: "700", letterSpacing: "0.07em", textTransform: "uppercase" as const, color: "#0C57A8", fontFamily: "var(--font-sans)", marginBottom: "6px" }}>Jenis</div>
                 <div style={{ display: "flex", flexWrap: "wrap" as const, gap: "6px" }}>
                   {(["semua","daring","luring","hybrid"] as const).map((j) => {
-                    const labels: Record<string,string> = { semua:"Semua", daring:"Daring", luring:"Luring", hybrid:"Hybrid" };
+                    const labels: Record<string,string> = { semua:"Semua", daring:"Daring", luring:"Luring", hybrid:"Gabungan" };
                     const active = filterJenis === j;
                     return <button key={j} onClick={() => setFilterJenis(j)} style={{ padding: "5px 12px", borderRadius: "20px", border: `1px solid ${active ? "#0C57A8" : "#e5e2dd"}`, backgroundColor: active ? "#0C57A8" : "#fff", color: active ? "#fff" : "#3a3a3a", fontSize: "11px", fontWeight: "600", fontFamily: "var(--font-sans)", cursor: "pointer" }}>{labels[j]}</button>;
                   })}
@@ -731,7 +731,7 @@ export default function AcaraClient({ initialEvents }: { initialEvents: EventIte
                 </div>
                 <div style={{ padding: "6px 0" }}>
                   {(["semua","daring","luring","hybrid"] as const).map((j) => {
-                    const labels: Record<string,string> = { semua:"Semua", daring:"Daring", luring:"Luring", hybrid:"Hybrid" };
+                    const labels: Record<string,string> = { semua:"Semua", daring:"Daring", luring:"Luring", hybrid:"Gabungan" };
                     const active = filterJenis === j;
                     return (
                       <button key={j} onClick={() => setFilterJenis(j)} style={sidebarBtn(active)}

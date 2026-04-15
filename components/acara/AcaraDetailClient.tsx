@@ -54,7 +54,7 @@ const statusCfg = {
 const jenisCfg: Record<string, { label: string; color: string; desc: string }> = {
   daring: { label: "Daring",  color: "#2a6399", desc: "Kegiatan dilaksanakan secara online" },
   luring: { label: "Luring",  color: "#784e14", desc: "Kegiatan dilaksanakan secara tatap muka" },
-  hybrid: { label: "Hybrid",  color: "#502878", desc: "Kombinasi daring dan tatap muka" },
+  hybrid: { label: "Gabungan",  color: "#502878", desc: "Kombinasi daring dan tatap muka" },
 };
 
 const normalizeUrl = (url: string) => {
