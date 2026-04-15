@@ -21,7 +21,14 @@ export const metadata: Metadata = {
   title: "Wikimedia Indonesia",
   description: "Portal informasi Wikimedia Indonesia",
   icons: {
-    icon: "/Logo_WMID.ico",
+    icon: [
+      { url: "/favicon.ico", sizes: "any" },
+      { url: "/Logo_WMID.png", type: "image/png" },
+    ],
+    apple: [
+      { url: "/Logo_WMID.png", sizes: "180x180", type: "image/png" },
+    ],
+    shortcut: "/favicon.ico",
   },
 };
 
