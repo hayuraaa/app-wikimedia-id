@@ -40,7 +40,7 @@ export default function HeroSection() {
       `}</style>
 
       {/* Foto background — sangat disaramkan */}
-      <div className="hero-parallax" style={{ position: "absolute", inset: 0, backgroundImage: "url('/Foto_bersama_para_peserta_WikiNusantara_2024.webp')", backgroundSize: "cover", backgroundPosition: "center top", backgroundRepeat: "no-repeat", opacity: 0.18 }} />
+      <div className="hero-parallax" style={{ position: "absolute", inset: 0, backgroundImage: "url('/Pulau_padar.webp')", backgroundSize: "cover", backgroundPosition: "center top", backgroundRepeat: "no-repeat", opacity: 0.18 }} />
       {/* Overlay gelap merata */}
       <div style={{ position: "absolute", inset: 0, background: "rgba(255, 255, 255, 0)", pointerEvents: "none" }} />
       {/* Vignette: tepi lebih gelap, tengah sedikit lebih terang */}

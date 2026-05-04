@@ -559,7 +559,7 @@ export default function ArticleClient({
 
         @media (max-width: 900px) {
           .article-layout { grid-template-columns: 1fr !important; }
-          .article-sidebar { position: static !important; order: -1; }
+          .article-sidebar { position: static !important; order: 2; }
           .article-content { max-width: 100%; font-size: 16px; }
         }
         @media (max-width: 640px) {
