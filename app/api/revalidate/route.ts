@@ -12,7 +12,7 @@ export async function POST(req: NextRequest) {
   const { path, tag } = body as { path?: string; tag?: string };
 
   if (tag) {
-    revalidateTag(tag);
+    revalidateTag(tag, "max");
     return Response.json({ revalidated: true, tag });
   }
 
@@ -22,8 +22,8 @@ export async function POST(req: NextRequest) {
   }
 
   // Revalidate semua halaman yang menampilkan artikel
-  revalidateTag("articles");
-  revalidateTag("events");
+  revalidateTag("articles", "max");
+  revalidateTag("events", "max");
   revalidatePath("/");
   revalidatePath("/rubrik");
   revalidatePath("/rubrik/[slug]", "page");
