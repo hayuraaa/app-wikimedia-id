@@ -42,7 +42,7 @@ async function getArticles(): Promise<{ data: Article[]; meta: Meta | null }> {
   try {
     const res = await fetch(
       `https://dashboard.wikimedia.or.id/api/v1/articles?per_page=${PER_PAGE}&page=1`,
-      { next: { revalidate: 3600 } }
+      { next: { revalidate: 3600, tags: ["articles"] } }
     );
     const json = await res.json();
     return json.success ? { data: json.data, meta: json.meta } : { data: [], meta: null };
@@ -55,7 +55,7 @@ async function getPopular(): Promise<PopularArticle[]> {
   try {
     const res = await fetch(
       "https://dashboard.wikimedia.or.id/api/v1/articles/popular/list?limit=7",
-      { next: { revalidate: 3600 } }
+      { next: { revalidate: 3600, tags: ["articles"] } }
     );
     const json = await res.json();
     return json.success ? json.data : [];

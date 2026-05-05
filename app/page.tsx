@@ -48,7 +48,7 @@ async function getArticles(): Promise<Article[]> {
   try {
     const res = await fetch(
       "https://dashboard.wikimedia.or.id/api/v1/articles?per_page=4",
-      { next: { revalidate: 300 } }
+      { next: { revalidate: 300, tags: ["articles"] } }
     );
     const json = await res.json();
     return json.success ? json.data : [];

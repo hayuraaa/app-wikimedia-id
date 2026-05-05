@@ -1,4 +1,4 @@
-import { revalidatePath } from "next/cache";
+import { revalidatePath, revalidateTag } from "next/cache";
 import { NextRequest } from "next/server";
 
 export async function POST(req: NextRequest) {
@@ -8,15 +8,27 @@ export async function POST(req: NextRequest) {
     return Response.json({ error: "Unauthorized" }, { status: 401 });
   }
 
-  const { path } = await req.json().catch(() => ({ path: null }));
+  const body = await req.json().catch(() => ({}));
+  const { path, tag } = body as { path?: string; tag?: string };
+
+  if (tag) {
+    revalidateTag(tag);
+    return Response.json({ revalidated: true, tag });
+  }
 
   if (path) {
     revalidatePath(path);
-  } else {
-    revalidatePath("/");
-    revalidatePath("/acara");
-    revalidatePath("/acara/[slug]", "page");
+    return Response.json({ revalidated: true, path });
   }
 
-  return Response.json({ revalidated: true, path: path ?? "all" });
+  // Revalidate semua halaman yang menampilkan artikel
+  revalidateTag("articles");
+  revalidateTag("events");
+  revalidatePath("/");
+  revalidatePath("/rubrik");
+  revalidatePath("/rubrik/[slug]", "page");
+  revalidatePath("/acara");
+  revalidatePath("/acara/[slug]", "page");
+
+  return Response.json({ revalidated: true, scope: "all" });
 }

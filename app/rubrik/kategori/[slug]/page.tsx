@@ -42,7 +42,7 @@ async function getArticles(slug: string): Promise<{ articles: Article[]; meta: M
   try {
     const res = await fetch(
       `${BASE}/articles/category/${encodeURIComponent(slug)}?per_page=${PER_PAGE}&page=1`,
-      { next: { revalidate: 3600 } }
+      { next: { revalidate: 3600, tags: ["articles"] } }
     );
     const json = await res.json();
     if (!json.success) return { articles: [], meta: null };

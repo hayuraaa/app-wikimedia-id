@@ -65,7 +65,7 @@ const API = "https://dashboard.wikimedia.or.id/api/v1";
 
 async function getArticle(slug: string): Promise<Article | null> {
   try {
-    const res = await fetch(`${API}/articles/${slug}`, { next: { revalidate: 3600 } });
+    const res = await fetch(`${API}/articles/${slug}`, { next: { revalidate: 3600, tags: ["articles"] } });
     const json = await res.json();
     return json.success ? json.data : null;
   } catch {
@@ -79,7 +79,7 @@ async function getRelated(categories: string[], currentSlug: string): Promise<Re
     const results = await Promise.all(
       categories.map((cat) =>
         fetch(`${API}/articles/category/${encodeURIComponent(cat)}?per_page=6`, {
-          next: { revalidate: 3600 },
+          next: { revalidate: 3600, tags: ["articles"] },
         })
           .then((r) => r.json())
           .catch(() => ({ success: false }))
@@ -104,7 +104,7 @@ async function getRelated(categories: string[], currentSlug: string): Promise<Re
 
 async function getLatest(currentSlug: string): Promise<RelatedArticle[]> {
   try {
-    const res = await fetch(`${API}/articles/latest/list?limit=6`, { next: { revalidate: 3600 } });
+    const res = await fetch(`${API}/articles/latest/list?limit=6`, { next: { revalidate: 3600, tags: ["articles"] } });
     const json = await res.json();
     if (!json.success) return [];
     return json.data.filter((a: RelatedArticle) => a.slug !== currentSlug).slice(0, 5);
