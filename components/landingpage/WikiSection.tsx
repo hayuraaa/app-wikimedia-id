@@ -16,7 +16,6 @@ export default function WikiSection({ wikiProjects }: { wikiProjects: WikiProjec
       <div className="reveal" style={{ maxWidth: "1280px", margin: "0 auto", position: "relative", zIndex: 1 }}>
         <div className="section-border-shimmer reveal" style={{ display: "flex", justifyContent: "space-between", alignItems: "flex-end", marginBottom: "40px", paddingBottom: "16px", borderBottom: "3px solid rgba(255,255,255,0.85)" }}>
           <div>
-            <span style={{ fontSize: "11px", fontWeight: "700", letterSpacing: "0.1em", textTransform: "uppercase", color: "#e05070", fontFamily: "var(--font-sans)" }}>◆ Ekosistem</span>
             <h2 style={{ fontSize: "clamp(1.6rem, 3vw, 2.2rem)", fontWeight: "700", color: "#ffffff", fontFamily: "var(--font-serif)", marginTop: "4px" }}>Proyek Wikimedia</h2>
           </div>
           <a href="https://id.wikimedia.org/wiki/Halaman_Utama" target="_blank" rel="noopener noreferrer"

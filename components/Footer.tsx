@@ -5,8 +5,7 @@ import Image from "next/image";
 import Link from "next/link";
 
 const footerLinks = {
-  "SITE MENU": [
-    { label: "Menjadi Anggota", href: "/menjadi-anggota" },
+  "LAINNYA": [
     { label: "Donasi", href: "/donasi" },
     { label: "Acara", href: "/acara" },
     { label: "Karier", href: "/karier" },
@@ -18,6 +17,8 @@ const footerLinks = {
     { label: "Komunitas", href: "https://komunitas.wikimedia.or.id" },
   ],
   Informasi: [
+    { label: "Menjadi Anggota", href: "/menjadi-anggota" },
+    { label: "Menajdi Sukarelawan", href: "/menjadi-sukarelawan" },
     { label: "Kebijakan Privasi", href: "/kebijakan-privasi" },
     { label: "Syarat Penggunaan", href: "/syarat-penggunaan" },
     { label: "FAQ", href: "/faq" },

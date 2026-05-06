@@ -56,7 +56,6 @@ export default function EventsSection({
 
       <div style={{ maxWidth: "1280px", margin: "0 auto", position: "relative", zIndex: 1 }}>
         <div className="section-border-shimmer reveal" style={{ marginBottom: "40px", paddingBottom: "16px", borderBottom: "3px solid #0d0d0d" }}>
-          <span style={{ fontSize: "11px", fontWeight: "700", letterSpacing: "0.1em", textTransform: "uppercase", color: "#0C57A8", fontFamily: "var(--font-sans)" }}>◆ Kalender</span>
           <h2 style={{ fontSize: "clamp(1.6rem, 3vw, 2.2rem)", fontWeight: "700", color: "#0d0d0d", fontFamily: "var(--font-serif)", marginTop: "4px" }}>Acara Mendatang</h2>
         </div>
 

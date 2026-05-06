@@ -37,7 +37,6 @@ export default function ProgramSection() {
     <section style={{ backgroundColor: "#ffffff", padding: "80px 24px" }}>
       <div style={{ maxWidth: "1280px", margin: "0 auto" }}>
         <div className="section-border-shimmer reveal" style={{ marginBottom: "48px", paddingBottom: "16px", borderBottom: "3px solid #0d0d0d" }}>
-          <span style={{ fontSize: "11px", fontWeight: "700", letterSpacing: "0.1em", textTransform: "uppercase", color: "#0C57A8", fontFamily: "var(--font-sans)" }}>◆ Inisiatif</span>
           <h2 style={{ fontSize: "clamp(1.6rem, 3vw, 2.2rem)", fontWeight: "700", color: "#0d0d0d", fontFamily: "var(--font-serif)", marginTop: "4px" }}>Program Kami</h2>
         </div>
 
