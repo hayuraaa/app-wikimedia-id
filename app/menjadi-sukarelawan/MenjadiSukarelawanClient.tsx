@@ -208,7 +208,6 @@ export default function MenjadiSukarelawanClient() {
                 style={{
                   backgroundColor: "#fff",
                   border: "1px solid #e5e2dd",
-                  borderLeft: `4px solid ${s.color}`,
                   borderRadius: "4px",
                   padding: "28px 32px",
                   scrollMarginTop: "100px",
@@ -227,8 +226,8 @@ export default function MenjadiSukarelawanClient() {
                       width: "48px",
                       height: "48px",
                       borderRadius: "4px",
-                      backgroundColor: s.colorLight,
-                      border: `1px solid ${s.colorBorder}`,
+                      backgroundColor: "#f8f7f5",
+                      border: "1px solid #e5e2dd",
                       display: "flex",
                       alignItems: "center",
                       justifyContent: "center",
@@ -237,12 +236,12 @@ export default function MenjadiSukarelawanClient() {
                       textDecoration: "none",
                     }}
                     onMouseEnter={(e) => {
-                      e.currentTarget.style.boxShadow = `0 0 0 3px ${s.colorBorder}`;
-                      e.currentTarget.style.borderColor = s.color;
+                      e.currentTarget.style.boxShadow = "0 0 0 3px #e5e2dd";
+                      e.currentTarget.style.borderColor = "#bbb8b3";
                     }}
                     onMouseLeave={(e) => {
                       e.currentTarget.style.boxShadow = "none";
-                      e.currentTarget.style.borderColor = s.colorBorder;
+                      e.currentTarget.style.borderColor = "#e5e2dd";
                     }}
                   >
                     {/* eslint-disable-next-line @next/next/no-img-element */}
@@ -250,8 +249,8 @@ export default function MenjadiSukarelawanClient() {
                   </a>
 
                   <div>
-                    <span style={{ fontSize: "10px", fontWeight: "700", letterSpacing: "0.08em", textTransform: "uppercase" as const, color: s.color, fontFamily: "var(--font-sans)", display: "block", marginBottom: "4px" }}>
-                      ◆ {s.project}
+                    <span style={{ fontSize: "10px", fontWeight: "700", letterSpacing: "0.08em", textTransform: "uppercase" as const, color: "#6b6966", fontFamily: "var(--font-sans)", display: "block", marginBottom: "4px" }}>
+                      {s.project}
                     </span>
                     <h2 style={{ fontSize: "1.1rem", fontWeight: "700", color: "#0d0d0d", fontFamily: "var(--font-serif)", margin: 0, lineHeight: "1.4" }}>
                       {s.question}
@@ -265,7 +264,7 @@ export default function MenjadiSukarelawanClient() {
                 </p>
 
                 {/* ── Highlight — nama proyek sebagai link + desc ── */}
-                <div style={{ backgroundColor: "#f8f7f5", border: "1px solid #ede9e4", borderLeft: `3px solid ${s.color}`, borderRadius: "3px", padding: "12px 16px" }}>
+                <div style={{ backgroundColor: "#f8f7f5", border: "1px solid #e5e2dd", borderRadius: "3px", padding: "12px 16px" }}>
                   <p style={{ fontSize: "13px", color: "#5c5a57", lineHeight: "1.65", fontFamily: "var(--font-sans)", margin: 0 }}>
 
                     {/* Kasus khusus: Wikidata & Wikifunctions — dua link terpisah */}
@@ -275,7 +274,7 @@ export default function MenjadiSukarelawanClient() {
                           href="https://www.wikidata.org"
                           target="_blank"
                           rel="noopener noreferrer"
-                          style={{ color: s.color, fontWeight: "700", textDecoration: "none" }}
+                          style={{ color: "#0C57A8", fontWeight: "700", textDecoration: "none" }}
                           onMouseEnter={(e) => (e.currentTarget.style.textDecoration = "underline")}
                           onMouseLeave={(e) => (e.currentTarget.style.textDecoration = "none")}
                         >
@@ -286,7 +285,7 @@ export default function MenjadiSukarelawanClient() {
                           href="https://www.wikifunctions.org"
                           target="_blank"
                           rel="noopener noreferrer"
-                          style={{ color: s.color, fontWeight: "700", textDecoration: "none" }}
+                          style={{ color: "#0C57A8", fontWeight: "700", textDecoration: "none" }}
                           onMouseEnter={(e) => (e.currentTarget.style.textDecoration = "underline")}
                           onMouseLeave={(e) => (e.currentTarget.style.textDecoration = "none")}
                         >
@@ -300,7 +299,7 @@ export default function MenjadiSukarelawanClient() {
                           href={s.url}
                           target="_blank"
                           rel="noopener noreferrer"
-                          style={{ color: s.color, fontWeight: "700", textDecoration: "none" }}
+                          style={{ color: "#0C57A8", fontWeight: "700", textDecoration: "none" }}
                           onMouseEnter={(e) => (e.currentTarget.style.textDecoration = "underline")}
                           onMouseLeave={(e) => (e.currentTarget.style.textDecoration = "none")}
                         >
@@ -315,38 +314,13 @@ export default function MenjadiSukarelawanClient() {
               </div>
             ))}
           </div>
-        </div>
-      </section>
 
-      {/* ── CTA ──────────────────────────────────────────────────────────── */}
-      <section style={{ backgroundColor: "#0d0d0d", padding: "64px 24px", position: "relative", overflow: "hidden" }}>
-        <div style={{ position: "absolute", inset: 0, backgroundImage: `linear-gradient(rgba(255,255,255,0.025) 1px, transparent 1px), linear-gradient(90deg, rgba(255,255,255,0.025) 1px, transparent 1px)`, backgroundSize: "40px 40px", pointerEvents: "none" }} />
-        <div style={{ position: "absolute", top: "-60px", left: "50%", transform: "translateX(-50%)", width: "400px", height: "400px", borderRadius: "50%", background: "radial-gradient(circle, rgba(12,87,168,0.12) 0%, transparent 70%)", pointerEvents: "none" }} />
+          <p style={{ fontSize: "16px", color: "#3a3a3a", lineHeight: "1.9", fontFamily: "var(--font-sans)", margin: "40px 0 0" }}>
+            Setiap orang memiliki cara berbeda untuk berkontribusi dalam menyebarkan pengetahuan. Anda bisa memilih ruang berbagi pengetahuan yang paling sesuai dengan kegemaran dan latar belakang Anda. Tidak harus menjadi ahli atau profesional terlebih dahulu untuk mulai berbagi. Begitu pula di ekosistem Wikimedia. Tulisan, data, foto, dan lainnya memiliki arti penting dalam membangun sumber pengetahuan terbuka.
+Ingat! Setiap kontribusi Anda, sekecil apa pun itu, memiliki dampak nyata bagi akses informasi masyarakat. 
+Anda tidak hanya mengembangkan diri sesuai minat, tetapi juga menjadi bagian dari gerakan global yang percaya bahwa pengetahuan sepantasnya terbuka dan dapat diakses oleh semua orang. Yuk, mulai langkah kecil Anda hari ini dan tumbuh bersama komunitas Wikimedia!
 
-        <div style={{ maxWidth: "640px", margin: "0 auto", textAlign: "center" as const, position: "relative", zIndex: 1 }}>
-          <span style={{ fontSize: "10px", fontWeight: "700", letterSpacing: "0.1em", textTransform: "uppercase" as const, color: "#e05070", fontFamily: "var(--font-sans)" }}>◆ Mulai Berkontribusi</span>
-          <h2 style={{ fontSize: "clamp(1.6rem, 3vw, 2.2rem)", fontWeight: "700", color: "#fff", fontFamily: "var(--font-serif)", margin: "10px 0 14px", lineHeight: "1.2" }}>
-            Setiap Kontribusi Memiliki Dampak Nyata
-          </h2>
-          <p style={{ fontSize: "14px", color: "rgba(255,255,255,0.5)", fontFamily: "var(--font-sans)", lineHeight: "1.7", marginBottom: "28px" }}>
-            Anda tidak hanya mengembangkan diri sesuai minat, tetapi juga menjadi bagian dari gerakan global yang percaya bahwa pengetahuan sepantasnya terbuka dan dapat diakses oleh semua orang. Yuk, mulai langkah kecil Anda hari ini!
           </p>
-          <div style={{ display: "flex", gap: "12px", justifyContent: "center", flexWrap: "wrap" as const }}>
-            <Link href="/menjadi-anggota"
-              style={{ display: "inline-flex", alignItems: "center", gap: "8px", padding: "12px 28px", backgroundColor: "#0C57A8", color: "#fff", textDecoration: "none", borderRadius: "3px", fontSize: "13px", fontWeight: "700", fontFamily: "var(--font-sans)", letterSpacing: "0.04em", transition: "background 0.2s" }}
-              onMouseEnter={(e) => (e.currentTarget.style.backgroundColor = "#0a4a8f")}
-              onMouseLeave={(e) => (e.currentTarget.style.backgroundColor = "#0C57A8")}>
-              Menjadi Anggota
-              <svg width="13" height="13" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2.5"><path d="M5 12h14M12 5l7 7-7 7" /></svg>
-            </Link>
-            <a href="https://id.wikipedia.org/wiki/Wikipedia:Menyunting" target="_blank" rel="noopener noreferrer"
-              style={{ display: "inline-flex", alignItems: "center", gap: "8px", padding: "12px 28px", backgroundColor: "transparent", color: "#fff", textDecoration: "none", borderRadius: "3px", fontSize: "13px", fontWeight: "700", fontFamily: "var(--font-sans)", letterSpacing: "0.04em", border: "1px solid rgba(255,255,255,0.2)", transition: "all 0.2s" }}
-              onMouseEnter={(e) => { e.currentTarget.style.borderColor = "rgba(255,255,255,0.5)"; e.currentTarget.style.backgroundColor = "rgba(255,255,255,0.05)"; }}
-              onMouseLeave={(e) => { e.currentTarget.style.borderColor = "rgba(255,255,255,0.2)"; e.currentTarget.style.backgroundColor = "transparent"; }}>
-              Mulai Menyunting
-              <svg width="11" height="11" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2"><path d="M18 13v6a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2V8a2 2 0 0 1 2-2h6" /><polyline points="15 3 21 3 21 9" /><line x1="10" y1="14" x2="21" y2="3" /></svg>
-            </a>
-          </div>
         </div>
       </section>
 
