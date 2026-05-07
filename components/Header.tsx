@@ -23,6 +23,7 @@ const navItems = [
   { label: "Beranda", href: "/" },
   { label: "Rubrik", href: "/rubrik" },
   { label: "Program", href: "/program" },
+  { label: "Acara", href: "/acara" },
   { label: "Media", href: "/media" },
   { label: "Ruang Pers", href: "/ruang-pers" },
 ];

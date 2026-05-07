@@ -280,36 +280,6 @@ export default function PressReleaseClient({
             {/* ── Right: Sidebar ── */}
             <div className="pers-sidebar" style={{ position: "sticky", top: "88px", display: "flex", flexDirection: "column", gap: "20px", marginTop: "32px" }}>
 
-              {/* Info box */}
-              <div style={{ backgroundColor: "#fff", border: "1px solid #e5e2dd", borderRadius: "4px", overflow: "hidden" }}>
-                <div style={{ padding: "14px 18px", borderBottom: "3px solid #0d0d0d" }}>
-                  <span style={{ fontSize: "10px", fontWeight: "700", letterSpacing: "0.08em", textTransform: "uppercase" as const, color: "#0C57A8", fontFamily: "var(--font-sans)" }}>◆ Tentang Siaran Pers</span>
-                </div>
-                <div style={{ padding: "16px 18px", display: "flex", flexDirection: "column", gap: "12px" }}>
-                  <div style={{ display: "flex", alignItems: "flex-start", gap: "10px" }}>
-                    <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="#6b6966" strokeWidth="2" style={{ flexShrink: 0, marginTop: "2px" }}><rect x="3" y="4" width="18" height="18" rx="2"/><line x1="16" y1="2" x2="16" y2="6"/><line x1="8" y1="2" x2="8" y2="6"/><line x1="3" y1="10" x2="21" y2="10"/></svg>
-                    <div>
-                      <span style={{ fontSize: "10px", fontWeight: "700", color: "#6b6966", fontFamily: "var(--font-sans)", letterSpacing: "0.05em", textTransform: "uppercase" as const, display: "block" }}>Tanggal Rilis</span>
-                      <span style={{ fontSize: "13px", color: "#0d0d0d", fontFamily: "var(--font-sans)", marginTop: "2px", display: "block" }}>{formatDateLong(pr.published_at)}</span>
-                    </div>
-                  </div>
-                  <div style={{ borderTop: "1px solid #f0eeec", paddingTop: "12px", display: "flex", alignItems: "flex-start", gap: "10px" }}>
-                    <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="#6b6966" strokeWidth="2" style={{ flexShrink: 0, marginTop: "2px" }}><path d="M20 21v-2a4 4 0 0 0-4-4H8a4 4 0 0 0-4 4v2"/><circle cx="12" cy="7" r="4"/></svg>
-                    <div>
-                      <span style={{ fontSize: "10px", fontWeight: "700", color: "#6b6966", fontFamily: "var(--font-sans)", letterSpacing: "0.05em", textTransform: "uppercase" as const, display: "block" }}>Penerbit</span>
-                      <span style={{ fontSize: "13px", color: "#0d0d0d", fontFamily: "var(--font-sans)", marginTop: "2px", display: "block" }}>{pr.creator?.name}</span>
-                    </div>
-                  </div>
-                  <div style={{ borderTop: "1px solid #f0eeec", paddingTop: "12px", display: "flex", alignItems: "flex-start", gap: "10px" }}>
-                    <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="#6b6966" strokeWidth="2" style={{ flexShrink: 0, marginTop: "2px" }}><path d="M1 12s4-8 11-8 11 8 11 8-4 8-11 8-11-8-11-8z"/><circle cx="12" cy="12" r="3"/></svg>
-                    <div>
-                      <span style={{ fontSize: "10px", fontWeight: "700", color: "#6b6966", fontFamily: "var(--font-sans)", letterSpacing: "0.05em", textTransform: "uppercase" as const, display: "block" }}>Tayangan</span>
-                      <span style={{ fontSize: "13px", color: "#0d0d0d", fontFamily: "var(--font-sans)", marginTop: "2px", display: "block" }}>{pr.views.toLocaleString("id-ID")}</span>
-                    </div>
-                  </div>
-                </div>
-              </div>
-
               {/* Siaran Pers Terbaru */}
               {latest.length > 0 && (
                 <div style={{ backgroundColor: "#fff", border: "1px solid #e5e2dd", borderRadius: "4px", overflow: "hidden" }}>
