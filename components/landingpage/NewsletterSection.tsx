@@ -19,11 +19,11 @@ export default function NewsletterSection() {
       const json = await res.json();
       if (json.success) {
         setSubmitStatus("success");
-        setSubmitMessage(json.message ?? "Email berhasil didaftarkan!");
+        setSubmitMessage(json.message ?? "Surel berhasil didaftarkan!");
         setEmail("");
       } else {
         setSubmitStatus("error");
-        setSubmitMessage(json.message ?? "Gagal mendaftarkan email.");
+        setSubmitMessage(json.message ?? "Gagal mendaftarkan surel.");
       }
     } catch {
       setSubmitStatus("error");
@@ -37,12 +37,11 @@ export default function NewsletterSection() {
       <div style={{ position: "absolute", top: "-80px", right: "-80px", width: "300px", height: "300px", borderRadius: "50%", backgroundColor: "rgba(12,87,168,0.12)" }} />
 
       <div className="reveal" style={{ maxWidth: "700px", margin: "0 auto", textAlign: "center", position: "relative", zIndex: 1 }}>
-        <span style={{ fontSize: "11px", fontWeight: "700", letterSpacing: "0.1em", textTransform: "uppercase", color: "#e05070", fontFamily: "var(--font-sans)" }}>◆ Bergabung</span>
         <h2 style={{ fontSize: "clamp(1.8rem, 3vw, 2.6rem)", fontWeight: "700", color: "#ffffff", fontFamily: "var(--font-serif)", margin: "12px 0 16px", lineHeight: "1.2" }}>
           Jadilah Bagian dari Gerakan Pengetahuan Bebas
         </h2>
         <p style={{ fontSize: "15px", color: "rgba(255,255,255,0.65)", lineHeight: "1.8", marginBottom: "40px", fontFamily: "var(--font-sans)" }}>
-          Daftarkan email kamu untuk mendapatkan kabar terbaru tentang program, acara, dan perkembangan Wikimedia Indonesia langsung di kotak masukmu.
+          Daftarkan surel anda untuk mendapatkan kabar terbaru tentang program, acara, dan perkembangan Wikimedia Indonesia langsung di kotak masukmu.
         </p>
 
         {submitStatus === "success" ? (
@@ -75,7 +74,7 @@ export default function NewsletterSection() {
             }}>
               <input
                 type="email"
-                placeholder="Alamat email kamu"
+                placeholder="Masukkan alamat surel anda"
                 value={email}
                 onChange={(e) => { setEmail(e.target.value); setSubmitStatus("idle"); }}
                 onKeyDown={(e) => e.key === "Enter" && handleSubscribe()}

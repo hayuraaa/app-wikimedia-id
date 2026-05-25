@@ -110,7 +110,6 @@ function PendaftaranPerpanjanganSection() {
   return (
     <div style={{ display: "flex", flexDirection: "column", gap: "12px" }}>
       <div style={{ paddingBottom: "10px", borderBottom: "3px solid #0d0d0d" }}>
-        <span style={{ fontSize: "11px", fontWeight: "700", letterSpacing: "0.1em", textTransform: "uppercase" as const, color: "#0C57A8", fontFamily: "var(--font-sans)" }}>◆ Periode</span>
         <h2 style={{ fontSize: "18px", fontWeight: "700", color: "#0d0d0d", fontFamily: "var(--font-serif)", marginTop: "4px", marginBottom: 0 }}>Pendaftaran & Perpanjangan</h2>
       </div>
 
@@ -246,7 +245,7 @@ function SubscribeForm() {
           <div style={{ display: "flex", borderRadius: "3px", overflow: "hidden", border: "1px solid #e5e2dd", maxWidth: "480px" }}>
             <input
               type="email"
-              placeholder="Masukkan alamat email Anda..."
+              placeholder="Masukkan alamat surel Anda..."
               value={email}
               onChange={(e) => { setEmail(e.target.value); setStatus("idle"); }}
               onKeyDown={(e) => e.key === "Enter" && handleSubmit()}
@@ -327,7 +326,6 @@ export default function MenjadiAnggotaPage() {
 
               {/* Tentang */}
               <div style={{ backgroundColor: "#fff", border: "1px solid #e5e2dd", borderLeft: "4px solid #0d0d0d", borderRadius: "4px", padding: "28px 32px" }}>
-                <span style={{ fontSize: "10px", fontWeight: "700", letterSpacing: "0.1em", textTransform: "uppercase" as const, color: "#0C57A8", fontFamily: "var(--font-sans)" }}>◆ Tentang</span>
                 <h2 style={{ fontSize: "1.2rem", fontWeight: "700", color: "#0d0d0d", fontFamily: "var(--font-serif)", margin: "8px 0 14px" }}>Menjadi Anggota</h2>
                 <p style={{ fontSize: "14px", color: "#3a3a3a", lineHeight: "1.85", fontFamily: "var(--font-sans)", margin: 0 }}>
                   Wikimedia Indonesia adalah organisasi independen yang didirikan pada tahun 2008. Di tahun yang sama dengan pendiriannya, Wikimedia Indonesia diakui sebagai mitra lokal Yayasan Wikimedia (Wikimedia Foundation) yang berlokasi di Amerika Serikat. Wikimedia Indonesia memiliki tujuan yang seiring sejalan, tetapi bukanlah cabang dari Yayasan Wikimedia.
@@ -339,7 +337,6 @@ export default function MenjadiAnggotaPage() {
 
               {/* Keanggotaan */}
               <div style={{ backgroundColor: "#fff", border: "1px solid #e5e2dd", borderLeft: "4px solid #0d0d0d", borderRadius: "4px", padding: "28px 32px" }}>
-                <span style={{ fontSize: "10px", fontWeight: "700", letterSpacing: "0.1em", textTransform: "uppercase" as const, color: "#0C57A8", fontFamily: "var(--font-sans)" }}>◆ Ketentuan</span>
                 <h2 style={{ fontSize: "1.2rem", fontWeight: "700", color: "#0d0d0d", fontFamily: "var(--font-serif)", margin: "8px 0 16px" }}>Keanggotaan</h2>
                 <p style={{ fontSize: "13px", color: "#5c5a57", fontFamily: "var(--font-sans)", margin: "0 0 14px", fontStyle: "italic" }}>Berdasarkan AD/ART Perkumpulan:</p>
                 <div style={{ display: "flex", flexDirection: "column", gap: "12px" }}>
@@ -359,7 +356,6 @@ export default function MenjadiAnggotaPage() {
               {/* Biaya */}
               <div>
                 <div style={{ paddingBottom: "12px", marginBottom: "16px", borderBottom: "3px solid #0d0d0d" }}>
-                  <span style={{ fontSize: "11px", fontWeight: "700", letterSpacing: "0.1em", textTransform: "uppercase" as const, color: "#0C57A8", fontFamily: "var(--font-sans)" }}>◆ Biaya</span>
                   <h2 style={{ fontSize: "18px", fontWeight: "700", color: "#0d0d0d", fontFamily: "var(--font-serif)", marginTop: "4px", marginBottom: 0 }}>Biaya Keanggotaan Tahunan</h2>
                 </div>
                 <div className="biaya-grid" style={{ display: "grid", gridTemplateColumns: "1fr 1fr", gap: "12px" }}>
@@ -383,26 +379,6 @@ export default function MenjadiAnggotaPage() {
                       </div>
                     </div>
                   ))}
-                </div>
-              </div>
-
-              {/* Pembayaran */}
-              <div style={{ backgroundColor: "#fff", border: "1px solid #e5e2dd", borderLeft: "4px solid #0d0d0d", borderRadius: "4px", padding: "28px 32px" }}>
-                <span style={{ fontSize: "10px", fontWeight: "700", letterSpacing: "0.1em", textTransform: "uppercase" as const, color: "#0C57A8", fontFamily: "var(--font-sans)" }}>◆ Pembayaran</span>
-                <h2 style={{ fontSize: "1.2rem", fontWeight: "700", color: "#0d0d0d", fontFamily: "var(--font-serif)", margin: "8px 0 14px" }}>Cara Pembayaran</h2>
-                <p style={{ fontSize: "14px", color: "#5c5a57", fontFamily: "var(--font-sans)", margin: "0 0 16px", lineHeight: "1.7" }}>
-                  Pembayaran keanggotaan dapat dikirimkan melalui:
-                </p>
-                <div style={{ backgroundColor: "#f8f7f5", border: "1px solid #e5e2dd", borderRadius: "3px", padding: "18px 20px", display: "flex", gap: "14px", alignItems: "flex-start" }}>
-                  <div style={{ width: "36px", height: "36px", borderRadius: "3px", backgroundColor: "#0d0d0d", display: "flex", alignItems: "center", justifyContent: "center", flexShrink: 0 }}>
-                    <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="#fff" strokeWidth="1.5"><rect x="2" y="5" width="20" height="14" rx="2"/><line x1="2" y1="10" x2="22" y2="10"/></svg>
-                  </div>
-                  <div style={{ display: "flex", flexDirection: "column", gap: "3px" }}>
-                    <span style={{ fontSize: "13px", fontWeight: "700", color: "#0d0d0d", fontFamily: "var(--font-sans)" }}>Bank Mandiri</span>
-                    <span style={{ fontSize: "12px", color: "#5c5a57", fontFamily: "var(--font-sans)" }}>KCP Jakarta Wisma Bisnis Indonesia</span>
-                    <span style={{ fontSize: "12px", color: "#5c5a57", fontFamily: "var(--font-sans)" }}>a.n. <strong>Wikimedia Indonesia</strong></span>
-                    <span style={{ fontSize: "15px", fontWeight: "700", color: "#0d0d0d", fontFamily: "var(--font-sans)", letterSpacing: "0.06em", marginTop: "4px" }}>121-00-0050038-3</span>
-                  </div>
                 </div>
               </div>
 
@@ -439,12 +415,11 @@ export default function MenjadiAnggotaPage() {
           <div style={{ marginTop: "40px", backgroundColor: "#fff", border: "1px solid #e5e2dd", borderRadius: "4px", overflow: "hidden" }}>
             <div className="subscribe-layout" style={{ display: "grid", gridTemplateColumns: "1fr 1fr" }}>
               <div style={{ padding: "36px 40px", borderRight: "1px solid #e5e2dd" }}>
-                <span style={{ fontSize: "10px", fontWeight: "700", letterSpacing: "0.1em", textTransform: "uppercase" as const, color: "#0C57A8", fontFamily: "var(--font-sans)" }}>◆ Newsletter</span>
                 <h3 style={{ fontSize: "1.3rem", fontWeight: "700", color: "#0d0d0d", fontFamily: "var(--font-serif)", margin: "8px 0 10px", lineHeight: "1.3" }}>
-                  Daftarkan Email Anda
+                  Daftarkan surel Anda
                 </h3>
                 <p style={{ fontSize: "14px", color: "#5c5a57", fontFamily: "var(--font-sans)", lineHeight: "1.75", margin: 0 }}>
-                  Daftarkan email Anda untuk mendapatkan kabar terbaru seputar pendaftaran dan perpanjangan anggota Wikimedia Indonesia langsung ke kotak masuk Anda.
+                  Daftarkan surel Anda untuk mendapatkan kabar terbaru seputar pendaftaran dan perpanjangan anggota Wikimedia Indonesia langsung ke kotak masuk Anda.
                 </p>
               </div>
               <div style={{ padding: "36px 40px", backgroundColor: "#fafaf9", display: "flex", alignItems: "center" }}>

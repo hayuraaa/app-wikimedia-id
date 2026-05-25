@@ -363,7 +363,7 @@ export default function ArticleClient({
               {/* Author bio card */}
               {article.authors?.length > 0 && (
                 <div style={{ marginTop: "32px", backgroundColor: "#fff", border: "1px solid #e5e2dd", borderRadius: "4px", borderLeft: "3px solid #0C57A8", padding: "20px 24px" }}>
-                  <span style={{ fontSize: "10px", fontWeight: "700", letterSpacing: "0.08em", textTransform: "uppercase" as const, color: "#0C57A8", fontFamily: "var(--font-sans)" }}>◆ Tentang Penulis</span>
+                  <span style={{ fontSize: "10px", fontWeight: "700", letterSpacing: "0.08em", textTransform: "uppercase" as const, color: "#0C57A8", fontFamily: "var(--font-sans)" }}>◆ Penulis</span>
                   <div style={{ marginTop: "12px", display: "flex", flexDirection: "column", gap: "10px" }}>
                     {article.authors.map((a) => (
                       <div key={a.id} style={{ display: "flex", alignItems: "center", gap: "12px" }}>
