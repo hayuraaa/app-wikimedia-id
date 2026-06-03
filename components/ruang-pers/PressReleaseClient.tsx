@@ -319,7 +319,7 @@ export default function PressReleaseClient({
               <div style={{ backgroundColor: "#1a3a5c", border: "1px solid rgba(255,255,255,0.1)", borderRadius: "4px", padding: "20px", position: "relative", overflow: "hidden" }}>
                 <div style={{ position: "absolute", top: "-20px", right: "-20px", width: "80px", height: "80px", borderRadius: "50%", background: "radial-gradient(circle, rgba(12,87,168,0.25) 0%, transparent 70%)", pointerEvents: "none" }} />
                 <h4 style={{ fontSize: "13px", fontWeight: "700", color: "#fff", fontFamily: "var(--font-serif)", margin: "0 0 8px" }}>Pertanyaan Media?</h4>
-                <p style={{ fontSize: "12px", color: "rgba(255,255,255,0.6)", lineHeight: "1.7", fontFamily: "var(--font-sans)", margin: "0 0 14px" }}>
+                <p style={{ fontSize: "14px", color: "rgba(255,255,255,0.6)", lineHeight: "1.7", fontFamily: "var(--font-sans)", margin: "0 0 14px" }}>
                   Untuk pertanyaan dari media dan jurnalis, silakan hubungi tim kami.
                 </p>
                 <Link href="/tentang#hubungi-kami" style={{ display: "inline-flex", alignItems: "center", gap: "5px", fontSize: "11px", fontWeight: "700", letterSpacing: "0.05em", textTransform: "uppercase" as const, color: "#3b8ed4", textDecoration: "none", fontFamily: "var(--font-sans)" }}>

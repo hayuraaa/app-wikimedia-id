@@ -205,7 +205,7 @@ function ResultCard({ result, query }: { result: SearchResult; query: string }) 
             {highlightText(result.title, query)}
           </h3>
           {truncated && (
-            <p style={{ fontSize: "12px", color: "#5c5a57", lineHeight: "1.65", fontFamily: "var(--font-sans)", margin: 0 }}>
+            <p style={{ fontSize: "14px", color: "#5c5a57", lineHeight: "1.65", fontFamily: "var(--font-sans)", margin: 0 }}>
               {highlightText(truncated, query)}
             </p>
           )}

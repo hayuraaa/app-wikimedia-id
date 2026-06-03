@@ -88,7 +88,7 @@ function ArticleCard({ article }: { article: Article }) {
           <h3 style={{ fontSize: "15px", fontWeight: "600", color: "#0d0d0d", lineHeight: "1.5", fontFamily: "var(--font-serif)", margin: 0 }}>
             {article.title}
           </h3>
-          <p style={{ fontSize: "12px", color: "#6b6966", lineHeight: "1.6", fontFamily: "var(--font-sans)", display: "-webkit-box", WebkitLineClamp: 2, WebkitBoxOrient: "vertical" as const, overflow: "hidden", margin: 0, flex: 1 }}>
+          <p style={{ fontSize: "14px", color: "#6b6966", lineHeight: "1.6", fontFamily: "var(--font-sans)", display: "-webkit-box", WebkitLineClamp: 2, WebkitBoxOrient: "vertical" as const, overflow: "hidden", margin: 0, flex: 1 }}>
             {article.excerpt}
           </p>
           <div style={{ display: "flex", alignItems: "center", justifyContent: "space-between", paddingTop: "10px", borderTop: "1px solid #f0eeec", marginTop: "auto" }}>

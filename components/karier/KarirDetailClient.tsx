@@ -147,7 +147,7 @@ export default function KarirDetailClient({ karir }: { karir: Karir }) {
                 <div style={{ backgroundColor: "#0d0d0d", borderRadius: "4px", padding: "22px", position: "relative", overflow: "hidden" }}>
                   <div style={{ position: "absolute", top: "-20px", right: "-20px", width: "80px", height: "80px", borderRadius: "50%", background: "radial-gradient(circle, rgba(12,87,168,0.25) 0%, transparent 70%)", pointerEvents: "none" }} />
                   <h4 style={{ fontSize: "14px", fontWeight: "700", color: "#fff", fontFamily: "var(--font-serif)", margin: "0 0 6px" }}>Tertarik Melamar?</h4>
-                  <p style={{ fontSize: "12px", color: "rgba(255,255,255,0.45)", fontFamily: "var(--font-sans)", lineHeight: "1.6", margin: "0 0 16px" }}>
+                  <p style={{ fontSize: "14px", color: "rgba(255,255,255,0.45)", fontFamily: "var(--font-sans)", lineHeight: "1.6", margin: "0 0 16px" }}>
                     Baca seluruh deskripsi dengan cermat sebelum mengirimkan lamaran.
                   </p>
                   <a href={karir.link_pendaftaran} target="_blank" rel="noopener noreferrer"
@@ -185,7 +185,7 @@ export default function KarirDetailClient({ karir }: { karir: Karir }) {
 
               {/* Warning */}
               <div style={{ backgroundColor: "#fffbeb", border: "1px solid #fbbf24", borderRadius: "4px", padding: "14px 16px" }}>
-                <p style={{ fontSize: "11px", color: "#92400e", lineHeight: "1.65", fontFamily: "var(--font-sans)", margin: 0 }}>
+                <p style={{ fontSize: "14px", color: "#92400e", lineHeight: "1.65", fontFamily: "var(--font-sans)", margin: 0 }}>
                   <strong>⚠ Peringatan:</strong> Wikimedia Indonesia tidak pernah meminta uang dalam proses rekrutmen. Laporkan ke{" "}
                   <a href="mailto:lowongan@wikimedia.or.id" style={{ color: "#0C57A8", fontWeight: "600", textDecoration: "none" }}>
                     lowongan@wikimedia.or.id

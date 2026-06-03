@@ -205,7 +205,7 @@ export default function DonasiPage() {
                     <span style={{ fontSize: "11px", fontWeight: "700", color: "#0d0d0d", fontFamily: "var(--font-sans)" }}>Ada pertanyaan?</span>
                     <svg width="12" height="12" viewBox="0 0 24 24" fill="none" stroke="#0C57A8" strokeWidth="2.5"><path d="M5 12h14M12 5l7 7-7 7"/></svg>
                 </div>
-                <p style={{ fontSize: "12px", color: "#5c5a57", fontFamily: "var(--font-sans)", margin: 0, lineHeight: "1.6" }}>
+                <p style={{ fontSize: "14px", color: "#5c5a57", fontFamily: "var(--font-sans)", margin: 0, lineHeight: "1.6" }}>
                     Kunjungi halaman <span style={{ color: "#0C57A8", fontWeight: "600" }}>Kontak Kami</span> dan isi formulir.
                 </p>
                 </Link>

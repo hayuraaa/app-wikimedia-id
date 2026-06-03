@@ -41,7 +41,7 @@ function RegistrationCard() {
           <svg width="12" height="12" viewBox="0 0 24 24" fill="none" stroke="#3b8ed4" strokeWidth="2"><rect x="3" y="4" width="18" height="18" rx="2"/><line x1="16" y1="2" x2="16" y2="6"/><line x1="8" y1="2" x2="8" y2="6"/><line x1="3" y1="10" x2="21" y2="10"/></svg>
           <span style={{ fontSize: "11px", color: "rgba(255,255,255,0.65)", fontFamily: "var(--font-sans)", fontWeight: "600" }}>Setiap tahun: 1 Januari – 28 Februari</span>
         </div>
-        <p style={{ fontSize: "12px", color: "rgba(255,255,255,0.4)", fontFamily: "var(--font-sans)", margin: "0 0 14px", lineHeight: "1.65" }}>
+        <p style={{ fontSize: "14px", color: "rgba(255,255,255,0.4)", fontFamily: "var(--font-sans)", margin: "0 0 14px", lineHeight: "1.65" }}>
           {isDaftarOpen
             ? `Pendaftaran anggota baru ${year} sedang dibuka! Segera daftarkan diri Anda sebelum 28 Februari ${year}.`
             : `Pendaftaran anggota baru dibuka setiap tahun pada 1 Januari hingga 28 Februari. Pantau terus halaman ini.`}
@@ -79,7 +79,7 @@ function RegistrationCard() {
           <svg width="11" height="11" viewBox="0 0 24 24" fill="none" stroke="#6b6966" strokeWidth="2"><rect x="3" y="4" width="18" height="18" rx="2"/><line x1="16" y1="2" x2="16" y2="6"/><line x1="8" y1="2" x2="8" y2="6"/><line x1="3" y1="10" x2="21" y2="10"/></svg>
           <span style={{ fontSize: "11px", color: "#6b6966", fontFamily: "var(--font-sans)", fontWeight: "600" }}>Setiap tahun: 1 November – 31 Desember</span>
         </div>
-        <p style={{ fontSize: "12px", color: "#5c5a57", fontFamily: "var(--font-sans)", margin: "0 0 12px", lineHeight: "1.65" }}>
+        <p style={{ fontSize: "14px", color: "#5c5a57", fontFamily: "var(--font-sans)", margin: "0 0 12px", lineHeight: "1.65" }}>
           {isPerpanjangOpen
             ? `Perpanjangan keanggotaan ${year} sedang dibuka! Segera perpanjang sebelum 31 Desember ${year}.`
             : `Perpanjangan keanggotaan dibuka setiap tahun pada 1 November hingga 31 Desember.`}
@@ -268,7 +268,7 @@ function SubscribeForm() {
           {status === "error" && (
             <p style={{ fontSize: "12px", color: "#dc2626", fontFamily: "var(--font-sans)", margin: "8px 0 0" }}>{message}</p>
           )}
-          <p style={{ fontSize: "11px", color: "#6b6966", fontFamily: "var(--font-sans)", margin: "10px 0 0", lineHeight: "1.6" }}>
+          <p style={{ fontSize: "14px", color: "#6b6966", fontFamily: "var(--font-sans)", margin: "10px 0 0", lineHeight: "1.6" }}>
             Kami tidak akan mengirim spam. Anda dapat berhenti berlangganan kapan saja.
           </p>
         </div>

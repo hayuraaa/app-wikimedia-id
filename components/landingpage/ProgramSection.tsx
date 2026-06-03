@@ -47,8 +47,8 @@ export default function ProgramSection() {
                 onMouseEnter={(e) => { (e.currentTarget as HTMLElement).style.boxShadow = "0 8px 32px rgba(0,0,0,0.08)"; (e.currentTarget as HTMLElement).style.transform = "translateY(-2px)"; }}
                 onMouseLeave={(e) => { (e.currentTarget as HTMLElement).style.boxShadow = "none"; (e.currentTarget as HTMLElement).style.transform = "none"; }}>
                 <h3 style={{ fontSize: "17px", fontWeight: "700", color: "#0d0d0d", fontFamily: "var(--font-serif)", marginBottom: "10px" }}>{p.title}</h3>
-                <p style={{ fontSize: "13px", color: "#5c5a57", lineHeight: "1.7", fontFamily: "var(--font-sans)", marginBottom: "20px" }}>{p.desc}</p>
-                <span style={{ fontSize: "12px", fontWeight: "700", letterSpacing: "0.05em", textTransform: "uppercase", color: p.accent, fontFamily: "var(--font-sans)" }}>
+                <p style={{ fontSize: "14px", color: "#5c5a57", lineHeight: "1.7", fontFamily: "var(--font-sans)", marginBottom: "20px" }}>{p.desc}</p>
+                <span style={{ fontSize: "14px", fontWeight: "700", letterSpacing: "0.05em", textTransform: "uppercase", color: p.accent, fontFamily: "var(--font-sans)" }}>
                   Selengkapnya →
                 </span>
               </div>

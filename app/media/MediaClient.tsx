@@ -172,7 +172,7 @@ function MediaCard({ item }: { item: MediaItem }) {
           {item.judul}
         </h3>
 
-        <p style={{ fontSize: "12px", color: "#6b6966", lineHeight: "1.6", fontFamily: "var(--font-sans)", display: "-webkit-box", WebkitLineClamp: 2, WebkitBoxOrient: "vertical" as const, overflow: "hidden", margin: 0, flex: 1, wordBreak: "break-word" }}>
+        <p style={{ fontSize: "14px", color: "#6b6966", lineHeight: "1.6", fontFamily: "var(--font-sans)", display: "-webkit-box", WebkitLineClamp: 2, WebkitBoxOrient: "vertical" as const, overflow: "hidden", margin: 0, flex: 1, wordBreak: "break-word" }}>
           {item.keterangan}
         </p>
 

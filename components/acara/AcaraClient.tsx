@@ -101,7 +101,7 @@ function EventCard({ ev }: { ev: EventItem }) {
           </div>
           <h3 style={{ fontSize: "14px", fontWeight: "600", color: status === "selesai" ? "#5c5a57" : "#0d0d0d", fontFamily: "var(--font-serif)", lineHeight: "1.4", margin: "0 0 3px" }}>{ev.judul}</h3>
           <p style={{ fontSize: "11px", color: "#6b6966", fontFamily: "var(--font-sans)", margin: "0 0 6px" }}>{formatTanggal(ev.tanggal_mulai, ev.tanggal_selesai)}</p>
-          <p style={{ fontSize: "12px", color: "#7a7874", fontFamily: "var(--font-sans)", lineHeight: "1.6", margin: 0, display: "-webkit-box", WebkitLineClamp: 2, WebkitBoxOrient: "vertical" as const, overflow: "hidden" }}>
+          <p style={{ fontSize: "14px", color: "#7a7874", fontFamily: "var(--font-sans)", lineHeight: "1.6", margin: 0, display: "-webkit-box", WebkitLineClamp: 2, WebkitBoxOrient: "vertical" as const, overflow: "hidden" }}>
             {ev.deskripsi.replace(/\n/g, " ").trim()}
           </p>
           {ev.links.length > 0 && (

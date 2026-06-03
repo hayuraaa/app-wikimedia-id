@@ -307,7 +307,7 @@ export default function Footer() {
           color: #fff;
         }
         .footer-nav-link {
-          font-size: 13px;
+          font-size: 14px;
           color: rgba(255,255,255,0.5);
           text-decoration: none;
           font-family: var(--font-sans);

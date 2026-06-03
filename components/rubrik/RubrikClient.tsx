@@ -119,7 +119,7 @@ function ArticleCard({ article }: { article: Article }) {
 
           {/* Excerpt */}
           <p style={{
-            fontSize: "12px", color: "#6b6966", lineHeight: "1.6", fontFamily: "var(--font-sans)",
+            fontSize: "14px", color: "#6b6966", lineHeight: "1.6", fontFamily: "var(--font-sans)",
             display: "-webkit-box", WebkitLineClamp: 2, WebkitBoxOrient: "vertical", overflow: "hidden",
             margin: 0, flex: 1,
           }}>
@@ -322,7 +322,7 @@ function Sidebar({ popular, popularLoading, categories, activeCategory, onCatego
       <div style={{ backgroundColor: "#1a3a5c", border: "1px solid rgba(255,255,255,0.1)", borderRadius: "4px", padding: "20px", position: "relative", overflow: "hidden" }}>
         <div style={{ position: "absolute", top: "-20px", right: "-20px", width: "80px", height: "80px", borderRadius: "50%", background: "radial-gradient(circle, rgba(12,87,168,0.25) 0%, transparent 70%)", pointerEvents: "none" }} />
         <h4 style={{ fontSize: "13px", fontWeight: "700", color: "#fff", fontFamily: "var(--font-serif)", margin: "0 0 8px" }}>Tentang Rubrik</h4>
-        <p style={{ fontSize: "12px", color: "rgba(255,255,255,0.6)", lineHeight: "1.7", fontFamily: "var(--font-sans)", margin: "0 0 14px" }}>Kumpulan artikel dan berita terbaru seputar kegiatan, program, dan perkembangan Wikimedia Indonesia.</p>
+        <p style={{ fontSize: "14px", color: "rgba(255,255,255,0.6)", lineHeight: "1.7", fontFamily: "var(--font-sans)", margin: "0 0 14px" }}>Kumpulan artikel dan berita terbaru seputar kegiatan, program, dan perkembangan Wikimedia Indonesia.</p>
       </div>
     </aside>
   );

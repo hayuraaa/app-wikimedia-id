@@ -128,7 +128,7 @@ export default function NewsletterSection() {
           </div>
         )}
 
-        <p style={{ fontSize: "12px", color: "rgba(255,255,255,0.35)", marginTop: "16px", fontFamily: "var(--font-sans)" }}>
+        <p style={{ fontSize: "14px", color: "rgba(255,255,255,0.35)", marginTop: "16px", fontFamily: "var(--font-sans)" }}>
           Kami tidak akan mengirim spam. Anda dapat berhenti berlangganan kapan saja.
         </p>
       </div>

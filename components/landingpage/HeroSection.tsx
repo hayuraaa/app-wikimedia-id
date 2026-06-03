@@ -57,7 +57,7 @@ export default function HeroSection() {
               Pengetahuan Terbuka di Indonesia
             </h1>
 
-            <p className="hero-desc" style={{ fontSize: "15px", color: "rgba(255,255,255,0.68)", lineHeight: "1.85", marginBottom: "40px", fontFamily: "var(--font-sans)" }}>
+            <p className="hero-desc" style={{ fontSize: "16px", color: "rgba(255,255,255,0.68)", lineHeight: "1.85", marginBottom: "40px", fontFamily: "var(--font-sans)" }}>
               Wikimedia Indonesia adalah organisasi nirlaba yang berdedikasi untuk memajukan gerakan pengetahuan terbuka di Indonesia.
             </p>
 

@@ -117,7 +117,7 @@ function SearchDropdown({
       ) : results.length === 0 ? (
         <div style={{ padding: "32px 20px", textAlign: "center" }}>
           <div style={{ fontSize: "28px", marginBottom: "8px", opacity: 0.25 }}>🔍</div>
-          <p style={{ fontSize: "13px", color: "#6b6966", fontFamily: "var(--font-sans)", margin: 0 }}>
+          <p style={{ fontSize: "14px", color: "#6b6966", fontFamily: "var(--font-sans)", margin: 0 }}>
             Tidak ada hasil untuk <strong style={{ color: "#0d0d0d" }}>"{query}"</strong>
           </p>
         </div>
@@ -193,7 +193,7 @@ function SearchDropdown({
 
                     <div style={{ flex: 1, minWidth: 0 }}>
                       <p style={{
-                        fontSize: "13px", fontWeight: "600", color: "#0d0d0d",
+                        fontSize: "14px", fontWeight: "600", color: "#0d0d0d",
                         fontFamily: "var(--font-serif)", lineHeight: "1.4",
                         margin: "0 0 3px",
                         overflow: "hidden", textOverflow: "ellipsis", whiteSpace: "nowrap",
@@ -400,7 +400,7 @@ export default function Header() {
         >
           {navItems.map((item) => (
             <Link key={item.label} href={item.href} style={{
-              padding: "8px 14px", fontSize: "13px", fontWeight: "600",
+              padding: "8px 14px", fontSize: "14px", fontWeight: "600",
               letterSpacing: "0.03em", textTransform: "uppercase", textDecoration: "none",
               color: activeItem === item.label ? "#0C57A8" : "#3a3a3a",
               borderBottom: activeItem === item.label ? "2px solid #0C57A8" : "2px solid transparent",
@@ -416,7 +416,7 @@ export default function Header() {
           {/* Dropdown Lainnya */}
           <div className="more-dropdown" style={{ position: "relative" }}>
             <button className="more-btn" style={{
-              padding: "8px 14px", fontSize: "13px", fontWeight: "600",
+              padding: "8px 14px", fontSize: "14px", fontWeight: "600",
               letterSpacing: "0.03em", textTransform: "uppercase", background: "transparent",
               border: "none", borderBottom: "2px solid transparent", color: "#3a3a3a",
               cursor: "pointer", transition: "all 0.2s", fontFamily: "var(--font-sans)",
@@ -438,7 +438,7 @@ export default function Header() {
                 <div style={{ height: "3px", background: "linear-gradient(90deg, #0C57A8, #1e4d7b)" }} />
                 {moreItems.map((item, idx) => (
                   <Link key={item.label} href={item.href} style={{
-                    display: "block", padding: "10px 16px", fontSize: "13px", fontWeight: "500",
+                    display: "block", padding: "10px 16px", fontSize: "14px", fontWeight: "500",
                     color: "#3a3a3a", textDecoration: "none", fontFamily: "var(--font-sans)",
                     borderBottom: idx < moreItems.length - 1 ? "1px solid #f5f4f2" : "none",
                     transition: "all 0.15s",
@@ -503,7 +503,7 @@ export default function Header() {
                 onKeyDown={handleKeyDown}
                 style={{
                   flex: 1, height: "100%", border: "none", outline: "none",
-                  fontSize: "13px", color: "#0d0d0d", fontFamily: "var(--font-sans)",
+                  fontSize: "14px", color: "#0d0d0d", fontFamily: "var(--font-sans)",
                   backgroundColor: "transparent", padding: "0 4px",
                   opacity: searchOpen ? 1 : 0,
                   pointerEvents: searchOpen ? "auto" : "none",
@@ -569,7 +569,7 @@ export default function Header() {
           <div style={{ display: "flex", borderRadius: "3px", overflow: "hidden", border: "1px solid #e5e2dd" }}>
             <input
               type="text" placeholder="Cari..."
-              style={{ flex: 1, padding: "10px 14px", fontSize: "13px", border: "none", outline: "none", fontFamily: "var(--font-sans)", color: "#0d0d0d" }}
+              style={{ flex: 1, padding: "10px 14px", fontSize: "14px", border: "none", outline: "none", fontFamily: "var(--font-sans)", color: "#0d0d0d" }}
               onKeyDown={(e) => { if (e.key === "Enter") { const v = (e.target as HTMLInputElement).value.trim(); if (v) { setMenuOpen(false); router.push(`/cari?q=${encodeURIComponent(v)}`); } } }}
             />
             <button aria-label="Cari" style={{ padding: "10px 14px", backgroundColor: "#0C57A8", border: "none", color: "#fff", cursor: "pointer" }}>
@@ -593,7 +593,7 @@ export default function Header() {
           <div style={{ margin: "8px 24px", borderTop: "1px solid #f0eeec" }} />
           {moreItems.map((item) => (
             <Link key={item.label} href={item.href} onClick={() => setMenuOpen(false)} style={{
-              display: "block", padding: "10px 24px", fontSize: "13px", fontWeight: "500",
+              display: "block", padding: "10px 24px", fontSize: "14px", fontWeight: "500",
               textDecoration: "none", color: "#5c5a57", borderLeft: "3px solid transparent",
               transition: "all 0.2s", fontFamily: "var(--font-sans)",
             }}>

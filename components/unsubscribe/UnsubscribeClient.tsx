@@ -90,7 +90,7 @@ export default function UnsubscribeClient({ token }: { token: string }) {
               <div style={{ backgroundColor: "#f8f7f5", borderRadius: "4px", padding: "12px 16px", marginBottom: "16px" }}>
                 <p style={{ fontSize: "13px", fontWeight: "600", color: "#0d0d0d", fontFamily: "var(--font-sans)", margin: 0 }}>{email}</p>
               </div>
-              <p style={{ fontSize: "12px", color: "#9ca3af", fontFamily: "var(--font-sans)", marginBottom: "28px", lineHeight: "1.6" }}>
+              <p style={{ fontSize: "14px", color: "#9ca3af", fontFamily: "var(--font-sans)", marginBottom: "28px", lineHeight: "1.6" }}>
                 Anda tidak akan menerima update artikel, acara, dan informasi dari kami.
               </p>
               <div style={{ display: "flex", gap: "10px" }}>
@@ -120,7 +120,7 @@ export default function UnsubscribeClient({ token }: { token: string }) {
               <p style={{ fontSize: "13px", color: "#6b6966", fontFamily: "var(--font-sans)", marginBottom: "8px", lineHeight: "1.7" }}>
                 Email <strong>{email}</strong> telah dihapus dari daftar newsletter kami.
               </p>
-              <p style={{ fontSize: "12px", color: "#9ca3af", fontFamily: "var(--font-sans)", marginBottom: "28px" }}>
+              <p style={{ fontSize: "14px", color: "#9ca3af", fontFamily: "var(--font-sans)", marginBottom: "28px" }}>
                 Anda dapat berlangganan kembali kapan saja.
               </p>
               <Link href="https://wikimedia.or.id" style={{ display: "inline-block", padding: "12px 28px", backgroundColor: "#0C57A8", color: "#fff", borderRadius: "4px", fontSize: "13px", fontWeight: "700", fontFamily: "var(--font-sans)", textDecoration: "none" }}>
