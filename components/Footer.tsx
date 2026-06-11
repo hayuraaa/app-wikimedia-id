@@ -18,7 +18,7 @@ const footerLinks = {
   ],
   Informasi: [
     { label: "Menjadi Anggota", href: "/menjadi-anggota" },
-    { label: "Menajdi Sukarelawan", href: "/menjadi-sukarelawan" },
+    { label: "Menjadi Sukarelawan", href: "/menjadi-sukarelawan" },
     { label: "Kebijakan Privasi", href: "/kebijakan-privasi" },
     { label: "Syarat Penggunaan", href: "/syarat-penggunaan" },
     { label: "FAQ", href: "/faq" },
@@ -135,7 +135,7 @@ export default function Footer() {
             <div style={{ marginBottom: "12px" }}>
               <p
                 style={{
-                  fontSize: "12px",
+                  fontSize: "14px",
                   color: "rgba(255,255,255,0.6)",
                   lineHeight: "1.7",
                   fontFamily: "var(--font-sans)",
