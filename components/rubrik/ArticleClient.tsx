@@ -359,33 +359,6 @@ export default function ArticleClient({
                   </button>
                 </div>
               </div>
-
-              {/* Author bio card */}
-              {article.authors?.length > 0 && (
-                <div style={{ marginTop: "32px", backgroundColor: "#fff", border: "1px solid #e5e2dd", borderRadius: "4px", borderLeft: "3px solid #0C57A8", padding: "20px 24px" }}>
-                  <span style={{ fontSize: "10px", fontWeight: "700", letterSpacing: "0.08em", textTransform: "uppercase" as const, color: "#0C57A8", fontFamily: "var(--font-sans)" }}>◆ Penulis</span>
-                  <div style={{ marginTop: "12px", display: "flex", flexDirection: "column", gap: "10px" }}>
-                    {article.authors.map((a) => (
-                      <div key={a.id} style={{ display: "flex", alignItems: "center", gap: "12px" }}>
-                        <div style={{ width: "40px", height: "40px", borderRadius: "50%", backgroundColor: "rgba(12,87,168,0.1)", border: "2px solid rgba(12,87,168,0.2)", display: "flex", alignItems: "center", justifyContent: "center", flexShrink: 0 }}>
-                          <span style={{ fontSize: "15px", fontWeight: "700", color: "#0C57A8", fontFamily: "var(--font-serif)" }}>{a.name.charAt(0)}</span>
-                        </div>
-                        <div>
-                          <span
-                            onClick={() => router.push(`/rubrik/author/${a.slug}`)}
-                            style={{ fontSize: "14px", fontWeight: "700", color: "#0d0d0d", fontFamily: "var(--font-serif)", cursor: "pointer", transition: "color 0.15s" }}
-                            onMouseEnter={(e) => (e.currentTarget.style.color = "#0C57A8")}
-                            onMouseLeave={(e) => (e.currentTarget.style.color = "#0d0d0d")}
-                          >
-                            {a.name}
-                          </span>
-                          <p style={{ fontSize: "12px", color: "#6b6966", fontFamily: "var(--font-sans)", margin: "2px 0 0" }}>Kontributor Wikimedia Indonesia</p>
-                        </div>
-                      </div>
-                    ))}
-                  </div>
-                </div>
-              )}
             </div>
 
             {/* ── Right: Sticky sidebar ── */}
