@@ -2,7 +2,7 @@
 
 import Link from "next/link";
 
-const DONASI_URL = "https://pay.doku.com/p-link/p/cf45ju2tPk";
+const DONASI_URL = "https://pay.doku.com/p-link/p/donasi-wmid";
 
 // ─── Ilustrasi SVG ────────────────────────────────────────────────────────────
 
