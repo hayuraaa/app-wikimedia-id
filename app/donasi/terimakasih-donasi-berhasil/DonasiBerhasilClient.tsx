@@ -46,13 +46,13 @@ export default function DonasiBerhasilClient() {
                 </svg>
               </div>
 
-              <span style={{ fontSize: "10px", fontWeight: "700", letterSpacing: "0.1em", textTransform: "uppercase" as const, color: "#16a34a", fontFamily: "var(--font-sans)" }}>
+              <span style={{ fontSize: "10px", fontWeight: "700", letterSpacing: "0.1em", textTransform: "uppercase" as const, color: "#16a34a", fontFamily: "var(--font-montserrat)" }}>
                 ◆ Pembayaran Berhasil
               </span>
-              <h2 style={{ fontSize: "1.35rem", fontWeight: "700", color: "#0d0d0d", fontFamily: "var(--font-serif)", margin: "10px 0 14px", lineHeight: "1.3" }}>
+              <h2 style={{ fontSize: "1.35rem", fontWeight: "700", color: "#0d0d0d", fontFamily: "var(--font-montserrat)", margin: "10px 0 14px", lineHeight: "1.3" }}>
                 Donasi Anda Telah Diterima
               </h2>
-              <p style={{ fontSize: "14px", color: "#3a3a3a", lineHeight: "1.85", fontFamily: "var(--font-sans)", margin: "0 0 28px" }}>
+              <p style={{ fontSize: "14px", color: "#3a3a3a", lineHeight: "1.85", fontFamily: "var(--font-montserrat)", margin: "0 0 28px" }}>
                 Terima kasih atas kepercayaan dan dukungan Anda kepada Wikimedia Indonesia. Kontribusi Anda membantu kami menjalankan program-program pengetahuan terbuka di seluruh Indonesia.
               </p>
 
@@ -62,14 +62,14 @@ export default function DonasiBerhasilClient() {
 
               <div style={{ display: "flex", gap: "10px", flexWrap: "wrap" as const, justifyContent: "center" }}>
                 <Link href="/"
-                  style={{ display: "inline-flex", alignItems: "center", gap: "8px", padding: "13px 24px", backgroundColor: "#0C57A8", color: "#fff", textDecoration: "none", borderRadius: "3px", fontSize: "13px", fontWeight: "700", fontFamily: "var(--font-sans)", letterSpacing: "0.04em", transition: "background 0.2s" }}
+                  style={{ display: "inline-flex", alignItems: "center", gap: "8px", padding: "13px 24px", backgroundColor: "#0C57A8", color: "#fff", textDecoration: "none", borderRadius: "3px", fontSize: "13px", fontWeight: "700", fontFamily: "var(--font-montserrat)", letterSpacing: "0.04em", transition: "background 0.2s" }}
                   onMouseEnter={(e) => (e.currentTarget.style.backgroundColor = "#0a4a8f")}
                   onMouseLeave={(e) => (e.currentTarget.style.backgroundColor = "#0C57A8")}>
                   <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2"><path d="M3 9l9-7 9 7v11a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2z"/><polyline points="9 22 9 12 15 12 15 22"/></svg>
                   Kembali ke Beranda
                 </Link>
                 <Link href="/program"
-                  style={{ display: "inline-flex", alignItems: "center", gap: "8px", padding: "13px 24px", backgroundColor: "#f0eeec", color: "#3a3a3a", textDecoration: "none", borderRadius: "3px", fontSize: "13px", fontWeight: "600", fontFamily: "var(--font-sans)", transition: "background 0.2s" }}
+                  style={{ display: "inline-flex", alignItems: "center", gap: "8px", padding: "13px 24px", backgroundColor: "#f0eeec", color: "#3a3a3a", textDecoration: "none", borderRadius: "3px", fontSize: "13px", fontWeight: "600", fontFamily: "var(--font-montserrat)", transition: "background 0.2s" }}
                   onMouseEnter={(e) => (e.currentTarget.style.backgroundColor = "#e5e2dd")}
                   onMouseLeave={(e) => (e.currentTarget.style.backgroundColor = "#f0eeec")}>
                   Lihat Program Kami
@@ -80,10 +80,10 @@ export default function DonasiBerhasilClient() {
           </div>
 
           <div style={{ marginTop: "20px", textAlign: "center" as const }}>
-            <p style={{ fontSize: "13px", color: "#6b6966", fontFamily: "var(--font-sans)", margin: "0 0 6px", lineHeight: "1.6" }}>
+            <p style={{ fontSize: "13px", color: "#6b6966", fontFamily: "var(--font-montserrat)", margin: "0 0 6px", lineHeight: "1.6" }}>
               Ada pertanyaan terkait donasi Anda?
             </p>
-            <Link href="/tentang#hubungi-kami" style={{ fontSize: "13px", color: "#0C57A8", fontWeight: "600", fontFamily: "var(--font-sans)", textDecoration: "underline", textUnderlineOffset: "2px" }}>
+            <Link href="/tentang#hubungi-kami" style={{ fontSize: "13px", color: "#0C57A8", fontWeight: "600", fontFamily: "var(--font-montserrat)", textDecoration: "underline", textUnderlineOffset: "2px" }}>
               Hubungi kami
             </Link>
           </div>

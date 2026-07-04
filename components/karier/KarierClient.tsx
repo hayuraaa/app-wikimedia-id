@@ -51,32 +51,32 @@ function KarirCard({ item }: { item: Karir }) {
         <div style={{ flex: 1, minWidth: 0 }}>
           {/* Badges */}
           <div style={{ display: "flex", gap: "6px", marginBottom: "10px", flexWrap: "wrap" as const }}>
-            <span style={{ fontSize: "10px", fontWeight: "700", letterSpacing: "0.07em", textTransform: "uppercase" as const, color: "#16a34a", backgroundColor: "rgba(22,163,74,0.08)", border: "1px solid rgba(22,163,74,0.2)", padding: "2px 8px", borderRadius: "2px", fontFamily: "var(--font-sans)" }}>
+            <span style={{ fontSize: "10px", fontWeight: "700", letterSpacing: "0.07em", textTransform: "uppercase" as const, color: "#16a34a", backgroundColor: "rgba(22,163,74,0.08)", border: "1px solid rgba(22,163,74,0.2)", padding: "2px 8px", borderRadius: "2px", fontFamily: "var(--font-montserrat)" }}>
               ● Dibuka
             </span>
             {expiring && (
-              <span style={{ fontSize: "10px", fontWeight: "700", letterSpacing: "0.07em", textTransform: "uppercase" as const, color: "#d97706", backgroundColor: "rgba(217,119,6,0.08)", border: "1px solid rgba(217,119,6,0.2)", padding: "2px 8px", borderRadius: "2px", fontFamily: "var(--font-sans)" }}>
+              <span style={{ fontSize: "10px", fontWeight: "700", letterSpacing: "0.07em", textTransform: "uppercase" as const, color: "#d97706", backgroundColor: "rgba(217,119,6,0.08)", border: "1px solid rgba(217,119,6,0.2)", padding: "2px 8px", borderRadius: "2px", fontFamily: "var(--font-montserrat)" }}>
                 ⚡ Segera Berakhir
               </span>
             )}
           </div>
 
-          <h3 style={{ fontSize: "clamp(1rem, 1.5vw, 1.15rem)", fontWeight: "700", color: "#0d0d0d", fontFamily: "var(--font-serif)", margin: "0 0 8px", lineHeight: "1.35" }}>
+          <h3 style={{ fontSize: "clamp(1rem, 1.5vw, 1.15rem)", fontWeight: "700", color: "#0d0d0d", fontFamily: "var(--font-montserrat)", margin: "0 0 8px", lineHeight: "1.35" }}>
             {item.title}
           </h3>
 
-          <p style={{ fontSize: "13px", color: "#5c5a57", lineHeight: "1.7", fontFamily: "var(--font-sans)", margin: "0 0 14px", display: "-webkit-box", WebkitLineClamp: 2, WebkitBoxOrient: "vertical" as const, overflow: "hidden" }}>
+          <p style={{ fontSize: "13px", color: "#5c5a57", lineHeight: "1.7", fontFamily: "var(--font-montserrat)", margin: "0 0 14px", display: "-webkit-box", WebkitLineClamp: 2, WebkitBoxOrient: "vertical" as const, overflow: "hidden" }}>
             {excerpt}…
           </p>
 
           {/* Meta */}
           <div style={{ display: "flex", gap: "16px", flexWrap: "wrap" as const }}>
-            <span style={{ fontSize: "11px", color: "#6b6966", fontFamily: "var(--font-sans)", display: "flex", alignItems: "center", gap: "5px" }}>
+            <span style={{ fontSize: "11px", color: "#6b6966", fontFamily: "var(--font-montserrat)", display: "flex", alignItems: "center", gap: "5px" }}>
               <svg width="11" height="11" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2"><rect x="3" y="4" width="18" height="18" rx="2"/><line x1="16" y1="2" x2="16" y2="6"/><line x1="8" y1="2" x2="8" y2="6"/><line x1="3" y1="10" x2="21" y2="10"/></svg>
               Dibuka: {formatDate(item.published_at)}
             </span>
             {item.expires_at && (
-              <span style={{ fontSize: "11px", color: expiring ? "#d97706" : "#6b6966", fontFamily: "var(--font-sans)", display: "flex", alignItems: "center", gap: "5px" }}>
+              <span style={{ fontSize: "11px", color: expiring ? "#d97706" : "#6b6966", fontFamily: "var(--font-montserrat)", display: "flex", alignItems: "center", gap: "5px" }}>
                 <svg width="11" height="11" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2"><circle cx="12" cy="12" r="10"/><polyline points="12 6 12 12 16 14"/></svg>
                 Batas: {formatDate(item.expires_at)}
               </span>
@@ -86,7 +86,7 @@ function KarirCard({ item }: { item: Karir }) {
 
         {/* Right */}
         <div style={{ flexShrink: 0, display: "flex", flexDirection: "column", alignItems: "flex-end", gap: "10px" }}>
-          <span style={{ display: "inline-flex", alignItems: "center", gap: "6px", padding: "9px 18px", backgroundColor: "#0C57A8", color: "#fff", borderRadius: "3px", fontSize: "12px", fontWeight: "700", fontFamily: "var(--font-sans)", letterSpacing: "0.04em", whiteSpace: "nowrap" as const }}>
+          <span style={{ display: "inline-flex", alignItems: "center", gap: "6px", padding: "9px 18px", backgroundColor: "#0C57A8", color: "#fff", borderRadius: "3px", fontSize: "12px", fontWeight: "700", fontFamily: "var(--font-montserrat)", letterSpacing: "0.04em", whiteSpace: "nowrap" as const }}>
             Lihat Detail
             <svg width="12" height="12" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2.5"><path d="M5 12h14M12 5l7 7-7 7"/></svg>
           </span>
@@ -115,19 +115,19 @@ export default function KarierClient({ items, total }: { items: Karir[]; total: 
         <div style={{ maxWidth: "1280px", margin: "0 auto", position: "relative", zIndex: 1 }}>
           {/* Breadcrumb */}
           <div style={{ display: "flex", alignItems: "center", gap: "6px", marginBottom: "12px" }}>
-            <Link href="/" style={{ fontSize: "11px", color: "rgba(255,255,255,0.4)", textDecoration: "none", fontFamily: "var(--font-sans)", transition: "color 0.15s" }}
+            <Link href="/" style={{ fontSize: "11px", color: "rgba(255,255,255,0.4)", textDecoration: "none", fontFamily: "var(--font-montserrat)", transition: "color 0.15s" }}
               onMouseEnter={(e) => (e.currentTarget.style.color = "rgba(255,255,255,0.8)")}
               onMouseLeave={(e) => (e.currentTarget.style.color = "rgba(255,255,255,0.4)")}>
               Beranda
             </Link>
-            <span style={{ fontSize: "11px", color: "rgba(255,255,255,0.25)", fontFamily: "var(--font-sans)" }}>/</span>
-            <span style={{ fontSize: "11px", color: "#3b8ed4", fontFamily: "var(--font-sans)" }}>Karier</span>
+            <span style={{ fontSize: "11px", color: "rgba(255,255,255,0.25)", fontFamily: "var(--font-montserrat)" }}>/</span>
+            <span style={{ fontSize: "11px", color: "#3b8ed4", fontFamily: "var(--font-montserrat)" }}>Karier</span>
           </div>
 
-          <h1 style={{ fontSize: "clamp(1.8rem, 3vw, 2.6rem)", fontWeight: "700", color: "#fff", fontFamily: "var(--font-serif)", margin: "6px 0 0", lineHeight: "1.2" }}>
+          <h1 style={{ fontSize: "clamp(1.8rem, 3vw, 2.6rem)", fontWeight: "700", color: "#fff", fontFamily: "var(--font-montserrat)", margin: "6px 0 0", lineHeight: "1.2" }}>
             Karier Wikimedia Indonesia
           </h1>
-          <p style={{ fontSize: "13px", color: "rgba(255,255,255,0.45)", fontFamily: "var(--font-sans)", margin: "6px 0 0" }}>
+          <p style={{ fontSize: "13px", color: "rgba(255,255,255,0.45)", fontFamily: "var(--font-montserrat)", margin: "6px 0 0" }}>
             {total > 0 ? `${total} lowongan tersedia` : "Tidak ada lowongan saat ini"}
           </p>
         </div>
@@ -141,13 +141,13 @@ export default function KarierClient({ items, total }: { items: Karir[]; total: 
 
           {/* ── Keterangan ── */}
           <div style={{ backgroundColor: "#fff", border: "1px solid #e5e2dd", borderRadius: "4px", padding: "32px 36px" }}>
-            <h2 style={{ fontSize: "1.25rem", fontWeight: "700", color: "#0d0d0d", fontFamily: "var(--font-serif)", margin: "8px 0 16px" }}>
+            <h2 style={{ fontSize: "1.25rem", fontWeight: "700", color: "#0d0d0d", fontFamily: "var(--font-montserrat)", margin: "8px 0 16px" }}>
               Karier Wikimedia Indonesia
             </h2>
-            <p style={{ fontSize: "14px", color: "#3a3a3a", lineHeight: "1.85", fontFamily: "var(--font-sans)", margin: "0 0 14px" }}>
+            <p style={{ fontSize: "14px", color: "#3a3a3a", lineHeight: "1.85", fontFamily: "var(--font-montserrat)", margin: "0 0 14px" }}>
               Wikimedia Indonesia merupakan organisasi nirlaba dan merupakan mitra lokal dari Yayasan Wikimedia di San Fransisco, Amerika Serikat, pengelola situs populer dunia Wikipedia dan proyek-proyek wiki lainnya. Wikimedia Indonesia berdedikasi untuk mendorong pertumbuhan, pengembangan, dan penyebaran pengetahuan dalam bahasa Indonesia dan bahasa lain yang dipertuturkan di Indonesia secara bebas dan gratis.
             </p>
-            <p style={{ fontSize: "14px", color: "#3a3a3a", lineHeight: "1.85", fontFamily: "var(--font-sans)", margin: 0 }}>
+            <p style={{ fontSize: "14px", color: "#3a3a3a", lineHeight: "1.85", fontFamily: "var(--font-montserrat)", margin: 0 }}>
               Sebagai pemberi kerja, Wikimedia Indonesia menjunjung tinggi kesetaraan. Pengangkatan pekerja didasarkan pada kemampuan, pengalaman, dan kualifikasi pribadi tanpa melakukan diskriminasi atas dasar suku, agama, ras, warna kulit, usia, jenis kelamin, identitas gender, orientasi seksual, kebangsaan, disabilitas, ataupun karakteristik personal lainnya yang tidak berhubungan dengan kemampuan kerja.
             </p>
           </div>
@@ -156,13 +156,13 @@ export default function KarierClient({ items, total }: { items: Karir[]; total: 
           <div>
             <div style={{ display: "flex", justifyContent: "space-between", alignItems: "flex-end", marginBottom: "24px", paddingBottom: "12px", borderBottom: "3px solid #0d0d0d" }}>
               <div>
-                <span style={{ fontSize: "11px", fontWeight: "700", letterSpacing: "0.1em", textTransform: "uppercase" as const, color: "#0C57A8", fontFamily: "var(--font-sans)" }}>◆ Lowongan</span>
-                <h2 style={{ fontSize: "18px", fontWeight: "700", color: "#0d0d0d", fontFamily: "var(--font-serif)", marginTop: "2px", marginBottom: 0 }}>
+                <span style={{ fontSize: "11px", fontWeight: "700", letterSpacing: "0.1em", textTransform: "uppercase" as const, color: "#0C57A8", fontFamily: "var(--font-montserrat)" }}>◆ Lowongan</span>
+                <h2 style={{ fontSize: "18px", fontWeight: "700", color: "#0d0d0d", fontFamily: "var(--font-montserrat)", marginTop: "2px", marginBottom: 0 }}>
                   Posisi Tersedia
                 </h2>
               </div>
               {total > 0 && (
-                <span style={{ fontSize: "12px", color: "#6b6966", fontFamily: "var(--font-sans)" }}>{total} lowongan</span>
+                <span style={{ fontSize: "12px", color: "#6b6966", fontFamily: "var(--font-montserrat)" }}>{total} lowongan</span>
               )}
             </div>
 
@@ -171,10 +171,10 @@ export default function KarierClient({ items, total }: { items: Karir[]; total: 
                 <div style={{ width: "52px", height: "52px", borderRadius: "50%", backgroundColor: "#f0eeec", display: "flex", alignItems: "center", justifyContent: "center", margin: "0 auto 16px" }}>
                   <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="#6b6966" strokeWidth="1.5"><rect x="2" y="7" width="20" height="14" rx="2"/><path d="M16 7V5a2 2 0 0 0-2-2h-4a2 2 0 0 0-2 2v2"/><line x1="12" y1="12" x2="12" y2="16"/><line x1="10" y1="14" x2="14" y2="14"/></svg>
                 </div>
-                <p style={{ fontSize: "15px", fontWeight: "600", color: "#3a3a3a", fontFamily: "var(--font-serif)", margin: "0 0 6px" }}>
+                <p style={{ fontSize: "15px", fontWeight: "600", color: "#3a3a3a", fontFamily: "var(--font-montserrat)", margin: "0 0 6px" }}>
                   Saat ini tidak ada lowongan tersedia
                 </p>
-                <p style={{ fontSize: "13px", color: "#6b6966", fontFamily: "var(--font-sans)", margin: 0 }}>
+                <p style={{ fontSize: "13px", color: "#6b6966", fontFamily: "var(--font-montserrat)", margin: 0 }}>
                   Pantau terus halaman ini untuk informasi lowongan terbaru.
                 </p>
               </div>
@@ -192,8 +192,8 @@ export default function KarierClient({ items, total }: { items: Karir[]; total: 
               <line x1="12" y1="9" x2="12" y2="13"/><line x1="12" y1="17" x2="12.01" y2="17"/>
             </svg>
             <div>
-              <p style={{ fontSize: "13px", fontWeight: "700", color: "#92400e", fontFamily: "var(--font-sans)", margin: "0 0 4px" }}>Peringatan</p>
-              <p style={{ fontSize: "13px", color: "#5c5a57", lineHeight: "1.7", fontFamily: "var(--font-sans)", margin: 0 }}>
+              <p style={{ fontSize: "13px", fontWeight: "700", color: "#92400e", fontFamily: "var(--font-montserrat)", margin: "0 0 4px" }}>Peringatan</p>
+              <p style={{ fontSize: "13px", color: "#5c5a57", lineHeight: "1.7", fontFamily: "var(--font-montserrat)", margin: 0 }}>
                 Dalam melakukan perekrutan, Wikimedia Indonesia tidak pernah meminta sejumlah uang untuk alasan apapun. Apabila Anda dimintai sejumlah uang, harap melaporkan kepada kami melalui surel:{" "}
                 <a href="mailto:lowongan@wikimedia.or.id" style={{ color: "#0C57A8", fontWeight: "600", textDecoration: "none" }}>
                   lowongan@wikimedia.or.id

@@ -85,30 +85,30 @@ function EventCard({ ev }: { ev: EventItem }) {
         onMouseLeave={(e) => { (e.currentTarget as HTMLElement).style.boxShadow = "none"; (e.currentTarget as HTMLElement).style.transform = "none"; }}
       >
         <div style={{ flexShrink: 0, textAlign: "center", width: "42px" }}>
-          <div style={{ fontSize: "20px", fontWeight: "700", color: cfg.color, fontFamily: "var(--font-serif)", lineHeight: 1 }}>{mpMulai.date}</div>
-          <div style={{ fontSize: "9px", fontWeight: "700", color: "#6b6966", textTransform: "uppercase" as const, letterSpacing: "0.06em", fontFamily: "var(--font-sans)", marginTop: "2px" }}>{MONTHS_ID[mpMulai.month].slice(0, 3)}</div>
-          <div style={{ fontSize: "9px", color: "#c5c3bf", fontFamily: "var(--font-sans)", marginTop: "1px" }}>{mpMulai.year}</div>
+          <div style={{ fontSize: "20px", fontWeight: "700", color: cfg.color, fontFamily: "var(--font-montserrat)", lineHeight: 1 }}>{mpMulai.date}</div>
+          <div style={{ fontSize: "9px", fontWeight: "700", color: "#6b6966", textTransform: "uppercase" as const, letterSpacing: "0.06em", fontFamily: "var(--font-montserrat)", marginTop: "2px" }}>{MONTHS_ID[mpMulai.month].slice(0, 3)}</div>
+          <div style={{ fontSize: "9px", color: "#c5c3bf", fontFamily: "var(--font-montserrat)", marginTop: "1px" }}>{mpMulai.year}</div>
         </div>
         <div style={{ width: "1px", backgroundColor: "#e5e2dd", alignSelf: "stretch", flexShrink: 0 }} />
         <div style={{ flex: 1, minWidth: 0 }}>
           <div style={{ display: "flex", alignItems: "center", gap: "6px", flexWrap: "wrap" as const, marginBottom: "5px" }}>
-            <span style={{ fontSize: "9px", fontWeight: "700", letterSpacing: "0.07em", textTransform: "uppercase" as const, color: cfg.color, backgroundColor: cfg.bg, padding: "2px 8px", borderRadius: "2px", fontFamily: "var(--font-sans)" }}>{cfg.label}</span>
-            <span style={{ fontSize: "9px", fontWeight: "600", textTransform: "uppercase" as const, color: jenis.color, backgroundColor: `${jenis.color}18`, padding: "2px 8px", borderRadius: "2px", fontFamily: "var(--font-sans)" }}>{jenis.label}</span>
-            <span style={{ display: "flex", alignItems: "center", gap: "3px", fontSize: "10px", color: "#6b6966", fontFamily: "var(--font-sans)" }}>
+            <span style={{ fontSize: "9px", fontWeight: "700", letterSpacing: "0.07em", textTransform: "uppercase" as const, color: cfg.color, backgroundColor: cfg.bg, padding: "2px 8px", borderRadius: "2px", fontFamily: "var(--font-montserrat)" }}>{cfg.label}</span>
+            <span style={{ fontSize: "9px", fontWeight: "600", textTransform: "uppercase" as const, color: jenis.color, backgroundColor: `${jenis.color}18`, padding: "2px 8px", borderRadius: "2px", fontFamily: "var(--font-montserrat)" }}>{jenis.label}</span>
+            <span style={{ display: "flex", alignItems: "center", gap: "3px", fontSize: "10px", color: "#6b6966", fontFamily: "var(--font-montserrat)" }}>
               <svg width="9" height="9" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2"><path d="M21 10c0 7-9 13-9 13s-9-6-9-13a9 9 0 0 1 18 0z"/><circle cx="12" cy="10" r="3"/></svg>
               {ev.lokasi}
             </span>
           </div>
-          <h3 style={{ fontSize: "14px", fontWeight: "600", color: status === "selesai" ? "#5c5a57" : "#0d0d0d", fontFamily: "var(--font-serif)", lineHeight: "1.4", margin: "0 0 3px" }}>{ev.judul}</h3>
-          <p style={{ fontSize: "11px", color: "#6b6966", fontFamily: "var(--font-sans)", margin: "0 0 6px" }}>{formatTanggal(ev.tanggal_mulai, ev.tanggal_selesai)}</p>
-          <p style={{ fontSize: "14px", color: "#7a7874", fontFamily: "var(--font-sans)", lineHeight: "1.6", margin: 0, display: "-webkit-box", WebkitLineClamp: 2, WebkitBoxOrient: "vertical" as const, overflow: "hidden" }}>
+          <h3 style={{ fontSize: "14px", fontWeight: "600", color: status === "selesai" ? "#5c5a57" : "#0d0d0d", fontFamily: "var(--font-montserrat)", lineHeight: "1.4", margin: "0 0 3px" }}>{ev.judul}</h3>
+          <p style={{ fontSize: "11px", color: "#6b6966", fontFamily: "var(--font-montserrat)", margin: "0 0 6px" }}>{formatTanggal(ev.tanggal_mulai, ev.tanggal_selesai)}</p>
+          <p style={{ fontSize: "14px", color: "#7a7874", fontFamily: "var(--font-montserrat)", lineHeight: "1.6", margin: 0, display: "-webkit-box", WebkitLineClamp: 2, WebkitBoxOrient: "vertical" as const, overflow: "hidden" }}>
             {ev.deskripsi.replace(/\n/g, " ").trim()}
           </p>
           {ev.links.length > 0 && (
             <div style={{ display: "flex", gap: "6px", flexWrap: "wrap" as const, marginTop: "8px" }}>
               {ev.links.map((l) => (
                 <a key={l.id} href={normalizeUrl(l.url)} target="_blank" rel="noopener noreferrer" onClick={(e) => e.stopPropagation()}
-                  style={{ fontSize: "10px", fontWeight: "600", color: "#1e4d7b", backgroundColor: "rgba(30,77,123,0.08)", padding: "2px 10px", borderRadius: "2px", textDecoration: "none", fontFamily: "var(--font-sans)", display: "inline-flex", alignItems: "center", gap: "4px", transition: "all 0.15s" }}
+                  style={{ fontSize: "10px", fontWeight: "600", color: "#1e4d7b", backgroundColor: "rgba(30,77,123,0.08)", padding: "2px 10px", borderRadius: "2px", textDecoration: "none", fontFamily: "var(--font-montserrat)", display: "inline-flex", alignItems: "center", gap: "4px", transition: "all 0.15s" }}
                   onMouseEnter={(e) => { e.currentTarget.style.backgroundColor = "rgba(30,77,123,0.18)"; }}
                   onMouseLeave={(e) => { e.currentTarget.style.backgroundColor = "rgba(30,77,123,0.08)"; }}>
                   {l.judul_link}
@@ -162,7 +162,7 @@ function Pagination({ current, total, onChange }: { current: number; total: numb
     display: "flex", alignItems: "center", justifyContent: "center", minWidth: "36px", height: "36px", padding: "0 6px",
     borderRadius: "3px", border: `1px solid ${active ? "#0C57A8" : "#e5e2dd"}`,
     backgroundColor: active ? "#0C57A8" : "#fff", color: disabled ? "#c5c3bf" : active ? "#fff" : "#3a3a3a",
-    fontSize: "13px", fontWeight: active ? "700" : "500", fontFamily: "var(--font-sans)",
+    fontSize: "13px", fontWeight: active ? "700" : "500", fontFamily: "var(--font-montserrat)",
     cursor: disabled ? "not-allowed" : "pointer", transition: "all 0.2s",
   });
   return (
@@ -173,7 +173,7 @@ function Pagination({ current, total, onChange }: { current: number; total: numb
         <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2"><path d="M15 18l-6-6 6-6"/></svg>
       </button>
       {pages.map((p, i) => p === "..." ? (
-        <span key={`e${i}`} style={{ minWidth: "36px", height: "36px", display: "flex", alignItems: "center", justifyContent: "center", fontSize: "13px", color: "#6b6966", fontFamily: "var(--font-sans)" }}>···</span>
+        <span key={`e${i}`} style={{ minWidth: "36px", height: "36px", display: "flex", alignItems: "center", justifyContent: "center", fontSize: "13px", color: "#6b6966", fontFamily: "var(--font-montserrat)" }}>···</span>
       ) : (
         <button key={p} style={btn(p === current)} onClick={() => onChange(p as number)}
           onMouseEnter={(e) => { if (p !== current) { (e.currentTarget as HTMLElement).style.borderColor = "#0C57A8"; (e.currentTarget as HTMLElement).style.color = "#0C57A8"; } }}
@@ -308,8 +308,8 @@ function CalendarView({ events }: { events: EventItem[] }) {
               <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2"><path d="M15 18l-6-6 6-6"/></svg>
             </button>
             <div style={{ textAlign: "center" }}>
-              <div style={{ fontSize: "15px", fontWeight: "700", color: "#0d0d0d", fontFamily: "var(--font-serif)" }}>{MONTHS_ID[calMonth]} {calYear}</div>
-              <div style={{ fontSize: "10px", color: "#6b6966", fontFamily: "var(--font-sans)", marginTop: "1px" }}>{monthEventCount} acara bulan ini</div>
+              <div style={{ fontSize: "15px", fontWeight: "700", color: "#0d0d0d", fontFamily: "var(--font-montserrat)" }}>{MONTHS_ID[calMonth]} {calYear}</div>
+              <div style={{ fontSize: "10px", color: "#6b6966", fontFamily: "var(--font-montserrat)", marginTop: "1px" }}>{monthEventCount} acara bulan ini</div>
             </div>
             <button onClick={nextMonth} style={{ display: "flex", alignItems: "center", justifyContent: "center", width: "36px", height: "36px", border: "1px solid #e5e2dd", borderRadius: "3px", background: "#fff", cursor: "pointer", color: "#3a3a3a" }}>
               <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2"><path d="M9 18l6-6-6-6"/></svg>
@@ -317,7 +317,7 @@ function CalendarView({ events }: { events: EventItem[] }) {
           </div>
           <div style={{ display: "grid", gridTemplateColumns: "repeat(7, 1fr)", borderBottom: "1px solid #e5e2dd" }}>
             {DAYS_ID.map((d, i) => (
-              <div key={d} style={{ padding: "6px 2px", textAlign: "center", fontSize: "9px", fontWeight: "700", letterSpacing: "0.04em", textTransform: "uppercase" as const, color: i === 0 ? "#0C57A8" : "#6b6966", fontFamily: "var(--font-sans)" }}>{d}</div>
+              <div key={d} style={{ padding: "6px 2px", textAlign: "center", fontSize: "9px", fontWeight: "700", letterSpacing: "0.04em", textTransform: "uppercase" as const, color: i === 0 ? "#0C57A8" : "#6b6966", fontFamily: "var(--font-montserrat)" }}>{d}</div>
             ))}
           </div>
           <div style={{ display: "grid", gridTemplateColumns: "repeat(7, 1fr)" }}>
@@ -337,7 +337,7 @@ function CalendarView({ events }: { events: EventItem[] }) {
                   style={{ height: "46px", borderRight: (i + 1) % 7 !== 0 ? "1px solid #f0eeec" : "none", borderBottom: i < totalCells - 7 ? "1px solid #f0eeec" : "none", backgroundColor: isSelected ? "#fef2f4" : isToday ? "rgba(30,77,123,0.03)" : "#fff", cursor: isValid && hasEvs ? "pointer" : "default", display: "flex", flexDirection: "column" as const, alignItems: "center", justifyContent: "center", gap: "3px" }}>
                   {isValid && (
                     <>
-                      <span style={{ fontSize: "13px", fontWeight: hasEvs || isToday ? "700" : "400", color: dateColor, width: "28px", height: "28px", display: "flex", alignItems: "center", justifyContent: "center", borderRadius: "50%", fontFamily: "var(--font-sans)", backgroundColor: isSelected ? "#0C57A8" : isToday && !hasEvs ? "rgba(30,77,123,0.12)" : hasEvs ? `${firstEvColor}18` : "transparent" }}>
+                      <span style={{ fontSize: "13px", fontWeight: hasEvs || isToday ? "700" : "400", color: dateColor, width: "28px", height: "28px", display: "flex", alignItems: "center", justifyContent: "center", borderRadius: "50%", fontFamily: "var(--font-montserrat)", backgroundColor: isSelected ? "#0C57A8" : isToday && !hasEvs ? "rgba(30,77,123,0.12)" : hasEvs ? `${firstEvColor}18` : "transparent" }}>
                         {dayNum}
                       </span>
                       {hasEvs && (
@@ -360,7 +360,7 @@ function CalendarView({ events }: { events: EventItem[] }) {
           {Object.entries(statusCfg).map(([key, cfg]) => (
             <div key={key} style={{ display: "flex", alignItems: "center", gap: "4px" }}>
               <div style={{ width: "7px", height: "7px", borderRadius: "50%", backgroundColor: cfg.border }} />
-              <span style={{ fontSize: "10px", color: "#5c5a57", fontFamily: "var(--font-sans)" }}>{cfg.label.replace("● ", "")}</span>
+              <span style={{ fontSize: "10px", color: "#5c5a57", fontFamily: "var(--font-montserrat)" }}>{cfg.label.replace("● ", "")}</span>
             </div>
           ))}
         </div>
@@ -368,8 +368,8 @@ function CalendarView({ events }: { events: EventItem[] }) {
         {selectedDay !== null && selectedEvents.length > 0 && (
           <div style={{ marginBottom: "16px" }}>
             <div style={{ display: "flex", alignItems: "center", gap: "8px", marginBottom: "10px", paddingBottom: "8px", borderBottom: "2px solid #e5e2dd" }}>
-              <span style={{ fontSize: "14px", fontWeight: "700", color: "#0C57A8", fontFamily: "var(--font-serif)" }}>{selectedDay} {MONTHS_ID[calMonth]} {calYear}</span>
-              <span style={{ fontSize: "11px", color: "#6b6966", fontFamily: "var(--font-sans)" }}>· {selectedEvents.length} acara</span>
+              <span style={{ fontSize: "14px", fontWeight: "700", color: "#0C57A8", fontFamily: "var(--font-montserrat)" }}>{selectedDay} {MONTHS_ID[calMonth]} {calYear}</span>
+              <span style={{ fontSize: "11px", color: "#6b6966", fontFamily: "var(--font-montserrat)" }}>· {selectedEvents.length} acara</span>
               <button onClick={() => setSelectedDay(null)} style={{ marginLeft: "auto", background: "none", border: "none", cursor: "pointer", color: "#6b6966", padding: "4px", display: "flex" }}>
                 <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2"><path d="M18 6L6 18M6 6l12 12"/></svg>
               </button>
@@ -382,12 +382,12 @@ function CalendarView({ events }: { events: EventItem[] }) {
 
         {selectedDay === null && monthEventCount === 0 && (
           <div style={{ padding: "24px", textAlign: "center", backgroundColor: "#fff", border: "1px solid #e5e2dd", borderRadius: "4px" }}>
-            <p style={{ fontSize: "13px", color: "#6b6966", fontFamily: "var(--font-sans)", margin: 0 }}>Tidak ada acara di {MONTHS_ID[calMonth]} {calYear}.</p>
+            <p style={{ fontSize: "13px", color: "#6b6966", fontFamily: "var(--font-montserrat)", margin: 0 }}>Tidak ada acara di {MONTHS_ID[calMonth]} {calYear}.</p>
           </div>
         )}
         {selectedDay === null && monthEventCount > 0 && (
           <div>
-            <div style={{ fontSize: "10px", fontWeight: "700", color: "#6b6966", letterSpacing: "0.08em", textTransform: "uppercase" as const, fontFamily: "var(--font-sans)", marginBottom: "8px" }}>
+            <div style={{ fontSize: "10px", fontWeight: "700", color: "#6b6966", letterSpacing: "0.08em", textTransform: "uppercase" as const, fontFamily: "var(--font-montserrat)", marginBottom: "8px" }}>
               Acara {MONTHS_ID[calMonth]} {calYear}
             </div>
             <div style={{ display: "flex", flexDirection: "column", gap: "8px" }}>
@@ -410,8 +410,8 @@ function CalendarView({ events }: { events: EventItem[] }) {
             <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2"><path d="M15 18l-6-6 6-6"/></svg>
           </button>
           <div style={{ textAlign: "center" }}>
-            <div style={{ fontSize: "16px", fontWeight: "700", color: "#0d0d0d", fontFamily: "var(--font-serif)" }}>{MONTHS_ID[calMonth]} {calYear}</div>
-            <div style={{ fontSize: "11px", color: "#6b6966", fontFamily: "var(--font-sans)", marginTop: "1px" }}>{monthEventCount} acara bulan ini</div>
+            <div style={{ fontSize: "16px", fontWeight: "700", color: "#0d0d0d", fontFamily: "var(--font-montserrat)" }}>{MONTHS_ID[calMonth]} {calYear}</div>
+            <div style={{ fontSize: "11px", color: "#6b6966", fontFamily: "var(--font-montserrat)", marginTop: "1px" }}>{monthEventCount} acara bulan ini</div>
           </div>
           <button onClick={nextMonth} style={{ display: "flex", alignItems: "center", justifyContent: "center", width: "32px", height: "32px", border: "1px solid #e5e2dd", borderRadius: "3px", background: "#fff", cursor: "pointer", transition: "all 0.15s", color: "#3a3a3a" }}
             onMouseEnter={(e) => { (e.currentTarget as HTMLElement).style.borderColor = "#0C57A8"; (e.currentTarget as HTMLElement).style.color = "#0C57A8"; }}
@@ -422,7 +422,7 @@ function CalendarView({ events }: { events: EventItem[] }) {
 
         <div style={{ display: "grid", gridTemplateColumns: "repeat(7, 1fr)", borderBottom: "1px solid #e5e2dd" }}>
           {DAYS_ID.map((d, i) => (
-            <div key={d} style={{ padding: "8px 4px", textAlign: "center", fontSize: "10px", fontWeight: "700", letterSpacing: "0.05em", textTransform: "uppercase" as const, color: i === 0 ? "#0C57A8" : "#6b6966", fontFamily: "var(--font-sans)" }}>{d}</div>
+            <div key={d} style={{ padding: "8px 4px", textAlign: "center", fontSize: "10px", fontWeight: "700", letterSpacing: "0.05em", textTransform: "uppercase" as const, color: i === 0 ? "#0C57A8" : "#6b6966", fontFamily: "var(--font-montserrat)" }}>{d}</div>
           ))}
         </div>
 
@@ -450,7 +450,7 @@ function CalendarView({ events }: { events: EventItem[] }) {
                 {isValid && (
                   <div style={{ padding: "6px 4px 4px", display: "flex", flexDirection: "column", height: "100%", gap: "2px" }}>
                     <div style={{ display: "flex", justifyContent: "center", marginBottom: "2px" }}>
-                      <span style={{ fontSize: "12px", fontWeight: hasEvs ? "700" : isToday ? "700" : "400", color: dateColor, width: "22px", height: "22px", display: "flex", alignItems: "center", justifyContent: "center", borderRadius: "50%", fontFamily: "var(--font-sans)", backgroundColor: isToday && !hasEvs ? "rgba(30,77,123,0.12)" : hasEvs ? `${dateColor}18` : "transparent", outline: isSelected ? `1.5px solid ${dateColor}` : "none" }}>
+                      <span style={{ fontSize: "12px", fontWeight: hasEvs ? "700" : isToday ? "700" : "400", color: dateColor, width: "22px", height: "22px", display: "flex", alignItems: "center", justifyContent: "center", borderRadius: "50%", fontFamily: "var(--font-montserrat)", backgroundColor: isToday && !hasEvs ? "rgba(30,77,123,0.12)" : hasEvs ? `${dateColor}18` : "transparent", outline: isSelected ? `1.5px solid ${dateColor}` : "none" }}>
                         {dayNum}
                       </span>
                     </div>
@@ -458,7 +458,7 @@ function CalendarView({ events }: { events: EventItem[] }) {
                     {rangeInfos.slice(0, 2).map((ri, idx) => (
                       <div key={idx} style={{ position: "relative", height: "16px", marginLeft: ri.isStart ? "4px" : colIdx === 0 ? "0px" : "-1px", marginRight: ri.isEnd ? "4px" : colIdx === 6 ? "0px" : "-1px", backgroundColor: `${ri.color}22`, borderRadius: ri.isStart && ri.isEnd ? "3px" : ri.isStart ? "3px 0 0 3px" : ri.isEnd ? "0 3px 3px 0" : "0", borderLeft: ri.isStart ? `2px solid ${ri.color}` : "none", borderRight: ri.isEnd ? `2px solid ${ri.color}` : "none", borderTop: `1px solid ${ri.color}44`, borderBottom: `1px solid ${ri.color}44`, display: "flex", alignItems: "center", paddingLeft: ri.isStart ? "4px" : "2px", overflow: "hidden", flexShrink: 0 }}>
                         {(ri.isStart || colIdx === 0) && (
-                          <span style={{ fontSize: "8px", fontWeight: "600", color: ri.color, fontFamily: "var(--font-sans)", whiteSpace: "nowrap", overflow: "hidden", textOverflow: "ellipsis", lineHeight: 1, maxWidth: "100%" }}>
+                          <span style={{ fontSize: "8px", fontWeight: "600", color: ri.color, fontFamily: "var(--font-montserrat)", whiteSpace: "nowrap", overflow: "hidden", textOverflow: "ellipsis", lineHeight: 1, maxWidth: "100%" }}>
                             {ri.eventName}
                           </span>
                         )}
@@ -469,7 +469,7 @@ function CalendarView({ events }: { events: EventItem[] }) {
                       const color = statusCfg[getStatus(ev)].border;
                       return (
                         <div key={ev.id} style={{ height: "16px", marginLeft: "4px", marginRight: "4px", backgroundColor: `${color}18`, borderRadius: "3px", borderLeft: `2px solid ${color}`, display: "flex", alignItems: "center", paddingLeft: "4px", overflow: "hidden", flexShrink: 0 }}>
-                          <span style={{ fontSize: "8px", fontWeight: "600", color, fontFamily: "var(--font-sans)", whiteSpace: "nowrap", overflow: "hidden", textOverflow: "ellipsis", lineHeight: 1 }}>
+                          <span style={{ fontSize: "8px", fontWeight: "600", color, fontFamily: "var(--font-montserrat)", whiteSpace: "nowrap", overflow: "hidden", textOverflow: "ellipsis", lineHeight: 1 }}>
                             {ev.judul}
                           </span>
                         </div>
@@ -478,7 +478,7 @@ function CalendarView({ events }: { events: EventItem[] }) {
 
                     {dayEvs.length > 2 && (
                       <div style={{ paddingLeft: "6px" }}>
-                        <span style={{ fontSize: "8px", color: "#6b6966", fontFamily: "var(--font-sans)" }}>+{dayEvs.length - 2} lagi</span>
+                        <span style={{ fontSize: "8px", color: "#6b6966", fontFamily: "var(--font-montserrat)" }}>+{dayEvs.length - 2} lagi</span>
                       </div>
                     )}
                   </div>
@@ -493,20 +493,20 @@ function CalendarView({ events }: { events: EventItem[] }) {
         {Object.entries(statusCfg).map(([key, cfg]) => (
           <div key={key} style={{ display: "flex", alignItems: "center", gap: "5px" }}>
             <div style={{ width: "8px", height: "8px", borderRadius: "50%", backgroundColor: cfg.border }} />
-            <span style={{ fontSize: "11px", color: "#5c5a57", fontFamily: "var(--font-sans)" }}>{cfg.label.replace("● ", "")}</span>
+            <span style={{ fontSize: "11px", color: "#5c5a57", fontFamily: "var(--font-montserrat)" }}>{cfg.label.replace("● ", "")}</span>
           </div>
         ))}
         <div style={{ display: "flex", alignItems: "center", gap: "5px", marginLeft: "auto" }}>
-          <span style={{ fontSize: "11px", color: "#6b6966", fontFamily: "var(--font-sans)" }}>Klik tanggal untuk melihat detail acara</span>
+          <span style={{ fontSize: "11px", color: "#6b6966", fontFamily: "var(--font-montserrat)" }}>Klik tanggal untuk melihat detail acara</span>
         </div>
       </div>
 
       {selectedDay !== null && (
         <div>
           <div style={{ display: "flex", alignItems: "center", gap: "10px", marginBottom: "12px", paddingBottom: "10px", borderBottom: "2px solid #e5e2dd" }}>
-            <span style={{ fontSize: "15px", fontWeight: "700", color: "#0C57A8", fontFamily: "var(--font-serif)" }}>{selectedDay} {MONTHS_ID[calMonth]} {calYear}</span>
-            <span style={{ fontSize: "12px", color: "#6b6966", fontFamily: "var(--font-sans)" }}>· {selectedEvents.length} acara</span>
-            <button onClick={() => setSelectedDay(null)} style={{ marginLeft: "auto", background: "none", border: "none", cursor: "pointer", color: "#6b6966", display: "flex", alignItems: "center", gap: "4px", fontSize: "11px", fontFamily: "var(--font-sans)" }}>
+            <span style={{ fontSize: "15px", fontWeight: "700", color: "#0C57A8", fontFamily: "var(--font-montserrat)" }}>{selectedDay} {MONTHS_ID[calMonth]} {calYear}</span>
+            <span style={{ fontSize: "12px", color: "#6b6966", fontFamily: "var(--font-montserrat)" }}>· {selectedEvents.length} acara</span>
+            <button onClick={() => setSelectedDay(null)} style={{ marginLeft: "auto", background: "none", border: "none", cursor: "pointer", color: "#6b6966", display: "flex", alignItems: "center", gap: "4px", fontSize: "11px", fontFamily: "var(--font-montserrat)" }}>
               <svg width="12" height="12" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2"><path d="M18 6L6 18M6 6l12 12"/></svg>
               Tutup
             </button>
@@ -519,7 +519,7 @@ function CalendarView({ events }: { events: EventItem[] }) {
 
       {selectedDay === null && monthEventCount === 0 && (
         <div style={{ padding: "32px", textAlign: "center", backgroundColor: "#fff", border: "1px solid #e5e2dd", borderRadius: "4px" }}>
-          <p style={{ fontSize: "13px", color: "#6b6966", fontFamily: "var(--font-sans)", margin: 0 }}>Tidak ada acara di {MONTHS_ID[calMonth]} {calYear}.</p>
+          <p style={{ fontSize: "13px", color: "#6b6966", fontFamily: "var(--font-montserrat)", margin: 0 }}>Tidak ada acara di {MONTHS_ID[calMonth]} {calYear}.</p>
         </div>
       )}
     </div>
@@ -604,28 +604,28 @@ export default function AcaraClient({ initialEvents }: { initialEvents: EventIte
 
         <div style={{ maxWidth: "1280px", margin: "0 auto", position: "relative", zIndex: 1 }}>
           <div style={{ display: "flex", alignItems: "center", gap: "6px", marginBottom: "12px" }}>
-            <Link href="/" style={{ fontSize: "11px", color: "rgba(255,255,255,0.4)", textDecoration: "none", fontFamily: "var(--font-sans)", transition: "color 0.15s" }}
+            <Link href="/" style={{ fontSize: "11px", color: "rgba(255,255,255,0.4)", textDecoration: "none", fontFamily: "var(--font-montserrat)", transition: "color 0.15s" }}
               onMouseEnter={(e) => (e.currentTarget.style.color = "rgba(255,255,255,0.8)")}
               onMouseLeave={(e) => (e.currentTarget.style.color = "rgba(255,255,255,0.4)")}>
               Beranda
             </Link>
-            <span style={{ fontSize: "11px", color: "rgba(255,255,255,0.25)", fontFamily: "var(--font-sans)" }}>/</span>
-            <span style={{ fontSize: "11px", color: "#f5c842", fontFamily: "var(--font-sans)" }}>Acara</span>
+            <span style={{ fontSize: "11px", color: "rgba(255,255,255,0.25)", fontFamily: "var(--font-montserrat)" }}>/</span>
+            <span style={{ fontSize: "11px", color: "#f5c842", fontFamily: "var(--font-montserrat)" }}>Acara</span>
           </div>
 
           <div style={{ display: "flex", alignItems: "flex-end", justifyContent: "space-between", flexWrap: "wrap", gap: "20px" }}>
             <div>
-              <h1 style={{ fontSize: "clamp(1.8rem, 3vw, 2.6rem)", fontWeight: "700", color: "#fff", fontFamily: "var(--font-serif)", margin: "6px 0 0", lineHeight: "1.2" }}>
+              <h1 style={{ fontSize: "clamp(1.8rem, 3vw, 2.6rem)", fontWeight: "700", color: "#fff", fontFamily: "var(--font-montserrat)", margin: "6px 0 0", lineHeight: "1.2" }}>
                 Acara & Kegiatan
               </h1>
-              <p style={{ fontSize: "13px", color: "rgba(255,255,255,0.45)", fontFamily: "var(--font-sans)", margin: "6px 0 0" }}>
+              <p style={{ fontSize: "13px", color: "rgba(255,255,255,0.45)", fontFamily: "var(--font-montserrat)", margin: "6px 0 0" }}>
                 Seluruh kegiatan Wikimedia Indonesia — masa lalu, berlangsung, maupun mendatang.
               </p>
             </div>
 
             <div className="hero-search-wrap" style={{ display: "flex", borderRadius: "3px", overflow: "hidden", border: "1px solid rgba(245,200,66,0.25)", width: "100%", maxWidth: "320px" }}>
               <input type="text" placeholder="Cari acara..." value={searchInput} onChange={(e) => setSearchInput(e.target.value)} onKeyDown={(e) => e.key === "Enter" && handleSearch()}
-                style={{ flex: 1, padding: "10px 14px", fontSize: "13px", backgroundColor: "rgba(255,255,255,0.06)", border: "none", color: "#fff", fontFamily: "var(--font-sans)", outline: "none", minWidth: 0 }} />
+                style={{ flex: 1, padding: "10px 14px", fontSize: "13px", backgroundColor: "rgba(255,255,255,0.06)", border: "none", color: "#fff", fontFamily: "var(--font-montserrat)", outline: "none", minWidth: 0 }} />
               <button onClick={handleSearch}
                 style={{ flexShrink: 0, padding: "10px 14px", backgroundColor: "#c8960a", border: "none", color: "#fff", cursor: "pointer", transition: "background 0.2s", display: "flex", alignItems: "center", justifyContent: "center" }}
                 onMouseEnter={(e) => ((e.currentTarget as HTMLElement).style.backgroundColor = "#daa80c")}
@@ -645,50 +645,50 @@ export default function AcaraClient({ initialEvents }: { initialEvents: EventIte
           {/* Mobile filter bar */}
           <div className="mobile-filter-bar" style={{ display: "none", alignItems: "center", gap: "8px", marginBottom: "14px", flexWrap: "wrap" as const }}>
             <button onClick={() => setShowMobileFilter(v => !v)}
-              style={{ display: "flex", alignItems: "center", gap: "6px", padding: "8px 14px", backgroundColor: (hasFilter || showMobileFilter) ? "#0C57A8" : "#fff", border: `1px solid ${hasFilter || showMobileFilter ? "#0C57A8" : "#e5e2dd"}`, borderRadius: "3px", color: (hasFilter || showMobileFilter) ? "#fff" : "#3a3a3a", fontSize: "12px", fontWeight: "600", fontFamily: "var(--font-sans)", cursor: "pointer" }}>
+              style={{ display: "flex", alignItems: "center", gap: "6px", padding: "8px 14px", backgroundColor: (hasFilter || showMobileFilter) ? "#0C57A8" : "#fff", border: `1px solid ${hasFilter || showMobileFilter ? "#0C57A8" : "#e5e2dd"}`, borderRadius: "3px", color: (hasFilter || showMobileFilter) ? "#fff" : "#3a3a3a", fontSize: "12px", fontWeight: "600", fontFamily: "var(--font-montserrat)", cursor: "pointer" }}>
               <svg width="13" height="13" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2"><line x1="4" y1="6" x2="20" y2="6"/><line x1="8" y1="12" x2="16" y2="12"/><line x1="10" y1="18" x2="14" y2="18"/></svg>
               Filter {hasFilter ? "· aktif" : ""}
             </button>
             {hasFilter && (
-              <button onClick={resetFilter} style={{ display: "flex", alignItems: "center", gap: "4px", padding: "8px 12px", backgroundColor: "#fff", border: "1px solid #e5e2dd", borderRadius: "3px", color: "#0C57A8", fontSize: "11px", fontWeight: "600", fontFamily: "var(--font-sans)", cursor: "pointer" }}>
+              <button onClick={resetFilter} style={{ display: "flex", alignItems: "center", gap: "4px", padding: "8px 12px", backgroundColor: "#fff", border: "1px solid #e5e2dd", borderRadius: "3px", color: "#0C57A8", fontSize: "11px", fontWeight: "600", fontFamily: "var(--font-montserrat)", cursor: "pointer" }}>
                 <svg width="11" height="11" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2"><path d="M18 6L6 18M6 6l12 12"/></svg>
                 Reset
               </button>
             )}
-            <span style={{ marginLeft: "auto", fontSize: "11px", color: "#6b6966", fontFamily: "var(--font-sans)" }}>{filtered.length} acara</span>
+            <span style={{ marginLeft: "auto", fontSize: "11px", color: "#6b6966", fontFamily: "var(--font-montserrat)" }}>{filtered.length} acara</span>
           </div>
 
           {/* Mobile filter drawer */}
           {showMobileFilter && (
             <div className="mobile-filter-drawer" style={{ display: "none", marginBottom: "14px", padding: "14px", backgroundColor: "#fff", border: "1px solid #e5e2dd", borderRadius: "4px", flexDirection: "column" as const, gap: "12px" }}>
               <div>
-                <div style={{ fontSize: "10px", fontWeight: "700", letterSpacing: "0.07em", textTransform: "uppercase" as const, color: "#0C57A8", fontFamily: "var(--font-sans)", marginBottom: "6px" }}>Status</div>
+                <div style={{ fontSize: "10px", fontWeight: "700", letterSpacing: "0.07em", textTransform: "uppercase" as const, color: "#0C57A8", fontFamily: "var(--font-montserrat)", marginBottom: "6px" }}>Status</div>
                 <div style={{ display: "flex", flexWrap: "wrap" as const, gap: "6px" }}>
                   {(["semua","mendatang","berlangsung","selesai"] as const).map((s) => {
                     const labels: Record<string,string> = { semua:"Semua", mendatang:"Mendatang", berlangsung:"Berlangsung", selesai:"Selesai" };
                     const active = filterStatus === s;
-                    return <button key={s} onClick={() => setFilterStatus(s)} style={{ padding: "5px 12px", borderRadius: "20px", border: `1px solid ${active ? "#0C57A8" : "#e5e2dd"}`, backgroundColor: active ? "#0C57A8" : "#fff", color: active ? "#fff" : "#3a3a3a", fontSize: "11px", fontWeight: "600", fontFamily: "var(--font-sans)", cursor: "pointer" }}>{labels[s]}</button>;
+                    return <button key={s} onClick={() => setFilterStatus(s)} style={{ padding: "5px 12px", borderRadius: "20px", border: `1px solid ${active ? "#0C57A8" : "#e5e2dd"}`, backgroundColor: active ? "#0C57A8" : "#fff", color: active ? "#fff" : "#3a3a3a", fontSize: "11px", fontWeight: "600", fontFamily: "var(--font-montserrat)", cursor: "pointer" }}>{labels[s]}</button>;
                   })}
                 </div>
               </div>
               <div>
-                <div style={{ fontSize: "10px", fontWeight: "700", letterSpacing: "0.07em", textTransform: "uppercase" as const, color: "#0C57A8", fontFamily: "var(--font-sans)", marginBottom: "6px" }}>Jenis</div>
+                <div style={{ fontSize: "10px", fontWeight: "700", letterSpacing: "0.07em", textTransform: "uppercase" as const, color: "#0C57A8", fontFamily: "var(--font-montserrat)", marginBottom: "6px" }}>Jenis</div>
                 <div style={{ display: "flex", flexWrap: "wrap" as const, gap: "6px" }}>
                   {(["semua","daring","luring","hybrid"] as const).map((j) => {
                     const labels: Record<string,string> = { semua:"Semua", daring:"Daring", luring:"Luring", hybrid:"Gabungan" };
                     const active = filterJenis === j;
-                    return <button key={j} onClick={() => setFilterJenis(j)} style={{ padding: "5px 12px", borderRadius: "20px", border: `1px solid ${active ? "#0C57A8" : "#e5e2dd"}`, backgroundColor: active ? "#0C57A8" : "#fff", color: active ? "#fff" : "#3a3a3a", fontSize: "11px", fontWeight: "600", fontFamily: "var(--font-sans)", cursor: "pointer" }}>{labels[j]}</button>;
+                    return <button key={j} onClick={() => setFilterJenis(j)} style={{ padding: "5px 12px", borderRadius: "20px", border: `1px solid ${active ? "#0C57A8" : "#e5e2dd"}`, backgroundColor: active ? "#0C57A8" : "#fff", color: active ? "#fff" : "#3a3a3a", fontSize: "11px", fontWeight: "600", fontFamily: "var(--font-montserrat)", cursor: "pointer" }}>{labels[j]}</button>;
                   })}
                 </div>
               </div>
               {availableYears.length > 0 && (
                 <div>
-                  <div style={{ fontSize: "10px", fontWeight: "700", letterSpacing: "0.07em", textTransform: "uppercase" as const, color: "#0C57A8", fontFamily: "var(--font-sans)", marginBottom: "6px" }}>Tahun</div>
+                  <div style={{ fontSize: "10px", fontWeight: "700", letterSpacing: "0.07em", textTransform: "uppercase" as const, color: "#0C57A8", fontFamily: "var(--font-montserrat)", marginBottom: "6px" }}>Tahun</div>
                   <div style={{ display: "flex", flexWrap: "wrap" as const, gap: "6px" }}>
-                    <button onClick={() => { setFilterYear("semua"); setFilterMonth("semua"); }} style={{ padding: "5px 12px", borderRadius: "20px", border: `1px solid ${filterYear === "semua" ? "#0C57A8" : "#e5e2dd"}`, backgroundColor: filterYear === "semua" ? "#0C57A8" : "#fff", color: filterYear === "semua" ? "#fff" : "#3a3a3a", fontSize: "11px", fontWeight: "600", fontFamily: "var(--font-sans)", cursor: "pointer" }}>Semua</button>
+                    <button onClick={() => { setFilterYear("semua"); setFilterMonth("semua"); }} style={{ padding: "5px 12px", borderRadius: "20px", border: `1px solid ${filterYear === "semua" ? "#0C57A8" : "#e5e2dd"}`, backgroundColor: filterYear === "semua" ? "#0C57A8" : "#fff", color: filterYear === "semua" ? "#fff" : "#3a3a3a", fontSize: "11px", fontWeight: "600", fontFamily: "var(--font-montserrat)", cursor: "pointer" }}>Semua</button>
                     {availableYears.map(y => {
                       const active = filterYear === y;
-                      return <button key={y} onClick={() => { setFilterYear(y); setFilterMonth("semua"); }} style={{ padding: "5px 12px", borderRadius: "20px", border: `1px solid ${active ? "#0C57A8" : "#e5e2dd"}`, backgroundColor: active ? "#0C57A8" : "#fff", color: active ? "#fff" : "#3a3a3a", fontSize: "11px", fontWeight: "600", fontFamily: "var(--font-sans)", cursor: "pointer" }}>{y}</button>;
+                      return <button key={y} onClick={() => { setFilterYear(y); setFilterMonth("semua"); }} style={{ padding: "5px 12px", borderRadius: "20px", border: `1px solid ${active ? "#0C57A8" : "#e5e2dd"}`, backgroundColor: active ? "#0C57A8" : "#fff", color: active ? "#fff" : "#3a3a3a", fontSize: "11px", fontWeight: "600", fontFamily: "var(--font-montserrat)", cursor: "pointer" }}>{y}</button>;
                     })}
                   </div>
                 </div>
@@ -702,7 +702,7 @@ export default function AcaraClient({ initialEvents }: { initialEvents: EventIte
             <aside style={{ position: "sticky", top: "88px", display: "flex", flexDirection: "column", gap: "14px" }}>
               <div style={{ backgroundColor: "#fff", border: "1px solid #e5e2dd", borderRadius: "4px", overflow: "hidden" }}>
                 <div style={{ padding: "11px 16px", borderBottom: "3px solid #0d0d0d" }}>
-                  <span style={{ fontSize: "10px", fontWeight: "700", letterSpacing: "0.08em", textTransform: "uppercase" as const, color: "#0C57A8", fontFamily: "var(--font-sans)" }}>◆ Status</span>
+                  <span style={{ fontSize: "10px", fontWeight: "700", letterSpacing: "0.08em", textTransform: "uppercase" as const, color: "#0C57A8", fontFamily: "var(--font-montserrat)" }}>◆ Status</span>
                 </div>
                 <div style={{ padding: "6px 0" }}>
                   {(["semua","mendatang","berlangsung","selesai"] as const).map((s) => {
@@ -713,9 +713,9 @@ export default function AcaraClient({ initialEvents }: { initialEvents: EventIte
                       <button key={s} onClick={() => setFilterStatus(s)} style={sidebarBtn(active)}
                         onMouseEnter={(e) => { if (!active) (e.currentTarget as HTMLElement).style.background = "rgba(0,0,0,0.03)"; }}
                         onMouseLeave={(e) => { if (!active) (e.currentTarget as HTMLElement).style.background = "transparent"; }}>
-                        <span style={{ fontSize: "12px", color: active ? "#0C57A8" : colors[s], fontFamily: "var(--font-sans)", fontWeight: active ? "700" : "500" }}>{labels[s]}</span>
+                        <span style={{ fontSize: "12px", color: active ? "#0C57A8" : colors[s], fontFamily: "var(--font-montserrat)", fontWeight: active ? "700" : "500" }}>{labels[s]}</span>
                         {s !== "semua" && (
-                          <span style={{ fontSize: "10px", color: "#6b6966", backgroundColor: "#f0eeec", padding: "1px 7px", borderRadius: "10px", fontFamily: "var(--font-sans)" }}>
+                          <span style={{ fontSize: "10px", color: "#6b6966", backgroundColor: "#f0eeec", padding: "1px 7px", borderRadius: "10px", fontFamily: "var(--font-montserrat)" }}>
                             {events.filter((e) => getStatus(e) === s).length}
                           </span>
                         )}
@@ -727,7 +727,7 @@ export default function AcaraClient({ initialEvents }: { initialEvents: EventIte
 
               <div style={{ backgroundColor: "#fff", border: "1px solid #e5e2dd", borderRadius: "4px", overflow: "hidden" }}>
                 <div style={{ padding: "11px 16px", borderBottom: "3px solid #0d0d0d" }}>
-                  <span style={{ fontSize: "10px", fontWeight: "700", letterSpacing: "0.08em", textTransform: "uppercase" as const, color: "#0C57A8", fontFamily: "var(--font-sans)" }}>◆ Jenis</span>
+                  <span style={{ fontSize: "10px", fontWeight: "700", letterSpacing: "0.08em", textTransform: "uppercase" as const, color: "#0C57A8", fontFamily: "var(--font-montserrat)" }}>◆ Jenis</span>
                 </div>
                 <div style={{ padding: "6px 0" }}>
                   {(["semua","daring","luring","hybrid"] as const).map((j) => {
@@ -737,7 +737,7 @@ export default function AcaraClient({ initialEvents }: { initialEvents: EventIte
                       <button key={j} onClick={() => setFilterJenis(j)} style={sidebarBtn(active)}
                         onMouseEnter={(e) => { if (!active) (e.currentTarget as HTMLElement).style.background = "rgba(0,0,0,0.03)"; }}
                         onMouseLeave={(e) => { if (!active) (e.currentTarget as HTMLElement).style.background = "transparent"; }}>
-                        <span style={{ fontSize: "12px", color: active ? "#0C57A8" : "#3a3a3a", fontFamily: "var(--font-sans)", fontWeight: active ? "700" : "500" }}>{labels[j]}</span>
+                        <span style={{ fontSize: "12px", color: active ? "#0C57A8" : "#3a3a3a", fontFamily: "var(--font-montserrat)", fontWeight: active ? "700" : "500" }}>{labels[j]}</span>
                       </button>
                     );
                   })}
@@ -747,16 +747,16 @@ export default function AcaraClient({ initialEvents }: { initialEvents: EventIte
               {availableYears.length > 0 && (
                 <div style={{ backgroundColor: "#fff", border: "1px solid #e5e2dd", borderRadius: "4px", overflow: "hidden" }}>
                   <div style={{ padding: "11px 16px", borderBottom: "3px solid #0d0d0d" }}>
-                    <span style={{ fontSize: "10px", fontWeight: "700", letterSpacing: "0.08em", textTransform: "uppercase" as const, color: "#0C57A8", fontFamily: "var(--font-sans)" }}>◆ Tahun</span>
+                    <span style={{ fontSize: "10px", fontWeight: "700", letterSpacing: "0.08em", textTransform: "uppercase" as const, color: "#0C57A8", fontFamily: "var(--font-montserrat)" }}>◆ Tahun</span>
                   </div>
                   <div style={{ padding: "6px 0", maxHeight: "200px", overflowY: "auto" as const }}>
                     <button onClick={() => { setFilterYear("semua"); setFilterMonth("semua"); }} style={sidebarBtn(filterYear === "semua")}>
-                      <span style={{ fontSize: "12px", color: filterYear === "semua" ? "#0C57A8" : "#3a3a3a", fontFamily: "var(--font-sans)", fontWeight: filterYear === "semua" ? "700" : "500" }}>Semua Tahun</span>
+                      <span style={{ fontSize: "12px", color: filterYear === "semua" ? "#0C57A8" : "#3a3a3a", fontFamily: "var(--font-montserrat)", fontWeight: filterYear === "semua" ? "700" : "500" }}>Semua Tahun</span>
                     </button>
                     {availableYears.map((y) => (
                       <button key={y} onClick={() => { setFilterYear(y); setFilterMonth("semua"); }} style={sidebarBtn(filterYear === y)}>
-                        <span style={{ fontSize: "12px", color: filterYear === y ? "#0C57A8" : "#3a3a3a", fontFamily: "var(--font-sans)", fontWeight: filterYear === y ? "700" : "500" }}>{y}</span>
-                        <span style={{ fontSize: "10px", color: "#6b6966", backgroundColor: "#f0eeec", padding: "1px 7px", borderRadius: "10px", fontFamily: "var(--font-sans)" }}>
+                        <span style={{ fontSize: "12px", color: filterYear === y ? "#0C57A8" : "#3a3a3a", fontFamily: "var(--font-montserrat)", fontWeight: filterYear === y ? "700" : "500" }}>{y}</span>
+                        <span style={{ fontSize: "10px", color: "#6b6966", backgroundColor: "#f0eeec", padding: "1px 7px", borderRadius: "10px", fontFamily: "var(--font-montserrat)" }}>
                           {events.filter((e) => wibParts(e.tanggal_mulai).year === y).length}
                         </span>
                       </button>
@@ -768,11 +768,11 @@ export default function AcaraClient({ initialEvents }: { initialEvents: EventIte
               {filterYear !== "semua" && (
                 <div style={{ backgroundColor: "#fff", border: "1px solid #e5e2dd", borderRadius: "4px", overflow: "hidden" }}>
                   <div style={{ padding: "11px 16px", borderBottom: "3px solid #0d0d0d" }}>
-                    <span style={{ fontSize: "10px", fontWeight: "700", letterSpacing: "0.08em", textTransform: "uppercase" as const, color: "#0C57A8", fontFamily: "var(--font-sans)" }}>◆ Bulan</span>
+                    <span style={{ fontSize: "10px", fontWeight: "700", letterSpacing: "0.08em", textTransform: "uppercase" as const, color: "#0C57A8", fontFamily: "var(--font-montserrat)" }}>◆ Bulan</span>
                   </div>
                   <div style={{ padding: "6px 0" }}>
                     <button onClick={() => setFilterMonth("semua")} style={sidebarBtn(filterMonth === "semua")}>
-                      <span style={{ fontSize: "12px", color: filterMonth === "semua" ? "#0C57A8" : "#3a3a3a", fontFamily: "var(--font-sans)", fontWeight: filterMonth === "semua" ? "700" : "500" }}>Semua Bulan</span>
+                      <span style={{ fontSize: "12px", color: filterMonth === "semua" ? "#0C57A8" : "#3a3a3a", fontFamily: "var(--font-montserrat)", fontWeight: filterMonth === "semua" ? "700" : "500" }}>Semua Bulan</span>
                     </button>
                     {MONTHS_ID.map((m, idx) => {
                       const hasEvs = events.some((e) => { const mp = wibParts(e.tanggal_mulai); return mp.year === filterYear && mp.month === idx; });
@@ -780,7 +780,7 @@ export default function AcaraClient({ initialEvents }: { initialEvents: EventIte
                       const active = filterMonth === idx;
                       return (
                         <button key={idx} onClick={() => setFilterMonth(idx)} style={sidebarBtn(active)}>
-                          <span style={{ fontSize: "12px", color: active ? "#0C57A8" : "#3a3a3a", fontFamily: "var(--font-sans)", fontWeight: active ? "700" : "500" }}>{m}</span>
+                          <span style={{ fontSize: "12px", color: active ? "#0C57A8" : "#3a3a3a", fontFamily: "var(--font-montserrat)", fontWeight: active ? "700" : "500" }}>{m}</span>
                         </button>
                       );
                     })}
@@ -790,7 +790,7 @@ export default function AcaraClient({ initialEvents }: { initialEvents: EventIte
 
               {hasFilter && (
                 <button onClick={resetFilter}
-                  style={{ width: "100%", padding: "8px 16px", borderRadius: "3px", border: "1px solid #e5e2dd", backgroundColor: "#fff", color: "#3a3a3a", fontSize: "12px", fontWeight: "600", fontFamily: "var(--font-sans)", cursor: "pointer", display: "flex", alignItems: "center", justifyContent: "center", gap: "6px", transition: "all 0.15s" }}
+                  style={{ width: "100%", padding: "8px 16px", borderRadius: "3px", border: "1px solid #e5e2dd", backgroundColor: "#fff", color: "#3a3a3a", fontSize: "12px", fontWeight: "600", fontFamily: "var(--font-montserrat)", cursor: "pointer", display: "flex", alignItems: "center", justifyContent: "center", gap: "6px", transition: "all 0.15s" }}
                   onMouseEnter={(e) => { (e.currentTarget as HTMLElement).style.borderColor = "#0C57A8"; (e.currentTarget as HTMLElement).style.color = "#0C57A8"; }}
                   onMouseLeave={(e) => { (e.currentTarget as HTMLElement).style.borderColor = "#e5e2dd"; (e.currentTarget as HTMLElement).style.color = "#3a3a3a"; }}>
                   <svg width="12" height="12" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2"><path d="M3 6h18M8 6V4h8v2M19 6l-1 14H6L5 6"/></svg>
@@ -803,19 +803,19 @@ export default function AcaraClient({ initialEvents }: { initialEvents: EventIte
             <div>
               <div style={{ display: "flex", justifyContent: "space-between", alignItems: "center", marginBottom: "20px", paddingBottom: "12px", borderBottom: "3px solid #0d0d0d", flexWrap: "wrap" as const, gap: "10px" }}>
                 <div>
-                  <span style={{ fontSize: "11px", fontWeight: "700", letterSpacing: "0.1em", textTransform: "uppercase" as const, color: "#0C57A8", fontFamily: "var(--font-sans)" }}>◆ Agenda</span>
-                  <h2 style={{ fontSize: "18px", fontWeight: "700", color: "#0d0d0d", fontFamily: "var(--font-serif)", marginTop: "2px", marginBottom: 0 }}>
+                  <span style={{ fontSize: "11px", fontWeight: "700", letterSpacing: "0.1em", textTransform: "uppercase" as const, color: "#0C57A8", fontFamily: "var(--font-montserrat)" }}>◆ Agenda</span>
+                  <h2 style={{ fontSize: "18px", fontWeight: "700", color: "#0d0d0d", fontFamily: "var(--font-montserrat)", marginTop: "2px", marginBottom: 0 }}>
                     {filterYear !== "semua" ? `${filterMonth !== "semua" ? MONTHS_ID[filterMonth as number] + " " : ""}${filterYear}` : "Semua Acara"}
                   </h2>
                 </div>
                 <div style={{ display: "flex", alignItems: "center", gap: "12px" }}>
-                  <span style={{ fontSize: "12px", color: "#6b6966", fontFamily: "var(--font-sans)" }}>{filtered.length} acara</span>
+                  <span style={{ fontSize: "12px", color: "#6b6966", fontFamily: "var(--font-montserrat)" }}>{filtered.length} acara</span>
                   <div style={{ display: "flex", border: "1px solid #e5e2dd", borderRadius: "3px", overflow: "hidden" }}>
                     {(["list","calendar"] as ViewMode[]).map((mode) => {
                       const active = viewMode === mode;
                       return (
                         <button key={mode} onClick={() => setViewMode(mode)}
-                          style={{ padding: "7px 14px", border: "none", borderRight: mode === "list" ? "1px solid #e5e2dd" : "none", backgroundColor: active ? "#0d0d0d" : "#fff", color: active ? "#fff" : "#6b6966", cursor: "pointer", display: "flex", alignItems: "center", gap: "5px", fontSize: "11px", fontWeight: "600", fontFamily: "var(--font-sans)", transition: "all 0.15s" }}
+                          style={{ padding: "7px 14px", border: "none", borderRight: mode === "list" ? "1px solid #e5e2dd" : "none", backgroundColor: active ? "#0d0d0d" : "#fff", color: active ? "#fff" : "#6b6966", cursor: "pointer", display: "flex", alignItems: "center", gap: "5px", fontSize: "11px", fontWeight: "600", fontFamily: "var(--font-montserrat)", transition: "all 0.15s" }}
                           onMouseEnter={(e) => { if (!active) (e.currentTarget as HTMLElement).style.backgroundColor = "#f8f7f5"; }}
                           onMouseLeave={(e) => { if (!active) (e.currentTarget as HTMLElement).style.backgroundColor = "#fff"; }}>
                           {mode === "list" ? (
@@ -839,8 +839,8 @@ export default function AcaraClient({ initialEvents }: { initialEvents: EventIte
                 <CalendarView events={filtered} />
               ) : filtered.length === 0 ? (
                 <div style={{ padding: "60px 24px", textAlign: "center", backgroundColor: "#fff", border: "1px solid #e5e2dd", borderRadius: "4px" }}>
-                  <p style={{ fontSize: "15px", color: "#6b6966", fontFamily: "var(--font-sans)" }}>Tidak ada acara yang sesuai filter.</p>
-                  <button onClick={resetFilter} style={{ marginTop: "12px", padding: "8px 20px", borderRadius: "3px", border: "none", backgroundColor: "#0C57A8", color: "#fff", fontSize: "12px", fontWeight: "700", fontFamily: "var(--font-sans)", cursor: "pointer" }}>
+                  <p style={{ fontSize: "15px", color: "#6b6966", fontFamily: "var(--font-montserrat)" }}>Tidak ada acara yang sesuai filter.</p>
+                  <button onClick={resetFilter} style={{ marginTop: "12px", padding: "8px 20px", borderRadius: "3px", border: "none", backgroundColor: "#0C57A8", color: "#fff", fontSize: "12px", fontWeight: "700", fontFamily: "var(--font-montserrat)", cursor: "pointer" }}>
                     Reset Filter
                   </button>
                 </div>
@@ -851,11 +851,11 @@ export default function AcaraClient({ initialEvents }: { initialEvents: EventIte
                       <div key={`${year}-${month}`}>
                         <div style={{ display: "flex", alignItems: "center", gap: "10px", marginBottom: "10px" }}>
                           <div style={{ display: "flex", alignItems: "baseline", gap: "5px" }}>
-                            <span style={{ fontSize: "15px", fontWeight: "700", color: "#0d0d0d", fontFamily: "var(--font-serif)" }}>{MONTHS_ID[month]}</span>
-                            <span style={{ fontSize: "12px", color: "#6b6966", fontFamily: "var(--font-sans)" }}>{year}</span>
+                            <span style={{ fontSize: "15px", fontWeight: "700", color: "#0d0d0d", fontFamily: "var(--font-montserrat)" }}>{MONTHS_ID[month]}</span>
+                            <span style={{ fontSize: "12px", color: "#6b6966", fontFamily: "var(--font-montserrat)" }}>{year}</span>
                           </div>
                           <div style={{ flex: 1, height: "1px", backgroundColor: "#e5e2dd" }} />
-                          <span style={{ fontSize: "10px", color: "#6b6966", fontFamily: "var(--font-sans)" }}>{evs.length} acara</span>
+                          <span style={{ fontSize: "10px", color: "#6b6966", fontFamily: "var(--font-montserrat)" }}>{evs.length} acara</span>
                         </div>
                         <div style={{ display: "flex", flexDirection: "column", gap: "8px" }}>
                           {evs.map((ev) => <EventCard key={ev.id} ev={ev} />)}

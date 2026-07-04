@@ -99,32 +99,32 @@ export default function PressReleaseClient({
         <div style={{ maxWidth: "1280px", margin: "0 auto", position: "relative", zIndex: 1 }}>
           {/* Breadcrumb */}
           <div style={{ display: "flex", alignItems: "center", gap: "6px", marginBottom: "28px", flexWrap: "wrap" as const }}>
-            <Link href="/" style={{ fontSize: "11px", color: "rgba(255,255,255,0.35)", textDecoration: "none", fontFamily: "var(--font-sans)", transition: "color 0.15s" }}
+            <Link href="/" style={{ fontSize: "11px", color: "rgba(255,255,255,0.35)", textDecoration: "none", fontFamily: "var(--font-montserrat)", transition: "color 0.15s" }}
               onMouseEnter={(e) => (e.currentTarget.style.color = "rgba(255,255,255,0.75)")}
               onMouseLeave={(e) => (e.currentTarget.style.color = "rgba(255,255,255,0.35)")}>
               Beranda
             </Link>
-            <span style={{ fontSize: "11px", color: "rgba(255,255,255,0.2)", fontFamily: "var(--font-sans)" }}>/</span>
-            <Link href="/ruang-pers" style={{ fontSize: "11px", color: "rgba(255,255,255,0.35)", textDecoration: "none", fontFamily: "var(--font-sans)", transition: "color 0.15s" }}
+            <span style={{ fontSize: "11px", color: "rgba(255,255,255,0.2)", fontFamily: "var(--font-montserrat)" }}>/</span>
+            <Link href="/ruang-pers" style={{ fontSize: "11px", color: "rgba(255,255,255,0.35)", textDecoration: "none", fontFamily: "var(--font-montserrat)", transition: "color 0.15s" }}
               onMouseEnter={(e) => (e.currentTarget.style.color = "rgba(255,255,255,0.75)")}
               onMouseLeave={(e) => (e.currentTarget.style.color = "rgba(255,255,255,0.35)")}>
               Ruang Pers
             </Link>
-            <span style={{ fontSize: "11px", color: "rgba(255,255,255,0.2)", fontFamily: "var(--font-sans)" }}>/</span>
-            <span style={{ fontSize: "11px", color: "#3b8ed4", fontFamily: "var(--font-sans)", maxWidth: "300px", overflow: "hidden", textOverflow: "ellipsis", whiteSpace: "nowrap" as const }}>
+            <span style={{ fontSize: "11px", color: "rgba(255,255,255,0.2)", fontFamily: "var(--font-montserrat)" }}>/</span>
+            <span style={{ fontSize: "11px", color: "#3b8ed4", fontFamily: "var(--font-montserrat)", maxWidth: "300px", overflow: "hidden", textOverflow: "ellipsis", whiteSpace: "nowrap" as const }}>
               {pr.title}
             </span>
           </div>
 
           {/* Badge */}
           <div style={{ marginBottom: "16px" }}>
-            <span style={{ fontSize: "10px", fontWeight: "700", letterSpacing: "0.06em", textTransform: "uppercase" as const, color: "#3b8ed4", backgroundColor: "rgba(59,142,212,0.12)", border: "1px solid rgba(59,142,212,0.25)", padding: "3px 10px", borderRadius: "2px", fontFamily: "var(--font-sans)" }}>
+            <span style={{ fontSize: "10px", fontWeight: "700", letterSpacing: "0.06em", textTransform: "uppercase" as const, color: "#3b8ed4", backgroundColor: "rgba(59,142,212,0.12)", border: "1px solid rgba(59,142,212,0.25)", padding: "3px 10px", borderRadius: "2px", fontFamily: "var(--font-montserrat)" }}>
               ◆ Siaran Pers
             </span>
           </div>
 
           {/* Title */}
-          <h1 style={{ fontSize: "clamp(1.8rem, 3.5vw, 3rem)", fontWeight: "700", color: "#ffffff", lineHeight: "1.2", fontFamily: "var(--font-serif)", margin: "0 0 24px", maxWidth: "860px", letterSpacing: "-0.01em" }}>
+          <h1 style={{ fontSize: "clamp(1.8rem, 3.5vw, 3rem)", fontWeight: "700", color: "#ffffff", lineHeight: "1.2", fontFamily: "var(--font-montserrat)", margin: "0 0 24px", maxWidth: "860px", letterSpacing: "-0.01em" }}>
             {pr.title}
           </h1>
 
@@ -136,10 +136,10 @@ export default function PressReleaseClient({
                 <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="rgba(255,255,255,0.6)" strokeWidth="2"><path d="M20 21v-2a4 4 0 0 0-4-4H8a4 4 0 0 0-4 4v2"/><circle cx="12" cy="7" r="4"/></svg>
               </div>
               <div>
-                <span style={{ fontSize: "13px", fontWeight: "600", color: "rgba(255,255,255,0.9)", fontFamily: "var(--font-sans)", display: "block" }}>
+                <span style={{ fontSize: "13px", fontWeight: "600", color: "rgba(255,255,255,0.9)", fontFamily: "var(--font-montserrat)", display: "block" }}>
                   {pr.creator?.name ?? "Wikimedia Indonesia"}
                 </span>
-                <span style={{ fontSize: "11px", color: "rgba(255,255,255,0.4)", fontFamily: "var(--font-sans)" }}>Penerbit</span>
+                <span style={{ fontSize: "11px", color: "rgba(255,255,255,0.4)", fontFamily: "var(--font-montserrat)" }}>Penerbit</span>
               </div>
             </div>
 
@@ -148,7 +148,7 @@ export default function PressReleaseClient({
             {/* Date */}
             <div style={{ display: "flex", alignItems: "center", gap: "7px" }}>
               <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="rgba(255,255,255,0.4)" strokeWidth="2"><rect x="3" y="4" width="18" height="18" rx="2"/><line x1="16" y1="2" x2="16" y2="6"/><line x1="8" y1="2" x2="8" y2="6"/><line x1="3" y1="10" x2="21" y2="10"/></svg>
-              <span style={{ fontSize: "12px", color: "rgba(255,255,255,0.55)", fontFamily: "var(--font-sans)" }}>
+              <span style={{ fontSize: "12px", color: "rgba(255,255,255,0.55)", fontFamily: "var(--font-montserrat)" }}>
                 {formatDateLong(pr.published_at)}
               </span>
             </div>
@@ -158,7 +158,7 @@ export default function PressReleaseClient({
             {/* Read time */}
             <div style={{ display: "flex", alignItems: "center", gap: "7px" }}>
               <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="rgba(255,255,255,0.4)" strokeWidth="2"><circle cx="12" cy="12" r="10"/><polyline points="12 6 12 12 16 14"/></svg>
-              <span style={{ fontSize: "12px", color: "rgba(255,255,255,0.55)", fontFamily: "var(--font-sans)" }}>{readingTime} menit baca</span>
+              <span style={{ fontSize: "12px", color: "rgba(255,255,255,0.55)", fontFamily: "var(--font-montserrat)" }}>{readingTime} menit baca</span>
             </div>
 
             <div style={{ width: "1px", height: "32px", backgroundColor: "rgba(255,255,255,0.1)" }} />
@@ -166,7 +166,7 @@ export default function PressReleaseClient({
             {/* Views */}
             <div style={{ display: "flex", alignItems: "center", gap: "7px" }}>
               <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="rgba(255,255,255,0.4)" strokeWidth="2"><path d="M1 12s4-8 11-8 11 8 11 8-4 8-11 8-11-8-11-8z"/><circle cx="12" cy="12" r="3"/></svg>
-              <span style={{ fontSize: "12px", color: "rgba(255,255,255,0.55)", fontFamily: "var(--font-sans)" }}>{pr.views.toLocaleString("id-ID")} tayangan</span>
+              <span style={{ fontSize: "12px", color: "rgba(255,255,255,0.55)", fontFamily: "var(--font-montserrat)" }}>{pr.views.toLocaleString("id-ID")} tayangan</span>
             </div>
           </div>
         </div>
@@ -205,7 +205,7 @@ export default function PressReleaseClient({
 
               {/* Share + back */}
               <div style={{ marginTop: "36px", paddingTop: "24px", borderTop: "2px solid #0d0d0d", display: "flex", alignItems: "center", justifyContent: "space-between", flexWrap: "wrap" as const, gap: "12px" }}>
-                <Link href="/ruang-pers" style={{ display: "inline-flex", alignItems: "center", gap: "7px", fontSize: "12px", fontWeight: "700", letterSpacing: "0.05em", textTransform: "uppercase" as const, color: "#5c5a57", textDecoration: "none", fontFamily: "var(--font-sans)", transition: "color 0.15s" }}
+                <Link href="/ruang-pers" style={{ display: "inline-flex", alignItems: "center", gap: "7px", fontSize: "12px", fontWeight: "700", letterSpacing: "0.05em", textTransform: "uppercase" as const, color: "#5c5a57", textDecoration: "none", fontFamily: "var(--font-montserrat)", transition: "color 0.15s" }}
                   onMouseEnter={(e) => (e.currentTarget.style.color = "#0C57A8")}
                   onMouseLeave={(e) => (e.currentTarget.style.color = "#5c5a57")}>
                   <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2"><path d="M15 18l-6-6 6-6"/></svg>
@@ -213,7 +213,7 @@ export default function PressReleaseClient({
                 </Link>
 
                 <div style={{ display: "flex", gap: "8px" }}>
-                  <span style={{ fontSize: "12px", color: "#6b6966", fontFamily: "var(--font-sans)", alignSelf: "center" }}>Bagikan:</span>
+                  <span style={{ fontSize: "12px", color: "#6b6966", fontFamily: "var(--font-montserrat)", alignSelf: "center" }}>Bagikan:</span>
                   {/* Twitter/X */}
                   <a href={`https://twitter.com/intent/tweet?text=${encodeURIComponent(pr.title)}&url=${encodeURIComponent(pageUrl)}`}
                     target="_blank" rel="noopener noreferrer"
@@ -260,8 +260,8 @@ export default function PressReleaseClient({
               {latest.length > 0 && (
                 <div style={{ backgroundColor: "#fff", border: "1px solid #e5e2dd", borderRadius: "4px", overflow: "hidden" }}>
                   <div style={{ padding: "14px 18px", borderBottom: "3px solid #0d0d0d", display: "flex", justifyContent: "space-between", alignItems: "center" }}>
-                    <span style={{ fontSize: "10px", fontWeight: "700", letterSpacing: "0.08em", textTransform: "uppercase" as const, color: "#0C57A8", fontFamily: "var(--font-sans)" }}>◆ Terbaru</span>
-                    <Link href="/ruang-pers" style={{ fontSize: "10px", color: "#1e4d7b", textDecoration: "none", fontFamily: "var(--font-sans)", fontWeight: "600", transition: "color 0.15s" }}
+                    <span style={{ fontSize: "10px", fontWeight: "700", letterSpacing: "0.08em", textTransform: "uppercase" as const, color: "#0C57A8", fontFamily: "var(--font-montserrat)" }}>◆ Terbaru</span>
+                    <Link href="/ruang-pers" style={{ fontSize: "10px", color: "#1e4d7b", textDecoration: "none", fontFamily: "var(--font-montserrat)", fontWeight: "600", transition: "color 0.15s" }}
                       onMouseEnter={(e) => (e.currentTarget.style.color = "#0C57A8")}
                       onMouseLeave={(e) => (e.currentTarget.style.color = "#1e4d7b")}>
                       Lihat semua →
@@ -275,14 +275,14 @@ export default function PressReleaseClient({
                           onMouseEnter={(e) => { (e.currentTarget as HTMLElement).style.background = "#faf9f7"; }}
                           onMouseLeave={(e) => { (e.currentTarget as HTMLElement).style.background = "transparent"; }}
                         >
-                          <span style={{ fontSize: "16px", fontWeight: "800", color: "#e5e2dd", fontFamily: "var(--font-serif)", lineHeight: 1, flexShrink: 0, width: "20px", textAlign: "center" as const, paddingTop: "2px" }}>
+                          <span style={{ fontSize: "16px", fontWeight: "800", color: "#e5e2dd", fontFamily: "var(--font-montserrat)", lineHeight: 1, flexShrink: 0, width: "20px", textAlign: "center" as const, paddingTop: "2px" }}>
                             {String(idx + 1).padStart(2, "0")}
                           </span>
                           <div style={{ flex: 1, minWidth: 0 }}>
-                            <p style={{ fontSize: "12px", fontWeight: "600", color: "#0d0d0d", lineHeight: "1.4", fontFamily: "var(--font-serif)", margin: "0 0 3px", display: "-webkit-box", WebkitLineClamp: 2, WebkitBoxOrient: "vertical" as const, overflow: "hidden" }}>
+                            <p style={{ fontSize: "12px", fontWeight: "600", color: "#0d0d0d", lineHeight: "1.4", fontFamily: "var(--font-montserrat)", margin: "0 0 3px", display: "-webkit-box", WebkitLineClamp: 2, WebkitBoxOrient: "vertical" as const, overflow: "hidden" }}>
                               {a.title}
                             </p>
-                            <span style={{ fontSize: "10px", color: "#6b6966", fontFamily: "var(--font-sans)" }}>{formatDateShort(a.published_at)}</span>
+                            <span style={{ fontSize: "10px", color: "#6b6966", fontFamily: "var(--font-montserrat)" }}>{formatDateShort(a.published_at)}</span>
                           </div>
                         </div>
                       </Link>
@@ -294,11 +294,11 @@ export default function PressReleaseClient({
               {/* CTA download/contact */}
               <div style={{ backgroundColor: "#1a3a5c", border: "1px solid rgba(255,255,255,0.1)", borderRadius: "4px", padding: "20px", position: "relative", overflow: "hidden" }}>
                 <div style={{ position: "absolute", top: "-20px", right: "-20px", width: "80px", height: "80px", borderRadius: "50%", background: "radial-gradient(circle, rgba(12,87,168,0.25) 0%, transparent 70%)", pointerEvents: "none" }} />
-                <h4 style={{ fontSize: "13px", fontWeight: "700", color: "#fff", fontFamily: "var(--font-serif)", margin: "0 0 8px" }}>Pertanyaan Media?</h4>
-                <p style={{ fontSize: "14px", color: "rgba(255,255,255,0.6)", lineHeight: "1.7", fontFamily: "var(--font-sans)", margin: "0 0 14px" }}>
+                <h4 style={{ fontSize: "13px", fontWeight: "700", color: "#fff", fontFamily: "var(--font-montserrat)", margin: "0 0 8px" }}>Pertanyaan Media?</h4>
+                <p style={{ fontSize: "14px", color: "rgba(255,255,255,0.6)", lineHeight: "1.7", fontFamily: "var(--font-montserrat)", margin: "0 0 14px" }}>
                   Untuk pertanyaan dari media dan jurnalis, silakan hubungi tim kami.
                 </p>
-                <Link href="/tentang#hubungi-kami" style={{ display: "inline-flex", alignItems: "center", gap: "5px", fontSize: "11px", fontWeight: "700", letterSpacing: "0.05em", textTransform: "uppercase" as const, color: "#3b8ed4", textDecoration: "none", fontFamily: "var(--font-sans)" }}>
+                <Link href="/tentang#hubungi-kami" style={{ display: "inline-flex", alignItems: "center", gap: "5px", fontSize: "11px", fontWeight: "700", letterSpacing: "0.05em", textTransform: "uppercase" as const, color: "#3b8ed4", textDecoration: "none", fontFamily: "var(--font-montserrat)" }}>
                   Hubungi Kami
                   <svg width="10" height="10" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2.5"><path d="M5 12h14M12 5l7 7-7 7"/></svg>
                 </Link>
@@ -310,7 +310,7 @@ export default function PressReleaseClient({
 
       <style>{`
         .article-content {
-          font-family: var(--font-serif);
+          font-family: var(--font-montserrat);
           font-size: 17px;
           line-height: 1.85;
           color: #1a1a18;

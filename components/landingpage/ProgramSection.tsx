@@ -25,7 +25,7 @@ const programs = [
   },
   {
     key: "data-teknologi",
-    title: "Data & Teknologi",
+    title: "Data, Sains dan Teknologi",
     desc: "Pengembangan dan pemanfaatan teknologi untuk mendukung penyebaran informasi dan pengelolaan data serta aktif dalam gerakan data terbuka di Indonesia.",
     accent: "#2a6399",
     href: "https://datatek.wikimedia.or.id/",
@@ -37,7 +37,7 @@ export default function ProgramSection() {
     <section style={{ backgroundColor: "#ffffff", padding: "80px 24px" }}>
       <div style={{ maxWidth: "1280px", margin: "0 auto" }}>
         <div className="section-border-shimmer reveal" style={{ marginBottom: "48px", paddingBottom: "16px", borderBottom: "3px solid #0d0d0d" }}>
-          <h2 style={{ fontSize: "clamp(1.6rem, 3vw, 2.2rem)", fontWeight: "700", color: "#0d0d0d", fontFamily: "var(--font-serif)", marginTop: "4px" }}>Program Kami</h2>
+          <h2 style={{ fontSize: "clamp(1.6rem, 3vw, 2.2rem)", fontWeight: "700", color: "#0d0d0d", fontFamily: "var(--font-montserrat)", marginTop: "4px" }}>Program Kami</h2>
         </div>
 
         <div className="reveal-stagger" style={{ display: "grid", gridTemplateColumns: "repeat(auto-fill, minmax(260px, 1fr))", gap: "24px" }}>
@@ -46,9 +46,9 @@ export default function ProgramSection() {
               <div className="program-card" style={{ border: "1px solid #e5e2dd", borderRadius: "4px", padding: "32px", height: "100%", borderTop: `3px solid ${p.accent}` }}
                 onMouseEnter={(e) => { (e.currentTarget as HTMLElement).style.boxShadow = "0 8px 32px rgba(0,0,0,0.08)"; (e.currentTarget as HTMLElement).style.transform = "translateY(-2px)"; }}
                 onMouseLeave={(e) => { (e.currentTarget as HTMLElement).style.boxShadow = "none"; (e.currentTarget as HTMLElement).style.transform = "none"; }}>
-                <h3 style={{ fontSize: "17px", fontWeight: "700", color: "#0d0d0d", fontFamily: "var(--font-serif)", marginBottom: "10px" }}>{p.title}</h3>
-                <p style={{ fontSize: "14px", color: "#5c5a57", lineHeight: "1.7", fontFamily: "var(--font-sans)", marginBottom: "20px" }}>{p.desc}</p>
-                <span style={{ fontSize: "14px", fontWeight: "700", letterSpacing: "0.05em", textTransform: "uppercase", color: p.accent, fontFamily: "var(--font-sans)" }}>
+                <h3 style={{ fontSize: "17px", fontWeight: "700", color: "#0d0d0d", fontFamily: "var(--font-montserrat)", marginBottom: "10px" }}>{p.title}</h3>
+                <p style={{ fontSize: "14px", color: "#5c5a57", lineHeight: "1.7", fontFamily: "var(--font-montserrat)", marginBottom: "20px" }}>{p.desc}</p>
+                <span style={{ fontSize: "14px", fontWeight: "700", letterSpacing: "0.05em", textTransform: "uppercase", color: p.accent, fontFamily: "var(--font-montserrat)" }}>
                   Selengkapnya →
                 </span>
               </div>

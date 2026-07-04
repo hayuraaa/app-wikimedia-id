@@ -56,7 +56,7 @@ function AccordionItem({ item, isOpen, onToggle }: {
         <span style={{
           fontSize: "14px", fontWeight: isOpen ? "700" : "600",
           color: isOpen ? "#0C57A8" : "#0d0d0d",
-          fontFamily: "var(--font-sans)", lineHeight: "1.55", flex: 1,
+          fontFamily: "var(--font-montserrat)", lineHeight: "1.55", flex: 1,
           transition: "color 0.2s",
         }}>
           {item.question}
@@ -170,21 +170,21 @@ export default function FaqPage() {
         <div style={{ maxWidth: "1280px", margin: "0 auto", position: "relative", zIndex: 1 }}>
           {/* Breadcrumb */}
           <div style={{ display: "flex", alignItems: "center", gap: "6px", marginBottom: "12px" }}>
-            <Link href="/" style={{ fontSize: "11px", color: "rgba(255,255,255,0.4)", textDecoration: "none", fontFamily: "var(--font-sans)", transition: "color 0.15s" }}
+            <Link href="/" style={{ fontSize: "11px", color: "rgba(255,255,255,0.4)", textDecoration: "none", fontFamily: "var(--font-montserrat)", transition: "color 0.15s" }}
               onMouseEnter={(e) => (e.currentTarget.style.color = "rgba(255,255,255,0.8)")}
               onMouseLeave={(e) => (e.currentTarget.style.color = "rgba(255,255,255,0.4)")}>
               Beranda
             </Link>
-            <span style={{ fontSize: "11px", color: "rgba(255,255,255,0.25)", fontFamily: "var(--font-sans)" }}>/</span>
-            <span style={{ fontSize: "11px", color: "#3b8ed4", fontFamily: "var(--font-sans)" }}>FAQ</span>
+            <span style={{ fontSize: "11px", color: "rgba(255,255,255,0.25)", fontFamily: "var(--font-montserrat)" }}>/</span>
+            <span style={{ fontSize: "11px", color: "#3b8ed4", fontFamily: "var(--font-montserrat)" }}>FAQ</span>
           </div>
 
           <div style={{ display: "flex", alignItems: "flex-end", justifyContent: "space-between", flexWrap: "wrap" as const, gap: "20px" }}>
             <div>
-              <h1 style={{ fontSize: "clamp(1.8rem, 3vw, 2.6rem)", fontWeight: "700", color: "#fff", fontFamily: "var(--font-serif)", margin: "6px 0 0", lineHeight: "1.2" }}>
+              <h1 style={{ fontSize: "clamp(1.8rem, 3vw, 2.6rem)", fontWeight: "700", color: "#fff", fontFamily: "var(--font-montserrat)", margin: "6px 0 0", lineHeight: "1.2" }}>
                 Pertanyaan yang Sering Ditanyakan
               </h1>
-              <p style={{ fontSize: "13px", color: "rgba(255,255,255,0.45)", fontFamily: "var(--font-sans)", margin: "6px 0 0" }}>
+              <p style={{ fontSize: "13px", color: "rgba(255,255,255,0.45)", fontFamily: "var(--font-montserrat)", margin: "6px 0 0" }}>
                 Temukan jawaban seputar Wikimedia Indonesia dan program-program kami
               </p>
             </div>
@@ -197,7 +197,7 @@ export default function FaqPage() {
                 value={searchInput}
                 onChange={(e) => setSearchInput(e.target.value)}
                 onKeyDown={(e) => e.key === "Enter" && handleSearch()}
-                style={{ padding: "10px 16px", fontSize: "13px", backgroundColor: "rgba(255,255,255,0.06)", border: "none", color: "#fff", fontFamily: "var(--font-sans)", outline: "none", minWidth: "200px" }}
+                style={{ padding: "10px 16px", fontSize: "13px", backgroundColor: "rgba(255,255,255,0.06)", border: "none", color: "#fff", fontFamily: "var(--font-montserrat)", outline: "none", minWidth: "200px" }}
               />
               {searchQuery && (
                 <button onClick={clearSearch}
@@ -227,12 +227,12 @@ export default function FaqPage() {
             <div style={{ marginBottom: "36px" }}>
               <div style={{ display: "flex", justifyContent: "space-between", alignItems: "flex-end", marginBottom: "24px", paddingBottom: "12px", borderBottom: "3px solid #0d0d0d" }}>
                 <div>
-                  <span style={{ fontSize: "11px", fontWeight: "700", letterSpacing: "0.1em", textTransform: "uppercase" as const, color: "#0C57A8", fontFamily: "var(--font-sans)" }}>◆ Hasil Pencarian</span>
-                  <h2 style={{ fontSize: "18px", fontWeight: "700", color: "#0d0d0d", fontFamily: "var(--font-serif)", marginTop: "2px", marginBottom: 0 }}>
+                  <span style={{ fontSize: "11px", fontWeight: "700", letterSpacing: "0.1em", textTransform: "uppercase" as const, color: "#0C57A8", fontFamily: "var(--font-montserrat)" }}>◆ Hasil Pencarian</span>
+                  <h2 style={{ fontSize: "18px", fontWeight: "700", color: "#0d0d0d", fontFamily: "var(--font-montserrat)", marginTop: "2px", marginBottom: 0 }}>
                     "{searchQuery}"
                   </h2>
                 </div>
-                <span style={{ fontSize: "12px", color: "#6b6966", fontFamily: "var(--font-sans)" }}>
+                <span style={{ fontSize: "12px", color: "#6b6966", fontFamily: "var(--font-montserrat)" }}>
                   {searchResults.length} hasil
                 </span>
               </div>
@@ -241,7 +241,7 @@ export default function FaqPage() {
                 <Skeleton />
               ) : searchResults.length === 0 ? (
                 <div style={{ backgroundColor: "#fff", border: "1px solid #e5e2dd", borderRadius: "4px", padding: "40px 24px", textAlign: "center" }}>
-                  <p style={{ fontSize: "14px", color: "#6b6966", fontFamily: "var(--font-sans)", margin: 0 }}>
+                  <p style={{ fontSize: "14px", color: "#6b6966", fontFamily: "var(--font-montserrat)", margin: 0 }}>
                     Tidak ada hasil untuk "<strong>{searchQuery}</strong>"
                   </p>
                 </div>
@@ -252,7 +252,7 @@ export default function FaqPage() {
                       {i > 0 && <div style={{ height: "0", borderTop: "1px solid #e5e2dd" }} />}
                       <div style={{ padding: "6px 0" }}>
                         <div style={{ padding: "10px 24px 0" }}>
-                          <span style={{ fontSize: "10px", fontWeight: "700", color: "#0C57A8", backgroundColor: "rgba(12,87,168,0.08)", border: "1px solid rgba(12,87,168,0.15)", padding: "2px 8px", borderRadius: "2px", fontFamily: "var(--font-sans)", letterSpacing: "0.05em", textTransform: "uppercase" as const }}>
+                          <span style={{ fontSize: "10px", fontWeight: "700", color: "#0C57A8", backgroundColor: "rgba(12,87,168,0.08)", border: "1px solid rgba(12,87,168,0.15)", padding: "2px 8px", borderRadius: "2px", fontFamily: "var(--font-montserrat)", letterSpacing: "0.05em", textTransform: "uppercase" as const }}>
                             {item.category.name}
                           </span>
                         </div>
@@ -285,10 +285,10 @@ export default function FaqPage() {
                 {categories.map((category) => (
                   <div key={category.id} id={`cat-${category.id}`}>
                     <div style={{ display: "flex", justifyContent: "space-between", alignItems: "flex-end", marginBottom: "10px", paddingBottom: "10px", borderBottom: "3px solid #0d0d0d" }}>
-                      <h2 style={{ fontSize: "16px", fontWeight: "700", color: "#0d0d0d", fontFamily: "var(--font-serif)", margin: 0 }}>
+                      <h2 style={{ fontSize: "16px", fontWeight: "700", color: "#0d0d0d", fontFamily: "var(--font-montserrat)", margin: 0 }}>
                         {category.name}
                       </h2>
-                      <span style={{ fontSize: "11px", color: "#6b6966", fontFamily: "var(--font-sans)" }}>
+                      <span style={{ fontSize: "11px", color: "#6b6966", fontFamily: "var(--font-montserrat)" }}>
                         {category.items.length} pertanyaan
                       </span>
                     </div>
@@ -314,16 +314,16 @@ export default function FaqPage() {
             <div style={{ marginTop: "40px", backgroundColor: "#0d0d0d", borderRadius: "4px", padding: "32px 36px", display: "flex", alignItems: "center", justifyContent: "space-between", gap: "24px", flexWrap: "wrap" as const, position: "relative", overflow: "hidden" }}>
               <div style={{ position: "absolute", top: "-40px", right: "-40px", width: "160px", height: "160px", borderRadius: "50%", background: "radial-gradient(circle, rgba(12,87,168,0.2) 0%, transparent 70%)", pointerEvents: "none" }} />
               <div style={{ position: "relative", zIndex: 1 }}>
-                <span style={{ fontSize: "10px", fontWeight: "700", letterSpacing: "0.1em", textTransform: "uppercase" as const, color: "#e05070", fontFamily: "var(--font-sans)" }}>◆ Masih Ada Pertanyaan?</span>
-                <h3 style={{ fontSize: "1.1rem", fontWeight: "700", color: "#fff", fontFamily: "var(--font-serif)", margin: "6px 0 6px" }}>
+                <span style={{ fontSize: "10px", fontWeight: "700", letterSpacing: "0.1em", textTransform: "uppercase" as const, color: "#e05070", fontFamily: "var(--font-montserrat)" }}>◆ Masih Ada Pertanyaan?</span>
+                <h3 style={{ fontSize: "1.1rem", fontWeight: "700", color: "#fff", fontFamily: "var(--font-montserrat)", margin: "6px 0 6px" }}>
                   Tidak menemukan jawaban yang Anda cari?
                 </h3>
-                <p style={{ fontSize: "13px", color: "rgba(255,255,255,0.45)", fontFamily: "var(--font-sans)", margin: 0, lineHeight: "1.65" }}>
+                <p style={{ fontSize: "13px", color: "rgba(255,255,255,0.45)", fontFamily: "var(--font-montserrat)", margin: 0, lineHeight: "1.65" }}>
                   Hubungi kami langsung melalui halaman kontak.
                 </p>
               </div>
               <Link href="/tentang#hubungi-kami"
-                style={{ display: "inline-flex", alignItems: "center", gap: "8px", padding: "12px 24px", backgroundColor: "#0C57A8", color: "#fff", textDecoration: "none", borderRadius: "3px", fontSize: "13px", fontWeight: "700", fontFamily: "var(--font-sans)", letterSpacing: "0.04em", transition: "background 0.2s", flexShrink: 0, position: "relative", zIndex: 1 }}
+                style={{ display: "inline-flex", alignItems: "center", gap: "8px", padding: "12px 24px", backgroundColor: "#0C57A8", color: "#fff", textDecoration: "none", borderRadius: "3px", fontSize: "13px", fontWeight: "700", fontFamily: "var(--font-montserrat)", letterSpacing: "0.04em", transition: "background 0.2s", flexShrink: 0, position: "relative", zIndex: 1 }}
                 onMouseEnter={(e) => ((e.currentTarget as HTMLElement).style.backgroundColor = "#0a4a8f")}
                 onMouseLeave={(e) => ((e.currentTarget as HTMLElement).style.backgroundColor = "#0C57A8")}>
                 Hubungi Kami
@@ -337,7 +337,7 @@ export default function FaqPage() {
 
       <style>{`
         .faq-answer {
-          font-family: var(--font-sans);
+          font-family: var(--font-montserrat);
           font-size: 14px;
           line-height: 1.8;
           color: #3a3a3a;

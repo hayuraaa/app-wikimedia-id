@@ -31,9 +31,9 @@ export default function ArticlesSection({ articles }: { articles: Article[] }) {
       <div style={{ maxWidth: "1280px", margin: "0 auto", position: "relative", zIndex: 1 }}>
         <div className="section-border-shimmer reveal" style={{ display: "flex", justifyContent: "space-between", alignItems: "flex-end", marginBottom: "40px", paddingBottom: "16px", borderBottom: "3px solid #0d0d0d" }}>
           <div>
-            <h2 style={{ fontSize: "clamp(1.6rem, 3vw, 2.2rem)", fontWeight: "700", color: "#0d0d0d", fontFamily: "var(--font-serif)", marginTop: "4px" }}>Artikel Terbaru</h2>
+            <h2 style={{ fontSize: "clamp(1.6rem, 3vw, 2.2rem)", fontWeight: "700", color: "#0d0d0d", fontFamily: "var(--font-montserrat)", marginTop: "4px" }}>Artikel Terbaru</h2>
           </div>
-          <Link href="/rubrik" style={{ fontSize: "13px", fontWeight: "600", color: "#1e4d7b", textDecoration: "none", fontFamily: "var(--font-sans)", letterSpacing: "0.04em", whiteSpace: "nowrap" }}
+          <Link href="/rubrik" style={{ fontSize: "13px", fontWeight: "600", color: "#1e4d7b", textDecoration: "none", fontFamily: "var(--font-montserrat)", letterSpacing: "0.04em", whiteSpace: "nowrap" }}
             onMouseEnter={(e) => (e.currentTarget.style.color = "#0C57A8")}
             onMouseLeave={(e) => (e.currentTarget.style.color = "#1e4d7b")}>
             Lihat Semua →
@@ -83,7 +83,7 @@ export default function ArticlesSection({ articles }: { articles: Article[] }) {
                             <button
                               key={cat}
                               onClick={(e) => { e.preventDefault(); e.stopPropagation(); router.push(`/rubrik/kategori/${cat}`); }}
-                              style={{ fontSize: "10px", fontWeight: "700", letterSpacing: "0.04em", color: "#8b1a2a", backgroundColor: "rgba(139,26,42,0.08)", padding: "6px 8px", borderRadius: "2px", fontFamily: "var(--font-sans)", cursor: "pointer", transition: "all 0.15s", border: "none" }}
+                              style={{ fontSize: "10px", fontWeight: "700", letterSpacing: "0.04em", color: "#8b1a2a", backgroundColor: "rgba(139,26,42,0.08)", padding: "6px 8px", borderRadius: "2px", fontFamily: "var(--font-montserrat)", cursor: "pointer", transition: "all 0.15s", border: "none" }}
                               onMouseEnter={(e) => { e.currentTarget.style.backgroundColor = "rgba(139,26,42,0.18)"; e.currentTarget.style.color = "#5e0f1a"; }}
                               onMouseLeave={(e) => { e.currentTarget.style.backgroundColor = "rgba(139,26,42,0.08)"; e.currentTarget.style.color = "#8b1a2a"; }}
                             >
@@ -92,12 +92,12 @@ export default function ArticlesSection({ articles }: { articles: Article[] }) {
                           ))}
                         </div>
                       ) : <span style={{ flex: 1 }} />}
-                      <span style={{ fontSize: "11px", color: "#6b6966", fontFamily: "var(--font-sans)", whiteSpace: "nowrap", flexShrink: 0 }}>
+                      <span style={{ fontSize: "11px", color: "#6b6966", fontFamily: "var(--font-montserrat)", whiteSpace: "nowrap", flexShrink: 0 }}>
                         {new Date(a.published_at).toLocaleDateString("id-ID", { day: "numeric", month: "short", year: "numeric", timeZone: "Asia/Jakarta" })}
                       </span>
                     </div>
-                    <h3 style={{ fontSize: "15px", fontWeight: "600", color: "#0d0d0d", lineHeight: "1.5", fontFamily: "var(--font-serif)", margin: 0 }}>{a.title}</h3>
-                    <p style={{ fontSize: "14px", color: "#6b6966", lineHeight: "1.6", fontFamily: "var(--font-sans)", display: "-webkit-box", WebkitLineClamp: 2, WebkitBoxOrient: "vertical", overflow: "hidden", margin: 0, flex: 1 }}>
+                    <h3 style={{ fontSize: "15px", fontWeight: "600", color: "#0d0d0d", lineHeight: "1.5", fontFamily: "var(--font-montserrat)", margin: 0 }}>{a.title}</h3>
+                    <p style={{ fontSize: "14px", color: "#6b6966", lineHeight: "1.6", fontFamily: "var(--font-montserrat)", display: "-webkit-box", WebkitLineClamp: 2, WebkitBoxOrient: "vertical", overflow: "hidden", margin: 0, flex: 1 }}>
                       {a.excerpt}
                     </p>
                     <div style={{ display: "flex", alignItems: "center", justifyContent: "space-between", paddingTop: "10px", borderTop: "1px solid #f0eeec", marginTop: "auto" }}>
@@ -105,7 +105,7 @@ export default function ArticlesSection({ articles }: { articles: Article[] }) {
                         <button
                           onClick={(e) => { e.preventDefault(); e.stopPropagation(); router.push(`/rubrik/author/${a.authors[0].name.toLowerCase().replace(/\s+/g, "-")}`); }}
                           style={{ 
-                            fontSize: "11px", color: "#5c5a57", fontFamily: "var(--font-sans)", 
+                            fontSize: "11px", color: "#5c5a57", fontFamily: "var(--font-montserrat)", 
                             overflow: "hidden", textOverflow: "ellipsis", whiteSpace: "nowrap", 
                             maxWidth: "65%", cursor: "pointer", transition: "color 0.15s", 
                             background: "none", border: "none", 
@@ -118,9 +118,9 @@ export default function ArticlesSection({ articles }: { articles: Article[] }) {
                           {a.authors[0].name}
                         </button>
                       ) : (
-                        <span style={{ fontSize: "11px", color: "#5c5a57", fontFamily: "var(--font-sans)" }}>—</span>
+                        <span style={{ fontSize: "11px", color: "#5c5a57", fontFamily: "var(--font-montserrat)" }}>—</span>
                       )}
-                      <span style={{ display: "flex", alignItems: "center", gap: "4px", fontSize: "11px", color: "#6b6966", fontFamily: "var(--font-sans)", flexShrink: 0 }}>
+                      <span style={{ display: "flex", alignItems: "center", gap: "4px", fontSize: "11px", color: "#6b6966", fontFamily: "var(--font-montserrat)", flexShrink: 0 }}>
                         <svg width="12" height="12" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2"><path d="M1 12s4-8 11-8 11 8 11 8-4 8-11 8-11-8-11-8z"/><circle cx="12" cy="12" r="3"/></svg>
                         {a.views.toLocaleString("id-ID")}
                       </span>

@@ -51,13 +51,13 @@ export default function HeroSection() {
 
           {/* ── Kiri: Teks ── */}
           <div className="hero-text-col" style={{ flex: "1 1 0", minWidth: 0 }}>
-            <h1 className="hero-title" style={{ fontSize: "clamp(2rem, 3.5vw, 3.4rem)", fontWeight: "700", color: "#ffffff", lineHeight: "1.18", margin: "14px 0 22px", fontFamily: "var(--font-serif)", letterSpacing: "-0.01em" }}>
+            <h1 className="hero-title" style={{ fontSize: "clamp(2rem, 3.5vw, 3.4rem)", fontWeight: "700", color: "#ffffff", lineHeight: "1.18", margin: "14px 0 22px", fontFamily: "var(--font-montserrat)", letterSpacing: "-0.01em" }}>
               Membangun{" "}
               <span style={{ backgroundColor: "rgba(12,87,168,0.50)", color: "#ffffff", padding: "2px 5px", borderRadius: "2px", boxShadow: "0 0 0 1px rgba(12,87,168,0.75)" }}>Ekosistem</span>{" "}
               Pengetahuan Terbuka di Indonesia
             </h1>
 
-            <p className="hero-desc" style={{ fontSize: "16px", color: "rgba(255,255,255,0.68)", lineHeight: "1.85", marginBottom: "40px", fontFamily: "var(--font-sans)" }}>
+            <p className="hero-desc" style={{ fontSize: "17px", color: "rgba(255,255,255,0.68)", lineHeight: "1.85", marginBottom: "40px", fontFamily: "var(--font-montserrat)" }}>
               Wikimedia Indonesia adalah organisasi nirlaba yang berdedikasi untuk memajukan gerakan pengetahuan terbuka di Indonesia.
             </p>
 
@@ -65,7 +65,7 @@ export default function HeroSection() {
               <Link
                 href="/#artikel-terbaru"
                 className="btn-ripple"
-                style={{ display: "inline-flex", alignItems: "center", gap: "8px", padding: "13px 26px", backgroundColor: "#0C57A8", color: "#fff", fontSize: "13px", fontWeight: "700", letterSpacing: "0.06em", textTransform: "uppercase" as const, textDecoration: "none", fontFamily: "var(--font-sans)", transition: "all 0.2s", borderRadius: "2px" }}
+                style={{ display: "inline-flex", alignItems: "center", gap: "8px", padding: "13px 26px", backgroundColor: "#0C57A8", color: "#fff", fontSize: "13px", fontWeight: "700", letterSpacing: "0.06em", textTransform: "uppercase" as const, textDecoration: "none", fontFamily: "var(--font-montserrat)", transition: "all 0.2s", borderRadius: "2px" }}
                 onMouseEnter={(e) => (e.currentTarget.style.backgroundColor = "#0a4a8f")}
                 onMouseLeave={(e) => (e.currentTarget.style.backgroundColor = "#0C57A8")}
               >
@@ -75,7 +75,7 @@ export default function HeroSection() {
               <Link
                 href="/tentang"
                 className="btn-ripple"
-                style={{ display: "inline-flex", alignItems: "center", gap: "8px", padding: "13px 26px", backgroundColor: "transparent", color: "#ffffff", fontSize: "13px", fontWeight: "700", letterSpacing: "0.06em", textTransform: "uppercase" as const, textDecoration: "none", fontFamily: "var(--font-sans)", border: "1px solid rgba(255,255,255,0.45)", transition: "all 0.2s", borderRadius: "2px" }}
+                style={{ display: "inline-flex", alignItems: "center", gap: "8px", padding: "13px 26px", backgroundColor: "transparent", color: "#ffffff", fontSize: "13px", fontWeight: "700", letterSpacing: "0.06em", textTransform: "uppercase" as const, textDecoration: "none", fontFamily: "var(--font-montserrat)", border: "1px solid rgba(255,255,255,0.45)", transition: "all 0.2s", borderRadius: "2px" }}
                 onMouseEnter={(e) => { e.currentTarget.style.backgroundColor = "rgba(255,255,255,0.12)"; e.currentTarget.style.borderColor = "#fff"; }}
                 onMouseLeave={(e) => { e.currentTarget.style.backgroundColor = "transparent"; e.currentTarget.style.borderColor = "rgba(255,255,255,0.45)"; }}
               >

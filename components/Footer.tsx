@@ -9,10 +9,11 @@ const footerLinks = {
     { label: "Donasi", href: "/donasi" },
     { label: "Acara", href: "/acara" },
     { label: "Karier", href: "/karier" },
+    { label: "Kontak", href: "/kontak" },
   ],
   Program: [
     { label: "Pendidikan", href: "https://pendidikan.wikimedia.or.id" },
-    { label: "Data & Teknologi", href: "https://datatek.wikimedia.or.id" },
+    { label: "Data, Sains dan Teknologi", href: "https://datatek.wikimedia.or.id" },
     { label: "Kebudayaan", href: "https://kebudayaan.wikimedia.or.id" },
     { label: "Komunitas", href: "https://komunitas.wikimedia.or.id" },
   ],
@@ -138,7 +139,7 @@ export default function Footer() {
                   fontSize: "14px",
                   color: "rgba(255,255,255,0.6)",
                   lineHeight: "1.7",
-                  fontFamily: "var(--font-sans)",
+                  fontFamily: "var(--font-montserrat)",
                   margin: 0,
                 }}
               >
@@ -159,7 +160,7 @@ export default function Footer() {
                 style={{
                   fontSize: "12px",
                   color: "rgba(255,255,255,0.45)",
-                  fontFamily: "var(--font-sans)",
+                  fontFamily: "var(--font-montserrat)",
                   textDecoration: "none",
                 }}
               >
@@ -195,7 +196,7 @@ export default function Footer() {
                   textTransform: "uppercase",
                   color: "#f8f8f6",
                   marginBottom: "14px",
-                  fontFamily: "var(--font-sans)",
+                  fontFamily: "var(--font-montserrat)",
                   paddingBottom: "10px",
                   borderBottom: "1px solid rgba(255,255,255,0.1)",
                 }}
@@ -253,7 +254,7 @@ export default function Footer() {
             style={{
               fontSize: "12px",
               color: "rgba(255,255,255,0.55)",
-              fontFamily: "var(--font-sans)",
+              fontFamily: "var(--font-montserrat)",
               margin: 0,
             }}
           >
@@ -310,7 +311,7 @@ export default function Footer() {
           font-size: 14px;
           color: rgba(255,255,255,0.5);
           text-decoration: none;
-          font-family: var(--font-sans);
+          font-family: var(--font-montserrat);
           transition: color 0.2s;
         }
         .footer-nav-link:hover {
@@ -328,7 +329,7 @@ export default function Footer() {
           font-size: 12px;
           color: rgba(255,255,255,0.55);
           text-decoration: none;
-          font-family: var(--font-sans);
+          font-family: var(--font-montserrat);
           transition: color 0.2s;
         }
         .footer-bottom-link:hover {

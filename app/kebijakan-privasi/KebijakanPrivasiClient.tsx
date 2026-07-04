@@ -88,18 +88,18 @@ export default function KebijakanPrivasiPage() {
 
         <div style={{ maxWidth: "1280px", margin: "0 auto", position: "relative", zIndex: 1 }}>
           <div style={{ display: "flex", alignItems: "center", gap: "6px", marginBottom: "12px" }}>
-            <Link href="/" style={{ fontSize: "11px", color: "rgba(255,255,255,0.4)", textDecoration: "none", fontFamily: "var(--font-sans)" }}
+            <Link href="/" style={{ fontSize: "11px", color: "rgba(255,255,255,0.4)", textDecoration: "none", fontFamily: "var(--font-montserrat)" }}
               onMouseEnter={(e) => (e.currentTarget.style.color = "rgba(255,255,255,0.8)")}
               onMouseLeave={(e) => (e.currentTarget.style.color = "rgba(255,255,255,0.4)")}>
               Beranda
             </Link>
-            <span style={{ fontSize: "11px", color: "rgba(255,255,255,0.25)", fontFamily: "var(--font-sans)" }}>/</span>
-            <span style={{ fontSize: "11px", color: "#3b8ed4", fontFamily: "var(--font-sans)" }}>Kebijakan Privasi</span>
+            <span style={{ fontSize: "11px", color: "rgba(255,255,255,0.25)", fontFamily: "var(--font-montserrat)" }}>/</span>
+            <span style={{ fontSize: "11px", color: "#3b8ed4", fontFamily: "var(--font-montserrat)" }}>Kebijakan Privasi</span>
           </div>
-          <h1 style={{ fontSize: "clamp(1.7rem, 3vw, 2.4rem)", fontWeight: "700", color: "#fff", fontFamily: "var(--font-serif)", margin: "6px 0 10px", lineHeight: "1.2" }}>
+          <h1 style={{ fontSize: "clamp(1.7rem, 3vw, 2.4rem)", fontWeight: "700", color: "#fff", fontFamily: "var(--font-montserrat)", margin: "6px 0 10px", lineHeight: "1.2" }}>
             Kebijakan Privasi
           </h1>
-          <p style={{ fontSize: "13px", color: "rgba(255,255,255,0.45)", fontFamily: "var(--font-sans)", margin: 0, lineHeight: "1.6" }}>
+          <p style={{ fontSize: "13px", color: "rgba(255,255,255,0.45)", fontFamily: "var(--font-montserrat)", margin: 0, lineHeight: "1.6" }}>
             Berlaku efektif mulai <strong style={{ color: "rgba(255,255,255,0.65)" }}>19 November 2018</strong>
           </p>
         </div>
@@ -114,15 +114,15 @@ export default function KebijakanPrivasiPage() {
 
             {/* ── TOC Sidebar ── */}
             <nav style={{ position: "sticky", top: "88px" }}>
-              <p style={{ fontSize: "10px", fontWeight: "700", color: "#6b6966", fontFamily: "var(--font-sans)", letterSpacing: "0.1em", textTransform: "uppercase" as const, margin: "0 0 10px" }}>Daftar Isi</p>
+              <p style={{ fontSize: "10px", fontWeight: "700", color: "#6b6966", fontFamily: "var(--font-montserrat)", letterSpacing: "0.1em", textTransform: "uppercase" as const, margin: "0 0 10px" }}>Daftar Isi</p>
               <div style={{ display: "flex", flexDirection: "column", gap: "2px" }}>
                 {SECTIONS.map((s) => (
                   <a key={s.num} href={`#section-${s.num}`}
                     style={{ display: "flex", alignItems: "flex-start", gap: "8px", padding: "7px 10px", borderRadius: "3px", textDecoration: "none", transition: "background 0.15s" }}
                     onMouseEnter={(e) => { (e.currentTarget as HTMLElement).style.backgroundColor = "#ede9e4"; }}
                     onMouseLeave={(e) => { (e.currentTarget as HTMLElement).style.backgroundColor = "transparent"; }}>
-                    <span style={{ fontSize: "10px", fontWeight: "700", color: "#0C57A8", fontFamily: "var(--font-sans)", flexShrink: 0, marginTop: "1px", minWidth: "14px" }}>{s.num}.</span>
-                    <span style={{ fontSize: "12px", color: "#5c5a57", fontFamily: "var(--font-sans)", lineHeight: "1.4" }}>{s.title}</span>
+                    <span style={{ fontSize: "10px", fontWeight: "700", color: "#0C57A8", fontFamily: "var(--font-montserrat)", flexShrink: 0, marginTop: "1px", minWidth: "14px" }}>{s.num}.</span>
+                    <span style={{ fontSize: "12px", color: "#5c5a57", fontFamily: "var(--font-montserrat)", lineHeight: "1.4" }}>{s.title}</span>
                   </a>
                 ))}
               </div>
@@ -146,16 +146,16 @@ export default function KebijakanPrivasiPage() {
                   }}
                 >
                   <div style={{ display: "flex", gap: "14px", alignItems: "flex-start", marginBottom: "14px" }}>
-                    <span style={{ fontSize: "11px", fontWeight: "700", color: "#fff", backgroundColor: "#0C57A8", borderRadius: "3px", padding: "3px 8px", fontFamily: "var(--font-sans)", flexShrink: 0, marginTop: "2px" }}>
+                    <span style={{ fontSize: "11px", fontWeight: "700", color: "#fff", backgroundColor: "#0C57A8", borderRadius: "3px", padding: "3px 8px", fontFamily: "var(--font-montserrat)", flexShrink: 0, marginTop: "2px" }}>
                       {s.num}
                     </span>
-                    <h2 style={{ fontSize: "15px", fontWeight: "700", color: "#0d0d0d", fontFamily: "var(--font-serif)", margin: 0, lineHeight: "1.4" }}>
+                    <h2 style={{ fontSize: "15px", fontWeight: "700", color: "#0d0d0d", fontFamily: "var(--font-montserrat)", margin: 0, lineHeight: "1.4" }}>
                       {s.title}
                     </h2>
                   </div>
                   <div style={{ paddingLeft: "36px" }}>
                     {s.content.split("\n\n").map((para, j) => (
-                      <p key={j} style={{ fontSize: "14px", color: "#3a3a3a", lineHeight: "1.85", fontFamily: "var(--font-sans)", margin: j > 0 ? "12px 0 0" : "0" }}
+                      <p key={j} style={{ fontSize: "14px", color: "#3a3a3a", lineHeight: "1.85", fontFamily: "var(--font-montserrat)", margin: j > 0 ? "12px 0 0" : "0" }}
                         dangerouslySetInnerHTML={{
                           __html: para
                             .replace(/https:\/\/tools\.google\.com\/dlpage\/gaoptout/g, '<a href="https://tools.google.com/dlpage/gaoptout" target="_blank" rel="noopener noreferrer" style="color:#1e4d7b;font-weight:600;text-underline-offset:2px;">https://tools.google.com/dlpage/gaoptout</a>')
@@ -173,7 +173,7 @@ export default function KebijakanPrivasiPage() {
               {/* Effective date footer */}
               <div style={{ marginTop: "16px", padding: "16px 20px", backgroundColor: "#fff", border: "1px solid #e5e2dd", borderLeft: "4px solid #0C57A8", borderRadius: "4px", display: "flex", alignItems: "center", gap: "12px" }}>
                 <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="#0C57A8" strokeWidth="2"><rect x="3" y="4" width="18" height="18" rx="2"/><line x1="16" y1="2" x2="16" y2="6"/><line x1="8" y1="2" x2="8" y2="6"/><line x1="3" y1="10" x2="21" y2="10"/></svg>
-                <p style={{ fontSize: "13px", color: "#5c5a57", fontFamily: "var(--font-sans)", margin: 0 }}>
+                <p style={{ fontSize: "13px", color: "#5c5a57", fontFamily: "var(--font-montserrat)", margin: 0 }}>
                   Kebijakan privasi ini berlaku efektif mulai <strong style={{ color: "#0d0d0d" }}>19 November 2018</strong>.
                 </p>
               </div>

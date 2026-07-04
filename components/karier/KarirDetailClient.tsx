@@ -71,29 +71,29 @@ export default function KarirDetailClient({ karir }: { karir: Karir }) {
               { label: "Karier", href: "/karier" },
             ].map((b, i) => (
               <span key={i} style={{ display: "flex", alignItems: "center", gap: "6px" }}>
-                <Link href={b.href} style={{ fontSize: "11px", color: "rgba(255,255,255,0.4)", textDecoration: "none", fontFamily: "var(--font-sans)", transition: "color 0.15s" }}
+                <Link href={b.href} style={{ fontSize: "11px", color: "rgba(255,255,255,0.4)", textDecoration: "none", fontFamily: "var(--font-montserrat)", transition: "color 0.15s" }}
                   onMouseEnter={(e) => (e.currentTarget.style.color = "rgba(255,255,255,0.8)")}
                   onMouseLeave={(e) => (e.currentTarget.style.color = "rgba(255,255,255,0.4)")}>
                   {b.label}
                 </Link>
-                <span style={{ fontSize: "11px", color: "rgba(255,255,255,0.25)", fontFamily: "var(--font-sans)" }}>/</span>
+                <span style={{ fontSize: "11px", color: "rgba(255,255,255,0.25)", fontFamily: "var(--font-montserrat)" }}>/</span>
               </span>
             ))}
-            <span style={{ fontSize: "11px", color: "#3b8ed4", fontFamily: "var(--font-sans)" }}>{karir.title}</span>
+            <span style={{ fontSize: "11px", color: "#3b8ed4", fontFamily: "var(--font-montserrat)" }}>{karir.title}</span>
           </div>
 
-          <h1 style={{ fontSize: "clamp(1.8rem, 3vw, 2.6rem)", fontWeight: "700", color: "#fff", fontFamily: "var(--font-serif)", margin: "0 0 20px", lineHeight: "1.2" }}>
+          <h1 style={{ fontSize: "clamp(1.8rem, 3vw, 2.6rem)", fontWeight: "700", color: "#fff", fontFamily: "var(--font-montserrat)", margin: "0 0 20px", lineHeight: "1.2" }}>
             {karir.title}
           </h1>
 
           {/* Meta */}
           <div style={{ display: "flex", flexWrap: "wrap" as const, gap: "16px", paddingBottom: "28px", borderBottom: "1px solid rgba(255,255,255,0.08)" }}>
-            <span style={{ display: "flex", alignItems: "center", gap: "6px", fontSize: "12px", color: "rgba(255,255,255,0.5)", fontFamily: "var(--font-sans)" }}>
+            <span style={{ display: "flex", alignItems: "center", gap: "6px", fontSize: "12px", color: "rgba(255,255,255,0.5)", fontFamily: "var(--font-montserrat)" }}>
               <svg width="13" height="13" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2"><rect x="3" y="4" width="18" height="18" rx="2"/><line x1="16" y1="2" x2="16" y2="6"/><line x1="8" y1="2" x2="8" y2="6"/><line x1="3" y1="10" x2="21" y2="10"/></svg>
               Dibuka: {formatDate(karir.published_at)}
             </span>
             {karir.expires_at && (
-              <span style={{ display: "flex", alignItems: "center", gap: "6px", fontSize: "12px", color: expiring ? "#fbbf24" : "rgba(255,255,255,0.5)", fontWeight: expiring ? "600" : "400", fontFamily: "var(--font-sans)" }}>
+              <span style={{ display: "flex", alignItems: "center", gap: "6px", fontSize: "12px", color: expiring ? "#fbbf24" : "rgba(255,255,255,0.5)", fontWeight: expiring ? "600" : "400", fontFamily: "var(--font-montserrat)" }}>
                 <svg width="13" height="13" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2"><circle cx="12" cy="12" r="10"/><polyline points="12 6 12 12 16 14"/></svg>
                 Ditutup: {formatDate(karir.expires_at)}
               </span>
@@ -115,7 +115,7 @@ export default function KarirDetailClient({ karir }: { karir: Karir }) {
               {expired && (
                 <div style={{ marginTop: "36px", backgroundColor: "#fff", border: "1px solid #fca5a5", borderLeft: "4px solid #ef4444", borderRadius: "4px", padding: "14px 18px", display: "flex", gap: "10px", alignItems: "center" }}>
                   <svg width="15" height="15" viewBox="0 0 24 24" fill="none" stroke="#ef4444" strokeWidth="2" style={{ flexShrink: 0 }}><circle cx="12" cy="12" r="10"/><line x1="12" y1="8" x2="12" y2="12"/><line x1="12" y1="16" x2="12.01" y2="16"/></svg>
-                  <p style={{ fontSize: "13px", color: "#991b1b", fontFamily: "var(--font-sans)", margin: 0, fontWeight: "600" }}>
+                  <p style={{ fontSize: "13px", color: "#991b1b", fontFamily: "var(--font-montserrat)", margin: 0, fontWeight: "600" }}>
                     Lowongan ini sudah ditutup pada {formatDate(karir.expires_at!)}.
                   </p>
                 </div>
@@ -130,7 +130,7 @@ export default function KarirDetailClient({ karir }: { karir: Karir }) {
 
               {/* Back */}
               <div style={{ marginTop: "40px", paddingTop: "20px", borderTop: "2px solid #0d0d0d" }}>
-                <Link href="/karier" style={{ display: "inline-flex", alignItems: "center", gap: "7px", fontSize: "12px", fontWeight: "700", letterSpacing: "0.05em", textTransform: "uppercase" as const, color: "#5c5a57", textDecoration: "none", fontFamily: "var(--font-sans)", transition: "color 0.15s" }}
+                <Link href="/karier" style={{ display: "inline-flex", alignItems: "center", gap: "7px", fontSize: "12px", fontWeight: "700", letterSpacing: "0.05em", textTransform: "uppercase" as const, color: "#5c5a57", textDecoration: "none", fontFamily: "var(--font-montserrat)", transition: "color 0.15s" }}
                   onMouseEnter={(e) => (e.currentTarget.style.color = "#0C57A8")}
                   onMouseLeave={(e) => (e.currentTarget.style.color = "#5c5a57")}>
                   <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2"><path d="M15 18l-6-6 6-6"/></svg>
@@ -146,12 +146,12 @@ export default function KarirDetailClient({ karir }: { karir: Karir }) {
               {!expired && karir.link_pendaftaran && (
                 <div style={{ backgroundColor: "#0d0d0d", borderRadius: "4px", padding: "22px", position: "relative", overflow: "hidden" }}>
                   <div style={{ position: "absolute", top: "-20px", right: "-20px", width: "80px", height: "80px", borderRadius: "50%", background: "radial-gradient(circle, rgba(12,87,168,0.25) 0%, transparent 70%)", pointerEvents: "none" }} />
-                  <h4 style={{ fontSize: "14px", fontWeight: "700", color: "#fff", fontFamily: "var(--font-serif)", margin: "0 0 6px" }}>Tertarik Melamar?</h4>
-                  <p style={{ fontSize: "14px", color: "rgba(255,255,255,0.45)", fontFamily: "var(--font-sans)", lineHeight: "1.6", margin: "0 0 16px" }}>
+                  <h4 style={{ fontSize: "14px", fontWeight: "700", color: "#fff", fontFamily: "var(--font-montserrat)", margin: "0 0 6px" }}>Tertarik Melamar?</h4>
+                  <p style={{ fontSize: "14px", color: "rgba(255,255,255,0.45)", fontFamily: "var(--font-montserrat)", lineHeight: "1.6", margin: "0 0 16px" }}>
                     Baca seluruh deskripsi dengan cermat sebelum mengirimkan lamaran.
                   </p>
                   <a href={karir.link_pendaftaran} target="_blank" rel="noopener noreferrer"
-                    style={{ display: "flex", alignItems: "center", justifyContent: "center", gap: "8px", padding: "11px 16px", backgroundColor: "#0C57A8", color: "#fff", textDecoration: "none", borderRadius: "3px", fontSize: "13px", fontWeight: "700", fontFamily: "var(--font-sans)", letterSpacing: "0.04em", transition: "background 0.2s" }}
+                    style={{ display: "flex", alignItems: "center", justifyContent: "center", gap: "8px", padding: "11px 16px", backgroundColor: "#0C57A8", color: "#fff", textDecoration: "none", borderRadius: "3px", fontSize: "13px", fontWeight: "700", fontFamily: "var(--font-montserrat)", letterSpacing: "0.04em", transition: "background 0.2s" }}
                     onMouseEnter={(e) => ((e.currentTarget as HTMLElement).style.backgroundColor = "#0a4a8f")}
                     onMouseLeave={(e) => ((e.currentTarget as HTMLElement).style.backgroundColor = "#0C57A8")}>
                     Daftar Sekarang
@@ -163,7 +163,7 @@ export default function KarirDetailClient({ karir }: { karir: Karir }) {
               {/* Info */}
               <div style={{ backgroundColor: "#fff", border: "1px solid #e5e2dd", borderRadius: "4px", overflow: "hidden" }}>
                 <div style={{ padding: "13px 18px", borderBottom: "3px solid #0d0d0d" }}>
-                  <span style={{ fontSize: "10px", fontWeight: "700", letterSpacing: "0.08em", textTransform: "uppercase" as const, color: "#0C57A8", fontFamily: "var(--font-sans)" }}>◆ Info Lowongan</span>
+                  <span style={{ fontSize: "10px", fontWeight: "700", letterSpacing: "0.08em", textTransform: "uppercase" as const, color: "#0C57A8", fontFamily: "var(--font-montserrat)" }}>◆ Info Lowongan</span>
                 </div>
                 <div style={{ padding: "16px 18px", display: "flex", flexDirection: "column", gap: "0" }}>
                   {[
@@ -173,8 +173,8 @@ export default function KarirDetailClient({ karir }: { karir: Karir }) {
                     <div key={i} style={{ display: "flex", alignItems: "flex-start", gap: "10px", padding: "12px 0", ...(i > 0 ? { borderTop: "1px solid #f0eeec" } : {}) }}>
                       <span style={{ flexShrink: 0, marginTop: "3px" }}>{row.icon}</span>
                       <div>
-                        <span style={{ fontSize: "10px", fontWeight: "700", color: "#6b6966", fontFamily: "var(--font-sans)", letterSpacing: "0.05em", textTransform: "uppercase" as const, display: "block" }}>{row.label}</span>
-                        <span style={{ fontSize: "12px", color: (row as any).highlight ? "#d97706" : "#0d0d0d", fontFamily: "var(--font-sans)", marginTop: "2px", display: "block", fontWeight: (row as any).highlight ? "600" : "400" }}>
+                        <span style={{ fontSize: "10px", fontWeight: "700", color: "#6b6966", fontFamily: "var(--font-montserrat)", letterSpacing: "0.05em", textTransform: "uppercase" as const, display: "block" }}>{row.label}</span>
+                        <span style={{ fontSize: "12px", color: (row as any).highlight ? "#d97706" : "#0d0d0d", fontFamily: "var(--font-montserrat)", marginTop: "2px", display: "block", fontWeight: (row as any).highlight ? "600" : "400" }}>
                           {row.value}
                         </span>
                       </div>
@@ -185,7 +185,7 @@ export default function KarirDetailClient({ karir }: { karir: Karir }) {
 
               {/* Warning */}
               <div style={{ backgroundColor: "#fffbeb", border: "1px solid #fbbf24", borderRadius: "4px", padding: "14px 16px" }}>
-                <p style={{ fontSize: "14px", color: "#92400e", lineHeight: "1.65", fontFamily: "var(--font-sans)", margin: 0 }}>
+                <p style={{ fontSize: "14px", color: "#92400e", lineHeight: "1.65", fontFamily: "var(--font-montserrat)", margin: 0 }}>
                   <strong>⚠ Peringatan:</strong> Wikimedia Indonesia tidak pernah meminta uang dalam proses rekrutmen. Laporkan ke{" "}
                   <a href="mailto:lowongan@wikimedia.or.id" style={{ color: "#0C57A8", fontWeight: "600", textDecoration: "none" }}>
                     lowongan@wikimedia.or.id
@@ -199,10 +199,10 @@ export default function KarirDetailClient({ karir }: { karir: Karir }) {
       </section>
 
       <style>{`
-        .karir-content { font-family: var(--font-sans); font-size: 15px; line-height: 1.85; color: #1a1a18; }
+        .karir-content { font-family: var(--font-montserrat); font-size: 15px; line-height: 1.85; color: #1a1a18; }
         .karir-content p { margin: 0 0 1em; }
-        .karir-content h2 { font-size: 1.15em; font-weight: 700; color: #0d0d0d; margin: 1.6em 0 0.5em; font-family: var(--font-serif); }
-        .karir-content h3 { font-size: 1.05em; font-weight: 700; color: #0d0d0d; margin: 1.4em 0 0.4em; font-family: var(--font-serif); }
+        .karir-content h2 { font-size: 1.15em; font-weight: 700; color: #0d0d0d; margin: 1.6em 0 0.5em; font-family: var(--font-montserrat); }
+        .karir-content h3 { font-size: 1.05em; font-weight: 700; color: #0d0d0d; margin: 1.4em 0 0.4em; font-family: var(--font-montserrat); }
         .karir-content ul { list-style-type: disc; margin: 0 0 1em; padding-left: 1.75em; }
         .karir-content ol { list-style-type: decimal; margin: 0 0 1em; padding-left: 1.75em; }
         .karir-content ul ul { list-style-type: circle; margin: 0.25em 0 0.25em; }

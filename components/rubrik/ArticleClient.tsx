@@ -96,21 +96,21 @@ function RelatedCard({ article }: { article: RelatedArticle }) {
             {article.categories?.[0] && (
               <span
                 onClick={(e) => { e.preventDefault(); e.stopPropagation(); router.push(`/rubrik/kategori/${article.categories[0]}`); }}
-                style={{ fontSize: "9px", fontWeight: "700", letterSpacing: "0.05em", textTransform: "uppercase" as const, color: "#8b1a2a", backgroundColor: "rgba(139,26,42,0.08)", padding: "2px 7px", borderRadius: "2px", fontFamily: "var(--font-sans)", cursor: "pointer" }}
+                style={{ fontSize: "9px", fontWeight: "700", letterSpacing: "0.05em", textTransform: "uppercase" as const, color: "#8b1a2a", backgroundColor: "rgba(139,26,42,0.08)", padding: "2px 7px", borderRadius: "2px", fontFamily: "var(--font-montserrat)", cursor: "pointer" }}
               >
                 {formatCategory(article.categories[0])}
               </span>
             )}
-            <span style={{ fontSize: "10px", color: "#6b6966", fontFamily: "var(--font-sans)", whiteSpace: "nowrap" as const, marginLeft: "auto" }}>
+            <span style={{ fontSize: "10px", color: "#6b6966", fontFamily: "var(--font-montserrat)", whiteSpace: "nowrap" as const, marginLeft: "auto" }}>
               {formatDateShort(article.published_at)}
             </span>
           </div>
-          <h3 style={{ fontSize: "13px", fontWeight: "600", color: "#0d0d0d", lineHeight: "1.45", fontFamily: "var(--font-serif)", margin: 0, display: "-webkit-box", WebkitLineClamp: 3, WebkitBoxOrient: "vertical" as const, overflow: "hidden" }}>
+          <h3 style={{ fontSize: "13px", fontWeight: "600", color: "#0d0d0d", lineHeight: "1.45", fontFamily: "var(--font-montserrat)", margin: 0, display: "-webkit-box", WebkitLineClamp: 3, WebkitBoxOrient: "vertical" as const, overflow: "hidden" }}>
             {article.title}
           </h3>
           <div style={{ display: "flex", alignItems: "center", justifyContent: "space-between", marginTop: "auto", paddingTop: "8px", borderTop: "1px solid #f0eeec" }}>
-            <span style={{ fontSize: "10px", color: "#6b6966", fontFamily: "var(--font-sans)" }}>{article.authors?.[0]?.name ?? "—"}</span>
-            <span style={{ display: "flex", alignItems: "center", gap: "3px", fontSize: "10px", color: "#6b6966", fontFamily: "var(--font-sans)" }}>
+            <span style={{ fontSize: "10px", color: "#6b6966", fontFamily: "var(--font-montserrat)" }}>{article.authors?.[0]?.name ?? "—"}</span>
+            <span style={{ display: "flex", alignItems: "center", gap: "3px", fontSize: "10px", color: "#6b6966", fontFamily: "var(--font-montserrat)" }}>
               <svg width="10" height="10" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2"><path d="M1 12s4-8 11-8 11 8 11 8-4 8-11 8-11-8-11-8z" /><circle cx="12" cy="12" r="3" /></svg>
               {article.views.toLocaleString("id-ID")}
             </span>
@@ -166,21 +166,21 @@ export default function ArticleClient({
         <div style={{ maxWidth: "1280px", margin: "0 auto", position: "relative", zIndex: 1 }}>
           {/* Breadcrumb */}
           <div style={{ display: "flex", alignItems: "center", gap: "6px", marginBottom: "28px", flexWrap: "wrap" as const }}>
-            <Link href="/" style={{ fontSize: "11px", color: "rgba(255,255,255,0.35)", textDecoration: "none", fontFamily: "var(--font-sans)", transition: "color 0.15s" }}
+            <Link href="/" style={{ fontSize: "11px", color: "rgba(255,255,255,0.35)", textDecoration: "none", fontFamily: "var(--font-montserrat)", transition: "color 0.15s" }}
               onMouseEnter={(e) => (e.currentTarget.style.color = "rgba(255,255,255,0.75)")}
               onMouseLeave={(e) => (e.currentTarget.style.color = "rgba(255,255,255,0.35)")}>
               Beranda
             </Link>
-            <span style={{ fontSize: "11px", color: "rgba(255,255,255,0.2)", fontFamily: "var(--font-sans)" }}>/</span>
-            <Link href="/rubrik" style={{ fontSize: "11px", color: "rgba(255,255,255,0.35)", textDecoration: "none", fontFamily: "var(--font-sans)", transition: "color 0.15s" }}
+            <span style={{ fontSize: "11px", color: "rgba(255,255,255,0.2)", fontFamily: "var(--font-montserrat)" }}>/</span>
+            <Link href="/rubrik" style={{ fontSize: "11px", color: "rgba(255,255,255,0.35)", textDecoration: "none", fontFamily: "var(--font-montserrat)", transition: "color 0.15s" }}
               onMouseEnter={(e) => (e.currentTarget.style.color = "rgba(255,255,255,0.75)")}
               onMouseLeave={(e) => (e.currentTarget.style.color = "rgba(255,255,255,0.35)")}>
               Rubrik
             </Link>
             {article.categories?.[0] && (
               <>
-                <span style={{ fontSize: "11px", color: "rgba(255,255,255,0.2)", fontFamily: "var(--font-sans)" }}>/</span>
-                <Link href={`/rubrik/kategori/${article.categories[0]}`} style={{ fontSize: "11px", color: "#3b8ed4", textDecoration: "none", fontFamily: "var(--font-sans)", transition: "color 0.15s" }}
+                <span style={{ fontSize: "11px", color: "rgba(255,255,255,0.2)", fontFamily: "var(--font-montserrat)" }}>/</span>
+                <Link href={`/rubrik/kategori/${article.categories[0]}`} style={{ fontSize: "11px", color: "#3b8ed4", textDecoration: "none", fontFamily: "var(--font-montserrat)", transition: "color 0.15s" }}
                   onMouseEnter={(e) => (e.currentTarget.style.color = "#f07090")}
                   onMouseLeave={(e) => (e.currentTarget.style.color = "#3b8ed4")}>
                   {formatCategory(article.categories[0])}
@@ -190,7 +190,7 @@ export default function ArticleClient({
           </div>
 
           {/* Title */}
-          <h1 style={{ fontSize: "clamp(1.8rem, 3.5vw, 3rem)", fontWeight: "700", color: "#ffffff", lineHeight: "1.2", fontFamily: "var(--font-serif)", margin: "0 0 24px", maxWidth: "860px", letterSpacing: "-0.01em" }}>
+          <h1 style={{ fontSize: "clamp(1.8rem, 3.5vw, 3rem)", fontWeight: "700", color: "#ffffff", lineHeight: "1.2", fontFamily: "var(--font-montserrat)", margin: "0 0 24px", maxWidth: "860px", letterSpacing: "-0.01em" }}>
             {article.title}
           </h1>
 
@@ -208,20 +208,20 @@ export default function ArticleClient({
                       <span key={a.id}>
                         <span
                           onClick={() => router.push(`/rubrik/author/${a.slug}`)}
-                          style={{ fontSize: "13px", fontWeight: "600", color: "rgba(255,255,255,0.9)", fontFamily: "var(--font-sans)", cursor: "pointer", transition: "color 0.15s" }}
+                          style={{ fontSize: "13px", fontWeight: "600", color: "rgba(255,255,255,0.9)", fontFamily: "var(--font-montserrat)", cursor: "pointer", transition: "color 0.15s" }}
                           onMouseEnter={(e) => (e.currentTarget.style.color = "#3b8ed4")}
                           onMouseLeave={(e) => (e.currentTarget.style.color = "rgba(255,255,255,0.9)")}
                         >
                           {a.name}
                         </span>
-                        {i < article.authors.length - 1 && <span style={{ fontSize: "13px", color: "rgba(255,255,255,0.3)", fontFamily: "var(--font-sans)" }}>, </span>}
+                        {i < article.authors.length - 1 && <span style={{ fontSize: "13px", color: "rgba(255,255,255,0.3)", fontFamily: "var(--font-montserrat)" }}>, </span>}
                       </span>
                     ))}
                   </div>
                 ) : (
-                  <span style={{ fontSize: "13px", color: "rgba(255,255,255,0.5)", fontFamily: "var(--font-sans)" }}>Redaksi WMID</span>
+                  <span style={{ fontSize: "13px", color: "rgba(255,255,255,0.5)", fontFamily: "var(--font-montserrat)" }}>Redaksi WMID</span>
                 )}
-                <p style={{ fontSize: "11px", color: "rgba(255,255,255,0.4)", fontFamily: "var(--font-sans)", margin: 0 }}>Penulis</p>
+                <p style={{ fontSize: "11px", color: "rgba(255,255,255,0.4)", fontFamily: "var(--font-montserrat)", margin: 0 }}>Penulis</p>
               </div>
             </div>
 
@@ -230,7 +230,7 @@ export default function ArticleClient({
             {/* Date */}
             <div style={{ display: "flex", alignItems: "center", gap: "7px" }}>
               <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="rgba(255,255,255,0.4)" strokeWidth="2"><rect x="3" y="4" width="18" height="18" rx="2" ry="2"/><line x1="16" y1="2" x2="16" y2="6"/><line x1="8" y1="2" x2="8" y2="6"/><line x1="3" y1="10" x2="21" y2="10"/></svg>
-              <span style={{ fontSize: "12px", color: "rgba(255,255,255,0.55)", fontFamily: "var(--font-sans)" }}>
+              <span style={{ fontSize: "12px", color: "rgba(255,255,255,0.55)", fontFamily: "var(--font-montserrat)" }}>
                 {formatDateLong(article.published_at)}
               </span>
             </div>
@@ -240,7 +240,7 @@ export default function ArticleClient({
             {/* Read time */}
             <div style={{ display: "flex", alignItems: "center", gap: "7px" }}>
               <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="rgba(255,255,255,0.4)" strokeWidth="2"><circle cx="12" cy="12" r="10"/><polyline points="12 6 12 12 16 14"/></svg>
-              <span style={{ fontSize: "12px", color: "rgba(255,255,255,0.55)", fontFamily: "var(--font-sans)" }}>{readingTime} menit baca</span>
+              <span style={{ fontSize: "12px", color: "rgba(255,255,255,0.55)", fontFamily: "var(--font-montserrat)" }}>{readingTime} menit baca</span>
             </div>
 
             <div style={{ width: "1px", height: "32px", backgroundColor: "rgba(255,255,255,0.1)" }} />
@@ -248,7 +248,7 @@ export default function ArticleClient({
             {/* Views */}
             <div style={{ display: "flex", alignItems: "center", gap: "7px" }}>
               <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="rgba(255,255,255,0.4)" strokeWidth="2"><path d="M1 12s4-8 11-8 11 8 11 8-4 8-11 8-11-8-11-8z"/><circle cx="12" cy="12" r="3"/></svg>
-              <span style={{ fontSize: "12px", color: "rgba(255,255,255,0.55)", fontFamily: "var(--font-sans)" }}>{article.views.toLocaleString("id-ID")} tayangan</span>
+              <span style={{ fontSize: "12px", color: "rgba(255,255,255,0.55)", fontFamily: "var(--font-montserrat)" }}>{article.views.toLocaleString("id-ID")} tayangan</span>
             </div>
           </div>
         </div>
@@ -289,12 +289,12 @@ export default function ArticleClient({
               {/* Keywords */}
               {article.keywords?.length > 0 && (
                 <div style={{ marginTop: "40px", paddingTop: "24px", borderTop: "1px solid #e5e2dd" }}>
-                  <span style={{ fontSize: "11px", fontWeight: "700", letterSpacing: "0.08em", textTransform: "uppercase" as const, color: "#6b6966", fontFamily: "var(--font-sans)", display: "block", marginBottom: "10px" }}>
+                  <span style={{ fontSize: "11px", fontWeight: "700", letterSpacing: "0.08em", textTransform: "uppercase" as const, color: "#6b6966", fontFamily: "var(--font-montserrat)", display: "block", marginBottom: "10px" }}>
                     Kata Kunci
                   </span>
                   <div style={{ display: "flex", flexWrap: "wrap" as const, gap: "6px" }}>
                     {article.keywords.map((kw) => (
-                      <span key={kw} style={{ fontSize: "12px", color: "#5c5a57", backgroundColor: "#f0eeec", border: "1px solid #e5e2dd", padding: "3px 10px", borderRadius: "100px", fontFamily: "var(--font-sans)" }}>
+                      <span key={kw} style={{ fontSize: "12px", color: "#5c5a57", backgroundColor: "#f0eeec", border: "1px solid #e5e2dd", padding: "3px 10px", borderRadius: "100px", fontFamily: "var(--font-montserrat)" }}>
                         #{kw}
                       </span>
                     ))}
@@ -304,7 +304,7 @@ export default function ArticleClient({
 
               {/* Share + back */}
               <div style={{ marginTop: "36px", paddingTop: "24px", borderTop: "2px solid #0d0d0d", display: "flex", alignItems: "center", justifyContent: "space-between", flexWrap: "wrap" as const, gap: "12px" }}>
-                <Link href="/rubrik" style={{ display: "inline-flex", alignItems: "center", gap: "7px", fontSize: "12px", fontWeight: "700", letterSpacing: "0.05em", textTransform: "uppercase" as const, color: "#5c5a57", textDecoration: "none", fontFamily: "var(--font-sans)", transition: "color 0.15s" }}
+                <Link href="/rubrik" style={{ display: "inline-flex", alignItems: "center", gap: "7px", fontSize: "12px", fontWeight: "700", letterSpacing: "0.05em", textTransform: "uppercase" as const, color: "#5c5a57", textDecoration: "none", fontFamily: "var(--font-montserrat)", transition: "color 0.15s" }}
                   onMouseEnter={(e) => (e.currentTarget.style.color = "#0C57A8")}
                   onMouseLeave={(e) => (e.currentTarget.style.color = "#5c5a57")}>
                   <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2"><path d="M15 18l-6-6 6-6" /></svg>
@@ -312,7 +312,7 @@ export default function ArticleClient({
                 </Link>
 
                 <div style={{ display: "flex", gap: "8px" }}>
-                  <span style={{ fontSize: "12px", color: "#6b6966", fontFamily: "var(--font-sans)", alignSelf: "center" }}>Bagikan:</span>
+                  <span style={{ fontSize: "12px", color: "#6b6966", fontFamily: "var(--font-montserrat)", alignSelf: "center" }}>Bagikan:</span>
                   {/* Twitter/X */}
                   <a
                     href={`https://twitter.com/intent/tweet?text=${encodeURIComponent(article.title)}&url=${encodeURIComponent(pageUrl)}`}
@@ -369,13 +369,13 @@ export default function ArticleClient({
                 <div style={{ backgroundColor: "#fff", border: "1px solid #e5e2dd", borderRadius: "4px", overflow: "hidden" }}>
                   <div style={{ padding: "14px 18px", borderBottom: "3px solid #0d0d0d" }}>
                     <div style={{ display: "flex", justifyContent: "space-between", alignItems: "center", marginBottom: article.categories?.length > 1 ? "8px" : "0" }}>
-                      <span style={{ fontSize: "10px", fontWeight: "700", letterSpacing: "0.08em", textTransform: "uppercase" as const, color: "#0C57A8", fontFamily: "var(--font-sans)" }}>◆ Artikel Terkait</span>
+                      <span style={{ fontSize: "10px", fontWeight: "700", letterSpacing: "0.08em", textTransform: "uppercase" as const, color: "#0C57A8", fontFamily: "var(--font-montserrat)" }}>◆ Artikel Terkait</span>
                     </div>
                     {article.categories?.length > 0 && (
                       <div style={{ display: "flex", flexWrap: "wrap" as const, gap: "4px" }}>
                         {article.categories.map((cat) => (
                           <Link key={cat} href={`/rubrik/kategori/${cat}`}
-                            style={{ fontSize: "9px", fontWeight: "700", letterSpacing: "0.05em", textTransform: "uppercase" as const, color: "#8b1a2a", backgroundColor: "rgba(139,26,42,0.08)", border: "1px solid rgba(139,26,42,0.2)", padding: "2px 8px", borderRadius: "2px", fontFamily: "var(--font-sans)", textDecoration: "none", transition: "all 0.15s" }}
+                            style={{ fontSize: "9px", fontWeight: "700", letterSpacing: "0.05em", textTransform: "uppercase" as const, color: "#8b1a2a", backgroundColor: "rgba(139,26,42,0.08)", border: "1px solid rgba(139,26,42,0.2)", padding: "2px 8px", borderRadius: "2px", fontFamily: "var(--font-montserrat)", textDecoration: "none", transition: "all 0.15s" }}
                             onMouseEnter={(e) => { e.currentTarget.style.backgroundColor = "rgba(139,26,42,0.18)"; e.currentTarget.style.borderColor = "rgba(139,26,42,0.3)"; e.currentTarget.style.color = "#5e0f1a"; }}
                             onMouseLeave={(e) => { e.currentTarget.style.backgroundColor = "rgba(139,26,42,0.08)"; e.currentTarget.style.borderColor = "rgba(139,26,42,0.2)"; e.currentTarget.style.color = "#8b1a2a"; }}
                           >
@@ -404,12 +404,12 @@ export default function ArticleClient({
                           )}
                           <div style={{ flex: 1, minWidth: 0 }}>
                             {a.categories?.[0] && (
-                              <span style={{ fontSize: "9px", fontWeight: "700", letterSpacing: "0.05em", textTransform: "uppercase" as const, color: "#1e4d7b", fontFamily: "var(--font-sans)", display: "block", marginBottom: "3px" }}>
+                              <span style={{ fontSize: "9px", fontWeight: "700", letterSpacing: "0.05em", textTransform: "uppercase" as const, color: "#1e4d7b", fontFamily: "var(--font-montserrat)", display: "block", marginBottom: "3px" }}>
                                 {formatCategory(a.categories[0])}
                               </span>
                             )}
-                            <p style={{ fontSize: "12px", fontWeight: "600", color: "#0d0d0d", lineHeight: "1.4", fontFamily: "var(--font-serif)", margin: "0 0 3px", display: "-webkit-box", WebkitLineClamp: 2, WebkitBoxOrient: "vertical" as const, overflow: "hidden" }}>{a.title}</p>
-                            <span style={{ fontSize: "10px", color: "#6b6966", fontFamily: "var(--font-sans)" }}>{formatDateShort(a.published_at)}</span>
+                            <p style={{ fontSize: "12px", fontWeight: "600", color: "#0d0d0d", lineHeight: "1.4", fontFamily: "var(--font-montserrat)", margin: "0 0 3px", display: "-webkit-box", WebkitLineClamp: 2, WebkitBoxOrient: "vertical" as const, overflow: "hidden" }}>{a.title}</p>
+                            <span style={{ fontSize: "10px", color: "#6b6966", fontFamily: "var(--font-montserrat)" }}>{formatDateShort(a.published_at)}</span>
                           </div>
                         </div>
                       </Link>
@@ -422,8 +422,8 @@ export default function ArticleClient({
               {latest.length > 0 && (
                 <div style={{ backgroundColor: "#fff", border: "1px solid #e5e2dd", borderRadius: "4px", overflow: "hidden" }}>
                   <div style={{ padding: "14px 18px", borderBottom: "3px solid #0d0d0d", display: "flex", justifyContent: "space-between", alignItems: "center" }}>
-                    <span style={{ fontSize: "10px", fontWeight: "700", letterSpacing: "0.08em", textTransform: "uppercase" as const, color: "#0C57A8", fontFamily: "var(--font-sans)" }}>◆ Terbaru</span>
-                    <Link href="/rubrik" style={{ fontSize: "10px", color: "#1e4d7b", textDecoration: "none", fontFamily: "var(--font-sans)", fontWeight: "600" }}
+                    <span style={{ fontSize: "10px", fontWeight: "700", letterSpacing: "0.08em", textTransform: "uppercase" as const, color: "#0C57A8", fontFamily: "var(--font-montserrat)" }}>◆ Terbaru</span>
+                    <Link href="/rubrik" style={{ fontSize: "10px", color: "#1e4d7b", textDecoration: "none", fontFamily: "var(--font-montserrat)", fontWeight: "600" }}
                       onMouseEnter={(e) => (e.currentTarget.style.color = "#0C57A8")}
                       onMouseLeave={(e) => (e.currentTarget.style.color = "#1e4d7b")}>
                       Lihat semua →
@@ -437,12 +437,12 @@ export default function ArticleClient({
                           onMouseEnter={(e) => { (e.currentTarget as HTMLElement).style.background = "#faf9f7"; }}
                           onMouseLeave={(e) => { (e.currentTarget as HTMLElement).style.background = "transparent"; }}
                         >
-                          <span style={{ fontSize: "16px", fontWeight: "800", color: "#e5e2dd", fontFamily: "var(--font-serif)", lineHeight: 1, flexShrink: 0, width: "20px", textAlign: "center" as const, paddingTop: "2px" }}>
+                          <span style={{ fontSize: "16px", fontWeight: "800", color: "#e5e2dd", fontFamily: "var(--font-montserrat)", lineHeight: 1, flexShrink: 0, width: "20px", textAlign: "center" as const, paddingTop: "2px" }}>
                             {String(idx + 1).padStart(2, "0")}
                           </span>
                           <div style={{ flex: 1, minWidth: 0 }}>
-                            <p style={{ fontSize: "12px", fontWeight: "600", color: "#0d0d0d", lineHeight: "1.4", fontFamily: "var(--font-serif)", margin: "0 0 3px", display: "-webkit-box", WebkitLineClamp: 2, WebkitBoxOrient: "vertical" as const, overflow: "hidden" }}>{a.title}</p>
-                            <span style={{ fontSize: "10px", color: "#6b6966", fontFamily: "var(--font-sans)" }}>{formatDateShort(a.published_at)}</span>
+                            <p style={{ fontSize: "12px", fontWeight: "600", color: "#0d0d0d", lineHeight: "1.4", fontFamily: "var(--font-montserrat)", margin: "0 0 3px", display: "-webkit-box", WebkitLineClamp: 2, WebkitBoxOrient: "vertical" as const, overflow: "hidden" }}>{a.title}</p>
+                            <span style={{ fontSize: "10px", color: "#6b6966", fontFamily: "var(--font-montserrat)" }}>{formatDateShort(a.published_at)}</span>
                           </div>
                         </div>
                       </Link>
@@ -461,11 +461,11 @@ export default function ArticleClient({
           <div style={{ maxWidth: "1280px", margin: "0 auto" }}>
             <div className="section-border-shimmer" style={{ display: "flex", justifyContent: "space-between", alignItems: "flex-end", marginBottom: "32px", paddingBottom: "14px", borderBottom: "3px solid #0d0d0d" }}>
               <div>
-                <span style={{ fontSize: "11px", fontWeight: "700", letterSpacing: "0.1em", textTransform: "uppercase" as const, color: "#0C57A8", fontFamily: "var(--font-sans)" }}>◆ Terkait</span>
-                <h2 style={{ fontSize: "clamp(1.4rem, 2.5vw, 1.8rem)", fontWeight: "700", color: "#0d0d0d", fontFamily: "var(--font-serif)", marginTop: "4px", marginBottom: 0 }}>Artikel Lainnya</h2>
+                <span style={{ fontSize: "11px", fontWeight: "700", letterSpacing: "0.1em", textTransform: "uppercase" as const, color: "#0C57A8", fontFamily: "var(--font-montserrat)" }}>◆ Terkait</span>
+                <h2 style={{ fontSize: "clamp(1.4rem, 2.5vw, 1.8rem)", fontWeight: "700", color: "#0d0d0d", fontFamily: "var(--font-montserrat)", marginTop: "4px", marginBottom: 0 }}>Artikel Lainnya</h2>
               </div>
               {article.categories?.[0] && (
-                <Link href={`/rubrik/kategori/${article.categories[0]}`} style={{ fontSize: "13px", fontWeight: "600", color: "#1e4d7b", textDecoration: "none", fontFamily: "var(--font-sans)", letterSpacing: "0.04em", whiteSpace: "nowrap" as const, transition: "color 0.15s" }}
+                <Link href={`/rubrik/kategori/${article.categories[0]}`} style={{ fontSize: "13px", fontWeight: "600", color: "#1e4d7b", textDecoration: "none", fontFamily: "var(--font-montserrat)", letterSpacing: "0.04em", whiteSpace: "nowrap" as const, transition: "color 0.15s" }}
                   onMouseEnter={(e) => (e.currentTarget.style.color = "#0C57A8")}
                   onMouseLeave={(e) => (e.currentTarget.style.color = "#1e4d7b")}>
                   Lihat Semua →
@@ -482,7 +482,7 @@ export default function ArticleClient({
       {/* ── ARTICLE CONTENT STYLES ───────────────────────────────────────── */}
       <style>{`
         .article-content {
-          font-family: var(--font-serif);
+          font-family: var(--font-montserrat);
           font-size: 17px;
           line-height: 1.85;
           color: #1a1a18;
@@ -505,12 +505,12 @@ export default function ArticleClient({
         .article-content img { max-width: 100%; height: auto; border-radius: 4px; margin: 1.5em 0 0; border: 1px solid #e5e2dd; display: block; }
         .article-content figure { margin: 1.8em 0; }
         .article-content figure img { margin: 0; width: 100%; }
-        .article-content figcaption { margin-top: 6px; font-size: 0.82em; color: #7a7874; font-style: italic; font-family: var(--font-sans); text-align: center; line-height: 1.45; padding: 0 8px; }
+        .article-content figcaption { margin-top: 6px; font-size: 0.82em; color: #7a7874; font-style: italic; font-family: var(--font-montserrat); text-align: center; line-height: 1.45; padding: 0 8px; }
         .article-content figcaption p { margin: 0; }
         .article-content code { font-family: 'Courier New', monospace; font-size: 0.88em; background: #f0eeec; border: 1px solid #e5e2dd; padding: 1px 6px; border-radius: 3px; color: #0C57A8; }
         .article-content pre { background: #0d0d0d; color: #f8f8f6; padding: 20px 24px; border-radius: 4px; overflow-x: auto; margin: 1.5em 0; font-size: 0.875em; line-height: 1.6; }
         .article-content pre code { background: none; border: none; padding: 0; color: inherit; font-size: inherit; }
-        .article-content table { width: 100%; border-collapse: collapse; margin: 1.5em 0; font-size: 0.9em; font-family: var(--font-sans); }
+        .article-content table { width: 100%; border-collapse: collapse; margin: 1.5em 0; font-size: 0.9em; font-family: var(--font-montserrat); }
         .article-content th { background: #0d0d0d; color: #fff; padding: 10px 14px; text-align: left; font-size: 12px; font-weight: 700; letter-spacing: 0.04em; text-transform: uppercase; }
         .article-content td { padding: 10px 14px; border-bottom: 1px solid #e5e2dd; color: #2a2826; }
         .article-content tr:hover td { background: #faf9f7; }

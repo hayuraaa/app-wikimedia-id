@@ -32,7 +32,7 @@ const BASE = "https://dashboard.wikimedia.or.id/api/v1";
 
 const KATEGORI_LABELS: Record<string, string> = {
   situs_utama: "Utama",
-  situs_datatek: "Data & Teknologi",
+  situs_datatek: "Data, Sains dan Teknologi",
   situs_kebudayaan: "Kebudayaan",
   situs_pendidikan: "Pendidikan",
   situs_komunitas: "Komunitas",
@@ -66,7 +66,7 @@ function MediaThumbnail({ item }: { item: MediaItem }) {
 
   const badge = (
     <div style={{ position: "absolute", top: "8px", left: "8px", zIndex: 1 }}>
-      <span style={{ display: "inline-flex", alignItems: "center", gap: "4px", padding: "3px 8px", backgroundColor: "rgba(220,38,38,0.9)", color: "#fff", fontSize: "10px", fontWeight: "700", borderRadius: "2px", fontFamily: "var(--font-sans)" }}>
+      <span style={{ display: "inline-flex", alignItems: "center", gap: "4px", padding: "3px 8px", backgroundColor: "rgba(220,38,38,0.9)", color: "#fff", fontSize: "10px", fontWeight: "700", borderRadius: "2px", fontFamily: "var(--font-montserrat)" }}>
         {isPdf ? (
           <>
             <svg width="10" height="10" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2"><path d="M14 2H6a2 2 0 0 0-2 2v16a2 2 0 0 0 2 2h12a2 2 0 0 0 2-2V8z"/><polyline points="14 2 14 8 20 8"/></svg>
@@ -126,7 +126,7 @@ function MediaThumbnail({ item }: { item: MediaItem }) {
           <polygon points="9.75 15.02 15.5 12 9.75 8.98 9.75 15.02" fill="#dc2626" opacity={0.4} stroke="none"/>
         </svg>
       )}
-      <span style={{ fontSize: "10px", color: "#dc2626", opacity: 0.5, fontFamily: "var(--font-sans)", fontWeight: "600", letterSpacing: "0.06em", textTransform: "uppercase" as const }}>
+      <span style={{ fontSize: "10px", color: "#dc2626", opacity: 0.5, fontFamily: "var(--font-montserrat)", fontWeight: "600", letterSpacing: "0.06em", textTransform: "uppercase" as const }}>
         {isPdf ? "PDF" : "YouTube"}
       </span>
     </div>
@@ -162,30 +162,30 @@ function MediaCard({ item }: { item: MediaItem }) {
       <div style={{ padding: "14px 16px", flex: 1, display: "flex", flexDirection: "column", gap: "8px" }}>
         <div style={{ display: "flex", flexWrap: "wrap" as const, gap: "4px" }}>
           {item.kategori.slice(0, 2).map((k) => (
-            <span key={k} style={{ fontSize: "10px", fontWeight: "600", color: "#5c5a57", backgroundColor: "#f0eeec", padding: "2px 7px", borderRadius: "2px", fontFamily: "var(--font-sans)" }}>
+            <span key={k} style={{ fontSize: "10px", fontWeight: "600", color: "#5c5a57", backgroundColor: "#f0eeec", padding: "2px 7px", borderRadius: "2px", fontFamily: "var(--font-montserrat)" }}>
               {KATEGORI_LABELS[k] ?? k}
             </span>
           ))}
         </div>
 
-        <h3 style={{ fontSize: "13px", fontWeight: "600", color: "#0d0d0d", lineHeight: "1.5", fontFamily: "var(--font-serif)", margin: 0, display: "-webkit-box", WebkitLineClamp: 2, WebkitBoxOrient: "vertical" as const, overflow: "hidden", wordBreak: "break-word" }}>
+        <h3 style={{ fontSize: "13px", fontWeight: "600", color: "#0d0d0d", lineHeight: "1.5", fontFamily: "var(--font-montserrat)", margin: 0, display: "-webkit-box", WebkitLineClamp: 2, WebkitBoxOrient: "vertical" as const, overflow: "hidden", wordBreak: "break-word" }}>
           {item.judul}
         </h3>
 
-        <p style={{ fontSize: "14px", color: "#6b6966", lineHeight: "1.6", fontFamily: "var(--font-sans)", display: "-webkit-box", WebkitLineClamp: 2, WebkitBoxOrient: "vertical" as const, overflow: "hidden", margin: 0, flex: 1, wordBreak: "break-word" }}>
+        <p style={{ fontSize: "14px", color: "#6b6966", lineHeight: "1.6", fontFamily: "var(--font-montserrat)", display: "-webkit-box", WebkitLineClamp: 2, WebkitBoxOrient: "vertical" as const, overflow: "hidden", margin: 0, flex: 1, wordBreak: "break-word" }}>
           {item.keterangan}
         </p>
 
         <div style={{ display: "flex", alignItems: "center", justifyContent: "space-between", paddingTop: "10px", borderTop: "1px solid #f0eeec", marginTop: "auto" }}>
-          <span style={{ fontSize: "11px", color: "#6b6966", fontFamily: "var(--font-sans)" }}>
+          <span style={{ fontSize: "11px", color: "#6b6966", fontFamily: "var(--font-montserrat)" }}>
             {formatDate(item.created_at)}
           </span>
           <div style={{ display: "flex", alignItems: "center", gap: "10px" }}>
-            <span style={{ display: "flex", alignItems: "center", gap: "4px", fontSize: "11px", color: "#6b6966", fontFamily: "var(--font-sans)" }}>
+            <span style={{ display: "flex", alignItems: "center", gap: "4px", fontSize: "11px", color: "#6b6966", fontFamily: "var(--font-montserrat)" }}>
               <svg width="11" height="11" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2"><path d="M1 12s4-8 11-8 11 8 11 8-4 8-11 8-11-8-11-8z"/><circle cx="12" cy="12" r="3"/></svg>
               {item.views.toLocaleString("id-ID")}
             </span>
-            <span style={{ display: "flex", alignItems: "center", gap: "4px", fontSize: "11px", color: "#0C57A8", fontWeight: "600", fontFamily: "var(--font-sans)" }}>
+            <span style={{ display: "flex", alignItems: "center", gap: "4px", fontSize: "11px", color: "#0C57A8", fontWeight: "600", fontFamily: "var(--font-montserrat)" }}>
               Buka
               <svg width="11" height="11" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2.5"><path d="M18 13v6a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2V8a2 2 0 0 1 2-2h6"/><polyline points="15 3 21 3 21 9"/><line x1="10" y1="14" x2="21" y2="3"/></svg>
             </span>
@@ -227,7 +227,7 @@ function Pagination({ meta, onPageChange }: { meta: Meta; onPageChange: (p: numb
     pages.push(last_page);
   }
 
-  const btn: React.CSSProperties = { display: "flex", alignItems: "center", justifyContent: "center", minWidth: "36px", height: "36px", padding: "0 6px", borderRadius: "3px", border: "1px solid #e5e2dd", backgroundColor: "#fff", fontSize: "13px", fontWeight: "500", fontFamily: "var(--font-sans)", cursor: "pointer", transition: "all 0.2s", color: "#3a3a3a" };
+  const btn: React.CSSProperties = { display: "flex", alignItems: "center", justifyContent: "center", minWidth: "36px", height: "36px", padding: "0 6px", borderRadius: "3px", border: "1px solid #e5e2dd", backgroundColor: "#fff", fontSize: "13px", fontWeight: "500", fontFamily: "var(--font-montserrat)", cursor: "pointer", transition: "all 0.2s", color: "#3a3a3a" };
 
   return (
     <div style={{ display: "flex", alignItems: "center", justifyContent: "center", gap: "4px", paddingTop: "36px" }}>
@@ -263,7 +263,7 @@ const JENIS_FILTER = [
 const KATEGORI_FILTER = [
   { value: "", label: "Semua Kategori" },
   { value: "situs_utama", label: "Utama" },
-  { value: "situs_datatek", label: "Data & Teknologi" },
+  { value: "situs_datatek", label: "Data, Sains dan Teknologi" },
   { value: "situs_kebudayaan", label: "Kebudayaan" },
   { value: "situs_pendidikan", label: "Pendidikan" },
   { value: "situs_komunitas", label: "Komunitas" },
@@ -341,22 +341,22 @@ export default function MediaPage() {
 
         <div style={{ maxWidth: "1280px", margin: "0 auto", position: "relative", zIndex: 1 }}>
           <div style={{ display: "flex", alignItems: "center", gap: "6px", marginBottom: "12px" }}>
-            <Link href="/" style={{ fontSize: "11px", color: "rgba(255,255,255,0.4)", textDecoration: "none", fontFamily: "var(--font-sans)" }}
+            <Link href="/" style={{ fontSize: "11px", color: "rgba(255,255,255,0.4)", textDecoration: "none", fontFamily: "var(--font-montserrat)" }}
               onMouseEnter={(e) => (e.currentTarget.style.color = "rgba(255,255,255,0.8)")}
               onMouseLeave={(e) => (e.currentTarget.style.color = "rgba(255,255,255,0.4)")}>
               Beranda
             </Link>
-            <span style={{ fontSize: "11px", color: "rgba(255,255,255,0.25)", fontFamily: "var(--font-sans)" }}>/</span>
-            <span style={{ fontSize: "11px", color: "#3b8ed4", fontFamily: "var(--font-sans)" }}>Media</span>
+            <span style={{ fontSize: "11px", color: "rgba(255,255,255,0.25)", fontFamily: "var(--font-montserrat)" }}>/</span>
+            <span style={{ fontSize: "11px", color: "#3b8ed4", fontFamily: "var(--font-montserrat)" }}>Media</span>
           </div>
 
           <div style={{ display: "flex", alignItems: "flex-end", justifyContent: "space-between", flexWrap: "wrap" as const, gap: "20px" }}>
             <div>
-              <h1 style={{ fontSize: "clamp(1.8rem, 3vw, 2.6rem)", fontWeight: "700", color: "#fff", fontFamily: "var(--font-serif)", margin: "6px 0 0", lineHeight: "1.2" }}>
+              <h1 style={{ fontSize: "clamp(1.8rem, 3vw, 2.6rem)", fontWeight: "700", color: "#fff", fontFamily: "var(--font-montserrat)", margin: "6px 0 0", lineHeight: "1.2" }}>
                 Modul & Materi
               </h1>
               {meta && (
-                <p style={{ fontSize: "13px", color: "rgba(255,255,255,0.45)", fontFamily: "var(--font-sans)", margin: "6px 0 0" }}>
+                <p style={{ fontSize: "13px", color: "rgba(255,255,255,0.45)", fontFamily: "var(--font-montserrat)", margin: "6px 0 0" }}>
                   {meta.total.toLocaleString("id-ID")} materi tersedia
                 </p>
               )}
@@ -369,7 +369,7 @@ export default function MediaPage() {
                 value={searchInput}
                 onChange={(e) => setSearchInput(e.target.value)}
                 onKeyDown={(e) => e.key === "Enter" && handleSearch()}
-                style={{ padding: "10px 16px", fontSize: "13px", backgroundColor: "rgba(255,255,255,0.06)", border: "none", color: "#fff", fontFamily: "var(--font-sans)", outline: "none", minWidth: "200px" }}
+                style={{ padding: "10px 16px", fontSize: "13px", backgroundColor: "rgba(255,255,255,0.06)", border: "none", color: "#fff", fontFamily: "var(--font-montserrat)", outline: "none", minWidth: "200px" }}
               />
               <button onClick={handleSearch}
                 style={{ padding: "10px 16px", backgroundColor: "#0C57A8", border: "none", color: "#fff", cursor: "pointer", display: "flex", alignItems: "center" }}
@@ -390,7 +390,7 @@ export default function MediaPage() {
             {JENIS_FILTER.map((f) => (
               <button key={f.value}
                 onClick={() => { setJenisFilter(f.value); setCurrentPage(1); }}
-                style={{ padding: "14px 18px", fontSize: "12px", fontWeight: jenisFilter === f.value ? "700" : "500", color: jenisFilter === f.value ? "#0C57A8" : "#5c5a57", background: "none", border: "none", cursor: "pointer", fontFamily: "var(--font-sans)", borderBottom: jenisFilter === f.value ? "2px solid #0C57A8" : "2px solid transparent", transition: "all 0.15s", whiteSpace: "nowrap" as const }}>
+                style={{ padding: "14px 18px", fontSize: "12px", fontWeight: jenisFilter === f.value ? "700" : "500", color: jenisFilter === f.value ? "#0C57A8" : "#5c5a57", background: "none", border: "none", cursor: "pointer", fontFamily: "var(--font-montserrat)", borderBottom: jenisFilter === f.value ? "2px solid #0C57A8" : "2px solid transparent", transition: "all 0.15s", whiteSpace: "nowrap" as const }}>
                 {f.label}
               </button>
             ))}
@@ -401,7 +401,7 @@ export default function MediaPage() {
             {KATEGORI_FILTER.map((f) => (
               <button key={f.value}
                 onClick={() => { setKategoriFilter(f.value); setCurrentPage(1); }}
-                style={{ padding: "14px 16px", fontSize: "12px", fontWeight: kategoriFilter === f.value ? "700" : "500", color: kategoriFilter === f.value ? "#0C57A8" : "#5c5a57", background: "none", border: "none", cursor: "pointer", fontFamily: "var(--font-sans)", borderBottom: kategoriFilter === f.value ? "2px solid #0C57A8" : "2px solid transparent", transition: "all 0.15s", whiteSpace: "nowrap" as const }}>
+                style={{ padding: "14px 16px", fontSize: "12px", fontWeight: kategoriFilter === f.value ? "700" : "500", color: kategoriFilter === f.value ? "#0C57A8" : "#5c5a57", background: "none", border: "none", cursor: "pointer", fontFamily: "var(--font-montserrat)", borderBottom: kategoriFilter === f.value ? "2px solid #0C57A8" : "2px solid transparent", transition: "all 0.15s", whiteSpace: "nowrap" as const }}>
                 {f.label}
               </button>
             ))}
@@ -410,7 +410,7 @@ export default function MediaPage() {
           {/* Clear search chip */}
           {searchQuery && (
             <div style={{ marginLeft: "auto", flexShrink: 0, padding: "0 8px" }}>
-              <span style={{ display: "inline-flex", alignItems: "center", gap: "6px", padding: "3px 10px", backgroundColor: "rgba(12,87,168,0.1)", border: "1px solid rgba(12,87,168,0.25)", borderRadius: "100px", fontSize: "11px", fontWeight: "600", color: "#0C57A8", fontFamily: "var(--font-sans)" }}>
+              <span style={{ display: "inline-flex", alignItems: "center", gap: "6px", padding: "3px 10px", backgroundColor: "rgba(12,87,168,0.1)", border: "1px solid rgba(12,87,168,0.25)", borderRadius: "100px", fontSize: "11px", fontWeight: "600", color: "#0C57A8", fontFamily: "var(--font-montserrat)" }}>
                 "{searchQuery}"
                 <button onClick={handleClearSearch} style={{ background: "none", border: "none", cursor: "pointer", padding: 0, color: "#0C57A8", display: "flex", alignItems: "center" }}>
                   <svg width="11" height="11" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2.5"><path d="M18 6L6 18M6 6l12 12"/></svg>
@@ -429,12 +429,12 @@ export default function MediaPage() {
           {/* Section header */}
           <div style={{ display: "flex", justifyContent: "space-between", alignItems: "flex-end", marginBottom: "24px", paddingBottom: "12px", borderBottom: "3px solid #0d0d0d" }}>
             <div>
-              <span style={{ fontSize: "11px", fontWeight: "700", letterSpacing: "0.1em", textTransform: "uppercase" as const, color: "#0C57A8", fontFamily: "var(--font-sans)" }}>◆ Koleksi</span>
-              <h2 style={{ fontSize: "18px", fontWeight: "700", color: "#0d0d0d", fontFamily: "var(--font-serif)", marginTop: "2px", marginBottom: 0 }}>
+              <span style={{ fontSize: "11px", fontWeight: "700", letterSpacing: "0.1em", textTransform: "uppercase" as const, color: "#0C57A8", fontFamily: "var(--font-montserrat)" }}>◆ Koleksi</span>
+              <h2 style={{ fontSize: "18px", fontWeight: "700", color: "#0d0d0d", fontFamily: "var(--font-montserrat)", marginTop: "2px", marginBottom: 0 }}>
                 {searchQuery ? `Hasil: "${searchQuery}"` : jenisFilter === "youtube" ? "Video YouTube" : jenisFilter === "wikimedia_commons" ? "PDF & Materi" : "Semua Materi"}
               </h2>
             </div>
-            {meta && <span style={{ fontSize: "12px", color: "#6b6966", fontFamily: "var(--font-sans)" }}>{meta.total.toLocaleString("id-ID")} materi</span>}
+            {meta && <span style={{ fontSize: "12px", color: "#6b6966", fontFamily: "var(--font-montserrat)" }}>{meta.total.toLocaleString("id-ID")} materi</span>}
           </div>
 
           {loading ? (
@@ -444,9 +444,9 @@ export default function MediaPage() {
           ) : items.length === 0 ? (
             <div style={{ padding: "60px 24px", textAlign: "center", backgroundColor: "#fff", border: "1px solid #e5e2dd", borderRadius: "4px" }}>
               <span style={{ fontSize: "40px", opacity: 0.2 }}>🔍</span>
-              <p style={{ fontSize: "15px", color: "#6b6966", fontFamily: "var(--font-sans)", marginTop: "12px" }}>Tidak ada materi ditemukan.</p>
+              <p style={{ fontSize: "15px", color: "#6b6966", fontFamily: "var(--font-montserrat)", marginTop: "12px" }}>Tidak ada materi ditemukan.</p>
               <button onClick={() => { setJenisFilter(""); setKategoriFilter(""); handleClearSearch(); }}
-                style={{ marginTop: "16px", padding: "8px 20px", backgroundColor: "#0C57A8", color: "#fff", border: "none", borderRadius: "3px", fontSize: "12px", fontWeight: "700", fontFamily: "var(--font-sans)", cursor: "pointer" }}>
+                style={{ marginTop: "16px", padding: "8px 20px", backgroundColor: "#0C57A8", color: "#fff", border: "none", borderRadius: "3px", fontSize: "12px", fontWeight: "700", fontFamily: "var(--font-montserrat)", cursor: "pointer" }}>
                 Reset Filter
               </button>
             </div>

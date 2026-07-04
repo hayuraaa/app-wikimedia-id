@@ -86,7 +86,7 @@ function Countdown({ targetDate }: { targetDate: string }) {
 
   return (
     <div style={{ backgroundColor: "rgba(30,77,123,0.08)", border: "1px solid rgba(30,77,123,0.2)", borderRadius: "4px", padding: "16px 20px" }}>
-      <p style={{ fontSize: "10px", fontWeight: "700", letterSpacing: "0.08em", textTransform: "uppercase" as const, color: "#1e4d7b", fontFamily: "var(--font-sans)", margin: "0 0 12px" }}>⏱ Hitung Mundur</p>
+      <p style={{ fontSize: "10px", fontWeight: "700", letterSpacing: "0.08em", textTransform: "uppercase" as const, color: "#1e4d7b", fontFamily: "var(--font-montserrat)", margin: "0 0 12px" }}>⏱ Hitung Mundur</p>
       <div style={{ display: "flex", gap: "8px", justifyContent: "center" }}>
         {[
           { val: timeLeft.days,    label: "Hari" },
@@ -95,10 +95,10 @@ function Countdown({ targetDate }: { targetDate: string }) {
           { val: timeLeft.seconds, label: "Detik" },
         ].map(({ val, label }) => (
           <div key={label} style={{ flex: 1, textAlign: "center", backgroundColor: "#1e4d7b", borderRadius: "4px", padding: "10px 4px" }}>
-            <div style={{ fontSize: "22px", fontWeight: "700", color: "#fff", fontFamily: "var(--font-serif)", lineHeight: 1 }}>
+            <div style={{ fontSize: "22px", fontWeight: "700", color: "#fff", fontFamily: "var(--font-montserrat)", lineHeight: 1 }}>
               {String(val).padStart(2, "0")}
             </div>
-            <div style={{ fontSize: "9px", color: "rgba(255,255,255,0.6)", fontFamily: "var(--font-sans)", marginTop: "3px", textTransform: "uppercase" as const, letterSpacing: "0.06em" }}>{label}</div>
+            <div style={{ fontSize: "9px", color: "rgba(255,255,255,0.6)", fontFamily: "var(--font-montserrat)", marginTop: "3px", textTransform: "uppercase" as const, letterSpacing: "0.06em" }}>{label}</div>
           </div>
         ))}
       </div>
@@ -138,32 +138,32 @@ export default function AcaraDetailClient({
         <div style={{ maxWidth: "1280px", margin: "0 auto", position: "relative", zIndex: 1 }}>
           {/* Breadcrumb */}
           <div style={{ display: "flex", alignItems: "center", gap: "6px", marginBottom: "24px", flexWrap: "wrap" as const }}>
-            <Link href="/" style={{ fontSize: "11px", color: "rgba(255,255,255,0.4)", textDecoration: "none", fontFamily: "var(--font-sans)", transition: "color 0.15s" }}
+            <Link href="/" style={{ fontSize: "11px", color: "rgba(255,255,255,0.4)", textDecoration: "none", fontFamily: "var(--font-montserrat)", transition: "color 0.15s" }}
               onMouseEnter={(e) => (e.currentTarget.style.color = "rgba(255,255,255,0.8)")}
               onMouseLeave={(e) => (e.currentTarget.style.color = "rgba(255,255,255,0.4)")}>Beranda</Link>
-            <span style={{ fontSize: "11px", color: "rgba(255,255,255,0.2)", fontFamily: "var(--font-sans)" }}>/</span>
-            <Link href="/acara" style={{ fontSize: "11px", color: "rgba(255,255,255,0.4)", textDecoration: "none", fontFamily: "var(--font-sans)", transition: "color 0.15s" }}
+            <span style={{ fontSize: "11px", color: "rgba(255,255,255,0.2)", fontFamily: "var(--font-montserrat)" }}>/</span>
+            <Link href="/acara" style={{ fontSize: "11px", color: "rgba(255,255,255,0.4)", textDecoration: "none", fontFamily: "var(--font-montserrat)", transition: "color 0.15s" }}
               onMouseEnter={(e) => (e.currentTarget.style.color = "rgba(255,255,255,0.8)")}
               onMouseLeave={(e) => (e.currentTarget.style.color = "rgba(255,255,255,0.4)")}>Acara</Link>
-            <span style={{ fontSize: "11px", color: "rgba(255,255,255,0.2)", fontFamily: "var(--font-sans)" }}>/</span>
-            <span style={{ fontSize: "11px", color: "#f5c842", fontFamily: "var(--font-sans)" }}>Detail</span>
+            <span style={{ fontSize: "11px", color: "rgba(255,255,255,0.2)", fontFamily: "var(--font-montserrat)" }}>/</span>
+            <span style={{ fontSize: "11px", color: "#f5c842", fontFamily: "var(--font-montserrat)" }}>Detail</span>
           </div>
 
-          <h1 style={{ fontSize: "clamp(1.6rem, 3.5vw, 2.8rem)", fontWeight: "700", color: "#ffffff", fontFamily: "var(--font-serif)", margin: "0 0 16px", lineHeight: "1.2", maxWidth: "860px" }}>
+          <h1 style={{ fontSize: "clamp(1.6rem, 3.5vw, 2.8rem)", fontWeight: "700", color: "#ffffff", fontFamily: "var(--font-montserrat)", margin: "0 0 16px", lineHeight: "1.2", maxWidth: "860px" }}>
             {event.judul}
           </h1>
 
           {/* Meta row */}
           <div style={{ display: "flex", alignItems: "center", gap: "20px", flexWrap: "wrap" as const }}>
-            <span style={{ display: "flex", alignItems: "center", gap: "6px", fontSize: "13px", color: "rgba(255,255,255,0.6)", fontFamily: "var(--font-sans)" }}>
+            <span style={{ display: "flex", alignItems: "center", gap: "6px", fontSize: "13px", color: "rgba(255,255,255,0.6)", fontFamily: "var(--font-montserrat)" }}>
               <svg width="13" height="13" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2"><rect x="3" y="4" width="18" height="18" rx="2"/><line x1="16" y1="2" x2="16" y2="6"/><line x1="8" y1="2" x2="8" y2="6"/><line x1="3" y1="10" x2="21" y2="10"/></svg>
               {formatTanggalLong(event.tanggal_mulai, event.tanggal_selesai)}
             </span>
-            <span style={{ display: "flex", alignItems: "center", gap: "6px", fontSize: "13px", color: "rgba(255,255,255,0.6)", fontFamily: "var(--font-sans)" }}>
+            <span style={{ display: "flex", alignItems: "center", gap: "6px", fontSize: "13px", color: "rgba(255,255,255,0.6)", fontFamily: "var(--font-montserrat)" }}>
               <svg width="13" height="13" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2"><circle cx="12" cy="12" r="10"/><polyline points="12 6 12 12 16 14"/></svg>
               {formatTime(event.tanggal_mulai)}
             </span>
-            <span style={{ display: "flex", alignItems: "center", gap: "6px", fontSize: "13px", color: "rgba(255,255,255,0.6)", fontFamily: "var(--font-sans)" }}>
+            <span style={{ display: "flex", alignItems: "center", gap: "6px", fontSize: "13px", color: "rgba(255,255,255,0.6)", fontFamily: "var(--font-montserrat)" }}>
               <svg width="13" height="13" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2"><path d="M21 10c0 7-9 13-9 13s-9-6-9-13a9 9 0 0 1 18 0z"/><circle cx="12" cy="10" r="3"/></svg>
               {event.lokasi}
             </span>
@@ -182,10 +182,10 @@ export default function AcaraDetailClient({
             <div>
               <div style={{ backgroundColor: "#fff", border: "1px solid #e5e2dd", borderRadius: "4px", overflow: "hidden" }}>
                 <div style={{ padding: "16px 24px", borderBottom: "3px solid #0d0d0d" }}>
-                  <span style={{ fontSize: "10px", fontWeight: "700", letterSpacing: "0.08em", textTransform: "uppercase" as const, color: "#0C57A8", fontFamily: "var(--font-sans)" }}>◆ Tentang Acara</span>
+                  <span style={{ fontSize: "10px", fontWeight: "700", letterSpacing: "0.08em", textTransform: "uppercase" as const, color: "#0C57A8", fontFamily: "var(--font-montserrat)" }}>◆ Tentang Acara</span>
                 </div>
                 <div style={{ padding: "28px 32px" }}>
-                  <div style={{ fontSize: "15px", color: "#2c2c2c", fontFamily: "var(--font-sans)", lineHeight: "1.9", whiteSpace: "pre-line" as const }}>
+                  <div style={{ fontSize: "15px", color: "#2c2c2c", fontFamily: "var(--font-montserrat)", lineHeight: "1.9", whiteSpace: "pre-line" as const }}>
                     {event.deskripsi}
                   </div>
                 </div>
@@ -195,7 +195,7 @@ export default function AcaraDetailClient({
               {event.links.length > 0 && (
                 <div style={{ backgroundColor: "#fff", border: "1px solid #e5e2dd", borderRadius: "4px", overflow: "hidden", marginTop: "20px" }}>
                   <div style={{ padding: "16px 24px", borderBottom: "3px solid #0d0d0d" }}>
-                    <span style={{ fontSize: "10px", fontWeight: "700", letterSpacing: "0.08em", textTransform: "uppercase" as const, color: "#0C57A8", fontFamily: "var(--font-sans)" }}>◆ Tautan Terkait</span>
+                    <span style={{ fontSize: "10px", fontWeight: "700", letterSpacing: "0.08em", textTransform: "uppercase" as const, color: "#0C57A8", fontFamily: "var(--font-montserrat)" }}>◆ Tautan Terkait</span>
                   </div>
                   <div style={{ padding: "16px 24px", display: "flex", flexDirection: "column", gap: "8px" }}>
                     {event.links.map((l) => (
@@ -208,8 +208,8 @@ export default function AcaraDetailClient({
                             <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="#1e4d7b" strokeWidth="2"><path d="M10 13a5 5 0 007.54.54l3-3a5 5 0 00-7.07-7.07l-1.72 1.71"/><path d="M14 11a5 5 0 00-7.54-.54l-3 3a5 5 0 007.07 7.07l1.71-1.71"/></svg>
                           </div>
                           <div>
-                            <div style={{ fontSize: "13px", fontWeight: "600", color: "#0d0d0d", fontFamily: "var(--font-sans)" }}>{l.judul_link}</div>
-                            <div style={{ fontSize: "11px", color: "#6b6966", fontFamily: "var(--font-sans)", marginTop: "1px", overflow: "hidden", textOverflow: "ellipsis", whiteSpace: "nowrap" as const, maxWidth: "340px" }}>{l.url}</div>
+                            <div style={{ fontSize: "13px", fontWeight: "600", color: "#0d0d0d", fontFamily: "var(--font-montserrat)" }}>{l.judul_link}</div>
+                            <div style={{ fontSize: "11px", color: "#6b6966", fontFamily: "var(--font-montserrat)", marginTop: "1px", overflow: "hidden", textOverflow: "ellipsis", whiteSpace: "nowrap" as const, maxWidth: "340px" }}>{l.url}</div>
                           </div>
                         </div>
                         <svg width="13" height="13" viewBox="0 0 24 24" fill="none" stroke="#1e4d7b" strokeWidth="2" style={{ flexShrink: 0 }}><path d="M18 13v6a2 2 0 01-2 2H5a2 2 0 01-2-2V8a2 2 0 012-2h6"/><polyline points="15 3 21 3 21 9"/><line x1="10" y1="14" x2="21" y2="3"/></svg>
@@ -222,7 +222,7 @@ export default function AcaraDetailClient({
               {/* Back button */}
               <div style={{ marginTop: "24px" }}>
                 <Link href="/acara"
-                  style={{ display: "inline-flex", alignItems: "center", gap: "8px", padding: "10px 20px", border: "1px solid #e5e2dd", borderRadius: "3px", backgroundColor: "#fff", color: "#3a3a3a", textDecoration: "none", fontSize: "12px", fontWeight: "600", fontFamily: "var(--font-sans)", transition: "all 0.2s" }}
+                  style={{ display: "inline-flex", alignItems: "center", gap: "8px", padding: "10px 20px", border: "1px solid #e5e2dd", borderRadius: "3px", backgroundColor: "#fff", color: "#3a3a3a", textDecoration: "none", fontSize: "12px", fontWeight: "600", fontFamily: "var(--font-montserrat)", transition: "all 0.2s" }}
                   onMouseEnter={(e) => { (e.currentTarget as HTMLElement).style.borderColor = "#0C57A8"; (e.currentTarget as HTMLElement).style.color = "#0C57A8"; }}
                   onMouseLeave={(e) => { (e.currentTarget as HTMLElement).style.borderColor = "#e5e2dd"; (e.currentTarget as HTMLElement).style.color = "#3a3a3a"; }}>
                   <svg width="13" height="13" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2"><path d="M15 18l-6-6 6-6"/></svg>
@@ -237,7 +237,7 @@ export default function AcaraDetailClient({
               {/* Info card */}
               <div style={{ backgroundColor: "#fff", border: "1px solid #e5e2dd", borderRadius: "4px", overflow: "hidden" }}>
                 <div style={{ padding: "14px 18px", borderBottom: "3px solid #0d0d0d" }}>
-                  <span style={{ fontSize: "10px", fontWeight: "700", letterSpacing: "0.08em", textTransform: "uppercase" as const, color: "#0C57A8", fontFamily: "var(--font-sans)" }}>◆ Info Acara</span>
+                  <span style={{ fontSize: "10px", fontWeight: "700", letterSpacing: "0.08em", textTransform: "uppercase" as const, color: "#0C57A8", fontFamily: "var(--font-montserrat)" }}>◆ Info Acara</span>
                 </div>
                 <div style={{ padding: "0" }}>
                   {[
@@ -271,16 +271,16 @@ export default function AcaraDetailClient({
                     <div key={i} style={{ display: "flex", alignItems: "flex-start", gap: "10px", padding: "12px 18px", borderBottom: "1px solid #f0eeec" }}>
                       <div style={{ color: "#0C57A8", flexShrink: 0, marginTop: "1px" }}>{icon}</div>
                       <div>
-                        <div style={{ fontSize: "10px", fontWeight: "600", color: "#6b6966", textTransform: "uppercase" as const, letterSpacing: "0.06em", fontFamily: "var(--font-sans)", marginBottom: "2px" }}>{label}</div>
-                        <div style={{ fontSize: "13px", color: extra ?? "#0d0d0d", fontFamily: "var(--font-sans)", fontWeight: extra ? "600" : "400" }}>{value}</div>
+                        <div style={{ fontSize: "10px", fontWeight: "600", color: "#6b6966", textTransform: "uppercase" as const, letterSpacing: "0.06em", fontFamily: "var(--font-montserrat)", marginBottom: "2px" }}>{label}</div>
+                        <div style={{ fontSize: "13px", color: extra ?? "#0d0d0d", fontFamily: "var(--font-montserrat)", fontWeight: extra ? "600" : "400" }}>{value}</div>
                       </div>
                     </div>
                   ))}
 
                   {/* Status */}
                   <div style={{ padding: "14px 18px" }}>
-                    <div style={{ fontSize: "10px", fontWeight: "600", color: "#6b6966", textTransform: "uppercase" as const, letterSpacing: "0.06em", fontFamily: "var(--font-sans)", marginBottom: "8px" }}>Status</div>
-                    <span style={{ display: "inline-flex", alignItems: "center", fontSize: "12px", fontWeight: "700", color: cfg.color, backgroundColor: cfg.bg, padding: "5px 14px", borderRadius: "3px", fontFamily: "var(--font-sans)", border: `1px solid ${cfg.border}30` }}>
+                    <div style={{ fontSize: "10px", fontWeight: "600", color: "#6b6966", textTransform: "uppercase" as const, letterSpacing: "0.06em", fontFamily: "var(--font-montserrat)", marginBottom: "8px" }}>Status</div>
+                    <span style={{ display: "inline-flex", alignItems: "center", fontSize: "12px", fontWeight: "700", color: cfg.color, backgroundColor: cfg.bg, padding: "5px 14px", borderRadius: "3px", fontFamily: "var(--font-montserrat)", border: `1px solid ${cfg.border}30` }}>
                       {cfg.label}
                     </span>
                   </div>
@@ -296,7 +296,7 @@ export default function AcaraDetailClient({
               {otherEvents.length > 0 && (
                 <div style={{ backgroundColor: "#fff", border: "1px solid #e5e2dd", borderRadius: "4px", overflow: "hidden" }}>
                   <div style={{ padding: "14px 18px", borderBottom: "3px solid #0d0d0d" }}>
-                    <span style={{ fontSize: "10px", fontWeight: "700", letterSpacing: "0.08em", textTransform: "uppercase" as const, color: "#0C57A8", fontFamily: "var(--font-sans)" }}>◆ Acara Lainnya</span>
+                    <span style={{ fontSize: "10px", fontWeight: "700", letterSpacing: "0.08em", textTransform: "uppercase" as const, color: "#0C57A8", fontFamily: "var(--font-montserrat)" }}>◆ Acara Lainnya</span>
                   </div>
                   <div style={{ padding: "8px 0" }}>
                     {otherEvents.map((ev) => {
@@ -308,12 +308,12 @@ export default function AcaraDetailClient({
                             onMouseEnter={(e) => { (e.currentTarget as HTMLElement).style.backgroundColor = "rgba(12,87,168,0.04)"; (e.currentTarget as HTMLElement).style.borderLeftColor = "#0C57A8"; }}
                             onMouseLeave={(e) => { (e.currentTarget as HTMLElement).style.backgroundColor = "transparent"; (e.currentTarget as HTMLElement).style.borderLeftColor = "transparent"; }}>
                             <div style={{ display: "flex", alignItems: "center", gap: "5px", marginBottom: "3px" }}>
-                              <span style={{ fontSize: "9px", fontWeight: "700", color: c.color, backgroundColor: c.bg, padding: "1px 6px", borderRadius: "2px", fontFamily: "var(--font-sans)" }}>{c.label}</span>
+                              <span style={{ fontSize: "9px", fontWeight: "700", color: c.color, backgroundColor: c.bg, padding: "1px 6px", borderRadius: "2px", fontFamily: "var(--font-montserrat)" }}>{c.label}</span>
                             </div>
-                            <div style={{ fontSize: "12px", fontWeight: "600", color: "#0d0d0d", fontFamily: "var(--font-serif)", lineHeight: "1.4", display: "-webkit-box", WebkitLineClamp: 2, WebkitBoxOrient: "vertical" as const, overflow: "hidden" }}>
+                            <div style={{ fontSize: "12px", fontWeight: "600", color: "#0d0d0d", fontFamily: "var(--font-montserrat)", lineHeight: "1.4", display: "-webkit-box", WebkitLineClamp: 2, WebkitBoxOrient: "vertical" as const, overflow: "hidden" }}>
                               {ev.judul}
                             </div>
-                            <div style={{ fontSize: "10px", color: "#6b6966", fontFamily: "var(--font-sans)", marginTop: "3px" }}>
+                            <div style={{ fontSize: "10px", color: "#6b6966", fontFamily: "var(--font-montserrat)", marginTop: "3px" }}>
                               {new Date(ev.tanggal_mulai).toLocaleDateString("id-ID", { day: "numeric", month: "short", year: "numeric", timeZone: WIB })}
                             </div>
                           </div>
@@ -322,7 +322,7 @@ export default function AcaraDetailClient({
                     })}
                   </div>
                   <div style={{ padding: "10px 18px", borderTop: "1px solid #f0eeec" }}>
-                    <Link href="/acara" style={{ fontSize: "12px", fontWeight: "600", color: "#1e4d7b", textDecoration: "none", fontFamily: "var(--font-sans)", transition: "color 0.15s" }}
+                    <Link href="/acara" style={{ fontSize: "12px", fontWeight: "600", color: "#1e4d7b", textDecoration: "none", fontFamily: "var(--font-montserrat)", transition: "color 0.15s" }}
                       onMouseEnter={(e) => (e.currentTarget.style.color = "#0C57A8")}
                       onMouseLeave={(e) => (e.currentTarget.style.color = "#1e4d7b")}>
                       Lihat semua acara →

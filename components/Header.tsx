@@ -34,6 +34,7 @@ const moreItems = [
   { label: "Donasi", href: "/donasi" },
   { label: "Karier", href: "/karier" },
   { label: "FAQ", href: "/faq" },
+  { label: "Kontak", href: "/kontak" },
 ];
 
 const BASE = "https://dashboard.wikimedia.or.id/api/v1";
@@ -117,7 +118,7 @@ function SearchDropdown({
       ) : results.length === 0 ? (
         <div style={{ padding: "32px 20px", textAlign: "center" }}>
           <div style={{ fontSize: "28px", marginBottom: "8px", opacity: 0.25 }}>🔍</div>
-          <p style={{ fontSize: "14px", color: "#6b6966", fontFamily: "var(--font-sans)", margin: 0 }}>
+          <p style={{ fontSize: "14px", color: "#6b6966", fontFamily: "var(--font-montserrat)", margin: 0 }}>
             Tidak ada hasil untuk <strong style={{ color: "#0d0d0d" }}>"{query}"</strong>
           </p>
         </div>
@@ -141,11 +142,11 @@ function SearchDropdown({
                     textTransform: "uppercase", color: meta.color,
                     backgroundColor: meta.bg,
                     padding: "2px 7px", borderRadius: "2px",
-                    fontFamily: "var(--font-sans)",
+                    fontFamily: "var(--font-montserrat)",
                   }}>
                     {meta.label}
                   </span>
-                  <span style={{ fontSize: "10px", color: "#c5c3bf", fontFamily: "var(--font-sans)" }}>
+                  <span style={{ fontSize: "10px", color: "#c5c3bf", fontFamily: "var(--font-montserrat)" }}>
                     {items.length} hasil
                   </span>
                 </div>
@@ -194,7 +195,7 @@ function SearchDropdown({
                     <div style={{ flex: 1, minWidth: 0 }}>
                       <p style={{
                         fontSize: "14px", fontWeight: "600", color: "#0d0d0d",
-                        fontFamily: "var(--font-serif)", lineHeight: "1.4",
+                        fontFamily: "var(--font-montserrat)", lineHeight: "1.4",
                         margin: "0 0 3px",
                         overflow: "hidden", textOverflow: "ellipsis", whiteSpace: "nowrap",
                       }}>
@@ -202,7 +203,7 @@ function SearchDropdown({
                       </p>
                       {item.excerpt && (
                         <p style={{
-                          fontSize: "11px", color: "#6b6966", fontFamily: "var(--font-sans)",
+                          fontSize: "11px", color: "#6b6966", fontFamily: "var(--font-montserrat)",
                           lineHeight: "1.5", margin: 0,
                           overflow: "hidden", textOverflow: "ellipsis", whiteSpace: "nowrap",
                         }}>
@@ -228,10 +229,10 @@ function SearchDropdown({
             alignItems: "center",
             justifyContent: "space-between",
           }}>
-            <span style={{ fontSize: "11px", color: "#c5c3bf", fontFamily: "var(--font-sans)" }}>
+            <span style={{ fontSize: "11px", color: "#c5c3bf", fontFamily: "var(--font-montserrat)" }}>
               {results.length} hasil ditemukan
             </span>
-            <span style={{ fontSize: "11px", color: "#6b6966", fontFamily: "var(--font-sans)" }}>
+            <span style={{ fontSize: "11px", color: "#6b6966", fontFamily: "var(--font-montserrat)" }}>
               Enter untuk cari semua
             </span>
           </div>
@@ -404,7 +405,7 @@ export default function Header() {
               letterSpacing: "0.03em", textTransform: "uppercase", textDecoration: "none",
               color: activeItem === item.label ? "#0C57A8" : "#3a3a3a",
               borderBottom: activeItem === item.label ? "2px solid #0C57A8" : "2px solid transparent",
-              transition: "all 0.2s", fontFamily: "var(--font-sans)",
+              transition: "all 0.2s", fontFamily: "var(--font-montserrat)",
             }}
               onMouseEnter={(e) => { if (activeItem !== item.label) e.currentTarget.style.color = "#0C57A8"; }}
               onMouseLeave={(e) => { if (activeItem !== item.label) e.currentTarget.style.color = "#3a3a3a"; }}
@@ -419,7 +420,7 @@ export default function Header() {
               padding: "8px 14px", fontSize: "14px", fontWeight: "600",
               letterSpacing: "0.03em", textTransform: "uppercase", background: "transparent",
               border: "none", borderBottom: "2px solid transparent", color: "#3a3a3a",
-              cursor: "pointer", transition: "all 0.2s", fontFamily: "var(--font-sans)",
+              cursor: "pointer", transition: "all 0.2s", fontFamily: "var(--font-montserrat)",
               display: "flex", alignItems: "center", gap: "5px",
             }}>
               Lainnya
@@ -439,7 +440,7 @@ export default function Header() {
                 {moreItems.map((item, idx) => (
                   <Link key={item.label} href={item.href} style={{
                     display: "block", padding: "10px 16px", fontSize: "14px", fontWeight: "500",
-                    color: "#3a3a3a", textDecoration: "none", fontFamily: "var(--font-sans)",
+                    color: "#3a3a3a", textDecoration: "none", fontFamily: "var(--font-montserrat)",
                     borderBottom: idx < moreItems.length - 1 ? "1px solid #f5f4f2" : "none",
                     transition: "all 0.15s",
                   }}
@@ -503,7 +504,7 @@ export default function Header() {
                 onKeyDown={handleKeyDown}
                 style={{
                   flex: 1, height: "100%", border: "none", outline: "none",
-                  fontSize: "14px", color: "#0d0d0d", fontFamily: "var(--font-sans)",
+                  fontSize: "14px", color: "#0d0d0d", fontFamily: "var(--font-montserrat)",
                   backgroundColor: "transparent", padding: "0 4px",
                   opacity: searchOpen ? 1 : 0,
                   pointerEvents: searchOpen ? "auto" : "none",
@@ -569,7 +570,7 @@ export default function Header() {
           <div style={{ display: "flex", borderRadius: "3px", overflow: "hidden", border: "1px solid #e5e2dd" }}>
             <input
               type="text" placeholder="Cari..."
-              style={{ flex: 1, padding: "10px 14px", fontSize: "14px", border: "none", outline: "none", fontFamily: "var(--font-sans)", color: "#0d0d0d" }}
+              style={{ flex: 1, padding: "10px 14px", fontSize: "14px", border: "none", outline: "none", fontFamily: "var(--font-montserrat)", color: "#0d0d0d" }}
               onKeyDown={(e) => { if (e.key === "Enter") { const v = (e.target as HTMLInputElement).value.trim(); if (v) { setMenuOpen(false); router.push(`/cari?q=${encodeURIComponent(v)}`); } } }}
             />
             <button aria-label="Cari" style={{ padding: "10px 14px", backgroundColor: "#0C57A8", border: "none", color: "#fff", cursor: "pointer" }}>
@@ -595,7 +596,7 @@ export default function Header() {
             <Link key={item.label} href={item.href} onClick={() => setMenuOpen(false)} style={{
               display: "block", padding: "10px 24px", fontSize: "14px", fontWeight: "500",
               textDecoration: "none", color: "#5c5a57", borderLeft: "3px solid transparent",
-              transition: "all 0.2s", fontFamily: "var(--font-sans)",
+              transition: "all 0.2s", fontFamily: "var(--font-montserrat)",
             }}>
               {item.label}
             </Link>

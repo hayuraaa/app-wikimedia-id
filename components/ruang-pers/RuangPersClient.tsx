@@ -60,21 +60,21 @@ function PressReleaseCard({ pr, featured = false }: { pr: PressRelease; featured
           )}
           <div style={{ padding: "32px 36px", display: "flex", flexDirection: "column", gap: "12px", justifyContent: "center" }}>
             <div style={{ display: "flex", alignItems: "center", gap: "10px" }}>
-              <span style={{ fontSize: "10px", fontWeight: "700", letterSpacing: "0.1em", textTransform: "uppercase" as const, color: "#0C57A8", backgroundColor: "rgba(12,87,168,0.08)", padding: "3px 10px", borderRadius: "2px", fontFamily: "var(--font-sans)" }}>
+              <span style={{ fontSize: "10px", fontWeight: "700", letterSpacing: "0.1em", textTransform: "uppercase" as const, color: "#0C57A8", backgroundColor: "rgba(12,87,168,0.08)", padding: "3px 10px", borderRadius: "2px", fontFamily: "var(--font-montserrat)" }}>
                 ◆ Siaran Pers
               </span>
-              <span style={{ fontSize: "11px", color: "#6b6966", fontFamily: "var(--font-sans)" }}>
+              <span style={{ fontSize: "11px", color: "#6b6966", fontFamily: "var(--font-montserrat)" }}>
                 {formatDateLong(pr.published_at)}
               </span>
             </div>
-            <h2 style={{ fontSize: "clamp(1.1rem, 2vw, 1.5rem)", fontWeight: "700", color: "#0d0d0d", lineHeight: "1.35", fontFamily: "var(--font-serif)", margin: 0 }}>
+            <h2 style={{ fontSize: "clamp(1.1rem, 2vw, 1.5rem)", fontWeight: "700", color: "#0d0d0d", lineHeight: "1.35", fontFamily: "var(--font-montserrat)", margin: 0 }}>
               {pr.title}
             </h2>
-            <p style={{ fontSize: "13px", color: "#5c5a57", lineHeight: "1.7", fontFamily: "var(--font-sans)", margin: 0, display: "-webkit-box", WebkitLineClamp: 3, WebkitBoxOrient: "vertical" as const, overflow: "hidden" }}>
+            <p style={{ fontSize: "13px", color: "#5c5a57", lineHeight: "1.7", fontFamily: "var(--font-montserrat)", margin: 0, display: "-webkit-box", WebkitLineClamp: 3, WebkitBoxOrient: "vertical" as const, overflow: "hidden" }}>
               {stripHtml(pr.excerpt)}
             </p>
             <div style={{ display: "flex", alignItems: "center", gap: "6px", marginTop: "4px" }}>
-              <span style={{ fontSize: "12px", fontWeight: "600", color: "#0C57A8", fontFamily: "var(--font-sans)" }}>
+              <span style={{ fontSize: "12px", fontWeight: "600", color: "#0C57A8", fontFamily: "var(--font-montserrat)" }}>
                 Baca selengkapnya
               </span>
               <svg width="13" height="13" viewBox="0 0 24 24" fill="none" stroke="#0C57A8" strokeWidth="2.5"><path d="M5 12h14M12 5l7 7-7 7"/></svg>
@@ -117,20 +117,20 @@ function PressReleaseCard({ pr, featured = false }: { pr: PressRelease; featured
           )}
         </div>
         <div style={{ padding: "16px 18px", flex: 1, display: "flex", flexDirection: "column", gap: "8px" }}>
-          <span style={{ fontSize: "11px", color: "#6b6966", fontFamily: "var(--font-sans)" }}>
+          <span style={{ fontSize: "11px", color: "#6b6966", fontFamily: "var(--font-montserrat)" }}>
             {formatDateShort(pr.published_at)}
           </span>
-          <h3 style={{ fontSize: "14px", fontWeight: "600", color: "#0d0d0d", lineHeight: "1.5", fontFamily: "var(--font-serif)", margin: 0 }}>
+          <h3 style={{ fontSize: "14px", fontWeight: "600", color: "#0d0d0d", lineHeight: "1.5", fontFamily: "var(--font-montserrat)", margin: 0 }}>
             {pr.title}
           </h3>
-          <p style={{ fontSize: "14px", color: "#6b6966", lineHeight: "1.6", fontFamily: "var(--font-sans)", display: "-webkit-box", WebkitLineClamp: 2, WebkitBoxOrient: "vertical" as const, overflow: "hidden", margin: 0, flex: 1 }}>
+          <p style={{ fontSize: "14px", color: "#6b6966", lineHeight: "1.6", fontFamily: "var(--font-montserrat)", display: "-webkit-box", WebkitLineClamp: 2, WebkitBoxOrient: "vertical" as const, overflow: "hidden", margin: 0, flex: 1 }}>
             {stripHtml(pr.excerpt)}
           </p>
           <div style={{ display: "flex", alignItems: "center", justifyContent: "space-between", paddingTop: "10px", borderTop: "1px solid #f0eeec", marginTop: "auto" }}>
-            <span style={{ fontSize: "11px", color: "#5c5a57", fontFamily: "var(--font-sans)" }}>
+            <span style={{ fontSize: "11px", color: "#5c5a57", fontFamily: "var(--font-montserrat)" }}>
               {pr.creator?.name ?? "—"}
             </span>
-            <span style={{ display: "flex", alignItems: "center", gap: "4px", fontSize: "11px", color: "#6b6966", fontFamily: "var(--font-sans)" }}>
+            <span style={{ display: "flex", alignItems: "center", gap: "4px", fontSize: "11px", color: "#6b6966", fontFamily: "var(--font-montserrat)" }}>
               <svg width="12" height="12" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2"><path d="M1 12s4-8 11-8 11 8 11 8-4 8-11 8-11-8-11-8z"/><circle cx="12" cy="12" r="3"/></svg>
               {pr.views.toLocaleString("id-ID")}
             </span>
@@ -193,7 +193,7 @@ function Pagination({ meta, onPageChange }: { meta: Meta; onPageChange: (p: numb
     minWidth: "36px", height: "36px", padding: "0 6px",
     borderRadius: "3px", border: "1px solid #e5e2dd",
     backgroundColor: "#fff", fontSize: "13px", fontWeight: "500",
-    fontFamily: "var(--font-sans)", cursor: "pointer", transition: "all 0.2s", color: "#3a3a3a",
+    fontFamily: "var(--font-montserrat)", cursor: "pointer", transition: "all 0.2s", color: "#3a3a3a",
   };
 
   return (
@@ -208,7 +208,7 @@ function Pagination({ meta, onPageChange }: { meta: Meta; onPageChange: (p: numb
       </button>
       {pages.map((p, idx) =>
         p === "..." ? (
-          <span key={`e-${idx}`} style={{ minWidth: "36px", height: "36px", display: "flex", alignItems: "center", justifyContent: "center", fontSize: "13px", color: "#6b6966", fontFamily: "var(--font-sans)" }}>···</span>
+          <span key={`e-${idx}`} style={{ minWidth: "36px", height: "36px", display: "flex", alignItems: "center", justifyContent: "center", fontSize: "13px", color: "#6b6966", fontFamily: "var(--font-montserrat)" }}>···</span>
         ) : (
           <button key={p}
             style={{ ...btn, backgroundColor: p === current_page ? "#0C57A8" : "#fff", borderColor: p === current_page ? "#0C57A8" : "#e5e2dd", color: p === current_page ? "#fff" : "#3a3a3a", fontWeight: p === current_page ? "700" : "500" }}
@@ -305,28 +305,28 @@ export default function RuangPersClient({
         <div style={{ maxWidth: "1280px", margin: "0 auto", position: "relative", zIndex: 1 }}>
           {/* Breadcrumb */}
           <div style={{ display: "flex", alignItems: "center", gap: "6px", marginBottom: "12px" }}>
-            <Link href="/" style={{ fontSize: "11px", color: "rgba(255,255,255,0.4)", textDecoration: "none", fontFamily: "var(--font-sans)", transition: "color 0.15s" }}
+            <Link href="/" style={{ fontSize: "11px", color: "rgba(255,255,255,0.4)", textDecoration: "none", fontFamily: "var(--font-montserrat)", transition: "color 0.15s" }}
               onMouseEnter={(e) => (e.currentTarget.style.color = "rgba(255,255,255,0.8)")}
               onMouseLeave={(e) => (e.currentTarget.style.color = "rgba(255,255,255,0.4)")}>
               Beranda
             </Link>
-            <span style={{ fontSize: "11px", color: "rgba(255,255,255,0.25)", fontFamily: "var(--font-sans)" }}>/</span>
-            <span style={{ fontSize: "11px", color: "#3b8ed4", fontFamily: "var(--font-sans)" }}>Ruang Pers</span>
+            <span style={{ fontSize: "11px", color: "rgba(255,255,255,0.25)", fontFamily: "var(--font-montserrat)" }}>/</span>
+            <span style={{ fontSize: "11px", color: "#3b8ed4", fontFamily: "var(--font-montserrat)" }}>Ruang Pers</span>
             {searchQuery && (
               <>
-                <span style={{ fontSize: "11px", color: "rgba(255,255,255,0.25)", fontFamily: "var(--font-sans)" }}>/</span>
-                <span style={{ fontSize: "11px", color: "#f5c842", fontFamily: "var(--font-sans)" }}>Pencarian: "{searchQuery}"</span>
+                <span style={{ fontSize: "11px", color: "rgba(255,255,255,0.25)", fontFamily: "var(--font-montserrat)" }}>/</span>
+                <span style={{ fontSize: "11px", color: "#f5c842", fontFamily: "var(--font-montserrat)" }}>Pencarian: "{searchQuery}"</span>
               </>
             )}
           </div>
 
           <div style={{ display: "flex", alignItems: "flex-end", justifyContent: "space-between", flexWrap: "wrap", gap: "20px" }}>
             <div>
-              <h1 style={{ fontSize: "clamp(1.8rem, 3vw, 2.6rem)", fontWeight: "700", color: "#fff", fontFamily: "var(--font-serif)", margin: "6px 0 0", lineHeight: "1.2" }}>
+              <h1 style={{ fontSize: "clamp(1.8rem, 3vw, 2.6rem)", fontWeight: "700", color: "#fff", fontFamily: "var(--font-montserrat)", margin: "6px 0 0", lineHeight: "1.2" }}>
                 {searchQuery ? `Hasil: "${searchQuery}"` : "Siaran Pers"}
               </h1>
               {meta && (
-                <p style={{ fontSize: "13px", color: "rgba(255,255,255,0.45)", fontFamily: "var(--font-sans)", margin: "6px 0 0" }}>
+                <p style={{ fontSize: "13px", color: "rgba(255,255,255,0.45)", fontFamily: "var(--font-montserrat)", margin: "6px 0 0" }}>
                   {meta.total.toLocaleString("id-ID")} siaran pers{meta.last_page > 1 && ` · Halaman ${meta.current_page} dari ${meta.last_page}`}
                 </p>
               )}
@@ -339,7 +339,7 @@ export default function RuangPersClient({
                 value={searchInput}
                 onChange={(e) => setSearchInput(e.target.value)}
                 onKeyDown={(e) => e.key === "Enter" && handleSearch()}
-                style={{ padding: "10px 16px", fontSize: "13px", backgroundColor: "rgba(255,255,255,0.06)", border: "none", color: "#fff", fontFamily: "var(--font-sans)", outline: "none", minWidth: "220px" }}
+                style={{ padding: "10px 16px", fontSize: "13px", backgroundColor: "rgba(255,255,255,0.06)", border: "none", color: "#fff", fontFamily: "var(--font-montserrat)", outline: "none", minWidth: "220px" }}
               />
               <button
                 onClick={handleSearch}
@@ -363,8 +363,8 @@ export default function RuangPersClient({
           {/* Filter chip */}
           {searchQuery && (
             <div style={{ display: "flex", alignItems: "center", gap: "8px", marginBottom: "20px" }}>
-              <span style={{ fontSize: "12px", color: "#5c5a57", fontFamily: "var(--font-sans)" }}>Filter aktif:</span>
-              <span style={{ display: "inline-flex", alignItems: "center", gap: "6px", padding: "3px 10px", backgroundColor: "rgba(12,87,168,0.1)", border: "1px solid rgba(12,87,168,0.25)", borderRadius: "100px", fontSize: "12px", fontWeight: "600", color: "#0C57A8", fontFamily: "var(--font-sans)" }}>
+              <span style={{ fontSize: "12px", color: "#5c5a57", fontFamily: "var(--font-montserrat)" }}>Filter aktif:</span>
+              <span style={{ display: "inline-flex", alignItems: "center", gap: "6px", padding: "3px 10px", backgroundColor: "rgba(12,87,168,0.1)", border: "1px solid rgba(12,87,168,0.25)", borderRadius: "100px", fontSize: "12px", fontWeight: "600", color: "#0C57A8", fontFamily: "var(--font-montserrat)" }}>
                 "{searchQuery}"
                 <button onClick={handleClearSearch} style={{ background: "none", border: "none", cursor: "pointer", padding: 0, color: "#0C57A8", display: "flex", alignItems: "center" }}>
                   <svg width="12" height="12" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2.5"><path d="M18 6L6 18M6 6l12 12"/></svg>
@@ -376,12 +376,12 @@ export default function RuangPersClient({
           {/* Section header */}
           <div style={{ display: "flex", justifyContent: "space-between", alignItems: "flex-end", marginBottom: "24px", paddingBottom: "12px", borderBottom: "3px solid #0d0d0d" }}>
             <div>
-              <span style={{ fontSize: "11px", fontWeight: "700", letterSpacing: "0.1em", textTransform: "uppercase" as const, color: "#0C57A8", fontFamily: "var(--font-sans)" }}>◆ Terkini</span>
-              <h2 style={{ fontSize: "18px", fontWeight: "700", color: "#0d0d0d", fontFamily: "var(--font-serif)", marginTop: "2px", marginBottom: 0 }}>
+              <span style={{ fontSize: "11px", fontWeight: "700", letterSpacing: "0.1em", textTransform: "uppercase" as const, color: "#0C57A8", fontFamily: "var(--font-montserrat)" }}>◆ Terkini</span>
+              <h2 style={{ fontSize: "18px", fontWeight: "700", color: "#0d0d0d", fontFamily: "var(--font-montserrat)", marginTop: "2px", marginBottom: 0 }}>
                 {searchQuery ? "Hasil Pencarian" : "Semua Siaran Pers"}
               </h2>
             </div>
-            {meta && <span style={{ fontSize: "12px", color: "#6b6966", fontFamily: "var(--font-sans)" }}>{meta.total.toLocaleString("id-ID")} siaran pers</span>}
+            {meta && <span style={{ fontSize: "12px", color: "#6b6966", fontFamily: "var(--font-montserrat)" }}>{meta.total.toLocaleString("id-ID")} siaran pers</span>}
           </div>
 
           {loading ? (
@@ -394,8 +394,8 @@ export default function RuangPersClient({
           ) : pressReleases.length === 0 ? (
             <div style={{ padding: "60px 24px", textAlign: "center", backgroundColor: "#fff", border: "1px solid #e5e2dd", borderRadius: "4px" }}>
               <span style={{ fontSize: "40px", opacity: 0.2 }}>🔍</span>
-              <p style={{ fontSize: "15px", color: "#6b6966", fontFamily: "var(--font-sans)", marginTop: "12px" }}>Tidak ada siaran pers ditemukan.</p>
-              <button onClick={handleClearSearch} style={{ marginTop: "16px", padding: "8px 20px", backgroundColor: "#0C57A8", color: "#fff", border: "none", borderRadius: "3px", fontSize: "12px", fontWeight: "700", fontFamily: "var(--font-sans)", cursor: "pointer" }}>
+              <p style={{ fontSize: "15px", color: "#6b6966", fontFamily: "var(--font-montserrat)", marginTop: "12px" }}>Tidak ada siaran pers ditemukan.</p>
+              <button onClick={handleClearSearch} style={{ marginTop: "16px", padding: "8px 20px", backgroundColor: "#0C57A8", color: "#fff", border: "none", borderRadius: "3px", fontSize: "12px", fontWeight: "700", fontFamily: "var(--font-montserrat)", cursor: "pointer" }}>
                 Tampilkan Semua
               </button>
             </div>

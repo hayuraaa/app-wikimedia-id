@@ -95,7 +95,7 @@ function ArticleCard({ article }: { article: Article }) {
                       fontSize: "10px", fontWeight: "700", letterSpacing: "0.04em",
                       color: "#8b1a2a", backgroundColor: "rgba(139,26,42,0.08)",
                       padding: "2px 8px", borderRadius: "2px",
-                      fontFamily: "var(--font-sans)", cursor: "pointer", transition: "all 0.15s",
+                      fontFamily: "var(--font-montserrat)", cursor: "pointer", transition: "all 0.15s",
                     }}
                     onMouseEnter={(e) => { e.currentTarget.style.backgroundColor = "rgba(139,26,42,0.18)"; e.currentTarget.style.color = "#5e0f1a"; }}
                     onMouseLeave={(e) => { e.currentTarget.style.backgroundColor = "rgba(139,26,42,0.08)"; e.currentTarget.style.color = "#8b1a2a"; }}
@@ -107,19 +107,19 @@ function ArticleCard({ article }: { article: Article }) {
             ) : (
               <span style={{ flex: 1 }} />
             )}
-            <span style={{ fontSize: "11px", color: "#6b6966", fontFamily: "var(--font-sans)", whiteSpace: "nowrap", flexShrink: 0 }}>
+            <span style={{ fontSize: "11px", color: "#6b6966", fontFamily: "var(--font-montserrat)", whiteSpace: "nowrap", flexShrink: 0 }}>
               {formatDateShort(article.published_at)}
             </span>
           </div>
 
           {/* Title */}
-          <h3 style={{ fontSize: "15px", fontWeight: "600", color: "#0d0d0d", lineHeight: "1.5", fontFamily: "var(--font-serif)", margin: 0 }}>
+          <h3 style={{ fontSize: "15px", fontWeight: "600", color: "#0d0d0d", lineHeight: "1.5", fontFamily: "var(--font-montserrat)", margin: 0 }}>
             {article.title}
           </h3>
 
           {/* Excerpt */}
           <p style={{
-            fontSize: "14px", color: "#6b6966", lineHeight: "1.6", fontFamily: "var(--font-sans)",
+            fontSize: "14px", color: "#6b6966", lineHeight: "1.6", fontFamily: "var(--font-montserrat)",
             display: "-webkit-box", WebkitLineClamp: 2, WebkitBoxOrient: "vertical", overflow: "hidden",
             margin: 0, flex: 1,
           }}>
@@ -136,7 +136,7 @@ function ArticleCard({ article }: { article: Article }) {
                   router.push(`/rubrik/author/${article.authors[0].slug}`);
                 }}
                 style={{
-                  fontSize: "11px", color: "#5c5a57", fontFamily: "var(--font-sans)",
+                  fontSize: "11px", color: "#5c5a57", fontFamily: "var(--font-montserrat)",
                   overflow: "hidden", textOverflow: "ellipsis", whiteSpace: "nowrap",
                   maxWidth: "65%", cursor: "pointer", transition: "color 0.15s",
                 }}
@@ -146,9 +146,9 @@ function ArticleCard({ article }: { article: Article }) {
                 {article.authors[0].name}
               </span>
             ) : (
-              <span style={{ fontSize: "11px", color: "#5c5a57", fontFamily: "var(--font-sans)" }}>—</span>
+              <span style={{ fontSize: "11px", color: "#5c5a57", fontFamily: "var(--font-montserrat)" }}>—</span>
             )}
-            <span style={{ display: "flex", alignItems: "center", gap: "4px", fontSize: "11px", color: "#6b6966", fontFamily: "var(--font-sans)", flexShrink: 0 }}>
+            <span style={{ display: "flex", alignItems: "center", gap: "4px", fontSize: "11px", color: "#6b6966", fontFamily: "var(--font-montserrat)", flexShrink: 0 }}>
               <svg width="12" height="12" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2">
                 <path d="M1 12s4-8 11-8 11 8 11 8-4 8-11 8-11-8-11-8z" /><circle cx="12" cy="12" r="3" />
               </svg>
@@ -198,7 +198,7 @@ function Pagination({ meta, onPageChange }: { meta: Meta; onPageChange: (p: numb
     minWidth: "36px", height: "36px", padding: "0 6px",
     borderRadius: "3px", border: "1px solid #e5e2dd",
     backgroundColor: "#fff", fontSize: "13px", fontWeight: "500",
-    fontFamily: "var(--font-sans)", cursor: "pointer", transition: "all 0.2s", color: "#3a3a3a",
+    fontFamily: "var(--font-montserrat)", cursor: "pointer", transition: "all 0.2s", color: "#3a3a3a",
   };
 
   return (
@@ -213,7 +213,7 @@ function Pagination({ meta, onPageChange }: { meta: Meta; onPageChange: (p: numb
       </button>
       {pages.map((p, idx) =>
         p === "..." ? (
-          <span key={`e-${idx}`} style={{ minWidth: "36px", height: "36px", display: "flex", alignItems: "center", justifyContent: "center", fontSize: "13px", color: "#6b6966", fontFamily: "var(--font-sans)" }}>···</span>
+          <span key={`e-${idx}`} style={{ minWidth: "36px", height: "36px", display: "flex", alignItems: "center", justifyContent: "center", fontSize: "13px", color: "#6b6966", fontFamily: "var(--font-montserrat)" }}>···</span>
         ) : (
           <button
             key={p}
@@ -253,8 +253,8 @@ function Sidebar({ popular, popularLoading, categories, activeCategory, onCatego
       {/* Kategori */}
       <div style={{ backgroundColor: "#fff", border: "1px solid #e5e2dd", borderRadius: "4px", overflow: "hidden" }}>
         <div style={{ padding: "14px 18px", borderBottom: "3px solid #0d0d0d", display: "flex", alignItems: "center", gap: "8px" }}>
-          <span style={{ fontSize: "10px", fontWeight: "700", letterSpacing: "0.08em", textTransform: "uppercase" as const, color: "#0C57A8", fontFamily: "var(--font-sans)" }}>◆</span>
-          <h3 style={{ fontSize: "14px", fontWeight: "700", color: "#0d0d0d", fontFamily: "var(--font-serif)", margin: 0 }}>Kategori</h3>
+          <span style={{ fontSize: "10px", fontWeight: "700", letterSpacing: "0.08em", textTransform: "uppercase" as const, color: "#0C57A8", fontFamily: "var(--font-montserrat)" }}>◆</span>
+          <h3 style={{ fontSize: "14px", fontWeight: "700", color: "#0d0d0d", fontFamily: "var(--font-montserrat)", margin: 0 }}>Kategori</h3>
         </div>
         <div style={{ padding: "8px 0" }}>
           <button
@@ -263,7 +263,7 @@ function Sidebar({ popular, popularLoading, categories, activeCategory, onCatego
             onMouseEnter={(e) => { if (activeCategory !== null) (e.currentTarget as HTMLElement).style.background = "rgba(12,87,168,0.04)"; }}
             onMouseLeave={(e) => { if (activeCategory !== null) (e.currentTarget as HTMLElement).style.background = "transparent"; }}
           >
-            <span style={{ fontSize: "13px", fontWeight: activeCategory === null ? "600" : "400", color: activeCategory === null ? "#0C57A8" : "#3a3a3a", fontFamily: "var(--font-sans)" }}>Semua Artikel</span>
+            <span style={{ fontSize: "13px", fontWeight: activeCategory === null ? "600" : "400", color: activeCategory === null ? "#0C57A8" : "#3a3a3a", fontFamily: "var(--font-montserrat)" }}>Semua Artikel</span>
           </button>
           {categories.map(({ name, count }) => (
             <button
@@ -273,8 +273,8 @@ function Sidebar({ popular, popularLoading, categories, activeCategory, onCatego
               onMouseEnter={(e) => { if (activeCategory !== name) (e.currentTarget as HTMLElement).style.background = "rgba(12,87,168,0.04)"; }}
               onMouseLeave={(e) => { if (activeCategory !== name) (e.currentTarget as HTMLElement).style.background = "transparent"; }}
             >
-              <span style={{ fontSize: "13px", fontWeight: activeCategory === name ? "600" : "400", color: activeCategory === name ? "#0C57A8" : "#3a3a3a", fontFamily: "var(--font-sans)", textAlign: "left" as const }}>{formatCategory(name)}</span>
-              <span style={{ fontSize: "10px", fontWeight: "600", color: "#6b6966", backgroundColor: "#f0eeec", padding: "1px 7px", borderRadius: "10px", fontFamily: "var(--font-sans)", flexShrink: 0 }}>{count}</span>
+              <span style={{ fontSize: "13px", fontWeight: activeCategory === name ? "600" : "400", color: activeCategory === name ? "#0C57A8" : "#3a3a3a", fontFamily: "var(--font-montserrat)", textAlign: "left" as const }}>{formatCategory(name)}</span>
+              <span style={{ fontSize: "10px", fontWeight: "600", color: "#6b6966", backgroundColor: "#f0eeec", padding: "1px 7px", borderRadius: "10px", fontFamily: "var(--font-montserrat)", flexShrink: 0 }}>{count}</span>
             </button>
           ))}
         </div>
@@ -283,8 +283,8 @@ function Sidebar({ popular, popularLoading, categories, activeCategory, onCatego
       {/* Artikel Populer */}
       <div style={{ backgroundColor: "#fff", border: "1px solid #e5e2dd", borderRadius: "4px", overflow: "hidden" }}>
         <div style={{ padding: "14px 18px", borderBottom: "3px solid #0d0d0d", display: "flex", alignItems: "center", gap: "8px" }}>
-          <span style={{ fontSize: "10px", fontWeight: "700", letterSpacing: "0.08em", textTransform: "uppercase" as const, color: "#0C57A8", fontFamily: "var(--font-sans)" }}>◆</span>
-          <h3 style={{ fontSize: "14px", fontWeight: "700", color: "#0d0d0d", fontFamily: "var(--font-serif)", margin: 0 }}>Artikel Populer</h3>
+          <span style={{ fontSize: "10px", fontWeight: "700", letterSpacing: "0.08em", textTransform: "uppercase" as const, color: "#0C57A8", fontFamily: "var(--font-montserrat)" }}>◆</span>
+          <h3 style={{ fontSize: "14px", fontWeight: "700", color: "#0d0d0d", fontFamily: "var(--font-montserrat)", margin: 0 }}>Artikel Populer</h3>
         </div>
         <div style={{ padding: "4px 0" }}>
           {popularLoading
@@ -304,10 +304,10 @@ function Sidebar({ popular, popularLoading, categories, activeCategory, onCatego
                     onMouseEnter={(e) => { (e.currentTarget as HTMLElement).style.background = "#faf9f7"; }}
                     onMouseLeave={(e) => { (e.currentTarget as HTMLElement).style.background = "transparent"; }}
                   >
-                    <span style={{ flexShrink: 0, width: "22px", height: "22px", borderRadius: "50%", display: "flex", alignItems: "center", justifyContent: "center", fontSize: "10px", fontWeight: "700", fontFamily: "var(--font-sans)", backgroundColor: idx < 3 ? "#0C57A8" : "#f0eeec", color: idx < 3 ? "#fff" : "#6b6966", marginTop: "1px" }}>{idx + 1}</span>
+                    <span style={{ flexShrink: 0, width: "22px", height: "22px", borderRadius: "50%", display: "flex", alignItems: "center", justifyContent: "center", fontSize: "10px", fontWeight: "700", fontFamily: "var(--font-montserrat)", backgroundColor: idx < 3 ? "#0C57A8" : "#f0eeec", color: idx < 3 ? "#fff" : "#6b6966", marginTop: "1px" }}>{idx + 1}</span>
                     <div style={{ flex: 1, minWidth: 0 }}>
-                      <p style={{ fontSize: "12px", fontWeight: "600", color: "#0d0d0d", lineHeight: "1.45", fontFamily: "var(--font-serif)", margin: "0 0 4px", display: "-webkit-box", WebkitLineClamp: 2, WebkitBoxOrient: "vertical", overflow: "hidden" }}>{a.title}</p>
-                      <span style={{ display: "flex", alignItems: "center", gap: "3px", fontSize: "10px", color: "#6b6966", fontFamily: "var(--font-sans)" }}>
+                      <p style={{ fontSize: "12px", fontWeight: "600", color: "#0d0d0d", lineHeight: "1.45", fontFamily: "var(--font-montserrat)", margin: "0 0 4px", display: "-webkit-box", WebkitLineClamp: 2, WebkitBoxOrient: "vertical", overflow: "hidden" }}>{a.title}</p>
+                      <span style={{ display: "flex", alignItems: "center", gap: "3px", fontSize: "10px", color: "#6b6966", fontFamily: "var(--font-montserrat)" }}>
                         <svg width="10" height="10" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2"><path d="M1 12s4-8 11-8 11 8 11 8-4 8-11 8-11-8-11-8z" /><circle cx="12" cy="12" r="3" /></svg>
                         {a.views.toLocaleString("id-ID")} tayangan
                       </span>
@@ -321,8 +321,8 @@ function Sidebar({ popular, popularLoading, categories, activeCategory, onCatego
       {/* Tentang Rubrik */}
       <div style={{ backgroundColor: "#1a3a5c", border: "1px solid rgba(255,255,255,0.1)", borderRadius: "4px", padding: "20px", position: "relative", overflow: "hidden" }}>
         <div style={{ position: "absolute", top: "-20px", right: "-20px", width: "80px", height: "80px", borderRadius: "50%", background: "radial-gradient(circle, rgba(12,87,168,0.25) 0%, transparent 70%)", pointerEvents: "none" }} />
-        <h4 style={{ fontSize: "13px", fontWeight: "700", color: "#fff", fontFamily: "var(--font-serif)", margin: "0 0 8px" }}>Tentang Rubrik</h4>
-        <p style={{ fontSize: "14px", color: "rgba(255,255,255,0.6)", lineHeight: "1.7", fontFamily: "var(--font-sans)", margin: "0 0 14px" }}>Kumpulan artikel dan berita terbaru seputar kegiatan, program, dan perkembangan Wikimedia Indonesia.</p>
+        <h4 style={{ fontSize: "13px", fontWeight: "700", color: "#fff", fontFamily: "var(--font-montserrat)", margin: "0 0 8px" }}>Tentang Rubrik</h4>
+        <p style={{ fontSize: "14px", color: "rgba(255,255,255,0.6)", lineHeight: "1.7", fontFamily: "var(--font-montserrat)", margin: "0 0 14px" }}>Kumpulan artikel dan berita terbaru seputar kegiatan, program, dan perkembangan Wikimedia Indonesia.</p>
       </div>
     </aside>
   );
@@ -444,24 +444,24 @@ export default function RubrikClient({
         <div style={{ maxWidth: "1280px", margin: "0 auto", position: "relative", zIndex: 1 }}>
           {/* Breadcrumb */}
           <div style={{ display: "flex", alignItems: "center", gap: "6px", marginBottom: "12px" }}>
-            <Link href="/" style={{ fontSize: "11px", color: "rgba(255,255,255,0.4)", textDecoration: "none", fontFamily: "var(--font-sans)", transition: "color 0.15s" }}
+            <Link href="/" style={{ fontSize: "11px", color: "rgba(255,255,255,0.4)", textDecoration: "none", fontFamily: "var(--font-montserrat)", transition: "color 0.15s" }}
               onMouseEnter={(e) => (e.currentTarget.style.color = "rgba(255,255,255,0.8)")}
               onMouseLeave={(e) => (e.currentTarget.style.color = "rgba(255,255,255,0.4)")}>
               Beranda
             </Link>
-            <span style={{ fontSize: "11px", color: "rgba(255,255,255,0.25)", fontFamily: "var(--font-sans)" }}>/</span>
-            <span style={{ fontSize: "11px", color: "#3b8ed4", fontFamily: "var(--font-sans)" }}>Rubrik</span>
-            {categoryFromUrl && (<><span style={{ fontSize: "11px", color: "rgba(255,255,255,0.25)", fontFamily: "var(--font-sans)" }}>/</span><span style={{ fontSize: "11px", color: "#3b8ed4", fontFamily: "var(--font-sans)" }}>{formatCategory(categoryFromUrl)}</span></>)}
-            {queryFromUrl && (<><span style={{ fontSize: "11px", color: "rgba(255,255,255,0.25)", fontFamily: "var(--font-sans)" }}>/</span><span style={{ fontSize: "11px", color: "#3b8ed4", fontFamily: "var(--font-sans)" }}>Pencarian: "{queryFromUrl}"</span></>)}
+            <span style={{ fontSize: "11px", color: "rgba(255,255,255,0.25)", fontFamily: "var(--font-montserrat)" }}>/</span>
+            <span style={{ fontSize: "11px", color: "#3b8ed4", fontFamily: "var(--font-montserrat)" }}>Rubrik</span>
+            {categoryFromUrl && (<><span style={{ fontSize: "11px", color: "rgba(255,255,255,0.25)", fontFamily: "var(--font-montserrat)" }}>/</span><span style={{ fontSize: "11px", color: "#3b8ed4", fontFamily: "var(--font-montserrat)" }}>{formatCategory(categoryFromUrl)}</span></>)}
+            {queryFromUrl && (<><span style={{ fontSize: "11px", color: "rgba(255,255,255,0.25)", fontFamily: "var(--font-montserrat)" }}>/</span><span style={{ fontSize: "11px", color: "#3b8ed4", fontFamily: "var(--font-montserrat)" }}>Pencarian: "{queryFromUrl}"</span></>)}
           </div>
 
           <div style={{ display: "flex", alignItems: "flex-end", justifyContent: "space-between", flexWrap: "wrap", gap: "20px" }}>
             <div>
-              <h1 style={{ fontSize: "clamp(1.8rem, 3vw, 2.6rem)", fontWeight: "700", color: "#fff", fontFamily: "var(--font-serif)", margin: "6px 0 0", lineHeight: "1.2" }}>
+              <h1 style={{ fontSize: "clamp(1.8rem, 3vw, 2.6rem)", fontWeight: "700", color: "#fff", fontFamily: "var(--font-montserrat)", margin: "6px 0 0", lineHeight: "1.2" }}>
                 {categoryFromUrl ? formatCategory(categoryFromUrl) : queryFromUrl ? `Hasil: "${queryFromUrl}"` : "Artikel & Berita"}
               </h1>
               {meta && (
-                <p style={{ fontSize: "13px", color: "rgba(255,255,255,0.45)", fontFamily: "var(--font-sans)", margin: "6px 0 0" }}>
+                <p style={{ fontSize: "13px", color: "rgba(255,255,255,0.45)", fontFamily: "var(--font-montserrat)", margin: "6px 0 0" }}>
                   {meta.total.toLocaleString("id-ID")} artikel{meta.last_page > 1 && ` · Halaman ${meta.current_page} dari ${meta.last_page}`}
                 </p>
               )}
@@ -474,7 +474,7 @@ export default function RubrikClient({
                 value={searchInput}
                 onChange={(e) => setSearchInput(e.target.value)}
                 onKeyDown={(e) => e.key === "Enter" && handleSearch()}
-                style={{ padding: "10px 16px", fontSize: "13px", backgroundColor: "rgba(255,255,255,0.06)", border: "none", color: "#fff", fontFamily: "var(--font-sans)", outline: "none", minWidth: "220px" }}
+                style={{ padding: "10px 16px", fontSize: "13px", backgroundColor: "rgba(255,255,255,0.06)", border: "none", color: "#fff", fontFamily: "var(--font-montserrat)", outline: "none", minWidth: "220px" }}
               />
               <button
                 onClick={handleSearch}
@@ -498,8 +498,8 @@ export default function RubrikClient({
           {/* Filter chip */}
           {(categoryFromUrl || queryFromUrl) && (
             <div style={{ display: "flex", alignItems: "center", gap: "8px", marginBottom: "20px" }}>
-              <span style={{ fontSize: "12px", color: "#5c5a57", fontFamily: "var(--font-sans)" }}>Filter aktif:</span>
-              <span style={{ display: "inline-flex", alignItems: "center", gap: "6px", padding: "3px 10px", backgroundColor: "rgba(12,87,168,0.1)", border: "1px solid rgba(12,87,168,0.25)", borderRadius: "100px", fontSize: "12px", fontWeight: "600", color: "#0C57A8", fontFamily: "var(--font-sans)" }}>
+              <span style={{ fontSize: "12px", color: "#5c5a57", fontFamily: "var(--font-montserrat)" }}>Filter aktif:</span>
+              <span style={{ display: "inline-flex", alignItems: "center", gap: "6px", padding: "3px 10px", backgroundColor: "rgba(12,87,168,0.1)", border: "1px solid rgba(12,87,168,0.25)", borderRadius: "100px", fontSize: "12px", fontWeight: "600", color: "#0C57A8", fontFamily: "var(--font-montserrat)" }}>
                 {categoryFromUrl ? formatCategory(categoryFromUrl) : `"${queryFromUrl}"`}
                 <button onClick={handleClearFilter} style={{ background: "none", border: "none", cursor: "pointer", padding: 0, color: "#0C57A8", display: "flex", alignItems: "center" }}>
                   <svg width="12" height="12" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2.5"><path d="M18 6L6 18M6 6l12 12" /></svg>
@@ -515,12 +515,12 @@ export default function RubrikClient({
             <div>
               <div className="section-border-shimmer" style={{ display: "flex", justifyContent: "space-between", alignItems: "flex-end", marginBottom: "20px", paddingBottom: "12px", borderBottom: "3px solid #0d0d0d" }}>
                 <div>
-                  <span style={{ fontSize: "11px", fontWeight: "700", letterSpacing: "0.1em", textTransform: "uppercase" as const, color: "#0C57A8", fontFamily: "var(--font-sans)" }}>◆ Terkini</span>
-                  <h2 style={{ fontSize: "18px", fontWeight: "700", color: "#0d0d0d", fontFamily: "var(--font-serif)", marginTop: "2px", marginBottom: 0 }}>
+                  <span style={{ fontSize: "11px", fontWeight: "700", letterSpacing: "0.1em", textTransform: "uppercase" as const, color: "#0C57A8", fontFamily: "var(--font-montserrat)" }}>◆ Terkini</span>
+                  <h2 style={{ fontSize: "18px", fontWeight: "700", color: "#0d0d0d", fontFamily: "var(--font-montserrat)", marginTop: "2px", marginBottom: 0 }}>
                     {categoryFromUrl ? formatCategory(categoryFromUrl) : queryFromUrl ? "Hasil Pencarian" : "Semua Artikel"}
                   </h2>
                 </div>
-                {meta && <span style={{ fontSize: "12px", color: "#6b6966", fontFamily: "var(--font-sans)" }}>{meta.total.toLocaleString("id-ID")} artikel</span>}
+                {meta && <span style={{ fontSize: "12px", color: "#6b6966", fontFamily: "var(--font-montserrat)" }}>{meta.total.toLocaleString("id-ID")} artikel</span>}
               </div>
 
               {loading ? (
@@ -530,8 +530,8 @@ export default function RubrikClient({
               ) : articles.length === 0 ? (
                 <div style={{ padding: "60px 24px", textAlign: "center", backgroundColor: "#fff", border: "1px solid #e5e2dd", borderRadius: "4px" }}>
                   <span style={{ fontSize: "40px", opacity: 0.2 }}>🔍</span>
-                  <p style={{ fontSize: "15px", color: "#6b6966", fontFamily: "var(--font-sans)", marginTop: "12px" }}>Tidak ada artikel ditemukan.</p>
-                  <button onClick={handleClearFilter} style={{ marginTop: "16px", padding: "8px 20px", backgroundColor: "#0C57A8", color: "#fff", border: "none", borderRadius: "3px", fontSize: "12px", fontWeight: "700", fontFamily: "var(--font-sans)", cursor: "pointer" }}>
+                  <p style={{ fontSize: "15px", color: "#6b6966", fontFamily: "var(--font-montserrat)", marginTop: "12px" }}>Tidak ada artikel ditemukan.</p>
+                  <button onClick={handleClearFilter} style={{ marginTop: "16px", padding: "8px 20px", backgroundColor: "#0C57A8", color: "#fff", border: "none", borderRadius: "3px", fontSize: "12px", fontWeight: "700", fontFamily: "var(--font-montserrat)", cursor: "pointer" }}>
                     Tampilkan Semua
                   </button>
                 </div>

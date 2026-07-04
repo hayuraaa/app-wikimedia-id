@@ -37,10 +37,10 @@ export default function NewsletterSection() {
       <div style={{ position: "absolute", top: "-80px", right: "-80px", width: "300px", height: "300px", borderRadius: "50%", backgroundColor: "rgba(12,87,168,0.12)" }} />
 
       <div className="reveal" style={{ maxWidth: "700px", margin: "0 auto", textAlign: "center", position: "relative", zIndex: 1 }}>
-        <h2 style={{ fontSize: "clamp(1.8rem, 3vw, 2.6rem)", fontWeight: "700", color: "#ffffff", fontFamily: "var(--font-serif)", margin: "12px 0 16px", lineHeight: "1.2" }}>
+        <h2 style={{ fontSize: "clamp(1.8rem, 3vw, 2.6rem)", fontWeight: "700", color: "#ffffff", fontFamily: "var(--font-montserrat)", margin: "12px 0 16px", lineHeight: "1.2" }}>
           Jadilah Bagian dari Gerakan Pengetahuan Bebas
         </h2>
-        <p style={{ fontSize: "15px", color: "rgba(255,255,255,0.65)", lineHeight: "1.8", marginBottom: "40px", fontFamily: "var(--font-sans)" }}>
+        <p style={{ fontSize: "15px", color: "rgba(255,255,255,0.65)", lineHeight: "1.8", marginBottom: "40px", fontFamily: "var(--font-montserrat)" }}>
           Daftarkan surel anda untuk mendapatkan kabar terbaru tentang program, acara, dan perkembangan Wikimedia Indonesia langsung di kotak masukmu.
         </p>
 
@@ -61,7 +61,7 @@ export default function NewsletterSection() {
                 <path d="M20 6L9 17l-5-5" />
               </svg>
             </div>
-            <p style={{ color: "#4ade80", fontFamily: "var(--font-sans)", fontWeight: "600", fontSize: "15px", margin: 0 }}>
+            <p style={{ color: "#4ade80", fontFamily: "var(--font-montserrat)", fontWeight: "600", fontSize: "15px", margin: 0 }}>
               {submitMessage}
             </p>
           </div>
@@ -82,7 +82,7 @@ export default function NewsletterSection() {
                   flex: 1, padding: "14px 20px", fontSize: "14px",
                   border: "none", outline: "none",
                   backgroundColor: "rgba(255,255,255,0.08)",
-                  color: "#ffffff", fontFamily: "var(--font-sans)",
+                  color: "#ffffff", fontFamily: "var(--font-montserrat)",
                 }}
               />
               <button
@@ -95,7 +95,7 @@ export default function NewsletterSection() {
                   cursor: submitStatus === "loading" || !email.trim() ? "not-allowed" : "pointer",
                   fontSize: "13px", fontWeight: "700", letterSpacing: "0.06em",
                   textTransform: "uppercase" as const,
-                  fontFamily: "var(--font-sans)",
+                  fontFamily: "var(--font-montserrat)",
                   display: "flex", alignItems: "center", gap: "7px",
                   transition: "background 0.2s", whiteSpace: "nowrap" as const,
                 }}
@@ -121,14 +121,14 @@ export default function NewsletterSection() {
               </button>
             </div>
             {submitStatus === "error" && (
-              <p style={{ fontSize: "12px", color: "#fca5a5", fontFamily: "var(--font-sans)", margin: 0 }}>
+              <p style={{ fontSize: "12px", color: "#fca5a5", fontFamily: "var(--font-montserrat)", margin: 0 }}>
                 {submitMessage}
               </p>
             )}
           </div>
         )}
 
-        <p style={{ fontSize: "14px", color: "rgba(255,255,255,0.35)", marginTop: "16px", fontFamily: "var(--font-sans)" }}>
+        <p style={{ fontSize: "14px", color: "rgba(255,255,255,0.35)", marginTop: "16px", fontFamily: "var(--font-montserrat)" }}>
           Kami tidak akan mengirim spam. Anda dapat berhenti berlangganan kapan saja.
         </p>
       </div>

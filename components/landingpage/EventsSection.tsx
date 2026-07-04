@@ -56,7 +56,7 @@ export default function EventsSection({
 
       <div style={{ maxWidth: "1280px", margin: "0 auto", position: "relative", zIndex: 1 }}>
         <div className="section-border-shimmer reveal" style={{ marginBottom: "40px", paddingBottom: "16px", borderBottom: "3px solid #0d0d0d" }}>
-          <h2 style={{ fontSize: "clamp(1.6rem, 3vw, 2.2rem)", fontWeight: "700", color: "#0d0d0d", fontFamily: "var(--font-serif)", marginTop: "4px" }}>Acara Mendatang</h2>
+          <h2 style={{ fontSize: "clamp(1.6rem, 3vw, 2.2rem)", fontWeight: "700", color: "#0d0d0d", fontFamily: "var(--font-montserrat)", marginTop: "4px" }}>Acara Mendatang</h2>
         </div>
 
         <div className="events-grid" style={{ display: "grid", gridTemplateColumns: "1fr 480px", gap: "36px", alignItems: "center" }}>
@@ -70,7 +70,7 @@ export default function EventsSection({
                 </div>
               ))
             ) : events.length === 0 ? (
-              <div style={{ padding: "40px 24px", textAlign: "center", color: "#6b6966 ", fontFamily: "var(--font-sans)", fontSize: "14px" }}>
+              <div style={{ padding: "40px 24px", textAlign: "center", color: "#6b6966 ", fontFamily: "var(--font-montserrat)", fontSize: "14px" }}>
                 Tidak ada acara mendatang saat ini.
               </div>
             ) : (
@@ -97,26 +97,26 @@ export default function EventsSection({
                       onMouseEnter={(e) => { (e.currentTarget as HTMLElement).style.boxShadow = "0 4px 20px rgba(0,0,0,0.07)"; (e.currentTarget as HTMLElement).style.transform = "translateX(4px)"; }}
                       onMouseLeave={(e) => { (e.currentTarget as HTMLElement).style.boxShadow = "none"; (e.currentTarget as HTMLElement).style.transform = "none"; }}>
                       <div style={{ flexShrink: 0, textAlign: "center", minWidth: "36px" }}>
-                        <div style={{ fontSize: "18px", fontWeight: "700", color: dateColor, fontFamily: "var(--font-serif)", lineHeight: 1 }}>
+                        <div style={{ fontSize: "18px", fontWeight: "700", color: dateColor, fontFamily: "var(--font-montserrat)", lineHeight: 1 }}>
                           {new Date(ev.tanggal_mulai).toLocaleDateString("id-ID", { day: "numeric", timeZone: WIB })}
                         </div>
-                        <div style={{ fontSize: "9px", fontWeight: "600", color: "#6b6966 ", textTransform: "uppercase", letterSpacing: "0.06em", fontFamily: "var(--font-sans)", marginTop: "1px" }}>
+                        <div style={{ fontSize: "9px", fontWeight: "600", color: "#6b6966 ", textTransform: "uppercase", letterSpacing: "0.06em", fontFamily: "var(--font-montserrat)", marginTop: "1px" }}>
                           {new Date(ev.tanggal_mulai).toLocaleDateString("id-ID", { month: "short", timeZone: WIB })}
                         </div>
                       </div>
                       <div style={{ width: "1px", backgroundColor: "#e5e2dd", flexShrink: 0, alignSelf: "stretch" }} />
                       <div style={{ flex: 1, minWidth: 0 }}>
                         <div style={{ display: "flex", alignItems: "center", gap: "6px", marginBottom: "3px", flexWrap: "wrap" }}>
-                          <span style={{ fontSize: "9px", fontWeight: "700", letterSpacing: "0.07em", textTransform: "uppercase", color: badgeColor, backgroundColor: badgeBg, padding: "1px 6px", borderRadius: "2px", fontFamily: "var(--font-sans)" }}>
+                          <span style={{ fontSize: "9px", fontWeight: "700", letterSpacing: "0.07em", textTransform: "uppercase", color: badgeColor, backgroundColor: badgeBg, padding: "1px 6px", borderRadius: "2px", fontFamily: "var(--font-montserrat)" }}>
                             {badgeLabel}
                           </span>
-                          <span style={{ fontSize: "10px", color: "#6b6966 ", fontFamily: "var(--font-sans)", display: "flex", alignItems: "center", gap: "3px" }}>
+                          <span style={{ fontSize: "10px", color: "#6b6966 ", fontFamily: "var(--font-montserrat)", display: "flex", alignItems: "center", gap: "3px" }}>
                             <svg width="9" height="9" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2"><path d="M21 10c0 7-9 13-9 13s-9-6-9-13a9 9 0 0 1 18 0z"/><circle cx="12" cy="10" r="3"/></svg>
                             {ev.lokasi}
                           </span>
                         </div>
-                        <h3 style={{ fontSize: "14px", fontWeight: "600", color: status === "selesai" ? "#5c5a57" : "#0d0d0d", fontFamily: "var(--font-serif)", lineHeight: "1.35", margin: 0 }}>{ev.judul}</h3>
-                        <p style={{ fontSize: "10px", color: "#6b6966 ", fontFamily: "var(--font-sans)", marginTop: "2px" }}>
+                        <h3 style={{ fontSize: "14px", fontWeight: "600", color: status === "selesai" ? "#5c5a57" : "#0d0d0d", fontFamily: "var(--font-montserrat)", lineHeight: "1.35", margin: 0 }}>{ev.judul}</h3>
+                        <p style={{ fontSize: "10px", color: "#6b6966 ", fontFamily: "var(--font-montserrat)", marginTop: "2px" }}>
                           {formatTanggal(ev.tanggal_mulai, ev.tanggal_selesai)}
                         </p>
                       </div>
@@ -126,7 +126,7 @@ export default function EventsSection({
                 );
               })
             )}
-            <Link href="/acara" style={{ display: "inline-block", marginTop: "4px", fontSize: "14px", fontWeight: "600", color: "#1e4d7b", textDecoration: "none", fontFamily: "var(--font-sans)", letterSpacing: "0.04em" }}
+            <Link href="/acara" style={{ display: "inline-block", marginTop: "4px", fontSize: "14px", fontWeight: "600", color: "#1e4d7b", textDecoration: "none", fontFamily: "var(--font-montserrat)", letterSpacing: "0.04em" }}
               onMouseEnter={(e) => (e.currentTarget.style.color = "#0C57A8")}
               onMouseLeave={(e) => (e.currentTarget.style.color = "#1e4d7b")}>
               Lihat Semua →
@@ -160,7 +160,7 @@ export default function EventsSection({
                       }}>
                         <p style={{
                           fontSize: "12px", fontWeight: "600", color: "#fff",
-                          fontFamily: "var(--font-serif)", lineHeight: "1.4", margin: 0,
+                          fontFamily: "var(--font-montserrat)", lineHeight: "1.4", margin: 0,
                           display: "-webkit-box", WebkitLineClamp: 2, WebkitBoxOrient: "vertical", overflow: "hidden",
                         }}>
                           {a.title}

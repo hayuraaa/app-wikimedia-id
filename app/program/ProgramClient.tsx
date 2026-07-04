@@ -23,7 +23,7 @@ const programs = [
   },
   {
     id: "data-teknologi",
-    label: "Data dan Teknologi",
+    label: "Data, Sains dan Teknologi",
     url: "https://datatek.wikimedia.or.id",
     banner: "/program/251124_WikiLatihWikidataPerpusdikdasmen_1.jpg",
     color: "#2a6399",
@@ -86,7 +86,7 @@ function PlaceholderImage({ color, label }: { color: string; label: string }) {
         <circle cx="8.5" cy="8.5" r="1.5"/>
         <polyline points="21 15 16 10 5 21"/>
       </svg>
-      <span style={{ fontSize: "11px", color, opacity: 0.4, fontFamily: "var(--font-sans)", fontWeight: "600", letterSpacing: "0.06em", textTransform: "uppercase" as const }}>
+      <span style={{ fontSize: "11px", color, opacity: 0.4, fontFamily: "var(--font-montserrat)", fontWeight: "600", letterSpacing: "0.06em", textTransform: "uppercase" as const }}>
         Foto {label}
       </span>
     </div>
@@ -123,21 +123,21 @@ export default function ProgramPage() {
 
         <div style={{ maxWidth: "1280px", margin: "0 auto", position: "relative", zIndex: 1 }}>
           <div style={{ display: "flex", alignItems: "center", gap: "6px", marginBottom: "16px" }}>
-            <Link href="/" style={{ fontSize: "11px", color: "rgba(255,255,255,0.4)", textDecoration: "none", fontFamily: "var(--font-sans)", transition: "color 0.15s" }}
+            <Link href="/" style={{ fontSize: "11px", color: "rgba(255,255,255,0.4)", textDecoration: "none", fontFamily: "var(--font-montserrat)", transition: "color 0.15s" }}
               onMouseEnter={(e) => (e.currentTarget.style.color = "rgba(255,255,255,0.8)")}
               onMouseLeave={(e) => (e.currentTarget.style.color = "rgba(255,255,255,0.4)")}>
               Beranda
             </Link>
-            <span style={{ fontSize: "11px", color: "rgba(255,255,255,0.25)", fontFamily: "var(--font-sans)" }}>/</span>
-            <span style={{ fontSize: "11px", color: "#3b8ed4", fontFamily: "var(--font-sans)" }}>Program</span>
+            <span style={{ fontSize: "11px", color: "rgba(255,255,255,0.25)", fontFamily: "var(--font-montserrat)" }}>/</span>
+            <span style={{ fontSize: "11px", color: "#3b8ed4", fontFamily: "var(--font-montserrat)" }}>Program</span>
           </div>
 
           <div style={{ display: "flex", alignItems: "flex-end", justifyContent: "space-between", flexWrap: "wrap" as const, gap: "24px" }}>
             <div>
-              <h1 style={{ fontSize: "clamp(1.8rem, 3vw, 2.6rem)", fontWeight: "700", color: "#fff", fontFamily: "var(--font-serif)", margin: "6px 0 8px", lineHeight: "1.2" }}>
+              <h1 style={{ fontSize: "clamp(1.8rem, 3vw, 2.6rem)", fontWeight: "700", color: "#fff", fontFamily: "var(--font-montserrat)", margin: "6px 0 8px", lineHeight: "1.2" }}>
                 Program Kami
               </h1>
-              <p style={{ fontSize: "13px", color: "rgba(255,255,255,0.45)", fontFamily: "var(--font-sans)", margin: 0 }}>
+              <p style={{ fontSize: "13px", color: "rgba(255,255,255,0.45)", fontFamily: "var(--font-montserrat)", margin: 0 }}>
                 Wikimedia Indonesia
               </p>
             </div>
@@ -176,16 +176,16 @@ export default function ProgramPage() {
                     {program.icon}
                   </div>
                   <div>
-                    <span style={{ fontSize: "10px", fontWeight: "700", letterSpacing: "0.08em", textTransform: "uppercase" as const, color: program.color, fontFamily: "var(--font-sans)", display: "block", marginBottom: "4px" }}>
+                    <span style={{ fontSize: "10px", fontWeight: "700", letterSpacing: "0.08em", textTransform: "uppercase" as const, color: program.color, fontFamily: "var(--font-montserrat)", display: "block", marginBottom: "4px" }}>
                       Program
                     </span>
-                    <h2 style={{ fontSize: "clamp(1.2rem, 2vw, 1.6rem)", fontWeight: "700", color: "#0d0d0d", fontFamily: "var(--font-serif)", margin: 0, lineHeight: "1.25" }}>
+                    <h2 style={{ fontSize: "clamp(1.2rem, 2vw, 1.6rem)", fontWeight: "700", color: "#0d0d0d", fontFamily: "var(--font-montserrat)", margin: 0, lineHeight: "1.25" }}>
                       {program.label}
                     </h2>
                   </div>
                 </div>
 
-                <p style={{ fontSize: "14px", color: "#5c5a57", lineHeight: "1.75", fontFamily: "var(--font-sans)", margin: 0 }}>
+                <p style={{ fontSize: "14px", color: "#5c5a57", lineHeight: "1.75", fontFamily: "var(--font-montserrat)", margin: 0 }}>
                   {program.description}
                 </p>
 
@@ -193,14 +193,14 @@ export default function ProgramPage() {
                   {program.points.map((point, i) => (
                     <li key={i} style={{ display: "flex", gap: "10px", alignItems: "flex-start" }}>
                       <span style={{ width: "6px", height: "6px", borderRadius: "50%", backgroundColor: program.color, flexShrink: 0, marginTop: "7px" }} />
-                      <span style={{ fontSize: "13px", color: "#3a3a3a", lineHeight: "1.65", fontFamily: "var(--font-sans)" }}>{point}</span>
+                      <span style={{ fontSize: "13px", color: "#3a3a3a", lineHeight: "1.65", fontFamily: "var(--font-montserrat)" }}>{point}</span>
                     </li>
                   ))}
                 </ul>
 
                 <div style={{ paddingTop: "4px", borderTop: "1px solid #f0eeec" }}>
                   <a href={program.url} target="_blank" rel="noopener noreferrer"
-                    style={{ display: "inline-flex", alignItems: "center", gap: "8px", padding: "10px 20px", border: `1px solid ${program.colorBorder}`, backgroundColor: program.colorLight, color: program.color, textDecoration: "none", borderRadius: "3px", fontSize: "12px", fontWeight: "700", fontFamily: "var(--font-sans)", letterSpacing: "0.04em", transition: "all 0.2s" }}
+                    style={{ display: "inline-flex", alignItems: "center", gap: "8px", padding: "10px 20px", border: `1px solid ${program.colorBorder}`, backgroundColor: program.colorLight, color: program.color, textDecoration: "none", borderRadius: "3px", fontSize: "12px", fontWeight: "700", fontFamily: "var(--font-montserrat)", letterSpacing: "0.04em", transition: "all 0.2s" }}
                     onMouseEnter={(e) => { e.currentTarget.style.backgroundColor = program.color; e.currentTarget.style.color = "#fff"; e.currentTarget.style.borderColor = program.color; }}
                     onMouseLeave={(e) => { e.currentTarget.style.backgroundColor = program.colorLight; e.currentTarget.style.color = program.color; e.currentTarget.style.borderColor = program.colorBorder; }}
                   >
@@ -226,23 +226,23 @@ export default function ProgramPage() {
         <div style={{ position: "absolute", top: "-60px", left: "50%", transform: "translateX(-50%)", width: "400px", height: "400px", borderRadius: "50%", background: "radial-gradient(circle, rgba(12,87,168,0.12) 0%, transparent 70%)", pointerEvents: "none" }} />
 
         <div style={{ maxWidth: "640px", margin: "0 auto", textAlign: "center", position: "relative", zIndex: 1 }}>
-          <span style={{ fontSize: "10px", fontWeight: "700", letterSpacing: "0.1em", textTransform: "uppercase" as const, color: "#e05070", fontFamily: "var(--font-sans)" }}>◆ Bergabung</span>
-          <h2 style={{ fontSize: "clamp(1.6rem, 3vw, 2.2rem)", fontWeight: "700", color: "#fff", fontFamily: "var(--font-serif)", margin: "10px 0 14px", lineHeight: "1.2" }}>
+          <span style={{ fontSize: "10px", fontWeight: "700", letterSpacing: "0.1em", textTransform: "uppercase" as const, color: "#e05070", fontFamily: "var(--font-montserrat)" }}>◆ Bergabung</span>
+          <h2 style={{ fontSize: "clamp(1.6rem, 3vw, 2.2rem)", fontWeight: "700", color: "#fff", fontFamily: "var(--font-montserrat)", margin: "10px 0 14px", lineHeight: "1.2" }}>
             Jadilah Bagian dari Gerakan Pengetahuan Terbuka
           </h2>
-          <p style={{ fontSize: "14px", color: "rgba(255,255,255,0.5)", fontFamily: "var(--font-sans)", lineHeight: "1.7", marginBottom: "28px" }}>
+          <p style={{ fontSize: "14px", color: "rgba(255,255,255,0.5)", fontFamily: "var(--font-montserrat)", lineHeight: "1.7", marginBottom: "28px" }}>
             Bergabunglah dengan ribuan sukarelawan dan mitra yang bersama-sama membangun ekosistem pengetahuan terbuka untuk Indonesia.
           </p>
           <div style={{ display: "flex", gap: "12px", justifyContent: "center", flexWrap: "wrap" as const }}>
             <Link href="/menjadi-anggota"
-              style={{ display: "inline-flex", alignItems: "center", gap: "8px", padding: "12px 28px", backgroundColor: "#0C57A8", color: "#fff", textDecoration: "none", borderRadius: "3px", fontSize: "13px", fontWeight: "700", fontFamily: "var(--font-sans)", letterSpacing: "0.04em", transition: "background 0.2s" }}
+              style={{ display: "inline-flex", alignItems: "center", gap: "8px", padding: "12px 28px", backgroundColor: "#0C57A8", color: "#fff", textDecoration: "none", borderRadius: "3px", fontSize: "13px", fontWeight: "700", fontFamily: "var(--font-montserrat)", letterSpacing: "0.04em", transition: "background 0.2s" }}
               onMouseEnter={(e) => (e.currentTarget.style.backgroundColor = "#0a4a8f")}
               onMouseLeave={(e) => (e.currentTarget.style.backgroundColor = "#0C57A8")}>
               Menjadi Anggota
               <svg width="13" height="13" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2.5"><path d="M5 12h14M12 5l7 7-7 7"/></svg>
             </Link>
             <a href="https://id.wikimedia.org/wiki/Halaman_Utama" target="_blank" rel="noopener noreferrer"
-              style={{ display: "inline-flex", alignItems: "center", gap: "8px", padding: "12px 28px", backgroundColor: "transparent", color: "#fff", textDecoration: "none", borderRadius: "3px", fontSize: "13px", fontWeight: "700", fontFamily: "var(--font-sans)", letterSpacing: "0.04em", border: "1px solid rgba(255,255,255,0.2)", transition: "all 0.2s" }}
+              style={{ display: "inline-flex", alignItems: "center", gap: "8px", padding: "12px 28px", backgroundColor: "transparent", color: "#fff", textDecoration: "none", borderRadius: "3px", fontSize: "13px", fontWeight: "700", fontFamily: "var(--font-montserrat)", letterSpacing: "0.04em", border: "1px solid rgba(255,255,255,0.2)", transition: "all 0.2s" }}
               onMouseEnter={(e) => { e.currentTarget.style.borderColor = "rgba(255,255,255,0.5)"; e.currentTarget.style.backgroundColor = "rgba(255,255,255,0.05)"; }}
               onMouseLeave={(e) => { e.currentTarget.style.borderColor = "rgba(255,255,255,0.2)"; e.currentTarget.style.backgroundColor = "transparent"; }}>
               Wikimedia Indonesia
