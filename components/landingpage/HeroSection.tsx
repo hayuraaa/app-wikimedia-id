@@ -28,7 +28,7 @@ export default function HeroSection() {
   }, []);
 
   return (
-    <section style={{ position: "relative", minHeight: "88vh", display: "flex", alignItems: "center", overflow: "hidden", backgroundColor: "#07111f" }}>
+    <section style={{ position: "relative", minHeight: "88vh", display: "flex", alignItems: "center", overflow: "hidden", backgroundColor: "#1a3a5c" }}>
 
       <style>{`
         @media (max-width: 768px) {
@@ -38,11 +38,6 @@ export default function HeroSection() {
           .hero-buttons-wrap { justify-content: center !important; }
         }
       `}</style>
-
-      {/* Overlay gelap merata */}
-      <div style={{ position: "absolute", inset: 0, background: "rgba(255, 255, 255, 0)", pointerEvents: "none" }} />
-      {/* Vignette: tepi lebih gelap, tengah sedikit lebih terang */}
-      <div style={{ position: "absolute", inset: 0, background: "radial-gradient(ellipse at 30% 50%, rgba(194, 212, 232, 0.1) 0%, transparent 65%)", pointerEvents: "none" }} />
 
       <div style={{ maxWidth: "1280px", margin: "0 auto", padding: "80px 24px", width: "100%", position: "relative", zIndex: 1 }}>
         <div className="hero-layout" style={{ display: "flex", alignItems: "center", gap: "64px" }}>
