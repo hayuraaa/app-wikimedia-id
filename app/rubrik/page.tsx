@@ -64,6 +64,8 @@ async function getPopular(): Promise<PopularArticle[]> {
   }
 }
 
+const HIDDEN_CATEGORIES = new Set(["berita", "blog", "mediawiki", "pengumuman"]);
+
 async function getCategories(): Promise<{ name: string; count: number }[]> {
   try {
     const res = await fetch(
@@ -73,6 +75,7 @@ async function getCategories(): Promise<{ name: string; count: number }[]> {
     const json = await res.json();
     if (json.success && json.data.categories_count) {
       return (json.data.categories_count as { category: string; count: number }[])
+        .filter((c) => !HIDDEN_CATEGORIES.has(c.category))
         .sort((a, b) => b.count - a.count)
         .map((c) => ({ name: c.category, count: c.count }));
     }

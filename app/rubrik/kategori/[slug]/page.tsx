@@ -52,13 +52,15 @@ async function getArticles(slug: string): Promise<{ articles: Article[]; meta: M
   }
 }
 
+const HIDDEN_CATEGORIES = new Set(["berita", "blog", "mediawiki", "pengumuman"]);
+
 async function getOtherCategories(currentSlug: string): Promise<{ name: string; count: number }[]> {
   try {
     const res = await fetch(`${BASE}/articles/stats/summary`, { next: { revalidate: 86400 } });
     const json = await res.json();
     if (!json.success || !json.data.categories_count) return [];
     return (json.data.categories_count as { category: string; count: number }[])
-      .filter((c) => c.category !== currentSlug)
+      .filter((c) => c.category !== currentSlug && !HIDDEN_CATEGORIES.has(c.category))
       .sort((a, b) => b.count - a.count)
       .map((c) => ({ name: c.category, count: c.count }));
   } catch {
