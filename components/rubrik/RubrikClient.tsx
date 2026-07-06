@@ -119,7 +119,7 @@ function ArticleCard({ article }: { article: Article }) {
 
           {/* Excerpt */}
           <p style={{
-            fontSize: "14px", color: "#6b6966", lineHeight: "1.6", fontFamily: "var(--font-montserrat)",
+            fontSize: "14px", color: "#6b6966", lineHeight: "1.6", fontFamily: "var(--font-source-serif)",
             display: "-webkit-box", WebkitLineClamp: 2, WebkitBoxOrient: "vertical", overflow: "hidden",
             margin: 0, flex: 1,
           }}>

@@ -15,6 +15,7 @@ const nextConfig: NextConfig = {
       { protocol: "https", hostname: "upload.wikimedia.org" },
       { protocol: "https", hostname: "dashboard.wikimedia.or.id" },
     ],
+    unoptimized: true,
   },
 };
 

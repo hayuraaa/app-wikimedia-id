@@ -19,7 +19,7 @@
 * { box-sizing: border-box; }
 
 body {
-  font-family: var(--font-montserrat), sans-serif;
+  font-family: var(--font-source-serif), serif;
   background-color: var(--color-bg);
   color: var(--color-black);
   line-height: 1.6;
@@ -28,6 +28,29 @@ body {
 h1, h2, h3, h4, h5, h6 {
   font-family: var(--font-montserrat), sans-serif;
   line-height: 1.2;
+}
+
+/* Konten artikel dan siaran pers dari CMS */
+.article-content,
+.press-release-content {
+  font-family: var(--font-source-serif), serif;
+  font-size: 17px;
+  line-height: 1.8;
+}
+
+.article-content h1,
+.article-content h2,
+.article-content h3,
+.article-content h4,
+.article-content h5,
+.article-content h6,
+.press-release-content h1,
+.press-release-content h2,
+.press-release-content h3,
+.press-release-content h4,
+.press-release-content h5,
+.press-release-content h6 {
+  font-family: var(--font-montserrat), sans-serif;
 }
 
 html { scroll-behavior: smooth; }

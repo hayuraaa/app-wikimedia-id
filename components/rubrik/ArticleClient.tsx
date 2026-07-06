@@ -482,13 +482,14 @@ export default function ArticleClient({
       {/* ── ARTICLE CONTENT STYLES ───────────────────────────────────────── */}
       <style>{`
         .article-content {
-          font-family: var(--font-montserrat);
+          font-family: var(--font-source-serif);
           font-size: 17px;
           line-height: 1.85;
           color: #1a1a18;
           max-width: 720px;
         }
         .article-content p { margin: 0 0 1.5em; }
+        .article-content h2, .article-content h3, .article-content h4, .article-content h5, .article-content h6 { font-family: var(--font-montserrat); }
         .article-content h2 { font-size: 1.55em; font-weight: 700; color: #0d0d0d; margin: 2em 0 0.6em; line-height: 1.25; padding-bottom: 8px; border-bottom: 2px solid #e5e2dd; }
         .article-content h3 { font-size: 1.25em; font-weight: 700; color: #0d0d0d; margin: 1.6em 0 0.5em; line-height: 1.3; }
         .article-content h4 { font-size: 1.1em; font-weight: 700; color: #2a2826; margin: 1.4em 0 0.4em; }

@@ -65,7 +65,7 @@ function KarirCard({ item }: { item: Karir }) {
             {item.title}
           </h3>
 
-          <p style={{ fontSize: "13px", color: "#5c5a57", lineHeight: "1.7", fontFamily: "var(--font-montserrat)", margin: "0 0 14px", display: "-webkit-box", WebkitLineClamp: 2, WebkitBoxOrient: "vertical" as const, overflow: "hidden" }}>
+          <p style={{ fontSize: "13px", color: "#5c5a57", lineHeight: "1.7", fontFamily: "var(--font-source-serif)", margin: "0 0 14px", display: "-webkit-box", WebkitLineClamp: 2, WebkitBoxOrient: "vertical" as const, overflow: "hidden" }}>
             {excerpt}…
           </p>
 
@@ -144,10 +144,10 @@ export default function KarierClient({ items, total }: { items: Karir[]; total: 
             <h2 style={{ fontSize: "1.25rem", fontWeight: "700", color: "#0d0d0d", fontFamily: "var(--font-montserrat)", margin: "8px 0 16px" }}>
               Karier Wikimedia Indonesia
             </h2>
-            <p style={{ fontSize: "14px", color: "#3a3a3a", lineHeight: "1.85", fontFamily: "var(--font-montserrat)", margin: "0 0 14px" }}>
+            <p style={{ fontSize: "14px", color: "#3a3a3a", lineHeight: "1.85", fontFamily: "var(--font-source-serif)", margin: "0 0 14px" }}>
               Wikimedia Indonesia merupakan organisasi nirlaba dan merupakan mitra lokal dari Yayasan Wikimedia di San Fransisco, Amerika Serikat, pengelola situs populer dunia Wikipedia dan proyek-proyek wiki lainnya. Wikimedia Indonesia berdedikasi untuk mendorong pertumbuhan, pengembangan, dan penyebaran pengetahuan dalam bahasa Indonesia dan bahasa lain yang dipertuturkan di Indonesia secara bebas dan gratis.
             </p>
-            <p style={{ fontSize: "14px", color: "#3a3a3a", lineHeight: "1.85", fontFamily: "var(--font-montserrat)", margin: 0 }}>
+            <p style={{ fontSize: "14px", color: "#3a3a3a", lineHeight: "1.85", fontFamily: "var(--font-source-serif)", margin: 0 }}>
               Sebagai pemberi kerja, Wikimedia Indonesia menjunjung tinggi kesetaraan. Pengangkatan pekerja didasarkan pada kemampuan, pengalaman, dan kualifikasi pribadi tanpa melakukan diskriminasi atas dasar suku, agama, ras, warna kulit, usia, jenis kelamin, identitas gender, orientasi seksual, kebangsaan, disabilitas, ataupun karakteristik personal lainnya yang tidak berhubungan dengan kemampuan kerja.
             </p>
           </div>
@@ -193,7 +193,7 @@ export default function KarierClient({ items, total }: { items: Karir[]; total: 
             </svg>
             <div>
               <p style={{ fontSize: "13px", fontWeight: "700", color: "#92400e", fontFamily: "var(--font-montserrat)", margin: "0 0 4px" }}>Peringatan</p>
-              <p style={{ fontSize: "13px", color: "#5c5a57", lineHeight: "1.7", fontFamily: "var(--font-montserrat)", margin: 0 }}>
+              <p style={{ fontSize: "13px", color: "#5c5a57", lineHeight: "1.7", fontFamily: "var(--font-source-serif)", margin: 0 }}>
                 Dalam melakukan perekrutan, Wikimedia Indonesia tidak pernah meminta sejumlah uang untuk alasan apapun. Apabila Anda dimintai sejumlah uang, harap melaporkan kepada kami melalui surel:{" "}
                 <a href="mailto:lowongan@wikimedia.or.id" style={{ color: "#0C57A8", fontWeight: "600", textDecoration: "none" }}>
                   lowongan@wikimedia.or.id

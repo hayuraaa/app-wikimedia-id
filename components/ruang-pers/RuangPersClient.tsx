@@ -70,7 +70,7 @@ function PressReleaseCard({ pr, featured = false }: { pr: PressRelease; featured
             <h2 style={{ fontSize: "clamp(1.1rem, 2vw, 1.5rem)", fontWeight: "700", color: "#0d0d0d", lineHeight: "1.35", fontFamily: "var(--font-montserrat)", margin: 0 }}>
               {pr.title}
             </h2>
-            <p style={{ fontSize: "13px", color: "#5c5a57", lineHeight: "1.7", fontFamily: "var(--font-montserrat)", margin: 0, display: "-webkit-box", WebkitLineClamp: 3, WebkitBoxOrient: "vertical" as const, overflow: "hidden" }}>
+            <p style={{ fontSize: "13px", color: "#5c5a57", lineHeight: "1.7", fontFamily: "var(--font-source-serif)", margin: 0, display: "-webkit-box", WebkitLineClamp: 3, WebkitBoxOrient: "vertical" as const, overflow: "hidden" }}>
               {stripHtml(pr.excerpt)}
             </p>
             <div style={{ display: "flex", alignItems: "center", gap: "6px", marginTop: "4px" }}>
@@ -123,7 +123,7 @@ function PressReleaseCard({ pr, featured = false }: { pr: PressRelease; featured
           <h3 style={{ fontSize: "14px", fontWeight: "600", color: "#0d0d0d", lineHeight: "1.5", fontFamily: "var(--font-montserrat)", margin: 0 }}>
             {pr.title}
           </h3>
-          <p style={{ fontSize: "14px", color: "#6b6966", lineHeight: "1.6", fontFamily: "var(--font-montserrat)", display: "-webkit-box", WebkitLineClamp: 2, WebkitBoxOrient: "vertical" as const, overflow: "hidden", margin: 0, flex: 1 }}>
+          <p style={{ fontSize: "14px", color: "#6b6966", lineHeight: "1.6", fontFamily: "var(--font-source-serif)", display: "-webkit-box", WebkitLineClamp: 2, WebkitBoxOrient: "vertical" as const, overflow: "hidden", margin: 0, flex: 1 }}>
             {stripHtml(pr.excerpt)}
           </p>
           <div style={{ display: "flex", alignItems: "center", justifyContent: "space-between", paddingTop: "10px", borderTop: "1px solid #f0eeec", marginTop: "auto" }}>
