@@ -29,7 +29,8 @@ function ContactForm() {
           name: form.nama,
           phone: form.telepon || "00000",
           email: form.email,
-          message: `Subjek: ${form.subjek}\n\n${form.pesan}`,
+          subject: form.subjek,
+          message: form.pesan,
         }),
       });
       const json = await res.json();
