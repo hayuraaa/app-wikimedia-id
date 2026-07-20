@@ -6,7 +6,7 @@ import Link from "next/link";
 // ─── Contact Form ─────────────────────────────────────────────────────────────
 
 function ContactForm() {
-  const [form, setForm] = useState({ nama: "", email: "", telepon: "", subjek: "", pesan: "" });
+  const [form, setForm] = useState({ nama: "", email: "", subjek: "", pesan: "" });
   const [status, setStatus] = useState<"idle" | "loading" | "success" | "error">("idle");
   const [msg, setMsg] = useState("");
 
@@ -27,7 +27,6 @@ function ContactForm() {
         headers: { "Content-Type": "application/json" },
         body: JSON.stringify({
           name: form.nama,
-          phone: form.telepon || "00000",
           email: form.email,
           subject: form.subjek,
           message: form.pesan,
@@ -37,7 +36,7 @@ function ContactForm() {
       if (json.success) {
         setStatus("success");
         setMsg(json.message || "Pesan Anda berhasil terkirim!");
-        setForm({ nama: "", email: "", telepon: "", subjek: "", pesan: "" });
+        setForm({ nama: "", email: "", subjek: "", pesan: "" });
       } else {
         setStatus("error");
         setMsg(json.message || "Gagal mengirim pesan. Silakan coba lagi.");
@@ -93,17 +92,10 @@ function ContactForm() {
             onFocus={(e) => Object.assign(e.target.style, focusStyle)} onBlur={(e) => Object.assign(e.target.style, blurStyle)} />
         </div>
       </div>
-      <div className="form-row" style={{ display: "grid", gridTemplateColumns: "1fr 1fr", gap: "14px" }}>
-        <div>
-          <label style={labelStyle}>Nomor Telepon <span style={{ fontSize: "10px", color: "#9a9690", fontWeight: "400" }}>(opsional)</span></label>
-          <input type="tel" placeholder="+62 8xx xxxx xxxx" value={form.telepon} onChange={set("telepon")} style={inputStyle}
-            onFocus={(e) => Object.assign(e.target.style, focusStyle)} onBlur={(e) => Object.assign(e.target.style, blurStyle)} />
-        </div>
-        <div>
-          <label style={labelStyle}>Subjek <span style={{ color: "#c0392b" }}>*</span></label>
-          <input type="text" placeholder="Tuliskan subjek pesan Anda..." value={form.subjek} onChange={set("subjek")} style={inputStyle}
-            onFocus={(e) => Object.assign(e.target.style, focusStyle)} onBlur={(e) => Object.assign(e.target.style, blurStyle)} />
-        </div>
+      <div>
+        <label style={labelStyle}>Subjek <span style={{ color: "#c0392b" }}>*</span></label>
+        <input type="text" placeholder="Tuliskan subjek pesan Anda..." value={form.subjek} onChange={set("subjek")} style={inputStyle}
+          onFocus={(e) => Object.assign(e.target.style, focusStyle)} onBlur={(e) => Object.assign(e.target.style, blurStyle)} />
       </div>
       <div>
         <label style={labelStyle}>Pesan / Komentar <span style={{ color: "#c0392b" }}>*</span></label>
