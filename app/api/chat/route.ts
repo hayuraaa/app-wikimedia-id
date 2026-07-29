@@ -177,7 +177,6 @@ function sendLog(question: string, answer: string, model: string, responseTimeMs
       answer,
       model,
       response_time_ms: responseTimeMs,
-      timestamp: new Date().toISOString(),
     }),
     signal: AbortSignal.timeout(5000),
   }).catch(() => {}); // fire-and-forget, abaikan error
