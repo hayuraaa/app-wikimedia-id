@@ -13,17 +13,38 @@ const SUGGESTIONS = [
 
 const MAX_HISTORY = 20;
 
+const PIN = "2026";
+
 export default function ChatWidget() {
   const [open, setOpen] = useState(false);
   const [expanded, setExpanded] = useState(false);
+  const [unlocked, setUnlocked] = useState(false);
+  const [pin, setPin] = useState("");
+  const [pinError, setPinError] = useState(false);
   const [messages, setMessages] = useState<Message[]>([]);
   const [input, setInput] = useState("");
   const [loading, setLoading] = useState(false);
   const listRef = useRef<HTMLDivElement>(null);
+  const pinRef = useRef<HTMLInputElement>(null);
 
   useEffect(() => {
     listRef.current?.scrollTo({ top: listRef.current.scrollHeight, behavior: "smooth" });
   }, [messages, loading]);
+
+  useEffect(() => {
+    if (open && !unlocked) setTimeout(() => pinRef.current?.focus(), 100);
+  }, [open, unlocked]);
+
+  const submitPin = () => {
+    if (pin === PIN) {
+      setUnlocked(true);
+      setPinError(false);
+      setPin("");
+    } else {
+      setPinError(true);
+      setPin("");
+    }
+  };
 
   const send = async (text: string) => {
     const trimmed = text.trim();
@@ -196,135 +217,242 @@ export default function ChatWidget() {
             </div>
           </div>
 
-          {/* Daftar pesan */}
-          <div
-            ref={listRef}
-            style={{
-              flex: 1,
-              overflowY: "auto",
-              padding: "16px",
-              display: "flex",
-              flexDirection: "column",
-              gap: "10px",
-              backgroundColor: "#f8f7f5",
-            }}
-          >
-            <div style={bubbleStyle("model")}>
-              Halo, Kawan Wiki! 👋 Saya asisten virtual Wikimedia Indonesia. Silakan tanya seputar
-              program dan kegiatan kami.
-            </div>
-
-            {messages.length === 0 && (
-              <div style={{ display: "flex", flexDirection: "column", gap: "6px", marginTop: "4px" }}>
-                {SUGGESTIONS.map((s) => (
-                  <button
-                    key={s}
-                    onClick={() => send(s)}
-                    style={{
-                      textAlign: "left",
-                      fontSize: "12px",
-                      fontFamily: "var(--font-montserrat)",
-                      color: "#0C57A8",
-                      backgroundColor: "#fff",
-                      border: "1px solid rgba(12,87,168,0.25)",
-                      borderRadius: "14px",
-                      padding: "8px 12px",
-                      cursor: "pointer",
-                    }}
-                  >
-                    {s}
-                  </button>
-                ))}
-              </div>
-            )}
-
-            {messages.map((m, i) => (
-              <div key={i} style={bubbleStyle(m.role)}>
-                {m.text ? (
-                  m.role === "model" ? (
-                    renderRichText(m.text)
-                  ) : (
-                    m.text
-                  )
-                ) : loading && i === messages.length - 1 ? (
-                  <TypingDots />
-                ) : (
-                  ""
-                )}
-              </div>
-            ))}
-
-            {/* Indikator mengetik saat menunggu server merespons */}
-            {loading && messages[messages.length - 1]?.role === "user" && (
-              <div style={bubbleStyle("model")}>
-                <TypingDots />
-              </div>
-            )}
-          </div>
-
-          {/* Input */}
-          <div style={{ padding: "12px", borderTop: "1px solid #e5e2dd", backgroundColor: "#fff" }}>
-            <div style={{ display: "flex", gap: "8px" }}>
-              <input
-                type="text"
-                value={input}
-                onChange={(e) => setInput(e.target.value)}
-                onKeyDown={(e) => {
-                  if (e.key === "Enter") send(input);
-                }}
-                placeholder="Tulis pertanyaan Anda…"
-                maxLength={2000}
-                disabled={loading}
+          {/* PIN gate — tampil saat belum unlock */}
+          {!unlocked ? (
+            <div
+              style={{
+                flex: 1,
+                display: "flex",
+                flexDirection: "column",
+                alignItems: "center",
+                justifyContent: "center",
+                padding: "28px 24px",
+                backgroundColor: "#f8f7f5",
+                gap: "20px",
+                textAlign: "center",
+              }}
+            >
+              {/* Ikon konstruksi */}
+              <div
                 style={{
-                  flex: 1,
-                  padding: "10px 14px",
-                  fontSize: "13px",
-                  fontFamily: "var(--font-montserrat)",
-                  border: "1px solid #e5e2dd",
-                  borderRadius: "20px",
-                  outline: "none",
-                  color: "#0d0d0d",
-                }}
-              />
-              <button
-                onClick={() => send(input)}
-                disabled={loading || !input.trim()}
-                aria-label="Kirim"
-                style={{
-                  width: "38px",
-                  height: "38px",
+                  width: "56px",
+                  height: "56px",
                   borderRadius: "50%",
-                  backgroundColor: loading || !input.trim() ? "#c9d7e8" : "#0C57A8",
-                  border: "none",
-                  cursor: loading || !input.trim() ? "default" : "pointer",
+                  backgroundColor: "#FFF3CD",
                   display: "flex",
                   alignItems: "center",
                   justifyContent: "center",
-                  flexShrink: 0,
-                  transition: "background 0.2s",
+                  fontSize: "26px",
                 }}
               >
-                <svg width="15" height="15" viewBox="0 0 24 24" fill="none" stroke="#fff" strokeWidth="2.5">
-                  <path d="M22 2L11 13M22 2l-7 20-4-9-9-4 20-7z" />
-                </svg>
-              </button>
+                🔧
+              </div>
+
+              <div>
+                <div
+                  style={{
+                    fontSize: "14px",
+                    fontWeight: 700,
+                    color: "#2a2a28",
+                    marginBottom: "8px",
+                  }}
+                >
+                  Tahap Pengembangan
+                </div>
+                <div
+                  style={{
+                    fontSize: "12px",
+                    color: "#6b6966",
+                    lineHeight: 1.6,
+                    maxWidth: "260px",
+                  }}
+                >
+                  Chatbot ini masih dalam tahap pengembangan, masukkan PIN untuk ujicoba.
+                </div>
+              </div>
+
+              {/* Input PIN */}
+              <div style={{ display: "flex", flexDirection: "column", alignItems: "center", gap: "10px", width: "100%" }}>
+                <input
+                  ref={pinRef}
+                  type="password"
+                  inputMode="numeric"
+                  maxLength={6}
+                  value={pin}
+                  onChange={(e) => { setPin(e.target.value); if (pinError) setPinError(false); }}
+                  onKeyDown={(e) => { if (e.key === "Enter") submitPin(); }}
+                  placeholder="Masukkan PIN"
+                  style={{
+                    width: "180px",
+                    padding: "10px 16px",
+                    fontSize: "18px",
+                    letterSpacing: "6px",
+                    fontFamily: "var(--font-montserrat)",
+                    textAlign: "center",
+                    border: pinError ? "1.5px solid #e53935" : "1.5px solid #d0cec9",
+                    borderRadius: "10px",
+                    outline: "none",
+                    backgroundColor: "#fff",
+                    color: "#2a2a28",
+                  }}
+                />
+                {pinError && (
+                  <div style={{ fontSize: "12px", color: "#e53935", fontWeight: 600 }}>
+                    PIN salah. Silakan coba lagi.
+                  </div>
+                )}
+                <button
+                  onClick={submitPin}
+                  disabled={pin.length === 0}
+                  style={{
+                    padding: "10px 32px",
+                    fontSize: "13px",
+                    fontWeight: 700,
+                    fontFamily: "var(--font-montserrat)",
+                    backgroundColor: pin.length === 0 ? "#c9d7e8" : "#0C57A8",
+                    color: "#fff",
+                    border: "none",
+                    borderRadius: "20px",
+                    cursor: pin.length === 0 ? "default" : "pointer",
+                    transition: "background 0.2s",
+                  }}
+                >
+                  Masuk
+                </button>
+              </div>
             </div>
-            <div
-              style={{
-                fontSize: "9px",
-                color: "#a5a3a0",
-                fontFamily: "var(--font-montserrat)",
-                textAlign: "center",
-                marginTop: "8px",
-                lineHeight: 1.5,
-              }}
-            >
-              Jawaban dibuat oleh AI dan bisa keliru. Untuk informasi resmi, hubungi{" "}
-              <a href="mailto:info@wikimedia.or.id" style={{ color: "#8a8885" }}>
-                info@wikimedia.or.id
-              </a>
-            </div>
-          </div>
+          ) : (
+            <>
+              {/* Daftar pesan */}
+              <div
+                ref={listRef}
+                style={{
+                  flex: 1,
+                  overflowY: "auto",
+                  padding: "16px",
+                  display: "flex",
+                  flexDirection: "column",
+                  gap: "10px",
+                  backgroundColor: "#f8f7f5",
+                }}
+              >
+                <div style={bubbleStyle("model")}>
+                  Halo, Kawan Wiki! 👋 Saya asisten virtual Wikimedia Indonesia. Silakan tanya seputar
+                  program dan kegiatan kami.
+                </div>
+
+                {messages.length === 0 && (
+                  <div style={{ display: "flex", flexDirection: "column", gap: "6px", marginTop: "4px" }}>
+                    {SUGGESTIONS.map((s) => (
+                      <button
+                        key={s}
+                        onClick={() => send(s)}
+                        style={{
+                          textAlign: "left",
+                          fontSize: "12px",
+                          fontFamily: "var(--font-montserrat)",
+                          color: "#0C57A8",
+                          backgroundColor: "#fff",
+                          border: "1px solid rgba(12,87,168,0.25)",
+                          borderRadius: "14px",
+                          padding: "8px 12px",
+                          cursor: "pointer",
+                        }}
+                      >
+                        {s}
+                      </button>
+                    ))}
+                  </div>
+                )}
+
+                {messages.map((m, i) => (
+                  <div key={i} style={bubbleStyle(m.role)}>
+                    {m.text ? (
+                      m.role === "model" ? (
+                        renderRichText(m.text)
+                      ) : (
+                        m.text
+                      )
+                    ) : loading && i === messages.length - 1 ? (
+                      <TypingDots />
+                    ) : (
+                      ""
+                    )}
+                  </div>
+                ))}
+
+                {loading && messages[messages.length - 1]?.role === "user" && (
+                  <div style={bubbleStyle("model")}>
+                    <TypingDots />
+                  </div>
+                )}
+              </div>
+
+              {/* Input */}
+              <div style={{ padding: "12px", borderTop: "1px solid #e5e2dd", backgroundColor: "#fff" }}>
+                <div style={{ display: "flex", gap: "8px" }}>
+                  <input
+                    type="text"
+                    value={input}
+                    onChange={(e) => setInput(e.target.value)}
+                    onKeyDown={(e) => {
+                      if (e.key === "Enter") send(input);
+                    }}
+                    placeholder="Tulis pertanyaan Anda…"
+                    maxLength={2000}
+                    disabled={loading}
+                    style={{
+                      flex: 1,
+                      padding: "10px 14px",
+                      fontSize: "13px",
+                      fontFamily: "var(--font-montserrat)",
+                      border: "1px solid #e5e2dd",
+                      borderRadius: "20px",
+                      outline: "none",
+                      color: "#0d0d0d",
+                    }}
+                  />
+                  <button
+                    onClick={() => send(input)}
+                    disabled={loading || !input.trim()}
+                    aria-label="Kirim"
+                    style={{
+                      width: "38px",
+                      height: "38px",
+                      borderRadius: "50%",
+                      backgroundColor: loading || !input.trim() ? "#c9d7e8" : "#0C57A8",
+                      border: "none",
+                      cursor: loading || !input.trim() ? "default" : "pointer",
+                      display: "flex",
+                      alignItems: "center",
+                      justifyContent: "center",
+                      flexShrink: 0,
+                      transition: "background 0.2s",
+                    }}
+                  >
+                    <svg width="15" height="15" viewBox="0 0 24 24" fill="none" stroke="#fff" strokeWidth="2.5">
+                      <path d="M22 2L11 13M22 2l-7 20-4-9-9-4 20-7z" />
+                    </svg>
+                  </button>
+                </div>
+                <div
+                  style={{
+                    fontSize: "9px",
+                    color: "#a5a3a0",
+                    fontFamily: "var(--font-montserrat)",
+                    textAlign: "center",
+                    marginTop: "8px",
+                    lineHeight: 1.5,
+                  }}
+                >
+                  Jawaban dibuat oleh AI dan bisa keliru. Untuk informasi resmi, hubungi{" "}
+                  <a href="mailto:info@wikimedia.or.id" style={{ color: "#8a8885" }}>
+                    info@wikimedia.or.id
+                  </a>
+                </div>
+              </div>
+            </>
+          )}
         </div>
       )}
 
