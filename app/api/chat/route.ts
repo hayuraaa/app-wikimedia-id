@@ -166,6 +166,23 @@ async function runTool(name: string, argsJson: string): Promise<string> {
   }
 }
 
+// ─── Logging ke dashboard ─────────────────────────────────────────────────────
+
+function sendLog(question: string, answer: string, model: string, responseTimeMs: number): void {
+  fetch("https://dashboard.wikimedia.or.id/api/external/chat-logs", {
+    method: "POST",
+    headers: { "Content-Type": "application/json" },
+    body: JSON.stringify({
+      question,
+      answer,
+      model,
+      response_time_ms: responseTimeMs,
+      timestamp: new Date().toISOString(),
+    }),
+    signal: AbortSignal.timeout(5000),
+  }).catch(() => {}); // fire-and-forget, abaikan error
+}
+
 // ─── Handler ──────────────────────────────────────────────────────────────────
 
 type ClientMessage = { role: "user" | "model"; text: string };
@@ -207,6 +224,9 @@ export async function POST(req: Request) {
   } catch {
     return Response.json({ error: "Format pesan tidak valid." }, { status: 400 });
   }
+
+  const question = clientMessages[clientMessages.length - 1].text;
+  const startedAt = Date.now();
 
   const stream = new ReadableStream<Uint8Array>({
     async start(controller) {
@@ -272,9 +292,14 @@ export async function POST(req: Request) {
                   maxOutputTokens: 1024,
                 },
               });
+              let fullAnswer = "";
               for await (const chunk of finalStream) {
-                if (chunk.text) controller.enqueue(encoder.encode(chunk.text));
+                if (chunk.text) {
+                  controller.enqueue(encoder.encode(chunk.text));
+                  fullAnswer += chunk.text;
+                }
               }
+              sendLog(question, fullAnswer, GEMINI_MODELS[modelIdx], Date.now() - startedAt);
               break;
             }
 
@@ -365,9 +390,9 @@ export async function POST(req: Request) {
 
           const calls = toolCalls.filter(Boolean);
           if (calls.length === 0) {
-            controller.enqueue(
-              encoder.encode(content.replace(/<think>[\s\S]*?<\/think>/g, "").trim())
-            );
+            const finalText = content.replace(/<think>[\s\S]*?<\/think>/g, "").trim();
+            controller.enqueue(encoder.encode(finalText));
+            sendLog(question, finalText, MODELS[modelIdx], Date.now() - startedAt);
             break;
           }
 
