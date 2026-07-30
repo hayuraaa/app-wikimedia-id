@@ -100,8 +100,8 @@ function EventCard({ ev }: { ev: EventItem }) {
             </span>
           </div>
           <h3 style={{ fontSize: "14px", fontWeight: "600", color: status === "selesai" ? "#5c5a57" : "#0d0d0d", fontFamily: "var(--font-montserrat)", lineHeight: "1.4", margin: "0 0 3px" }}>{ev.judul}</h3>
-          <p style={{ fontSize: "11px", color: "#6b6966", fontFamily: "var(--font-montserrat)", margin: "0 0 6px" }}>{formatTanggal(ev.tanggal_mulai, ev.tanggal_selesai)}</p>
-          <p style={{ fontSize: "14px", color: "#7a7874", fontFamily: "var(--font-montserrat)", lineHeight: "1.6", margin: 0, display: "-webkit-box", WebkitLineClamp: 2, WebkitBoxOrient: "vertical" as const, overflow: "hidden" }}>
+          <p style={{ fontSize: "11px", color: "#6b6966", fontFamily: "var(--font-source-serif)", margin: "0 0 6px" }}>{formatTanggal(ev.tanggal_mulai, ev.tanggal_selesai)}</p>
+          <p style={{ fontSize: "14px", color: "#7a7874", fontFamily: "var(--font-source-serif)", lineHeight: "1.6", margin: 0, display: "-webkit-box", WebkitLineClamp: 2, WebkitBoxOrient: "vertical" as const, overflow: "hidden" }}>
             {ev.deskripsi.replace(/\n/g, " ").trim()}
           </p>
           {ev.links.length > 0 && (
@@ -382,7 +382,7 @@ function CalendarView({ events }: { events: EventItem[] }) {
 
         {selectedDay === null && monthEventCount === 0 && (
           <div style={{ padding: "24px", textAlign: "center", backgroundColor: "#fff", border: "1px solid #e5e2dd", borderRadius: "4px" }}>
-            <p style={{ fontSize: "13px", color: "#6b6966", fontFamily: "var(--font-montserrat)", margin: 0 }}>Tidak ada acara di {MONTHS_ID[calMonth]} {calYear}.</p>
+            <p style={{ fontSize: "13px", color: "#6b6966", fontFamily: "var(--font-source-serif)", margin: 0 }}>Tidak ada acara di {MONTHS_ID[calMonth]} {calYear}.</p>
           </div>
         )}
         {selectedDay === null && monthEventCount > 0 && (
@@ -519,7 +519,7 @@ function CalendarView({ events }: { events: EventItem[] }) {
 
       {selectedDay === null && monthEventCount === 0 && (
         <div style={{ padding: "32px", textAlign: "center", backgroundColor: "#fff", border: "1px solid #e5e2dd", borderRadius: "4px" }}>
-          <p style={{ fontSize: "13px", color: "#6b6966", fontFamily: "var(--font-montserrat)", margin: 0 }}>Tidak ada acara di {MONTHS_ID[calMonth]} {calYear}.</p>
+          <p style={{ fontSize: "13px", color: "#6b6966", fontFamily: "var(--font-source-serif)", margin: 0 }}>Tidak ada acara di {MONTHS_ID[calMonth]} {calYear}.</p>
         </div>
       )}
     </div>
@@ -597,7 +597,7 @@ export default function AcaraClient({ initialEvents }: { initialEvents: EventIte
     <>
       {/* ── HERO ─────────────────────────────────────────────────────── */}
       <section style={{ padding: "40px 24px 36px", position: "relative", overflow: "hidden", backgroundImage: "url('/banner/Mosaik_Budaya_1.png')", backgroundSize: "cover", backgroundPosition: "center" }}>
-        <div style={{ position: "absolute", inset: 0, background: "linear-gradient(135deg, rgba(8,20,45,0.92) 0%, rgba(10,30,65,0.84) 40%, rgba(15,40,80,0.76) 100%)", pointerEvents: "none" }} />
+        <div style={{ position: "absolute", inset: 0, background: "linear-gradient(135deg, rgba(3,78,159,0.92) 0%, rgba(3,78,159,0.84) 40%, rgba(3,78,159,0.76) 100%)", pointerEvents: "none" }} />
         <div style={{ position: "absolute", inset: 0, backgroundImage: `linear-gradient(rgba(255,255,255,0.03) 1px, transparent 1px), linear-gradient(90deg, rgba(255,255,255,0.03) 1px, transparent 1px)`, backgroundSize: "40px 40px", pointerEvents: "none" }} />
         <div style={{ position: "absolute", top: "-60px", right: "-60px", width: "260px", height: "260px", borderRadius: "50%", background: "radial-gradient(circle, rgba(212,160,20,0.28) 0%, transparent 70%)", pointerEvents: "none" }} />
         <div style={{ position: "absolute", bottom: "-40px", left: "8%", width: "180px", height: "180px", borderRadius: "50%", background: "radial-gradient(circle, rgba(180,100,10,0.18) 0%, transparent 70%)", pointerEvents: "none" }} />
@@ -618,7 +618,7 @@ export default function AcaraClient({ initialEvents }: { initialEvents: EventIte
               <h1 style={{ fontSize: "clamp(1.8rem, 3vw, 2.6rem)", fontWeight: "700", color: "#fff", fontFamily: "var(--font-montserrat)", margin: "6px 0 0", lineHeight: "1.2" }}>
                 Acara & Kegiatan
               </h1>
-              <p style={{ fontSize: "13px", color: "rgba(255,255,255,0.45)", fontFamily: "var(--font-montserrat)", margin: "6px 0 0" }}>
+              <p style={{ fontSize: "13px", color: "rgba(255,255,255,0.45)", fontFamily: "var(--font-source-serif)", margin: "6px 0 0" }}>
                 Seluruh kegiatan Wikimedia Indonesia — masa lalu, berlangsung, maupun mendatang.
               </p>
             </div>
@@ -839,7 +839,7 @@ export default function AcaraClient({ initialEvents }: { initialEvents: EventIte
                 <CalendarView events={filtered} />
               ) : filtered.length === 0 ? (
                 <div style={{ padding: "60px 24px", textAlign: "center", backgroundColor: "#fff", border: "1px solid #e5e2dd", borderRadius: "4px" }}>
-                  <p style={{ fontSize: "15px", color: "#6b6966", fontFamily: "var(--font-montserrat)" }}>Tidak ada acara yang sesuai filter.</p>
+                  <p style={{ fontSize: "15px", color: "#6b6966", fontFamily: "var(--font-source-serif)" }}>Tidak ada acara yang sesuai filter.</p>
                   <button onClick={resetFilter} style={{ marginTop: "12px", padding: "8px 20px", borderRadius: "3px", border: "none", backgroundColor: "#0C57A8", color: "#fff", fontSize: "12px", fontWeight: "700", fontFamily: "var(--font-montserrat)", cursor: "pointer" }}>
                     Reset Filter
                   </button>

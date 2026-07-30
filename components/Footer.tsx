@@ -270,15 +270,6 @@ export default function Footer() {
             </a>{" "}
             kecuali dinyatakan lain.
           </p>
-          <div style={{ display: "flex", gap: "20px" }}>
-            {["Kebijakan Privasi", "Syarat Penggunaan", "Peta Situs"].map(
-              (t) => (
-                <Link key={t} href="#" className="footer-bottom-link">
-                  {t}
-                </Link>
-              )
-            )}
-          </div>
         </div>
       </div>
 

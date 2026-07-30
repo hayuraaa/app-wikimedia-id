@@ -32,7 +32,7 @@ export default function NewsletterSection() {
   };
 
   return (
-    <section style={{ backgroundColor: "#1a3a5c", padding: "80px 24px", position: "relative", overflow: "hidden" }}>
+    <section style={{ backgroundColor: "#034E9F", padding: "80px 24px", position: "relative", overflow: "hidden" }}>
       <div style={{ position: "absolute", inset: 0, backgroundImage: `linear-gradient(rgba(255,255,255,0.03) 1px, transparent 1px), linear-gradient(90deg, rgba(255,255,255,0.03) 1px, transparent 1px)`, backgroundSize: "60px 60px" }} />
       <div style={{ position: "absolute", top: "-80px", right: "-80px", width: "300px", height: "300px", borderRadius: "50%", backgroundColor: "rgba(12,87,168,0.12)" }} />
 
@@ -40,7 +40,7 @@ export default function NewsletterSection() {
         <h2 style={{ fontSize: "clamp(1.8rem, 3vw, 2.6rem)", fontWeight: "700", color: "#ffffff", fontFamily: "var(--font-montserrat)", margin: "12px 0 16px", lineHeight: "1.2" }}>
           Jadilah Bagian dari Gerakan Pengetahuan Bebas
         </h2>
-        <p style={{ fontSize: "15px", color: "rgba(255,255,255,0.65)", lineHeight: "1.8", marginBottom: "40px", fontFamily: "var(--font-montserrat)" }}>
+        <p style={{ fontSize: "15px", color: "rgba(255,255,255,0.65)", lineHeight: "1.8", marginBottom: "40px", fontFamily: "var(--font-source-serif)" }}>
           Daftarkan surel anda untuk mendapatkan kabar terbaru tentang program, acara, dan perkembangan Wikimedia Indonesia langsung di kotak masukmu.
         </p>
 
@@ -61,7 +61,7 @@ export default function NewsletterSection() {
                 <path d="M20 6L9 17l-5-5" />
               </svg>
             </div>
-            <p style={{ color: "#4ade80", fontFamily: "var(--font-montserrat)", fontWeight: "600", fontSize: "15px", margin: 0 }}>
+            <p style={{ color: "#4ade80", fontFamily: "var(--font-source-serif)", fontWeight: "600", fontSize: "15px", margin: 0 }}>
               {submitMessage}
             </p>
           </div>
@@ -90,8 +90,8 @@ export default function NewsletterSection() {
                 disabled={submitStatus === "loading" || !email.trim()}
                 style={{
                   padding: "14px 24px",
-                  backgroundColor: submitStatus === "loading" ? "#0a4a8f" : "#0C57A8",
-                  color: "#fff", border: "none",
+                  backgroundColor: submitStatus === "loading" ? "#EAD94A" : "#F9EE75",
+                  color: "#0d0d0d", border: "none",
                   cursor: submitStatus === "loading" || !email.trim() ? "not-allowed" : "pointer",
                   fontSize: "13px", fontWeight: "700", letterSpacing: "0.06em",
                   textTransform: "uppercase" as const,
@@ -99,8 +99,8 @@ export default function NewsletterSection() {
                   display: "flex", alignItems: "center", gap: "7px",
                   transition: "background 0.2s", whiteSpace: "nowrap" as const,
                 }}
-                onMouseEnter={(e) => { if (submitStatus !== "loading") (e.currentTarget as HTMLElement).style.backgroundColor = "#0a4a8f"; }}
-                onMouseLeave={(e) => { if (submitStatus !== "loading") (e.currentTarget as HTMLElement).style.backgroundColor = "#0C57A8"; }}
+                onMouseEnter={(e) => { if (submitStatus !== "loading") (e.currentTarget as HTMLElement).style.backgroundColor = "#EAD94A"; }}
+                onMouseLeave={(e) => { if (submitStatus !== "loading") (e.currentTarget as HTMLElement).style.backgroundColor = "#F9EE75"; }}
               >
                 {submitStatus === "loading" ? (
                   <>
@@ -121,14 +121,14 @@ export default function NewsletterSection() {
               </button>
             </div>
             {submitStatus === "error" && (
-              <p style={{ fontSize: "12px", color: "#fca5a5", fontFamily: "var(--font-montserrat)", margin: 0 }}>
+              <p style={{ fontSize: "12px", color: "#fca5a5", fontFamily: "var(--font-source-serif)", margin: 0 }}>
                 {submitMessage}
               </p>
             )}
           </div>
         )}
 
-        <p style={{ fontSize: "14px", color: "rgba(255,255,255,0.35)", marginTop: "16px", fontFamily: "var(--font-montserrat)" }}>
+        <p style={{ fontSize: "14px", color: "rgba(255,255,255,0.35)", marginTop: "16px", fontFamily: "var(--font-source-serif)" }}>
           Kami tidak akan mengirim spam. Anda dapat berhenti berlangganan kapan saja.
         </p>
       </div>

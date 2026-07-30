@@ -127,7 +127,7 @@ export default function MenjadiSukarelawanClient() {
         backgroundImage: "url('/banner/Mosaik_Budaya_1.png')",
         backgroundSize: "cover", backgroundPosition: "center",
       }}>
-        <div style={{ position: "absolute", inset: 0, background: "linear-gradient(135deg, rgba(8,20,45,0.92) 0%, rgba(10,30,65,0.84) 40%, rgba(15,40,80,0.76) 100%)", pointerEvents: "none" }} />
+        <div style={{ position: "absolute", inset: 0, background: "linear-gradient(135deg, rgba(3,78,159,0.92) 0%, rgba(3,78,159,0.84) 40%, rgba(3,78,159,0.76) 100%)", pointerEvents: "none" }} />
         <div style={{ position: "absolute", inset: 0, backgroundImage: `linear-gradient(rgba(255,255,255,0.03) 1px, transparent 1px), linear-gradient(90deg, rgba(255,255,255,0.03) 1px, transparent 1px)`, backgroundSize: "40px 40px", pointerEvents: "none" }} />
         <div style={{ position: "absolute", top: "-80px", right: "-80px", width: "360px", height: "360px", borderRadius: "50%", background: "radial-gradient(circle, rgba(12,87,168,0.20) 0%, transparent 70%)", pointerEvents: "none" }} />
 
@@ -146,7 +146,7 @@ export default function MenjadiSukarelawanClient() {
             <h1 style={{ fontSize: "clamp(1.8rem, 3vw, 2.6rem)", fontWeight: "700", color: "#fff", fontFamily: "var(--font-montserrat)", margin: "6px 0 8px", lineHeight: "1.2" }}>
               Menjadi Sukarelawan Wikimedia
             </h1>
-            <p style={{ fontSize: "13px", color: "rgba(255,255,255,0.45)", fontFamily: "var(--font-montserrat)", margin: 0 }}>
+            <p style={{ fontSize: "13px", color: "rgba(255,255,255,0.45)", fontFamily: "var(--font-source-serif)", margin: 0 }}>
               Temukan proyek Wikimedia yang paling sesuai dengan minat dan kegemaran Anda.
             </p>
           </div>
@@ -161,10 +161,10 @@ export default function MenjadiSukarelawanClient() {
 
             <div>
               <div style={{ display: "flex", flexDirection: "column", gap: "14px" }}>
-                <p style={{ fontSize: "16px", color: "#3a3a3a", lineHeight: "1.9", fontFamily: "var(--font-montserrat)", margin: 0 }}>
+                <p style={{ fontSize: "16px", color: "#3a3a3a", lineHeight: "1.9", fontFamily: "var(--font-source-serif)", margin: 0 }}>
                   Wikimedia adalah sebuah komunitas global yang bergotong-royong untuk membangun sumber daya pengetahuan bebas yang dapat diakses oleh siapa saja. Proyek-proyeknya hidup dan terus berkembang berkat kontribusi bersama para sukarelawan yang terus mengalir. Selanjutnya giliran Anda untuk ikut ambil bagian dalam gerakan membebaskan pengetahuan ini!
                 </p>
-                <p style={{ fontSize: "16px", color: "#3a3a3a", lineHeight: "1.9", fontFamily: "var(--font-montserrat)", margin: 0 }}>
+                <p style={{ fontSize: "16px", color: "#3a3a3a", lineHeight: "1.9", fontFamily: "var(--font-source-serif)", margin: 0 }}>
                   Gerakan Wikimedia terbuka bagi siapa saja. Gerakan ini tumbuh dari kontribusi orang-orang dengan beragam minat dan latar belakang, entah itu ilmuwan, pelajar, seniman, ataupun pustakawan. Anda tidak harus menjadi ahli di bidang tertentu untuk mulai berkontribusi, cukup dengan kemauan untuk berbagi dan berkolaborasi. Beberapa orang membuat suntingan pertama mereka dari topik yang mereka suka, seperti klub sepak bola, pemeran idola, kota kelahiran, atau makanan kesukaan. Apa pun kegemaran Anda, selalu ada ruang berbagi pengetahuan dalam gerakan Wikimedia!
                 </p>
               </div>
@@ -195,7 +195,7 @@ export default function MenjadiSukarelawanClient() {
         <div style={{ maxWidth: "1280px", margin: "0 auto", position: "relative", zIndex: 1 }}>
           <div style={{ display: "flex", justifyContent: "space-between", alignItems: "flex-end", paddingBottom: "12px", marginBottom: "24px", borderBottom: "3px solid #0d0d0d" }}>
             <div>
-              <h2 style={{ fontSize: "1.4rem", fontWeight: "700", color: "#0d0d0d", fontFamily: "var(--font-montserrat)", marginTop: "4px", marginBottom: 0 }}>Proyek Wikimedia</h2>
+              <h2 style={{ fontSize: "18px", fontWeight: "700", color: "#0d0d0d", fontFamily: "var(--font-montserrat)", marginTop: "4px", marginBottom: 0 }}>Proyek Wikimedia</h2>
             </div>
             <span style={{ fontSize: "11px", color: "#6b6966", fontFamily: "var(--font-montserrat)" }}>{SECTIONS.length} proyek tersedia</span>
           </div>
@@ -259,13 +259,13 @@ export default function MenjadiSukarelawanClient() {
                 </div>
 
                 {/* Body */}
-                <p style={{ fontSize: "14px", color: "#3a3a3a", lineHeight: "1.85", fontFamily: "var(--font-montserrat)", margin: "0 0 16px" }}>
+                <p style={{ fontSize: "14px", color: "#3a3a3a", lineHeight: "1.85", fontFamily: "var(--font-source-serif)", margin: "0 0 16px" }}>
                   {s.body}
                 </p>
 
                 {/* ── Highlight — nama proyek sebagai link + desc ── */}
                 <div style={{ backgroundColor: "#f8f7f5", border: "1px solid #e5e2dd", borderRadius: "3px", padding: "12px 16px" }}>
-                  <p style={{ fontSize: "13px", color: "#5c5a57", lineHeight: "1.65", fontFamily: "var(--font-montserrat)", margin: 0 }}>
+                  <p style={{ fontSize: "13px", color: "#5c5a57", lineHeight: "1.65", fontFamily: "var(--font-source-serif)", margin: 0 }}>
 
                     {/* Kasus khusus: Wikidata & Wikifunctions — dua link terpisah */}
                     {s.id === "data-teknologi" ? (
@@ -315,7 +315,7 @@ export default function MenjadiSukarelawanClient() {
             ))}
           </div>
 
-          <p style={{ fontSize: "16px", color: "#3a3a3a", lineHeight: "1.9", fontFamily: "var(--font-montserrat)", margin: "40px 0 0" }}>
+          <p style={{ fontSize: "16px", color: "#3a3a3a", lineHeight: "1.9", fontFamily: "var(--font-source-serif)", margin: "40px 0 0" }}>
             Setiap orang memiliki cara berbeda untuk berkontribusi dalam menyebarkan pengetahuan. Anda bisa memilih ruang berbagi pengetahuan yang paling sesuai dengan kegemaran dan latar belakang Anda. Tidak harus menjadi ahli atau profesional terlebih dahulu untuk mulai berbagi. Begitu pula di ekosistem Wikimedia. Tulisan, data, foto, dan lainnya memiliki arti penting dalam membangun sumber pengetahuan terbuka.
 Ingat! Setiap kontribusi Anda, sekecil apa pun itu, memiliki dampak nyata bagi akses informasi masyarakat. 
 Anda tidak hanya mengembangkan diri sesuai minat, tetapi juga menjadi bagian dari gerakan global yang percaya bahwa pengetahuan sepantasnya terbuka dan dapat diakses oleh semua orang. Yuk, mulai langkah kecil Anda hari ini dan tumbuh bersama komunitas Wikimedia!

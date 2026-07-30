@@ -102,7 +102,7 @@ function ArticleCard({ article }: { article: Article }) {
           <h3 style={{ fontSize: "15px", fontWeight: "600", color: "#0d0d0d", lineHeight: "1.5", fontFamily: "var(--font-montserrat)", margin: 0 }}>
             {article.title}
           </h3>
-          <p style={{ fontSize: "14px", color: "#6b6966", lineHeight: "1.6", fontFamily: "var(--font-montserrat)", display: "-webkit-box", WebkitLineClamp: 2, WebkitBoxOrient: "vertical" as const, overflow: "hidden", margin: 0, flex: 1 }}>
+          <p style={{ fontSize: "14px", color: "#6b6966", lineHeight: "1.6", fontFamily: "var(--font-source-serif)", display: "-webkit-box", WebkitLineClamp: 2, WebkitBoxOrient: "vertical" as const, overflow: "hidden", margin: 0, flex: 1 }}>
             {article.excerpt}
           </p>
           <div style={{ display: "flex", alignItems: "center", justifyContent: "space-between", paddingTop: "10px", borderTop: "1px solid #f0eeec", marginTop: "auto" }}>
@@ -270,7 +270,7 @@ export default function KategoriClient({
     <>
       {/* ── HERO ──────────────────────────────────────────────────────────── */}
       <section style={{ padding: "48px 24px 40px", position: "relative", overflow: "hidden", backgroundImage: "url('/banner/Mosaik_Budaya_1.png')", backgroundSize: "cover", backgroundPosition: "center" }}>
-        <div style={{ position: "absolute", inset: 0, background: "linear-gradient(135deg, rgba(8,20,45,0.90) 0%, rgba(10,30,65,0.82) 40%, rgba(15,40,80,0.75) 100%)", pointerEvents: "none" }} />
+        <div style={{ position: "absolute", inset: 0, background: "linear-gradient(135deg, rgba(3,78,159,0.90) 0%, rgba(3,78,159,0.82) 40%, rgba(3,78,159,0.75) 100%)", pointerEvents: "none" }} />
         <div style={{ position: "absolute", inset: 0, backgroundImage: `linear-gradient(rgba(255,255,255,0.03) 1px, transparent 1px), linear-gradient(90deg, rgba(255,255,255,0.03) 1px, transparent 1px)`, backgroundSize: "40px 40px", pointerEvents: "none" }} />
         <div style={{ position: "absolute", top: "-80px", right: "-80px", width: "320px", height: "320px", borderRadius: "50%", background: `radial-gradient(circle, ${accent.bg.replace("0.1", "0.18")} 0%, transparent 70%)`, pointerEvents: "none" }} />
 
@@ -297,11 +297,11 @@ export default function KategoriClient({
           {/* Category header */}
           <div style={{ display: "flex", alignItems: "center", gap: "20px", flexWrap: "wrap" as const }}>
             <div>
-              <h1 style={{ fontSize: "clamp(1.6rem, 3vw, 2.4rem)", fontWeight: "700", color: "#ffffff", fontFamily: "var(--font-montserrat)", margin: "4px 0 6px", lineHeight: "1.2" }}>
+              <h1 style={{ fontSize: "clamp(1.8rem, 3vw, 2.6rem)", fontWeight: "700", color: "#ffffff", fontFamily: "var(--font-montserrat)", margin: "4px 0 6px", lineHeight: "1.2" }}>
                 {categoryName}
               </h1>
               {meta && (
-                <p style={{ fontSize: "12px", color: "rgba(255,255,255,0.35)", fontFamily: "var(--font-montserrat)", margin: 0 }}>
+                <p style={{ fontSize: "12px", color: "rgba(255,255,255,0.35)", fontFamily: "var(--font-source-serif)", margin: 0 }}>
                   {meta.total.toLocaleString("id-ID")} artikel dalam kategori ini
                   {meta.last_page > 1 && ` · Halaman ${pageFromUrl} dari ${meta.last_page}`}
                 </p>
@@ -336,7 +336,7 @@ export default function KategoriClient({
                 </div>
               ) : articles.length === 0 ? (
                 <div style={{ padding: "60px 24px", textAlign: "center", backgroundColor: "#fff", border: "1px solid #e5e2dd", borderRadius: "4px" }}>
-                  <p style={{ fontSize: "15px", color: "#6b6966", fontFamily: "var(--font-montserrat)", marginTop: "12px" }}>
+                  <p style={{ fontSize: "15px", color: "#6b6966", fontFamily: "var(--font-source-serif)", marginTop: "12px" }}>
                     Belum ada artikel dalam kategori ini.
                   </p>
                   <Link href="/rubrik" style={{ display: "inline-flex", marginTop: "16px", padding: "8px 20px", backgroundColor: "#0C57A8", color: "#fff", textDecoration: "none", borderRadius: "3px", fontSize: "12px", fontWeight: "700", fontFamily: "var(--font-montserrat)" }}>

@@ -108,7 +108,7 @@ export default function KarierClient({ items, total }: { items: Karir[]; total: 
         backgroundImage: "url('/banner/Mosaik_Teknologi.png')",
         backgroundSize: "cover", backgroundPosition: "center",
       }}>
-        <div style={{ position: "absolute", inset: 0, background: "linear-gradient(135deg, rgba(8,20,45,0.92) 0%, rgba(10,30,65,0.84) 40%, rgba(15,40,80,0.76) 100%)", pointerEvents: "none" }} />
+        <div style={{ position: "absolute", inset: 0, background: "linear-gradient(135deg, rgba(3,78,159,0.92) 0%, rgba(3,78,159,0.84) 40%, rgba(3,78,159,0.76) 100%)", pointerEvents: "none" }} />
         <div style={{ position: "absolute", inset: 0, backgroundImage: `linear-gradient(rgba(255,255,255,0.03) 1px, transparent 1px), linear-gradient(90deg, rgba(255,255,255,0.03) 1px, transparent 1px)`, backgroundSize: "40px 40px", pointerEvents: "none" }} />
         <div style={{ position: "absolute", top: "-60px", right: "-60px", width: "240px", height: "240px", borderRadius: "50%", background: "radial-gradient(circle, rgba(12,87,168,0.20) 0%, transparent 70%)", pointerEvents: "none" }} />
 
@@ -127,7 +127,7 @@ export default function KarierClient({ items, total }: { items: Karir[]; total: 
           <h1 style={{ fontSize: "clamp(1.8rem, 3vw, 2.6rem)", fontWeight: "700", color: "#fff", fontFamily: "var(--font-montserrat)", margin: "6px 0 0", lineHeight: "1.2" }}>
             Karier Wikimedia Indonesia
           </h1>
-          <p style={{ fontSize: "13px", color: "rgba(255,255,255,0.45)", fontFamily: "var(--font-montserrat)", margin: "6px 0 0" }}>
+          <p style={{ fontSize: "13px", color: "rgba(255,255,255,0.45)", fontFamily: "var(--font-source-serif)", margin: "6px 0 0" }}>
             {total > 0 ? `${total} lowongan tersedia` : "Tidak ada lowongan saat ini"}
           </p>
         </div>
@@ -141,7 +141,7 @@ export default function KarierClient({ items, total }: { items: Karir[]; total: 
 
           {/* ── Keterangan ── */}
           <div style={{ backgroundColor: "#fff", border: "1px solid #e5e2dd", borderRadius: "4px", padding: "32px 36px" }}>
-            <h2 style={{ fontSize: "1.25rem", fontWeight: "700", color: "#0d0d0d", fontFamily: "var(--font-montserrat)", margin: "8px 0 16px" }}>
+            <h2 style={{ fontSize: "18px", fontWeight: "700", color: "#0d0d0d", fontFamily: "var(--font-montserrat)", margin: "8px 0 16px" }}>
               Karier Wikimedia Indonesia
             </h2>
             <p style={{ fontSize: "14px", color: "#3a3a3a", lineHeight: "1.85", fontFamily: "var(--font-source-serif)", margin: "0 0 14px" }}>
@@ -171,10 +171,10 @@ export default function KarierClient({ items, total }: { items: Karir[]; total: 
                 <div style={{ width: "52px", height: "52px", borderRadius: "50%", backgroundColor: "#f0eeec", display: "flex", alignItems: "center", justifyContent: "center", margin: "0 auto 16px" }}>
                   <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="#6b6966" strokeWidth="1.5"><rect x="2" y="7" width="20" height="14" rx="2"/><path d="M16 7V5a2 2 0 0 0-2-2h-4a2 2 0 0 0-2 2v2"/><line x1="12" y1="12" x2="12" y2="16"/><line x1="10" y1="14" x2="14" y2="14"/></svg>
                 </div>
-                <p style={{ fontSize: "15px", fontWeight: "600", color: "#3a3a3a", fontFamily: "var(--font-montserrat)", margin: "0 0 6px" }}>
+                <p style={{ fontSize: "15px", fontWeight: "600", color: "#3a3a3a", fontFamily: "var(--font-source-serif)", margin: "0 0 6px" }}>
                   Saat ini tidak ada lowongan tersedia
                 </p>
-                <p style={{ fontSize: "13px", color: "#6b6966", fontFamily: "var(--font-montserrat)", margin: 0 }}>
+                <p style={{ fontSize: "13px", color: "#6b6966", fontFamily: "var(--font-source-serif)", margin: 0 }}>
                   Pantau terus halaman ini untuk informasi lowongan terbaru.
                 </p>
               </div>
@@ -192,7 +192,7 @@ export default function KarierClient({ items, total }: { items: Karir[]; total: 
               <line x1="12" y1="9" x2="12" y2="13"/><line x1="12" y1="17" x2="12.01" y2="17"/>
             </svg>
             <div>
-              <p style={{ fontSize: "13px", fontWeight: "700", color: "#92400e", fontFamily: "var(--font-montserrat)", margin: "0 0 4px" }}>Peringatan</p>
+              <p style={{ fontSize: "13px", fontWeight: "700", color: "#92400e", fontFamily: "var(--font-source-serif)", margin: "0 0 4px" }}>Peringatan</p>
               <p style={{ fontSize: "13px", color: "#5c5a57", lineHeight: "1.7", fontFamily: "var(--font-source-serif)", margin: 0 }}>
                 Dalam melakukan perekrutan, Wikimedia Indonesia tidak pernah meminta sejumlah uang untuk alasan apapun. Apabila Anda dimintai sejumlah uang, harap melaporkan kepada kami melalui surel:{" "}
                 <a href="mailto:lowongan@wikimedia.or.id" style={{ color: "#0C57A8", fontWeight: "600", textDecoration: "none" }}>

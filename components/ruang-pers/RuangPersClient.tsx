@@ -298,7 +298,7 @@ export default function RuangPersClient({
     <>
       {/* ── HEADER ───────────────────────────────────────────────────────── */}
       <section style={{ padding: "40px 24px 36px", position: "relative", overflow: "hidden", backgroundImage: "url('/banner/Mosaik_Budaya_3.png')", backgroundSize: "cover", backgroundPosition: "center" }}>
-        <div style={{ position: "absolute", inset: 0, background: "linear-gradient(135deg, rgba(8,20,45,0.92) 0%, rgba(10,30,65,0.84) 40%, rgba(15,40,80,0.76) 100%)", pointerEvents: "none" }} />
+        <div style={{ position: "absolute", inset: 0, background: "linear-gradient(135deg, rgba(3,78,159,0.92) 0%, rgba(3,78,159,0.84) 40%, rgba(3,78,159,0.76) 100%)", pointerEvents: "none" }} />
         <div style={{ position: "absolute", inset: 0, backgroundImage: `linear-gradient(rgba(255,255,255,0.03) 1px, transparent 1px), linear-gradient(90deg, rgba(255,255,255,0.03) 1px, transparent 1px)`, backgroundSize: "40px 40px", pointerEvents: "none" }} />
         <div style={{ position: "absolute", top: "-60px", right: "-60px", width: "240px", height: "240px", borderRadius: "50%", background: "radial-gradient(circle, rgba(212,160,20,0.28) 0%, transparent 70%)", pointerEvents: "none" }} />
         <div style={{ position: "absolute", bottom: "-40px", left: "8%", width: "180px", height: "180px", borderRadius: "50%", background: "radial-gradient(circle, rgba(180,100,10,0.18) 0%, transparent 70%)", pointerEvents: "none" }} />
@@ -326,7 +326,7 @@ export default function RuangPersClient({
                 {searchQuery ? `Hasil: "${searchQuery}"` : "Siaran Pers"}
               </h1>
               {meta && (
-                <p style={{ fontSize: "13px", color: "rgba(255,255,255,0.45)", fontFamily: "var(--font-montserrat)", margin: "6px 0 0" }}>
+                <p style={{ fontSize: "13px", color: "rgba(255,255,255,0.45)", fontFamily: "var(--font-source-serif)", margin: "6px 0 0" }}>
                   {meta.total.toLocaleString("id-ID")} siaran pers{meta.last_page > 1 && ` · Halaman ${meta.current_page} dari ${meta.last_page}`}
                 </p>
               )}
@@ -394,7 +394,7 @@ export default function RuangPersClient({
           ) : pressReleases.length === 0 ? (
             <div style={{ padding: "60px 24px", textAlign: "center", backgroundColor: "#fff", border: "1px solid #e5e2dd", borderRadius: "4px" }}>
               <span style={{ fontSize: "40px", opacity: 0.2 }}>🔍</span>
-              <p style={{ fontSize: "15px", color: "#6b6966", fontFamily: "var(--font-montserrat)", marginTop: "12px" }}>Tidak ada siaran pers ditemukan.</p>
+              <p style={{ fontSize: "15px", color: "#6b6966", fontFamily: "var(--font-source-serif)", marginTop: "12px" }}>Tidak ada siaran pers ditemukan.</p>
               <button onClick={handleClearSearch} style={{ marginTop: "16px", padding: "8px 20px", backgroundColor: "#0C57A8", color: "#fff", border: "none", borderRadius: "3px", fontSize: "12px", fontWeight: "700", fontFamily: "var(--font-montserrat)", cursor: "pointer" }}>
                 Tampilkan Semua
               </button>

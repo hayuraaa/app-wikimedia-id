@@ -159,7 +159,7 @@ export default function ArticleClient({
 
       {/* ── HERO / TITLE AREA ─────────────────────────────────────────────── */}
       <section style={{ padding: "48px 24px 0", position: "relative", overflow: "hidden", backgroundImage: "url('/banner/Mosaik_Budaya_1.png')", backgroundSize: "cover", backgroundPosition: "center" }}>
-        <div style={{ position: "absolute", inset: 0, background: "linear-gradient(135deg, rgba(8,20,45,0.90) 0%, rgba(10,30,65,0.82) 40%, rgba(15,40,80,0.75) 100%)", pointerEvents: "none" }} />
+        <div style={{ position: "absolute", inset: 0, background: "linear-gradient(135deg, rgba(3,78,159,0.90) 0%, rgba(3,78,159,0.82) 40%, rgba(3,78,159,0.75) 100%)", pointerEvents: "none" }} />
         <div style={{ position: "absolute", inset: 0, backgroundImage: `linear-gradient(rgba(255,255,255,0.03) 1px, transparent 1px), linear-gradient(90deg, rgba(255,255,255,0.03) 1px, transparent 1px)`, backgroundSize: "40px 40px", pointerEvents: "none" }} />
         <div style={{ position: "absolute", top: "-80px", right: "-80px", width: "300px", height: "300px", borderRadius: "50%", background: "radial-gradient(circle, rgba(12,87,168,0.18) 0%, transparent 70%)", pointerEvents: "none" }} />
 
@@ -221,7 +221,7 @@ export default function ArticleClient({
                 ) : (
                   <span style={{ fontSize: "13px", color: "rgba(255,255,255,0.5)", fontFamily: "var(--font-montserrat)" }}>Redaksi WMID</span>
                 )}
-                <p style={{ fontSize: "11px", color: "rgba(255,255,255,0.4)", fontFamily: "var(--font-montserrat)", margin: 0 }}>Penulis</p>
+                <p style={{ fontSize: "11px", color: "rgba(255,255,255,0.4)", fontFamily: "var(--font-source-serif)", margin: 0 }}>Penulis</p>
               </div>
             </div>
 
@@ -408,7 +408,7 @@ export default function ArticleClient({
                                 {formatCategory(a.categories[0])}
                               </span>
                             )}
-                            <p style={{ fontSize: "12px", fontWeight: "600", color: "#0d0d0d", lineHeight: "1.4", fontFamily: "var(--font-montserrat)", margin: "0 0 3px", display: "-webkit-box", WebkitLineClamp: 2, WebkitBoxOrient: "vertical" as const, overflow: "hidden" }}>{a.title}</p>
+                            <p style={{ fontSize: "12px", fontWeight: "600", color: "#0d0d0d", lineHeight: "1.4", fontFamily: "var(--font-source-serif)", margin: "0 0 3px", display: "-webkit-box", WebkitLineClamp: 2, WebkitBoxOrient: "vertical" as const, overflow: "hidden" }}>{a.title}</p>
                             <span style={{ fontSize: "10px", color: "#6b6966", fontFamily: "var(--font-montserrat)" }}>{formatDateShort(a.published_at)}</span>
                           </div>
                         </div>
@@ -441,7 +441,7 @@ export default function ArticleClient({
                             {String(idx + 1).padStart(2, "0")}
                           </span>
                           <div style={{ flex: 1, minWidth: 0 }}>
-                            <p style={{ fontSize: "12px", fontWeight: "600", color: "#0d0d0d", lineHeight: "1.4", fontFamily: "var(--font-montserrat)", margin: "0 0 3px", display: "-webkit-box", WebkitLineClamp: 2, WebkitBoxOrient: "vertical" as const, overflow: "hidden" }}>{a.title}</p>
+                            <p style={{ fontSize: "12px", fontWeight: "600", color: "#0d0d0d", lineHeight: "1.4", fontFamily: "var(--font-source-serif)", margin: "0 0 3px", display: "-webkit-box", WebkitLineClamp: 2, WebkitBoxOrient: "vertical" as const, overflow: "hidden" }}>{a.title}</p>
                             <span style={{ fontSize: "10px", color: "#6b6966", fontFamily: "var(--font-montserrat)" }}>{formatDateShort(a.published_at)}</span>
                           </div>
                         </div>

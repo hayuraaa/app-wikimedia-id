@@ -172,7 +172,7 @@ function MediaCard({ item }: { item: MediaItem }) {
           {item.judul}
         </h3>
 
-        <p style={{ fontSize: "14px", color: "#6b6966", lineHeight: "1.6", fontFamily: "var(--font-montserrat)", display: "-webkit-box", WebkitLineClamp: 2, WebkitBoxOrient: "vertical" as const, overflow: "hidden", margin: 0, flex: 1, wordBreak: "break-word" }}>
+        <p style={{ fontSize: "14px", color: "#6b6966", lineHeight: "1.6", fontFamily: "var(--font-source-serif)", display: "-webkit-box", WebkitLineClamp: 2, WebkitBoxOrient: "vertical" as const, overflow: "hidden", margin: 0, flex: 1, wordBreak: "break-word" }}>
           {item.keterangan}
         </p>
 
@@ -335,7 +335,7 @@ export default function MediaPage() {
     <>
       {/* ── HERO ─────────────────────────────────────────────────────────── */}
       <section style={{ padding: "40px 24px 36px", position: "relative", overflow: "hidden", backgroundImage: "url('/banner/Mosaik_Budaya_1.png')", backgroundSize: "cover", backgroundPosition: "center" }}>
-        <div style={{ position: "absolute", inset: 0, background: "linear-gradient(135deg, rgba(8,20,45,0.92) 0%, rgba(10,30,65,0.84) 40%, rgba(15,40,80,0.76) 100%)", pointerEvents: "none" }} />
+        <div style={{ position: "absolute", inset: 0, background: "linear-gradient(135deg, rgba(3,78,159,0.92) 0%, rgba(3,78,159,0.84) 40%, rgba(3,78,159,0.76) 100%)", pointerEvents: "none" }} />
         <div style={{ position: "absolute", inset: 0, backgroundImage: `linear-gradient(rgba(255,255,255,0.03) 1px, transparent 1px), linear-gradient(90deg, rgba(255,255,255,0.03) 1px, transparent 1px)`, backgroundSize: "40px 40px", pointerEvents: "none" }} />
         <div style={{ position: "absolute", top: "-60px", right: "-60px", width: "240px", height: "240px", borderRadius: "50%", background: "radial-gradient(circle, rgba(12,87,168,0.20) 0%, transparent 70%)", pointerEvents: "none" }} />
 
@@ -356,7 +356,7 @@ export default function MediaPage() {
                 Modul & Materi
               </h1>
               {meta && (
-                <p style={{ fontSize: "13px", color: "rgba(255,255,255,0.45)", fontFamily: "var(--font-montserrat)", margin: "6px 0 0" }}>
+                <p style={{ fontSize: "13px", color: "rgba(255,255,255,0.45)", fontFamily: "var(--font-source-serif)", margin: "6px 0 0" }}>
                   {meta.total.toLocaleString("id-ID")} materi tersedia
                 </p>
               )}
@@ -444,7 +444,7 @@ export default function MediaPage() {
           ) : items.length === 0 ? (
             <div style={{ padding: "60px 24px", textAlign: "center", backgroundColor: "#fff", border: "1px solid #e5e2dd", borderRadius: "4px" }}>
               <span style={{ fontSize: "40px", opacity: 0.2 }}>🔍</span>
-              <p style={{ fontSize: "15px", color: "#6b6966", fontFamily: "var(--font-montserrat)", marginTop: "12px" }}>Tidak ada materi ditemukan.</p>
+              <p style={{ fontSize: "15px", color: "#6b6966", fontFamily: "var(--font-source-serif)", marginTop: "12px" }}>Tidak ada materi ditemukan.</p>
               <button onClick={() => { setJenisFilter(""); setKategoriFilter(""); handleClearSearch(); }}
                 style={{ marginTop: "16px", padding: "8px 20px", backgroundColor: "#0C57A8", color: "#fff", border: "none", borderRadius: "3px", fontSize: "12px", fontWeight: "700", fontFamily: "var(--font-montserrat)", cursor: "pointer" }}>
                 Reset Filter

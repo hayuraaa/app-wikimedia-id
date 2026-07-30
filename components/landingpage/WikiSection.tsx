@@ -8,7 +8,7 @@ export default function WikiSection({ wikiProjects }: { wikiProjects: WikiProjec
   const [activeWikiTab, setActiveWikiTab] = useState<number>(0);
 
   return (
-    <section className="section-dark" style={{ backgroundColor: "#1a3a5c", padding: "80px 24px", position: "relative", overflow: "hidden" }}>
+    <section className="section-dark" style={{ backgroundColor: "#034E9F", padding: "80px 24px", position: "relative", overflow: "hidden" }}>
       <div style={{ position: "absolute", inset: 0, backgroundImage: `linear-gradient(rgba(255,255,255,0.03) 1px, transparent 1px), linear-gradient(90deg, rgba(255,255,255,0.03) 1px, transparent 1px)`, backgroundSize: "60px 60px" }} />
       <div style={{ position: "absolute", top: "-100px", right: "-100px", width: "400px", height: "400px", borderRadius: "50%", background: "radial-gradient(circle, rgba(12,87,168,0.18) 0%, transparent 70%)", pointerEvents: "none" }} />
       <div style={{ position: "absolute", bottom: "-80px", left: "-80px", width: "300px", height: "300px", borderRadius: "50%", background: "radial-gradient(circle, rgba(30,77,123,0.25) 0%, transparent 70%)", pointerEvents: "none" }} />
@@ -66,7 +66,7 @@ export default function WikiSection({ wikiProjects }: { wikiProjects: WikiProjec
                     <Image src={active.logo_url} alt={active.nama_proyek} width={48} height={48} style={{ objectFit: "contain", flexShrink: 0 }} />
                     <div>
                       <h3 style={{ fontSize: "24px", fontWeight: "700", color: "#ffffff", fontFamily: "var(--font-montserrat)", margin: "0 0 6px" }}>{active.nama_proyek}</h3>
-                      <p style={{ fontSize: "14px", color: "rgba(255,255,255,0.6)", lineHeight: "1.7", fontFamily: "var(--font-montserrat)", margin: 0 }}>{active.deskripsi}</p>
+                      <p style={{ fontSize: "14px", color: "rgba(255,255,255,0.6)", lineHeight: "1.7", fontFamily: "var(--font-source-serif)", margin: 0 }}>{active.deskripsi}</p>
                     </div>
                   </div>
                   <div style={{ padding: "20px 32px" }}>

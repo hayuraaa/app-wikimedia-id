@@ -116,7 +116,7 @@ export default function EventsSection({
                           </span>
                         </div>
                         <h3 style={{ fontSize: "14px", fontWeight: "600", color: status === "selesai" ? "#5c5a57" : "#0d0d0d", fontFamily: "var(--font-montserrat)", lineHeight: "1.35", margin: 0 }}>{ev.judul}</h3>
-                        <p style={{ fontSize: "10px", color: "#6b6966 ", fontFamily: "var(--font-montserrat)", marginTop: "2px" }}>
+                        <p style={{ fontSize: "10px", color: "#6b6966 ", fontFamily: "var(--font-source-serif)", marginTop: "2px" }}>
                           {formatTanggal(ev.tanggal_mulai, ev.tanggal_selesai)}
                         </p>
                       </div>

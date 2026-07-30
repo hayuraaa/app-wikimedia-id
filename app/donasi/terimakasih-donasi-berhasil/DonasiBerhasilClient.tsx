@@ -52,7 +52,7 @@ export default function DonasiBerhasilClient() {
               <h2 style={{ fontSize: "1.35rem", fontWeight: "700", color: "#0d0d0d", fontFamily: "var(--font-montserrat)", margin: "10px 0 14px", lineHeight: "1.3" }}>
                 Donasi Anda Telah Diterima
               </h2>
-              <p style={{ fontSize: "14px", color: "#3a3a3a", lineHeight: "1.85", fontFamily: "var(--font-montserrat)", margin: "0 0 28px" }}>
+              <p style={{ fontSize: "14px", color: "#3a3a3a", lineHeight: "1.85", fontFamily: "var(--font-source-serif)", margin: "0 0 28px" }}>
                 Terima kasih atas kepercayaan dan dukungan Anda kepada Wikimedia Indonesia. Kontribusi Anda membantu kami menjalankan program-program pengetahuan terbuka di seluruh Indonesia.
               </p>
 
@@ -80,7 +80,7 @@ export default function DonasiBerhasilClient() {
           </div>
 
           <div style={{ marginTop: "20px", textAlign: "center" as const }}>
-            <p style={{ fontSize: "13px", color: "#6b6966", fontFamily: "var(--font-montserrat)", margin: "0 0 6px", lineHeight: "1.6" }}>
+            <p style={{ fontSize: "13px", color: "#6b6966", fontFamily: "var(--font-source-serif)", margin: "0 0 6px", lineHeight: "1.6" }}>
               Ada pertanyaan terkait donasi Anda?
             </p>
             <Link href="/tentang#hubungi-kami" style={{ fontSize: "13px", color: "#0C57A8", fontWeight: "600", fontFamily: "var(--font-montserrat)", textDecoration: "underline", textUnderlineOffset: "2px" }}>

@@ -125,7 +125,7 @@ export default function SyaratPenggunaanPage() {
     <>
       {/* ── HERO ─────────────────────────────────────────────────────────── */}
       <section style={{ padding: "40px 24px 36px", position: "relative", overflow: "hidden", backgroundImage: "url('/banner/Mosaik_Budaya_1.png')", backgroundSize: "cover", backgroundPosition: "center" }}>
-        <div style={{ position: "absolute", inset: 0, background: "linear-gradient(135deg, rgba(8,20,45,0.92) 0%, rgba(10,30,65,0.84) 40%, rgba(15,40,80,0.76) 100%)", pointerEvents: "none" }} />
+        <div style={{ position: "absolute", inset: 0, background: "linear-gradient(135deg, rgba(3,78,159,0.92) 0%, rgba(3,78,159,0.84) 40%, rgba(3,78,159,0.76) 100%)", pointerEvents: "none" }} />
         <div style={{ position: "absolute", inset: 0, backgroundImage: `linear-gradient(rgba(255,255,255,0.03) 1px, transparent 1px), linear-gradient(90deg, rgba(255,255,255,0.03) 1px, transparent 1px)`, backgroundSize: "40px 40px", pointerEvents: "none" }} />
         <div style={{ position: "absolute", top: "-60px", right: "-60px", width: "240px", height: "240px", borderRadius: "50%", background: "radial-gradient(circle, rgba(12,87,168,0.18) 0%, transparent 70%)", pointerEvents: "none" }} />
 
@@ -139,10 +139,10 @@ export default function SyaratPenggunaanPage() {
             <span style={{ fontSize: "11px", color: "rgba(255,255,255,0.25)", fontFamily: "var(--font-montserrat)" }}>/</span>
             <span style={{ fontSize: "11px", color: "#3b8ed4", fontFamily: "var(--font-montserrat)" }}>Syarat Penggunaan</span>
           </div>
-          <h1 style={{ fontSize: "clamp(1.7rem, 3vw, 2.4rem)", fontWeight: "700", color: "#fff", fontFamily: "var(--font-montserrat)", margin: "6px 0 10px", lineHeight: "1.2" }}>
+          <h1 style={{ fontSize: "clamp(1.8rem, 3vw, 2.6rem)", fontWeight: "700", color: "#fff", fontFamily: "var(--font-montserrat)", margin: "6px 0 10px", lineHeight: "1.2" }}>
             Syarat Penggunaan
           </h1>
-          <p style={{ fontSize: "13px", color: "rgba(255,255,255,0.45)", fontFamily: "var(--font-montserrat)", margin: 0 }}>
+          <p style={{ fontSize: "13px", color: "rgba(255,255,255,0.45)", fontFamily: "var(--font-source-serif)", margin: 0 }}>
             Terakhir diperbarui: <strong style={{ color: "rgba(255,255,255,0.65)" }}>19 November 2018</strong>
           </p>
         </div>
@@ -176,13 +176,13 @@ export default function SyaratPenggunaanPage() {
 
               {/* Intro box */}
               <div style={{ padding: "20px 24px", backgroundColor: "#fff", border: "1px solid #e5e2dd", borderLeft: "4px solid #1e4d7b", borderRadius: "4px", marginBottom: "12px" }}>
-                <p style={{ fontSize: "13px", color: "#3a3a3a", lineHeight: "1.85", fontFamily: "var(--font-montserrat)", margin: "0 0 10px" }}>
+                <p style={{ fontSize: "13px", color: "#3a3a3a", lineHeight: "1.85", fontFamily: "var(--font-source-serif)", margin: "0 0 10px" }}>
                   Harap membaca dengan seksama Syarat Penggunaan (atau "Syarat", "Syarat dan Ketentuan") sebelum menggunakan situs web <strong>wikimedia.or.id</strong> ("Layanan") yang dioperasikan oleh Wikimedia Indonesia.
                 </p>
-                <p style={{ fontSize: "13px", color: "#3a3a3a", lineHeight: "1.85", fontFamily: "var(--font-montserrat)", margin: "0 0 10px" }}>
+                <p style={{ fontSize: "13px", color: "#3a3a3a", lineHeight: "1.85", fontFamily: "var(--font-source-serif)", margin: "0 0 10px" }}>
                   Dengan mengakses atau menggunakan Layanan, Anda mengakui bahwa Anda telah membaca, memahami, dan menyetujui untuk mematuhi Syarat Penggunaan ini. Syarat ini berlaku untuk semua pengunjung, pengguna, dan siapapun yang mengakses atau menggunakan Layanan.
                 </p>
-                <p style={{ fontSize: "13px", color: "#5c5a57", lineHeight: "1.85", fontFamily: "var(--font-montserrat)", margin: 0, fontStyle: "italic" }}>
+                <p style={{ fontSize: "13px", color: "#5c5a57", lineHeight: "1.85", fontFamily: "var(--font-source-serif)", margin: 0, fontStyle: "italic" }}>
                   Apabila Anda tidak menyetujui Syarat Penggunaan, Anda tidak diizinkan untuk menggunakan Layanan ini.
                 </p>
               </div>
@@ -225,7 +225,7 @@ export default function SyaratPenggunaanPage() {
                             <span style={{ fontSize: "10px", fontWeight: "700", color: "#0C57A8", fontFamily: "var(--font-montserrat)", flexShrink: 0 }}>{sub.num}</span>
                             <h3 style={{ fontSize: "13px", fontWeight: "700", color: "#0d0d0d", fontFamily: "var(--font-montserrat)", margin: 0 }}>{sub.title}</h3>
                           </div>
-                          <p style={{ fontSize: "13px", color: "#3a3a3a", lineHeight: "1.85", fontFamily: "var(--font-montserrat)", margin: 0, paddingLeft: "22px" }}>{sub.content}</p>
+                          <p style={{ fontSize: "13px", color: "#3a3a3a", lineHeight: "1.85", fontFamily: "var(--font-source-serif)", margin: 0, paddingLeft: "22px" }}>{sub.content}</p>
                         </div>
                       ))}
                     </div>
@@ -235,7 +235,7 @@ export default function SyaratPenggunaanPage() {
                   {s.content && (
                     <div style={{ paddingLeft: "36px" }}>
                       {s.content.split("\n\n").map((para, j) => (
-                        <p key={j} style={{ fontSize: "14px", color: "#3a3a3a", lineHeight: "1.85", fontFamily: "var(--font-montserrat)", margin: j > 0 ? "12px 0 0" : "0" }}
+                        <p key={j} style={{ fontSize: "14px", color: "#3a3a3a", lineHeight: "1.85", fontFamily: "var(--font-source-serif)", margin: j > 0 ? "12px 0 0" : "0" }}
                           dangerouslySetInnerHTML={{ __html: renderContent(para) }} />
                       ))}
                     </div>
@@ -246,7 +246,7 @@ export default function SyaratPenggunaanPage() {
               {/* Footer */}
               <div style={{ marginTop: "16px", padding: "16px 20px", backgroundColor: "#fff", border: "1px solid #e5e2dd", borderLeft: "4px solid #0C57A8", borderRadius: "4px", display: "flex", alignItems: "center", gap: "12px" }}>
                 <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="#0C57A8" strokeWidth="2"><rect x="3" y="4" width="18" height="18" rx="2"/><line x1="16" y1="2" x2="16" y2="6"/><line x1="8" y1="2" x2="8" y2="6"/><line x1="3" y1="10" x2="21" y2="10"/></svg>
-                <p style={{ fontSize: "13px", color: "#5c5a57", fontFamily: "var(--font-montserrat)", margin: 0 }}>
+                <p style={{ fontSize: "13px", color: "#5c5a57", fontFamily: "var(--font-source-serif)", margin: 0 }}>
                   Terakhir diperbarui: <strong style={{ color: "#0d0d0d" }}>19 November 2018</strong>.
                 </p>
               </div>

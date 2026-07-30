@@ -117,7 +117,7 @@ export default function ProgramPage() {
         backgroundImage: "url('/banner/Mosaik_Budaya_1.png')",
         backgroundSize: "cover", backgroundPosition: "center",
       }}>
-        <div style={{ position: "absolute", inset: 0, background: "linear-gradient(135deg, rgba(8,20,45,0.92) 0%, rgba(10,30,65,0.84) 40%, rgba(15,40,80,0.76) 100%)", pointerEvents: "none" }} />
+        <div style={{ position: "absolute", inset: 0, background: "linear-gradient(135deg, rgba(3,78,159,0.92) 0%, rgba(3,78,159,0.84) 40%, rgba(3,78,159,0.76) 100%)", pointerEvents: "none" }} />
         <div style={{ position: "absolute", inset: 0, backgroundImage: `linear-gradient(rgba(255,255,255,0.03) 1px, transparent 1px), linear-gradient(90deg, rgba(255,255,255,0.03) 1px, transparent 1px)`, backgroundSize: "40px 40px", pointerEvents: "none" }} />
         <div style={{ position: "absolute", top: "-80px", right: "-80px", width: "360px", height: "360px", borderRadius: "50%", background: "radial-gradient(circle, rgba(20,100,50,0.20) 0%, transparent 70%)", pointerEvents: "none" }} />
 
@@ -137,7 +137,7 @@ export default function ProgramPage() {
               <h1 style={{ fontSize: "clamp(1.8rem, 3vw, 2.6rem)", fontWeight: "700", color: "#fff", fontFamily: "var(--font-montserrat)", margin: "6px 0 8px", lineHeight: "1.2" }}>
                 Program Kami
               </h1>
-              <p style={{ fontSize: "13px", color: "rgba(255,255,255,0.45)", fontFamily: "var(--font-montserrat)", margin: 0 }}>
+              <p style={{ fontSize: "13px", color: "rgba(255,255,255,0.45)", fontFamily: "var(--font-source-serif)", margin: 0 }}>
                 Wikimedia Indonesia
               </p>
             </div>
@@ -185,7 +185,7 @@ export default function ProgramPage() {
                   </div>
                 </div>
 
-                <p style={{ fontSize: "14px", color: "#5c5a57", lineHeight: "1.75", fontFamily: "var(--font-montserrat)", margin: 0 }}>
+                <p style={{ fontSize: "14px", color: "#5c5a57", lineHeight: "1.75", fontFamily: "var(--font-source-serif)", margin: 0 }}>
                   {program.description}
                 </p>
 
@@ -230,7 +230,7 @@ export default function ProgramPage() {
           <h2 style={{ fontSize: "clamp(1.6rem, 3vw, 2.2rem)", fontWeight: "700", color: "#fff", fontFamily: "var(--font-montserrat)", margin: "10px 0 14px", lineHeight: "1.2" }}>
             Jadilah Bagian dari Gerakan Pengetahuan Terbuka
           </h2>
-          <p style={{ fontSize: "14px", color: "rgba(255,255,255,0.5)", fontFamily: "var(--font-montserrat)", lineHeight: "1.7", marginBottom: "28px" }}>
+          <p style={{ fontSize: "14px", color: "rgba(255,255,255,0.5)", fontFamily: "var(--font-source-serif)", lineHeight: "1.7", marginBottom: "28px" }}>
             Bergabunglah dengan ribuan sukarelawan dan mitra yang bersama-sama membangun ekosistem pengetahuan terbuka untuk Indonesia.
           </p>
           <div style={{ display: "flex", gap: "12px", justifyContent: "center", flexWrap: "wrap" as const }}>

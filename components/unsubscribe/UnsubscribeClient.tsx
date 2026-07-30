@@ -73,7 +73,7 @@ export default function UnsubscribeClient({ token }: { token: string }) {
                   <path d="M21 12a9 9 0 1 1-6.219-8.56" />
                 </svg>
               </div>
-              <p style={{ fontSize: "14px", color: "#6b6966", fontFamily: "var(--font-montserrat)" }}>Memverifikasi...</p>
+              <p style={{ fontSize: "14px", color: "#6b6966", fontFamily: "var(--font-source-serif)" }}>Memverifikasi...</p>
             </>
           )}
 
@@ -84,13 +84,13 @@ export default function UnsubscribeClient({ token }: { token: string }) {
                 <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="#ca8a04" strokeWidth="2"><path d="M10.29 3.86L1.82 18a2 2 0 0 0 1.71 3h16.94a2 2 0 0 0 1.71-3L13.71 3.86a2 2 0 0 0-3.42 0z"/><line x1="12" y1="9" x2="12" y2="13"/><line x1="12" y1="17" x2="12.01" y2="17"/></svg>
               </div>
               <h1 style={{ fontSize: "20px", fontWeight: "700", color: "#0d0d0d", fontFamily: "var(--font-montserrat)", marginBottom: "8px" }}>Berhenti Berlangganan?</h1>
-              <p style={{ fontSize: "13px", color: "#6b6966", fontFamily: "var(--font-montserrat)", marginBottom: "16px", lineHeight: "1.7" }}>
+              <p style={{ fontSize: "13px", color: "#6b6966", fontFamily: "var(--font-source-serif)", marginBottom: "16px", lineHeight: "1.7" }}>
                 Anda yakin ingin berhenti berlangganan newsletter dari:
               </p>
               <div style={{ backgroundColor: "#f8f7f5", borderRadius: "4px", padding: "12px 16px", marginBottom: "16px" }}>
-                <p style={{ fontSize: "13px", fontWeight: "600", color: "#0d0d0d", fontFamily: "var(--font-montserrat)", margin: 0 }}>{email}</p>
+                <p style={{ fontSize: "13px", fontWeight: "600", color: "#0d0d0d", fontFamily: "var(--font-source-serif)", margin: 0 }}>{email}</p>
               </div>
-              <p style={{ fontSize: "14px", color: "#9ca3af", fontFamily: "var(--font-montserrat)", marginBottom: "28px", lineHeight: "1.6" }}>
+              <p style={{ fontSize: "14px", color: "#9ca3af", fontFamily: "var(--font-source-serif)", marginBottom: "28px", lineHeight: "1.6" }}>
                 Anda tidak akan menerima update artikel, acara, dan informasi dari kami.
               </p>
               <div style={{ display: "flex", gap: "10px" }}>
@@ -117,10 +117,10 @@ export default function UnsubscribeClient({ token }: { token: string }) {
                 <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="#16a34a" strokeWidth="2.5"><path d="M20 6L9 17l-5-5" /></svg>
               </div>
               <h1 style={{ fontSize: "20px", fontWeight: "700", color: "#0d0d0d", fontFamily: "var(--font-montserrat)", marginBottom: "8px" }}>Berhasil Berhenti</h1>
-              <p style={{ fontSize: "13px", color: "#6b6966", fontFamily: "var(--font-montserrat)", marginBottom: "8px", lineHeight: "1.7" }}>
+              <p style={{ fontSize: "13px", color: "#6b6966", fontFamily: "var(--font-source-serif)", marginBottom: "8px", lineHeight: "1.7" }}>
                 Email <strong>{email}</strong> telah dihapus dari daftar newsletter kami.
               </p>
-              <p style={{ fontSize: "14px", color: "#9ca3af", fontFamily: "var(--font-montserrat)", marginBottom: "28px" }}>
+              <p style={{ fontSize: "14px", color: "#9ca3af", fontFamily: "var(--font-source-serif)", marginBottom: "28px" }}>
                 Anda dapat berlangganan kembali kapan saja.
               </p>
               <Link href="https://wikimedia.or.id" style={{ display: "inline-block", padding: "12px 28px", backgroundColor: "#0C57A8", color: "#fff", borderRadius: "4px", fontSize: "13px", fontWeight: "700", fontFamily: "var(--font-montserrat)", textDecoration: "none" }}>
@@ -136,7 +136,7 @@ export default function UnsubscribeClient({ token }: { token: string }) {
                 <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="#6b6966" strokeWidth="2"><circle cx="12" cy="12" r="10"/><line x1="8" y1="12" x2="16" y2="12"/></svg>
               </div>
               <h1 style={{ fontSize: "20px", fontWeight: "700", color: "#0d0d0d", fontFamily: "var(--font-montserrat)", marginBottom: "8px" }}>Sudah Tidak Berlangganan</h1>
-              <p style={{ fontSize: "13px", color: "#6b6966", fontFamily: "var(--font-montserrat)", marginBottom: "28px", lineHeight: "1.7" }}>
+              <p style={{ fontSize: "13px", color: "#6b6966", fontFamily: "var(--font-source-serif)", marginBottom: "28px", lineHeight: "1.7" }}>
                 Email <strong>{email}</strong> sudah tidak aktif berlangganan.
               </p>
               <button
@@ -162,7 +162,7 @@ export default function UnsubscribeClient({ token }: { token: string }) {
               <h1 style={{ fontSize: "20px", fontWeight: "700", color: "#0d0d0d", fontFamily: "var(--font-montserrat)", marginBottom: "8px" }}>
                 {status === "notfound" ? "Email Tidak Ditemukan" : "Link Tidak Valid"}
               </h1>
-              <p style={{ fontSize: "13px", color: "#6b6966", fontFamily: "var(--font-montserrat)", marginBottom: "28px", lineHeight: "1.7" }}>
+              <p style={{ fontSize: "13px", color: "#6b6966", fontFamily: "var(--font-source-serif)", marginBottom: "28px", lineHeight: "1.7" }}>
                 {status === "notfound"
                   ? "Email Anda tidak ditemukan dalam daftar subscriber kami."
                   : "Link unsubscribe tidak valid atau telah kedaluwarsa."}

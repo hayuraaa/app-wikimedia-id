@@ -79,7 +79,7 @@ export default function DonasiPage() {
         backgroundImage: "url('/banner/Mosaik_Budaya_1.png')",
         backgroundSize: "cover", backgroundPosition: "center",
       }}>
-        <div style={{ position: "absolute", inset: 0, background: "linear-gradient(135deg, rgba(8,20,45,0.92) 0%, rgba(10,30,65,0.84) 40%, rgba(15,40,80,0.76) 100%)", pointerEvents: "none" }} />
+        <div style={{ position: "absolute", inset: 0, background: "linear-gradient(135deg, rgba(3,78,159,0.92) 0%, rgba(3,78,159,0.84) 40%, rgba(3,78,159,0.76) 100%)", pointerEvents: "none" }} />
         <div style={{ position: "absolute", inset: 0, backgroundImage: `linear-gradient(rgba(255,255,255,0.03) 1px, transparent 1px), linear-gradient(90deg, rgba(255,255,255,0.03) 1px, transparent 1px)`, backgroundSize: "40px 40px", pointerEvents: "none" }} />
         <div style={{ position: "absolute", top: "-60px", right: "-60px", width: "260px", height: "260px", borderRadius: "50%", background: "radial-gradient(circle, rgba(12,87,168,0.18) 0%, transparent 70%)", pointerEvents: "none" }} />
         <div style={{ position: "absolute", bottom: "-40px", left: "8%", width: "160px", height: "160px", borderRadius: "50%", background: "radial-gradient(circle, rgba(30,77,123,0.12) 0%, transparent 70%)", pointerEvents: "none" }} />
@@ -95,10 +95,10 @@ export default function DonasiPage() {
             <span style={{ fontSize: "11px", color: "#3b8ed4", fontFamily: "var(--font-montserrat)" }}>Donasi</span>
           </div>
 
-          <h1 style={{ fontSize: "clamp(1.7rem, 3vw, 2.5rem)", fontWeight: "700", color: "#fff", fontFamily: "var(--font-montserrat)", margin: "6px 0 10px", lineHeight: "1.2" }}>
+          <h1 style={{ fontSize: "clamp(1.8rem, 3vw, 2.6rem)", fontWeight: "700", color: "#fff", fontFamily: "var(--font-montserrat)", margin: "6px 0 10px", lineHeight: "1.2" }}>
             Dukung Pengetahuan Bebas
           </h1>
-          <p style={{ fontSize: "14px", color: "rgba(255,255,255,0.5)", fontFamily: "var(--font-montserrat)", lineHeight: "1.7", margin: 0, maxWidth: "560px" }}>
+          <p style={{ fontSize: "14px", color: "rgba(255,255,255,0.5)", fontFamily: "var(--font-source-serif)", lineHeight: "1.7", margin: 0, maxWidth: "560px" }}>
             Setiap donasi Anda membantu kami menyebarluaskan pengetahuan terbuka untuk seluruh masyarakat Indonesia.
           </p>
         </div>
@@ -117,13 +117,13 @@ export default function DonasiPage() {
               {/* Tentang */}
               <div style={{ backgroundColor: "#fff", border: "1px solid #e5e2dd", borderLeft: "4px solid #0C57A8", borderRadius: "4px", padding: "32px 36px" }}>
                 <span style={{ fontSize: "10px", fontWeight: "700", letterSpacing: "0.1em", textTransform: "uppercase" as const, color: "#0C57A8", fontFamily: "var(--font-montserrat)" }}>◆ Tentang Wikimedia Indonesia</span>
-                <h2 style={{ fontSize: "1.25rem", fontWeight: "700", color: "#0d0d0d", fontFamily: "var(--font-montserrat)", margin: "10px 0 16px", lineHeight: "1.3" }}>
+                <h2 style={{ fontSize: "18px", fontWeight: "700", color: "#0d0d0d", fontFamily: "var(--font-montserrat)", margin: "10px 0 16px", lineHeight: "1.3" }}>
                   Organisasi Nirlaba untuk Pengetahuan Bebas
                 </h2>
-                <p style={{ fontSize: "14px", color: "#3a3a3a", lineHeight: "1.85", fontFamily: "var(--font-montserrat)", margin: "0 0 14px" }}>
+                <p style={{ fontSize: "14px", color: "#3a3a3a", lineHeight: "1.85", fontFamily: "var(--font-source-serif)", margin: "0 0 14px" }}>
                   Wikimedia Indonesia adalah organisasi perkumpulan nirlaba yang bertujuan untuk membina pengetahuan pada umumnya, dan sumber terbuka pada khususnya, berbasis keanggotaan atas dasar kesukarelaan, kekeluargaan, dan kejujuran.
                 </p>
-                <p style={{ fontSize: "14px", color: "#3a3a3a", lineHeight: "1.85", fontFamily: "var(--font-montserrat)", margin: 0 }}>
+                <p style={{ fontSize: "14px", color: "#3a3a3a", lineHeight: "1.85", fontFamily: "var(--font-source-serif)", margin: 0 }}>
                   Proyek kami ditujukan untuk menyebarluaskan materi-materi pengetahuan bersumber terbuka dalam bahasa Indonesia dan bahasa-bahasa lain yang dipertuturkan di Indonesia melalui partisipasi masyarakat.
                 </p>
               </div>
@@ -149,7 +149,7 @@ export default function DonasiPage() {
                     <h3 style={{ fontSize: "1.2rem", fontWeight: "700", color: "#fff", fontFamily: "var(--font-montserrat)", margin: "0 0 8px", lineHeight: "1.3" }}>
                       Dukung kami membebaskan pengetahuan
                     </h3>
-                    <p style={{ fontSize: "13px", color: "rgba(255,255,255,0.45)", fontFamily: "var(--font-montserrat)", margin: 0, lineHeight: "1.65" }}>
+                    <p style={{ fontSize: "13px", color: "rgba(255,255,255,0.45)", fontFamily: "var(--font-source-serif)", margin: 0, lineHeight: "1.65" }}>
                       Donasi Anda akan digunakan untuk mendukung program-program Wikimedia Indonesia.
                     </p>
                   </div>
@@ -171,7 +171,7 @@ export default function DonasiPage() {
                 </div>
                 <div>
                   <span style={{ fontSize: "11px", fontWeight: "700", color: "#92400e", fontFamily: "var(--font-montserrat)", letterSpacing: "0.06em", textTransform: "uppercase" as const, display: "block", marginBottom: "5px" }}>⚠ Peringatan</span>
-                  <p style={{ fontSize: "13px", color: "#5c5a57", fontFamily: "var(--font-montserrat)", margin: 0, lineHeight: "1.7" }}>
+                  <p style={{ fontSize: "13px", color: "#5c5a57", fontFamily: "var(--font-source-serif)", margin: 0, lineHeight: "1.7" }}>
                     Jika Anda menerima pesan mencurigakan yang mengatasnamakan Wikimedia Indonesia, abaikan dan segera laporkan melalui email{" "}
                     <a href="mailto:info@wikimedia.or.id" style={{ color: "#0C57A8", fontWeight: "600", textDecoration: "underline", textUnderlineOffset: "2px" }}>info@wikimedia.or.id</a>.
                   </p>
@@ -205,7 +205,7 @@ export default function DonasiPage() {
                     <span style={{ fontSize: "11px", fontWeight: "700", color: "#0d0d0d", fontFamily: "var(--font-montserrat)" }}>Ada pertanyaan?</span>
                     <svg width="12" height="12" viewBox="0 0 24 24" fill="none" stroke="#0C57A8" strokeWidth="2.5"><path d="M5 12h14M12 5l7 7-7 7"/></svg>
                 </div>
-                <p style={{ fontSize: "14px", color: "#5c5a57", fontFamily: "var(--font-montserrat)", margin: 0, lineHeight: "1.6" }}>
+                <p style={{ fontSize: "14px", color: "#5c5a57", fontFamily: "var(--font-source-serif)", margin: 0, lineHeight: "1.6" }}>
                     Kunjungi halaman <span style={{ color: "#0C57A8", fontWeight: "600" }}>Kontak Kami</span> dan isi formulir.
                 </p>
                 </Link>

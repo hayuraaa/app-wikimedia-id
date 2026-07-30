@@ -15,6 +15,12 @@ const MAX_HISTORY = 20;
 
 const PIN = "2026";
 
+// sessionStorage: bertahan selama tab masih terbuka, hilang saat ditutup —
+// jadi refresh halaman tidak menghapus percakapan yang sedang berlangsung.
+const SESSION_KEY = "wmid_chat_session";
+
+type StoredSession = { messages: Message[]; unlocked: boolean };
+
 export default function ChatWidget() {
   const [open, setOpen] = useState(false);
   const [expanded, setExpanded] = useState(false);
@@ -24,8 +30,36 @@ export default function ChatWidget() {
   const [messages, setMessages] = useState<Message[]>([]);
   const [input, setInput] = useState("");
   const [loading, setLoading] = useState(false);
+  const [hydrated, setHydrated] = useState(false);
   const listRef = useRef<HTMLDivElement>(null);
   const pinRef = useRef<HTMLInputElement>(null);
+
+  // Muat sesi tersimpan sekali saat komponen dipasang di klien.
+  useEffect(() => {
+    try {
+      const raw = sessionStorage.getItem(SESSION_KEY);
+      if (raw) {
+        const stored: StoredSession = JSON.parse(raw);
+        if (Array.isArray(stored.messages)) setMessages(stored.messages);
+        if (stored.unlocked) setUnlocked(true);
+      }
+    } catch {
+      // abaikan sessionStorage yang rusak/tidak tersedia
+    } finally {
+      setHydrated(true);
+    }
+  }, []);
+
+  // Simpan sesi setiap kali percakapan berubah, setelah hidrasi awal selesai.
+  useEffect(() => {
+    if (!hydrated) return;
+    try {
+      const stored: StoredSession = { messages, unlocked };
+      sessionStorage.setItem(SESSION_KEY, JSON.stringify(stored));
+    } catch {
+      // abaikan bila sessionStorage penuh/tidak tersedia
+    }
+  }, [messages, unlocked, hydrated]);
 
   useEffect(() => {
     listRef.current?.scrollTo({ top: listRef.current.scrollHeight, behavior: "smooth" });
@@ -238,7 +272,7 @@ export default function ChatWidget() {
                   width: "56px",
                   height: "56px",
                   borderRadius: "50%",
-                  backgroundColor: "#FFF3CD",
+                  backgroundColor: "#F9EE75",
                   display: "flex",
                   alignItems: "center",
                   justifyContent: "center",
@@ -481,22 +515,50 @@ export default function ChatWidget() {
         onMouseLeave={(e) => (e.currentTarget.style.transform = "scale(1)")}
       >
         {open ? (
-          <svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="#fff" strokeWidth="2.5">
-            <path d="M6 9l6 6 6-6" />
+          <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="#fff" strokeWidth="2.5">
+            <path d="M6 18L18 6M6 6l12 12" />
           </svg>
         ) : (
-          <svg width="26" height="26" viewBox="0 0 24 24" fill="none" stroke="#fff" strokeWidth="1.8">
-            {/* kepala */}
-            <rect x="4" y="7" width="16" height="11" rx="2" />
-            {/* antena */}
-            <line x1="12" y1="4" x2="12" y2="7" />
-            <circle cx="12" cy="3.5" r="1" fill="#fff" stroke="none" />
-            {/* mata */}
-            <circle cx="9" cy="12" r="1.2" fill="#fff" stroke="none" />
-            <circle cx="15" cy="12" r="1.2" fill="#fff" stroke="none" />
-            {/* mulut */}
-            <path d="M9 15.5h6" strokeLinecap="round" />
-          </svg>
+          <div style={{ position: "relative", width: "40px", height: "40px", flexShrink: 0 }}>
+            <div
+              style={{
+                width: "100%",
+                height: "100%",
+                borderRadius: "50%",
+                backgroundColor: "#fff",
+                display: "flex",
+                alignItems: "center",
+                justifyContent: "center",
+                overflow: "hidden",
+              }}
+            >
+              {/* eslint-disable-next-line @next/next/no-img-element */}
+              <img
+                src="/Logo_WMID.png"
+                alt="WMID"
+                style={{ width: "30px", height: "30px", objectFit: "contain" }}
+              />
+            </div>
+            <div
+              style={{
+                position: "absolute",
+                bottom: "-4px",
+                right: "-4px",
+                width: "20px",
+                height: "20px",
+                borderRadius: "50%",
+                backgroundColor: "#0C57A8",
+                border: "2px solid #fff",
+                display: "flex",
+                alignItems: "center",
+                justifyContent: "center",
+              }}
+            >
+              <svg width="11" height="11" viewBox="0 0 24 24" fill="none" stroke="#fff" strokeWidth="2.5">
+                <path d="M21 11.5a8.38 8.38 0 0 1-.9 3.8 8.5 8.5 0 0 1-7.6 4.7 8.38 8.38 0 0 1-3.8-.9L3 21l1.9-5.7a8.38 8.38 0 0 1-.9-3.8 8.5 8.5 0 0 1 4.7-7.6 8.38 8.38 0 0 1 3.8-.9h.5a8.48 8.48 0 0 1 8 8v.5z" />
+              </svg>
+            </div>
+          </div>
         )}
       </button>
 

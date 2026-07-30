@@ -162,7 +162,7 @@ export default function FaqPage() {
         backgroundImage: "url('/banner/Mosaik_Budaya_1.png')",
         backgroundSize: "cover", backgroundPosition: "center",
       }}>
-        <div style={{ position: "absolute", inset: 0, background: "linear-gradient(135deg, rgba(8,20,45,0.92) 0%, rgba(10,30,65,0.84) 40%, rgba(15,40,80,0.76) 100%)", pointerEvents: "none" }} />
+        <div style={{ position: "absolute", inset: 0, background: "linear-gradient(135deg, rgba(3,78,159,0.92) 0%, rgba(3,78,159,0.84) 40%, rgba(3,78,159,0.76) 100%)", pointerEvents: "none" }} />
         <div style={{ position: "absolute", inset: 0, backgroundImage: `linear-gradient(rgba(255,255,255,0.03) 1px, transparent 1px), linear-gradient(90deg, rgba(255,255,255,0.03) 1px, transparent 1px)`, backgroundSize: "40px 40px", pointerEvents: "none" }} />
         <div style={{ position: "absolute", top: "-60px", right: "-60px", width: "240px", height: "240px", borderRadius: "50%", background: "radial-gradient(circle, rgba(12,87,168,0.18) 0%, transparent 70%)", pointerEvents: "none" }} />
         <div style={{ position: "absolute", bottom: "-60px", left: "10%", width: "200px", height: "200px", borderRadius: "50%", background: "radial-gradient(circle, rgba(30,77,123,0.15) 0%, transparent 70%)", pointerEvents: "none" }} />
@@ -184,7 +184,7 @@ export default function FaqPage() {
               <h1 style={{ fontSize: "clamp(1.8rem, 3vw, 2.6rem)", fontWeight: "700", color: "#fff", fontFamily: "var(--font-montserrat)", margin: "6px 0 0", lineHeight: "1.2" }}>
                 Pertanyaan yang Sering Ditanyakan
               </h1>
-              <p style={{ fontSize: "13px", color: "rgba(255,255,255,0.45)", fontFamily: "var(--font-montserrat)", margin: "6px 0 0" }}>
+              <p style={{ fontSize: "13px", color: "rgba(255,255,255,0.45)", fontFamily: "var(--font-source-serif)", margin: "6px 0 0" }}>
                 Temukan jawaban seputar Wikimedia Indonesia dan program-program kami
               </p>
             </div>
@@ -241,7 +241,7 @@ export default function FaqPage() {
                 <Skeleton />
               ) : searchResults.length === 0 ? (
                 <div style={{ backgroundColor: "#fff", border: "1px solid #e5e2dd", borderRadius: "4px", padding: "40px 24px", textAlign: "center" }}>
-                  <p style={{ fontSize: "14px", color: "#6b6966", fontFamily: "var(--font-montserrat)", margin: 0 }}>
+                  <p style={{ fontSize: "14px", color: "#6b6966", fontFamily: "var(--font-source-serif)", margin: 0 }}>
                     Tidak ada hasil untuk "<strong>{searchQuery}</strong>"
                   </p>
                 </div>
@@ -285,7 +285,7 @@ export default function FaqPage() {
                 {categories.map((category) => (
                   <div key={category.id} id={`cat-${category.id}`}>
                     <div style={{ display: "flex", justifyContent: "space-between", alignItems: "flex-end", marginBottom: "10px", paddingBottom: "10px", borderBottom: "3px solid #0d0d0d" }}>
-                      <h2 style={{ fontSize: "16px", fontWeight: "700", color: "#0d0d0d", fontFamily: "var(--font-montserrat)", margin: 0 }}>
+                      <h2 style={{ fontSize: "18px", fontWeight: "700", color: "#0d0d0d", fontFamily: "var(--font-montserrat)", margin: 0 }}>
                         {category.name}
                       </h2>
                       <span style={{ fontSize: "11px", color: "#6b6966", fontFamily: "var(--font-montserrat)" }}>
@@ -318,7 +318,7 @@ export default function FaqPage() {
                 <h3 style={{ fontSize: "1.1rem", fontWeight: "700", color: "#fff", fontFamily: "var(--font-montserrat)", margin: "6px 0 6px" }}>
                   Tidak menemukan jawaban yang Anda cari?
                 </h3>
-                <p style={{ fontSize: "13px", color: "rgba(255,255,255,0.45)", fontFamily: "var(--font-montserrat)", margin: 0, lineHeight: "1.65" }}>
+                <p style={{ fontSize: "13px", color: "rgba(255,255,255,0.45)", fontFamily: "var(--font-source-serif)", margin: 0, lineHeight: "1.65" }}>
                   Hubungi kami langsung melalui halaman kontak.
                 </p>
               </div>

@@ -41,7 +41,7 @@ function RegistrationCard() {
           <svg width="12" height="12" viewBox="0 0 24 24" fill="none" stroke="#3b8ed4" strokeWidth="2"><rect x="3" y="4" width="18" height="18" rx="2"/><line x1="16" y1="2" x2="16" y2="6"/><line x1="8" y1="2" x2="8" y2="6"/><line x1="3" y1="10" x2="21" y2="10"/></svg>
           <span style={{ fontSize: "11px", color: "rgba(255,255,255,0.65)", fontFamily: "var(--font-montserrat)", fontWeight: "600" }}>Setiap tahun: 1 Januari – 28 Februari</span>
         </div>
-        <p style={{ fontSize: "14px", color: "rgba(255,255,255,0.4)", fontFamily: "var(--font-montserrat)", margin: "0 0 14px", lineHeight: "1.65" }}>
+        <p style={{ fontSize: "14px", color: "rgba(255,255,255,0.4)", fontFamily: "var(--font-source-serif)", margin: "0 0 14px", lineHeight: "1.65" }}>
           {isDaftarOpen
             ? `Pendaftaran anggota baru ${year} sedang dibuka! Segera daftarkan diri Anda sebelum 28 Februari ${year}.`
             : `Pendaftaran anggota baru dibuka setiap tahun pada 1 Januari hingga 28 Februari. Pantau terus halaman ini.`}
@@ -79,7 +79,7 @@ function RegistrationCard() {
           <svg width="11" height="11" viewBox="0 0 24 24" fill="none" stroke="#6b6966" strokeWidth="2"><rect x="3" y="4" width="18" height="18" rx="2"/><line x1="16" y1="2" x2="16" y2="6"/><line x1="8" y1="2" x2="8" y2="6"/><line x1="3" y1="10" x2="21" y2="10"/></svg>
           <span style={{ fontSize: "11px", color: "#6b6966", fontFamily: "var(--font-montserrat)", fontWeight: "600" }}>Setiap tahun: 1 November – 31 Desember</span>
         </div>
-        <p style={{ fontSize: "14px", color: "#5c5a57", fontFamily: "var(--font-montserrat)", margin: "0 0 12px", lineHeight: "1.65" }}>
+        <p style={{ fontSize: "14px", color: "#5c5a57", fontFamily: "var(--font-source-serif)", margin: "0 0 12px", lineHeight: "1.65" }}>
           {isPerpanjangOpen
             ? `Perpanjangan keanggotaan ${year} sedang dibuka! Segera perpanjang sebelum 31 Desember ${year}.`
             : `Perpanjangan keanggotaan dibuka setiap tahun pada 1 November hingga 31 Desember.`}
@@ -135,10 +135,10 @@ function PendaftaranPerpanjanganSection() {
           <h3 style={{ fontSize: "14px", fontWeight: "700", color: "#0d0d0d", fontFamily: "var(--font-montserrat)", margin: "0 0 6px" }}>
             Pendaftaran Anggota Baru
           </h3>
-          <p style={{ fontSize: "13px", color: "#5c5a57", fontFamily: "var(--font-montserrat)", margin: "0 0 4px", lineHeight: "1.65" }}>
+          <p style={{ fontSize: "13px", color: "#5c5a57", fontFamily: "var(--font-source-serif)", margin: "0 0 4px", lineHeight: "1.65" }}>
             Dibuka setiap tahun pada <strong>1 Januari &ndash; 28 Februari</strong>.
           </p>
-          <p style={{ fontSize: "13px", color: isDaftarOpen ? "#0C57A8" : "#6b6966", fontFamily: "var(--font-montserrat)", margin: 0, lineHeight: "1.65", fontWeight: isDaftarOpen ? "600" : "400" }}>
+          <p style={{ fontSize: "13px", color: isDaftarOpen ? "#0C57A8" : "#6b6966", fontFamily: "var(--font-source-serif)", margin: 0, lineHeight: "1.65", fontWeight: isDaftarOpen ? "600" : "400" }}>
             {isDaftarOpen
               ? `Pendaftaran anggota baru ${year} sedang berlangsung. Segera daftarkan diri Anda sebelum 28 Februari ${year}!`
               : `Pendaftaran akan dibuka kembali pada 1 Januari ${year + 1}. Daftarkan email Anda untuk mendapat pengingat.`}
@@ -177,10 +177,10 @@ function PendaftaranPerpanjanganSection() {
           <h3 style={{ fontSize: "14px", fontWeight: "700", color: "#0d0d0d", fontFamily: "var(--font-montserrat)", margin: "0 0 6px" }}>
             Perpanjangan Keanggotaan
           </h3>
-          <p style={{ fontSize: "13px", color: "#5c5a57", fontFamily: "var(--font-montserrat)", margin: "0 0 4px", lineHeight: "1.65" }}>
+          <p style={{ fontSize: "13px", color: "#5c5a57", fontFamily: "var(--font-source-serif)", margin: "0 0 4px", lineHeight: "1.65" }}>
             Dibuka setiap tahun pada <strong>1 November &ndash; 31 Desember</strong>.
           </p>
-          <p style={{ fontSize: "13px", color: isPerpanjangOpen ? "#92400e" : "#6b6966", fontFamily: "var(--font-montserrat)", margin: 0, lineHeight: "1.65", fontWeight: isPerpanjangOpen ? "600" : "400" }}>
+          <p style={{ fontSize: "13px", color: isPerpanjangOpen ? "#92400e" : "#6b6966", fontFamily: "var(--font-source-serif)", margin: 0, lineHeight: "1.65", fontWeight: isPerpanjangOpen ? "600" : "400" }}>
             {isPerpanjangOpen
               ? `Perpanjangan keanggotaan ${year} sedang berlangsung. Segera perpanjang sebelum 31 Desember ${year}!`
               : `Perpanjangan akan dibuka kembali pada 1 November ${year}. Keanggotaan aktif berlaku hingga 31 Desember setiap tahunnya.`}
@@ -238,7 +238,7 @@ function SubscribeForm() {
           <div style={{ width: "28px", height: "28px", borderRadius: "50%", backgroundColor: "rgba(22,163,74,0.12)", display: "flex", alignItems: "center", justifyContent: "center", flexShrink: 0 }}>
             <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="#16a34a" strokeWidth="2.5"><path d="M20 6L9 17l-5-5"/></svg>
           </div>
-          <p style={{ fontSize: "13px", color: "#15803d", fontFamily: "var(--font-montserrat)", margin: 0, fontWeight: "600" }}>{message}</p>
+          <p style={{ fontSize: "13px", color: "#15803d", fontFamily: "var(--font-source-serif)", margin: 0, fontWeight: "600" }}>{message}</p>
         </div>
       ) : (
         <div>
@@ -266,9 +266,9 @@ function SubscribeForm() {
             </button>
           </div>
           {status === "error" && (
-            <p style={{ fontSize: "12px", color: "#dc2626", fontFamily: "var(--font-montserrat)", margin: "8px 0 0" }}>{message}</p>
+            <p style={{ fontSize: "12px", color: "#dc2626", fontFamily: "var(--font-source-serif)", margin: "8px 0 0" }}>{message}</p>
           )}
-          <p style={{ fontSize: "14px", color: "#6b6966", fontFamily: "var(--font-montserrat)", margin: "10px 0 0", lineHeight: "1.6" }}>
+          <p style={{ fontSize: "14px", color: "#6b6966", fontFamily: "var(--font-source-serif)", margin: "10px 0 0", lineHeight: "1.6" }}>
             Kami tidak akan mengirim spam. Anda dapat berhenti berlangganan kapan saja.
           </p>
         </div>
@@ -289,7 +289,7 @@ export default function MenjadiAnggotaPage() {
         backgroundImage: "url('/banner/Mosaik_Budaya_1.png')",
         backgroundSize: "cover", backgroundPosition: "center",
       }}>
-        <div style={{ position: "absolute", inset: 0, background: "linear-gradient(135deg, rgba(8,20,45,0.92) 0%, rgba(10,30,65,0.84) 40%, rgba(15,40,80,0.76) 100%)", pointerEvents: "none" }} />
+        <div style={{ position: "absolute", inset: 0, background: "linear-gradient(135deg, rgba(3,78,159,0.92) 0%, rgba(3,78,159,0.84) 40%, rgba(3,78,159,0.76) 100%)", pointerEvents: "none" }} />
         <div style={{ position: "absolute", inset: 0, backgroundImage: `linear-gradient(rgba(255,255,255,0.03) 1px, transparent 1px), linear-gradient(90deg, rgba(255,255,255,0.03) 1px, transparent 1px)`, backgroundSize: "40px 40px", pointerEvents: "none" }} />
         <div style={{ position: "absolute", top: "-60px", right: "-60px", width: "240px", height: "240px", borderRadius: "50%", background: "radial-gradient(circle, rgba(12,87,168,0.20) 0%, transparent 70%)", pointerEvents: "none" }} />
 
@@ -308,7 +308,7 @@ export default function MenjadiAnggotaPage() {
           <h1 style={{ fontSize: "clamp(1.8rem, 3vw, 2.6rem)", fontWeight: "700", color: "#fff", fontFamily: "var(--font-montserrat)", margin: "6px 0 0", lineHeight: "1.2" }}>
             Menjadi Anggota
           </h1>
-          <p style={{ fontSize: "13px", color: "rgba(255,255,255,0.45)", fontFamily: "var(--font-montserrat)", margin: "6px 0 0" }}>
+          <p style={{ fontSize: "13px", color: "rgba(255,255,255,0.45)", fontFamily: "var(--font-source-serif)", margin: "6px 0 0" }}>
             Bergabunglah dengan komunitas sukarelawan yang berdedikasi membebaskan pengetahuan untuk seluruh masyarakat Indonesia.
           </p>
         </div>
@@ -326,8 +326,8 @@ export default function MenjadiAnggotaPage() {
 
               {/* Tentang */}
               <div style={{ backgroundColor: "#fff", border: "1px solid #e5e2dd", borderLeft: "4px solid #0d0d0d", borderRadius: "4px", padding: "28px 32px" }}>
-                <h2 style={{ fontSize: "1.2rem", fontWeight: "700", color: "#0d0d0d", fontFamily: "var(--font-montserrat)", margin: "8px 0 14px" }}>Menjadi Anggota</h2>
-                <p style={{ fontSize: "14px", color: "#3a3a3a", lineHeight: "1.85", fontFamily: "var(--font-montserrat)", margin: 0 }}>
+                <h2 style={{ fontSize: "18px", fontWeight: "700", color: "#0d0d0d", fontFamily: "var(--font-montserrat)", margin: "8px 0 14px" }}>Menjadi Anggota</h2>
+                <p style={{ fontSize: "14px", color: "#3a3a3a", lineHeight: "1.85", fontFamily: "var(--font-source-serif)", margin: 0 }}>
                   Wikimedia Indonesia adalah organisasi independen yang didirikan pada tahun 2008. Di tahun yang sama dengan pendiriannya, Wikimedia Indonesia diakui sebagai mitra lokal Yayasan Wikimedia (Wikimedia Foundation) yang berlokasi di Amerika Serikat. Wikimedia Indonesia memiliki tujuan yang seiring sejalan, tetapi bukanlah cabang dari Yayasan Wikimedia.
                 </p>
               </div>
@@ -337,8 +337,8 @@ export default function MenjadiAnggotaPage() {
 
               {/* Keanggotaan */}
               <div style={{ backgroundColor: "#fff", border: "1px solid #e5e2dd", borderLeft: "4px solid #0d0d0d", borderRadius: "4px", padding: "28px 32px" }}>
-                <h2 style={{ fontSize: "1.2rem", fontWeight: "700", color: "#0d0d0d", fontFamily: "var(--font-montserrat)", margin: "8px 0 16px" }}>Keanggotaan</h2>
-                <p style={{ fontSize: "13px", color: "#5c5a57", fontFamily: "var(--font-montserrat)", margin: "0 0 14px", fontStyle: "italic" }}>Berdasarkan AD/ART Perkumpulan:</p>
+                <h2 style={{ fontSize: "18px", fontWeight: "700", color: "#0d0d0d", fontFamily: "var(--font-montserrat)", margin: "8px 0 16px" }}>Keanggotaan</h2>
+                <p style={{ fontSize: "13px", color: "#5c5a57", fontFamily: "var(--font-source-serif)", margin: "0 0 14px", fontStyle: "italic" }}>Berdasarkan AD/ART Perkumpulan:</p>
                 <div style={{ display: "flex", flexDirection: "column", gap: "12px" }}>
                   {[
                     "Anggota Wikimedia Indonesia terbuka bagi Warga Negara Indonesia maupun Warga Negara Asing.",
@@ -418,7 +418,7 @@ export default function MenjadiAnggotaPage() {
                 <h3 style={{ fontSize: "1.3rem", fontWeight: "700", color: "#0d0d0d", fontFamily: "var(--font-montserrat)", margin: "8px 0 10px", lineHeight: "1.3" }}>
                   Daftarkan surel Anda
                 </h3>
-                <p style={{ fontSize: "14px", color: "#5c5a57", fontFamily: "var(--font-montserrat)", lineHeight: "1.75", margin: 0 }}>
+                <p style={{ fontSize: "14px", color: "#5c5a57", fontFamily: "var(--font-source-serif)", lineHeight: "1.75", margin: 0 }}>
                   Daftarkan surel Anda untuk mendapatkan kabar terbaru seputar pendaftaran dan perpanjangan anggota Wikimedia Indonesia langsung ke kotak masuk Anda.
                 </p>
               </div>

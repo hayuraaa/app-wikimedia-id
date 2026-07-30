@@ -306,7 +306,7 @@ function Sidebar({ popular, popularLoading, categories, activeCategory, onCatego
                   >
                     <span style={{ flexShrink: 0, width: "22px", height: "22px", borderRadius: "50%", display: "flex", alignItems: "center", justifyContent: "center", fontSize: "10px", fontWeight: "700", fontFamily: "var(--font-montserrat)", backgroundColor: idx < 3 ? "#0C57A8" : "#f0eeec", color: idx < 3 ? "#fff" : "#6b6966", marginTop: "1px" }}>{idx + 1}</span>
                     <div style={{ flex: 1, minWidth: 0 }}>
-                      <p style={{ fontSize: "12px", fontWeight: "600", color: "#0d0d0d", lineHeight: "1.45", fontFamily: "var(--font-montserrat)", margin: "0 0 4px", display: "-webkit-box", WebkitLineClamp: 2, WebkitBoxOrient: "vertical", overflow: "hidden" }}>{a.title}</p>
+                      <p style={{ fontSize: "12px", fontWeight: "600", color: "#0d0d0d", lineHeight: "1.45", fontFamily: "var(--font-source-serif)", margin: "0 0 4px", display: "-webkit-box", WebkitLineClamp: 2, WebkitBoxOrient: "vertical", overflow: "hidden" }}>{a.title}</p>
                       <span style={{ display: "flex", alignItems: "center", gap: "3px", fontSize: "10px", color: "#6b6966", fontFamily: "var(--font-montserrat)" }}>
                         <svg width="10" height="10" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2"><path d="M1 12s4-8 11-8 11 8 11 8-4 8-11 8-11-8-11-8z" /><circle cx="12" cy="12" r="3" /></svg>
                         {a.views.toLocaleString("id-ID")} tayangan
@@ -322,7 +322,7 @@ function Sidebar({ popular, popularLoading, categories, activeCategory, onCatego
       <div style={{ backgroundColor: "#1a3a5c", border: "1px solid rgba(255,255,255,0.1)", borderRadius: "4px", padding: "20px", position: "relative", overflow: "hidden" }}>
         <div style={{ position: "absolute", top: "-20px", right: "-20px", width: "80px", height: "80px", borderRadius: "50%", background: "radial-gradient(circle, rgba(12,87,168,0.25) 0%, transparent 70%)", pointerEvents: "none" }} />
         <h4 style={{ fontSize: "13px", fontWeight: "700", color: "#fff", fontFamily: "var(--font-montserrat)", margin: "0 0 8px" }}>Tentang Rubrik</h4>
-        <p style={{ fontSize: "14px", color: "rgba(255,255,255,0.6)", lineHeight: "1.7", fontFamily: "var(--font-montserrat)", margin: "0 0 14px" }}>Kumpulan artikel dan berita terbaru seputar kegiatan, program, dan perkembangan Wikimedia Indonesia.</p>
+        <p style={{ fontSize: "14px", color: "rgba(255,255,255,0.6)", lineHeight: "1.7", fontFamily: "var(--font-source-serif)", margin: "0 0 14px" }}>Kumpulan artikel dan berita terbaru seputar kegiatan, program, dan perkembangan Wikimedia Indonesia.</p>
       </div>
     </aside>
   );
@@ -437,7 +437,7 @@ export default function RubrikClient({
     <>
       {/* ── HEADER ───────────────────────────────────────────────────────── */}
       <section style={{ padding: "40px 24px 36px", position: "relative", overflow: "hidden", backgroundImage: "url('/banner/Mosaik_Budaya_1.png')", backgroundSize: "cover", backgroundPosition: "center" }}>
-        <div style={{ position: "absolute", inset: 0, background: "linear-gradient(135deg, rgba(8,20,45,0.88) 0%, rgba(10,30,65,0.80) 40%, rgba(15,40,80,0.72) 100%)", pointerEvents: "none" }} />
+        <div style={{ position: "absolute", inset: 0, background: "linear-gradient(135deg, rgba(3,78,159,0.88) 0%, rgba(3,78,159,0.80) 40%, rgba(3,78,159,0.72) 100%)", pointerEvents: "none" }} />
         <div style={{ position: "absolute", inset: 0, backgroundImage: `linear-gradient(rgba(255,255,255,0.03) 1px, transparent 1px), linear-gradient(90deg, rgba(255,255,255,0.03) 1px, transparent 1px)`, backgroundSize: "40px 40px", pointerEvents: "none" }} />
         <div style={{ position: "absolute", top: "-60px", right: "-60px", width: "240px", height: "240px", borderRadius: "50%", background: "radial-gradient(circle, rgba(12,87,168,0.20) 0%, transparent 70%)", pointerEvents: "none" }} />
 
@@ -461,7 +461,7 @@ export default function RubrikClient({
                 {categoryFromUrl ? formatCategory(categoryFromUrl) : queryFromUrl ? `Hasil: "${queryFromUrl}"` : "Artikel & Berita"}
               </h1>
               {meta && (
-                <p style={{ fontSize: "13px", color: "rgba(255,255,255,0.45)", fontFamily: "var(--font-montserrat)", margin: "6px 0 0" }}>
+                <p style={{ fontSize: "13px", color: "rgba(255,255,255,0.45)", fontFamily: "var(--font-source-serif)", margin: "6px 0 0" }}>
                   {meta.total.toLocaleString("id-ID")} artikel{meta.last_page > 1 && ` · Halaman ${meta.current_page} dari ${meta.last_page}`}
                 </p>
               )}
@@ -530,7 +530,7 @@ export default function RubrikClient({
               ) : articles.length === 0 ? (
                 <div style={{ padding: "60px 24px", textAlign: "center", backgroundColor: "#fff", border: "1px solid #e5e2dd", borderRadius: "4px" }}>
                   <span style={{ fontSize: "40px", opacity: 0.2 }}>🔍</span>
-                  <p style={{ fontSize: "15px", color: "#6b6966", fontFamily: "var(--font-montserrat)", marginTop: "12px" }}>Tidak ada artikel ditemukan.</p>
+                  <p style={{ fontSize: "15px", color: "#6b6966", fontFamily: "var(--font-source-serif)", marginTop: "12px" }}>Tidak ada artikel ditemukan.</p>
                   <button onClick={handleClearFilter} style={{ marginTop: "16px", padding: "8px 20px", backgroundColor: "#0C57A8", color: "#fff", border: "none", borderRadius: "3px", fontSize: "12px", fontWeight: "700", fontFamily: "var(--font-montserrat)", cursor: "pointer" }}>
                     Tampilkan Semua
                   </button>

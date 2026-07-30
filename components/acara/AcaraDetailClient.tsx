@@ -130,7 +130,7 @@ export default function AcaraDetailClient({
         backgroundSize: "cover",
         backgroundPosition: "center",
       }}>
-        <div style={{ position: "absolute", inset: 0, background: "linear-gradient(135deg, rgba(8,20,45,0.92) 0%, rgba(10,30,65,0.84) 40%, rgba(15,40,80,0.76) 100%)", pointerEvents: "none" }} />
+        <div style={{ position: "absolute", inset: 0, background: "linear-gradient(135deg, rgba(3,78,159,0.92) 0%, rgba(3,78,159,0.84) 40%, rgba(3,78,159,0.76) 100%)", pointerEvents: "none" }} />
         <div style={{ position: "absolute", inset: 0, backgroundImage: `linear-gradient(rgba(255,255,255,0.03) 1px, transparent 1px), linear-gradient(90deg, rgba(255,255,255,0.03) 1px, transparent 1px)`, backgroundSize: "40px 40px", pointerEvents: "none" }} />
         <div style={{ position: "absolute", top: "-60px", right: "-60px", width: "260px", height: "260px", borderRadius: "50%", background: "radial-gradient(circle, rgba(212,160,20,0.28) 0%, transparent 70%)", pointerEvents: "none" }} />
         <div style={{ position: "absolute", bottom: "-40px", left: "8%", width: "180px", height: "180px", borderRadius: "50%", background: "radial-gradient(circle, rgba(180,100,10,0.18) 0%, transparent 70%)", pointerEvents: "none" }} />
@@ -149,7 +149,7 @@ export default function AcaraDetailClient({
             <span style={{ fontSize: "11px", color: "#f5c842", fontFamily: "var(--font-montserrat)" }}>Detail</span>
           </div>
 
-          <h1 style={{ fontSize: "clamp(1.6rem, 3.5vw, 2.8rem)", fontWeight: "700", color: "#ffffff", fontFamily: "var(--font-montserrat)", margin: "0 0 16px", lineHeight: "1.2", maxWidth: "860px" }}>
+          <h1 style={{ fontSize: "clamp(1.8rem, 3.5vw, 3rem)", fontWeight: "700", color: "#ffffff", fontFamily: "var(--font-montserrat)", margin: "0 0 16px", lineHeight: "1.2", maxWidth: "860px" }}>
             {event.judul}
           </h1>
 

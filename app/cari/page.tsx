@@ -205,7 +205,7 @@ function ResultCard({ result, query }: { result: SearchResult; query: string }) 
             {highlightText(result.title, query)}
           </h3>
           {truncated && (
-            <p style={{ fontSize: "14px", color: "#5c5a57", lineHeight: "1.65", fontFamily: "var(--font-montserrat)", margin: 0 }}>
+            <p style={{ fontSize: "14px", color: "#5c5a57", lineHeight: "1.65", fontFamily: "var(--font-source-serif)", margin: 0 }}>
               {highlightText(truncated, query)}
             </p>
           )}
@@ -230,7 +230,7 @@ function EmptyState({ query }: { query: string }) {
       <h3 style={{ fontSize: "17px", fontWeight: "700", color: "#0d0d0d", fontFamily: "var(--font-montserrat)", margin: "0 0 8px" }}>
         Tidak ada hasil untuk "{query}"
       </h3>
-      <p style={{ fontSize: "13px", color: "#6b6966", fontFamily: "var(--font-montserrat)", lineHeight: "1.7", marginBottom: "20px" }}>
+      <p style={{ fontSize: "13px", color: "#6b6966", fontFamily: "var(--font-source-serif)", lineHeight: "1.7", marginBottom: "20px" }}>
         Coba gunakan kata kunci yang berbeda atau lebih umum.
       </p>
       <div style={{ display: "flex", gap: "8px", justifyContent: "center", flexWrap: "wrap" }}>
@@ -373,7 +373,7 @@ function SearchPageInner() {
         backgroundSize: "cover", backgroundPosition: "center",
       }}>
         {/* Overlay — sama dengan rubrik */}
-        <div style={{ position: "absolute", inset: 0, background: "linear-gradient(135deg, rgba(8,20,45,0.88) 0%, rgba(10,30,65,0.80) 40%, rgba(15,40,80,0.72) 100%)", pointerEvents: "none" }} />
+        <div style={{ position: "absolute", inset: 0, background: "linear-gradient(135deg, rgba(3,78,159,0.88) 0%, rgba(3,78,159,0.80) 40%, rgba(3,78,159,0.72) 100%)", pointerEvents: "none" }} />
         <div style={{ position: "absolute", inset: 0, backgroundImage: `linear-gradient(rgba(255,255,255,0.03) 1px, transparent 1px), linear-gradient(90deg, rgba(255,255,255,0.03) 1px, transparent 1px)`, backgroundSize: "40px 40px", pointerEvents: "none" }} />
         <div style={{ position: "absolute", top: "-60px", right: "-60px", width: "240px", height: "240px", borderRadius: "50%", background: "radial-gradient(circle, rgba(12,87,168,0.20) 0%, transparent 70%)", pointerEvents: "none" }} />
 
@@ -403,7 +403,7 @@ function SearchPageInner() {
                   : "Cari Konten"}
               </h1>
               {searched && !loading && (
-                <p style={{ fontSize: "13px", color: "rgba(255,255,255,0.45)", fontFamily: "var(--font-montserrat)", margin: "6px 0 0" }}>
+                <p style={{ fontSize: "13px", color: "rgba(255,255,255,0.45)", fontFamily: "var(--font-source-serif)", margin: "6px 0 0" }}>
                   {results.length === 0
                     ? "Tidak ada hasil ditemukan"
                     : `${results.length} hasil ditemukan`}
@@ -524,7 +524,7 @@ function SearchPageInner() {
               {!activeQuery ? (
                 <div style={{ backgroundColor: "#fff", border: "1px solid #e5e2dd", borderRadius: "4px", padding: "60px 24px", textAlign: "center" }}>
                   <div style={{ fontSize: "44px", marginBottom: "14px", opacity: 0.2 }}>🔍</div>
-                  <p style={{ fontSize: "14px", color: "#6b6966", fontFamily: "var(--font-montserrat)", margin: 0 }}>
+                  <p style={{ fontSize: "14px", color: "#6b6966", fontFamily: "var(--font-source-serif)", margin: 0 }}>
                     Ketik kata kunci di atas untuk mulai mencari.
                   </p>
                 </div>
@@ -534,7 +534,7 @@ function SearchPageInner() {
                 <EmptyState query={activeQuery} />
               ) : filteredAll.length === 0 ? (
                 <div style={{ backgroundColor: "#fff", border: "1px solid #e5e2dd", borderRadius: "4px", padding: "40px 24px", textAlign: "center" }}>
-                  <p style={{ fontSize: "14px", color: "#6b6966", fontFamily: "var(--font-montserrat)", margin: 0 }}>
+                  <p style={{ fontSize: "14px", color: "#6b6966", fontFamily: "var(--font-source-serif)", margin: 0 }}>
                     Tidak ada hasil untuk filter ini.
                   </p>
                   <button onClick={() => handleFilterChange("semua")}

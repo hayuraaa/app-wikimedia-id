@@ -28,7 +28,7 @@ export default function HeroSection() {
   }, []);
 
   return (
-    <section style={{ position: "relative", minHeight: "88vh", display: "flex", alignItems: "center", overflow: "hidden", backgroundColor: "#1a3a5c" }}>
+    <section style={{ position: "relative", minHeight: "88vh", display: "flex", alignItems: "center", overflow: "hidden", backgroundColor: "#034E9F" }}>
 
       <style>{`
         @media (max-width: 768px) {
@@ -44,10 +44,10 @@ export default function HeroSection() {
 
           {/* ── Kiri: Teks ── */}
           <div className="hero-text-col" style={{ flex: "1 1 0", minWidth: 0 }}>
-            <h1 className="hero-title" style={{ fontSize: "clamp(2rem, 3.5vw, 3.4rem)", fontWeight: "700", color: "#ffffff", lineHeight: "1.18", margin: "14px 0 22px", fontFamily: "var(--font-montserrat)", letterSpacing: "-0.01em" }}>
+            <h1 className="hero-title" style={{ fontSize: "clamp(2rem, 3.5vw, 3.4rem)", fontWeight: "400", color: "#ffffff", lineHeight: "1.18", margin: "14px 0 22px", fontFamily: "var(--font-montserrat)", letterSpacing: "-0.01em" }}>
               Membangun{" "}
-              <span style={{ backgroundColor: "rgba(12,87,168,0.50)", color: "#ffffff", padding: "2px 5px", borderRadius: "2px", boxShadow: "0 0 0 1px rgba(12,87,168,0.75)" }}>Ekosistem</span>{" "}
-              Pengetahuan Terbuka di Indonesia
+              <strong style={{ fontWeight: 600 }}>Ekosistem Pengetahuan Terbuka</strong>{" "}
+              di Indonesia
             </h1>
 
             <p className="hero-desc" style={{ fontSize: "17px", color: "rgba(255,255,255,0.68)", lineHeight: "1.85", marginBottom: "40px", fontFamily: "var(--font-source-serif)" }}>
@@ -58,9 +58,9 @@ export default function HeroSection() {
               <Link
                 href="/#artikel-terbaru"
                 className="btn-ripple"
-                style={{ display: "inline-flex", alignItems: "center", gap: "8px", padding: "13px 26px", backgroundColor: "#0C57A8", color: "#fff", fontSize: "13px", fontWeight: "700", letterSpacing: "0.06em", textTransform: "uppercase" as const, textDecoration: "none", fontFamily: "var(--font-montserrat)", transition: "all 0.2s", borderRadius: "2px" }}
+                style={{ display: "inline-flex", alignItems: "center", gap: "8px", padding: "13px 26px", backgroundColor: "#F9EE75", color: "#000000", fontSize: "13px", fontWeight: "700", letterSpacing: "0.06em", textTransform: "uppercase" as const, textDecoration: "none", fontFamily: "var(--font-montserrat)", transition: "all 0.2s", borderRadius: "2px" }}
                 onMouseEnter={(e) => (e.currentTarget.style.backgroundColor = "#0a4a8f")}
-                onMouseLeave={(e) => (e.currentTarget.style.backgroundColor = "#0C57A8")}
+                onMouseLeave={(e) => (e.currentTarget.style.backgroundColor = "#F9EE75")}
               >
                 Jelajahi
                 <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2.5"><path d="M5 12h14M12 5l7 7-7 7" /></svg>

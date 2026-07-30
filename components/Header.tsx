@@ -118,7 +118,7 @@ function SearchDropdown({
       ) : results.length === 0 ? (
         <div style={{ padding: "32px 20px", textAlign: "center" }}>
           <div style={{ fontSize: "28px", marginBottom: "8px", opacity: 0.25 }}>🔍</div>
-          <p style={{ fontSize: "14px", color: "#6b6966", fontFamily: "var(--font-montserrat)", margin: 0 }}>
+          <p style={{ fontSize: "14px", color: "#6b6966", fontFamily: "var(--font-source-serif)", margin: 0 }}>
             Tidak ada hasil untuk <strong style={{ color: "#0d0d0d" }}>"{query}"</strong>
           </p>
         </div>

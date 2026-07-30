@@ -68,7 +68,7 @@ function ContactForm() {
         </div>
         <div>
           <h4 style={{ fontSize: "16px", fontWeight: "700", color: "#0d0d0d", fontFamily: "var(--font-montserrat)", margin: "0 0 6px" }}>Pesan Terkirim!</h4>
-          <p style={{ fontSize: "13px", color: "#5c5a57", fontFamily: "var(--font-montserrat)", margin: 0, lineHeight: "1.65" }}>{msg}</p>
+          <p style={{ fontSize: "13px", color: "#5c5a57", fontFamily: "var(--font-source-serif)", margin: 0, lineHeight: "1.65" }}>{msg}</p>
         </div>
         <button onClick={() => setStatus("idle")}
           style={{ fontSize: "12px", fontWeight: "700", color: "#0C57A8", fontFamily: "var(--font-montserrat)", background: "none", border: "none", cursor: "pointer", textDecoration: "underline", textUnderlineOffset: "2px" }}>
@@ -136,7 +136,7 @@ export default function KontakPage() {
     <>
       {/* ── HERO ── */}
       <section style={{ padding: "40px 24px 36px", position: "relative", overflow: "hidden", backgroundImage: "url('/banner/Mosaik_Budaya_1.png')", backgroundSize: "cover", backgroundPosition: "center" }}>
-        <div className="hero-parallax" style={{ position: "absolute", inset: 0, background: "linear-gradient(135deg, rgba(8,20,45,0.93) 0%, rgba(10,30,65,0.85) 40%, rgba(15,40,80,0.77) 100%)", pointerEvents: "none" }} />
+        <div className="hero-parallax" style={{ position: "absolute", inset: 0, background: "linear-gradient(135deg, rgba(3,78,159,0.93) 0%, rgba(3,78,159,0.85) 40%, rgba(3,78,159,0.77) 100%)", pointerEvents: "none" }} />
         <div style={{ position: "absolute", inset: 0, backgroundImage: `linear-gradient(rgba(255,255,255,0.03) 1px, transparent 1px), linear-gradient(90deg, rgba(255,255,255,0.03) 1px, transparent 1px)`, backgroundSize: "40px 40px", pointerEvents: "none" }} />
         <div style={{ position: "absolute", top: "-60px", right: "-60px", width: "260px", height: "260px", borderRadius: "50%", background: "radial-gradient(circle, rgba(12,87,168,0.18) 0%, transparent 70%)", pointerEvents: "none" }} />
 
@@ -148,10 +148,10 @@ export default function KontakPage() {
             <span style={{ fontSize: "11px", color: "rgba(255,255,255,0.25)", fontFamily: "var(--font-montserrat)" }}>/</span>
             <span style={{ fontSize: "11px", color: "#3b8ed4", fontFamily: "var(--font-montserrat)" }}>Kontak</span>
           </div>
-          <h1 className="hero-title" style={{ fontSize: "clamp(1.7rem, 3vw, 2.5rem)", fontWeight: "700", color: "#fff", fontFamily: "var(--font-montserrat)", margin: "0 0 12px", lineHeight: "1.2" }}>
+          <h1 className="hero-title" style={{ fontSize: "clamp(1.8rem, 3vw, 2.6rem)", fontWeight: "700", color: "#fff", fontFamily: "var(--font-montserrat)", margin: "0 0 12px", lineHeight: "1.2" }}>
             Hubungi Kami
           </h1>
-          <p className="hero-desc" style={{ fontSize: "14px", color: "rgba(255,255,255,0.55)", fontFamily: "var(--font-montserrat)", lineHeight: "1.7", margin: 0, maxWidth: "560px" }}>
+          <p className="hero-desc" style={{ fontSize: "14px", color: "rgba(255,255,255,0.55)", fontFamily: "var(--font-source-serif)", lineHeight: "1.7", margin: 0, maxWidth: "560px" }}>
             Ada pertanyaan, saran, atau ingin berkolaborasi? Kami siap mendengar Anda.
           </p>
         </div>
@@ -165,10 +165,10 @@ export default function KontakPage() {
         <div style={{ maxWidth: "760px", margin: "0 auto", position: "relative", zIndex: 1 }}>
           <div style={{ textAlign: "center" as const, marginBottom: "36px" }}>
             <span style={{ fontSize: "10px", fontWeight: "700", letterSpacing: "0.1em", textTransform: "uppercase" as const, color: "#0C57A8", fontFamily: "var(--font-montserrat)" }}>◆ Hubungi Kami</span>
-            <h2 style={{ fontSize: "clamp(1.4rem, 2.5vw, 2rem)", fontWeight: "700", color: "#0d0d0d", fontFamily: "var(--font-montserrat)", margin: "8px 0 10px" }}>
+            <h2 style={{ fontSize: "clamp(1.6rem, 3vw, 2.2rem)", fontWeight: "700", color: "#0d0d0d", fontFamily: "var(--font-montserrat)", margin: "8px 0 10px" }}>
               Ada Pertanyaan? Kami Siap Membantu
             </h2>
-            <p style={{ fontSize: "14px", color: "#5c5a57", fontFamily: "var(--font-montserrat)", margin: 0, lineHeight: "1.7" }}>
+            <p style={{ fontSize: "14px", color: "#5c5a57", fontFamily: "var(--font-source-serif)", margin: 0, lineHeight: "1.7" }}>
               Isi formulir di bawah ini dan kami akan menghubungi Anda segera.
             </p>
           </div>

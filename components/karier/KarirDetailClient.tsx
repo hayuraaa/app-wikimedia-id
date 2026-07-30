@@ -59,7 +59,7 @@ export default function KarirDetailClient({ karir }: { karir: Karir }) {
         backgroundImage: "url('/banner/Mosaik_Teknologi.png')",
         backgroundSize: "cover", backgroundPosition: "center",
       }}>
-        <div style={{ position: "absolute", inset: 0, background: "linear-gradient(135deg, rgba(8,20,45,0.92) 0%, rgba(10,30,65,0.84) 40%, rgba(15,40,80,0.76) 100%)", pointerEvents: "none" }} />
+        <div style={{ position: "absolute", inset: 0, background: "linear-gradient(135deg, rgba(3,78,159,0.92) 0%, rgba(3,78,159,0.84) 40%, rgba(3,78,159,0.76) 100%)", pointerEvents: "none" }} />
         <div style={{ position: "absolute", inset: 0, backgroundImage: `linear-gradient(rgba(255,255,255,0.03) 1px, transparent 1px), linear-gradient(90deg, rgba(255,255,255,0.03) 1px, transparent 1px)`, backgroundSize: "40px 40px", pointerEvents: "none" }} />
         <div style={{ position: "absolute", top: "-60px", right: "-60px", width: "240px", height: "240px", borderRadius: "50%", background: "radial-gradient(circle, rgba(12,87,168,0.20) 0%, transparent 70%)", pointerEvents: "none" }} />
 
@@ -115,7 +115,7 @@ export default function KarirDetailClient({ karir }: { karir: Karir }) {
               {expired && (
                 <div style={{ marginTop: "36px", backgroundColor: "#fff", border: "1px solid #fca5a5", borderLeft: "4px solid #ef4444", borderRadius: "4px", padding: "14px 18px", display: "flex", gap: "10px", alignItems: "center" }}>
                   <svg width="15" height="15" viewBox="0 0 24 24" fill="none" stroke="#ef4444" strokeWidth="2" style={{ flexShrink: 0 }}><circle cx="12" cy="12" r="10"/><line x1="12" y1="8" x2="12" y2="12"/><line x1="12" y1="16" x2="12.01" y2="16"/></svg>
-                  <p style={{ fontSize: "13px", color: "#991b1b", fontFamily: "var(--font-montserrat)", margin: 0, fontWeight: "600" }}>
+                  <p style={{ fontSize: "13px", color: "#991b1b", fontFamily: "var(--font-source-serif)", margin: 0, fontWeight: "600" }}>
                     Lowongan ini sudah ditutup pada {formatDate(karir.expires_at!)}.
                   </p>
                 </div>
@@ -147,7 +147,7 @@ export default function KarirDetailClient({ karir }: { karir: Karir }) {
                 <div style={{ backgroundColor: "#0d0d0d", borderRadius: "4px", padding: "22px", position: "relative", overflow: "hidden" }}>
                   <div style={{ position: "absolute", top: "-20px", right: "-20px", width: "80px", height: "80px", borderRadius: "50%", background: "radial-gradient(circle, rgba(12,87,168,0.25) 0%, transparent 70%)", pointerEvents: "none" }} />
                   <h4 style={{ fontSize: "14px", fontWeight: "700", color: "#fff", fontFamily: "var(--font-montserrat)", margin: "0 0 6px" }}>Tertarik Melamar?</h4>
-                  <p style={{ fontSize: "14px", color: "rgba(255,255,255,0.45)", fontFamily: "var(--font-montserrat)", lineHeight: "1.6", margin: "0 0 16px" }}>
+                  <p style={{ fontSize: "14px", color: "rgba(255,255,255,0.45)", fontFamily: "var(--font-source-serif)", lineHeight: "1.6", margin: "0 0 16px" }}>
                     Baca seluruh deskripsi dengan cermat sebelum mengirimkan lamaran.
                   </p>
                   <a href={karir.link_pendaftaran} target="_blank" rel="noopener noreferrer"
@@ -185,7 +185,7 @@ export default function KarirDetailClient({ karir }: { karir: Karir }) {
 
               {/* Warning */}
               <div style={{ backgroundColor: "#fffbeb", border: "1px solid #fbbf24", borderRadius: "4px", padding: "14px 16px" }}>
-                <p style={{ fontSize: "14px", color: "#92400e", lineHeight: "1.65", fontFamily: "var(--font-montserrat)", margin: 0 }}>
+                <p style={{ fontSize: "14px", color: "#92400e", lineHeight: "1.65", fontFamily: "var(--font-source-serif)", margin: 0 }}>
                   <strong>⚠ Peringatan:</strong> Wikimedia Indonesia tidak pernah meminta uang dalam proses rekrutmen. Laporkan ke{" "}
                   <a href="mailto:lowongan@wikimedia.or.id" style={{ color: "#0C57A8", fontWeight: "600", textDecoration: "none" }}>
                     lowongan@wikimedia.or.id

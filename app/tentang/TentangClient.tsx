@@ -240,7 +240,7 @@ export default function TentangPage() {
     <>
       {/* ── HERO ─────────────────────────────────────────────────────────── */}
       <section style={{ padding: "40px 24px 36px", position: "relative", overflow: "hidden", backgroundImage: "url('/banner/Mosaik_Budaya_1.png')", backgroundSize: "cover", backgroundPosition: "center" }}>
-        <div className="hero-parallax" style={{ position: "absolute", inset: 0, background: "linear-gradient(135deg, rgba(8,20,45,0.93) 0%, rgba(10,30,65,0.85) 40%, rgba(15,40,80,0.77) 100%)", pointerEvents: "none" }} />
+        <div className="hero-parallax" style={{ position: "absolute", inset: 0, background: "linear-gradient(135deg, rgba(3,78,159,0.93) 0%, rgba(3,78,159,0.85) 40%, rgba(3,78,159,0.77) 100%)", pointerEvents: "none" }} />
         <div style={{ position: "absolute", inset: 0, backgroundImage: `linear-gradient(rgba(255,255,255,0.03) 1px, transparent 1px), linear-gradient(90deg, rgba(255,255,255,0.03) 1px, transparent 1px)`, backgroundSize: "40px 40px", pointerEvents: "none" }} />
         <div className="hero-dots" />
         <div style={{ position: "absolute", top: "-60px", right: "-60px", width: "260px", height: "260px", borderRadius: "50%", background: "radial-gradient(circle, rgba(12,87,168,0.18) 0%, transparent 70%)", pointerEvents: "none" }} />
@@ -253,10 +253,10 @@ export default function TentangPage() {
             <span style={{ fontSize: "11px", color: "rgba(255,255,255,0.25)", fontFamily: "var(--font-montserrat)" }}>/</span>
             <span style={{ fontSize: "11px", color: "#3b8ed4", fontFamily: "var(--font-montserrat)" }}>Tentang Kami</span>
           </div>
-          <h1 className="hero-title" style={{ fontSize: "clamp(1.7rem, 3vw, 2.5rem)", fontWeight: "700", color: "#fff", fontFamily: "var(--font-montserrat)", margin: "0 0 12px", lineHeight: "1.2" }}>
+          <h1 className="hero-title" style={{ fontSize: "clamp(1.8rem, 3vw, 2.6rem)", fontWeight: "700", color: "#fff", fontFamily: "var(--font-montserrat)", margin: "0 0 12px", lineHeight: "1.2" }}>
             Tentang Wikimedia Indonesia
           </h1>
-          <p className="hero-desc" style={{ fontSize: "14px", color: "rgba(255,255,255,0.55)", fontFamily: "var(--font-montserrat)", lineHeight: "1.7", margin: 0, maxWidth: "560px" }}>
+          <p className="hero-desc" style={{ fontSize: "14px", color: "rgba(255,255,255,0.55)", fontFamily: "var(--font-source-serif)", lineHeight: "1.7", margin: 0, maxWidth: "560px" }}>
             Organisasi nirlaba mitra lokal Wikimedia Foundation yang berdedikasi menyebarluaskan pengetahuan bebas di Indonesia sejak 2008.
           </p>
         </div>
@@ -270,13 +270,13 @@ export default function TentangPage() {
             <div className="reveal">
               <div className="section-border-shimmer" style={{ paddingBottom: "10px", marginBottom: "24px", borderBottom: "3px solid #0d0d0d" }}>
                 <span style={{ fontSize: "11px", fontWeight: "700", letterSpacing: "0.1em", textTransform: "uppercase" as const, color: "#0C57A8", fontFamily: "var(--font-montserrat)" }}>◆ Sejarah</span>
-                <h2 style={{ fontSize: "1.4rem", fontWeight: "700", color: "#0d0d0d", fontFamily: "var(--font-montserrat)", marginTop: "4px", marginBottom: 0 }}>Perjalanan Wikimedia Indonesia</h2>
+                <h2 style={{ fontSize: "18px", fontWeight: "700", color: "#0d0d0d", fontFamily: "var(--font-montserrat)", marginTop: "4px", marginBottom: 0 }}>Perjalanan Wikimedia Indonesia</h2>
               </div>
               <div style={{ marginBottom: "32px", display: "flex", flexDirection: "column", gap: "14px" }}>
-                <p style={{ fontSize: "14px", color: "#3a3a3a", lineHeight: "1.9", fontFamily: "var(--font-montserrat)", margin: 0 }}>
+                <p style={{ fontSize: "14px", color: "#3a3a3a", lineHeight: "1.9", fontFamily: "var(--font-source-serif)", margin: 0 }}>
                   Wikimedia Indonesia dicetuskan untuk didirikan pada pertemuan (kopi darat) sukarelawan penulis Wikipedia bahasa Indonesia pada 22 November 2006 yang dihadiri oleh tujuh orang pengguna. Setelah melalui kurang lebih empat belas pertemuan, pada 2 Mei 2008 upaya ini dikukuhkan dengan penulisan Anggaran Dasar dan Anggaran Rumah Tangga organisasi. Pada awalnya, bentuk organisasi adalah yayasan. Namun, setelah berkonsultasi, bentuk organisasi yang paling tepat adalah perkumpulan dengan kekuasaan terbesar berada di tangan anggota. Wikimedia Indonesia didirikan oleh 19 orang yang kemudian dikenal sebagai "pendiri". Wikimedia Indonesia mengumpulkan dana dari ke-19 pendiri ini sebesar lima juta rupiah. Organisasi berdiri tanpa dukungan dana dari luar dan murni inisiatif para pendirinya.
                 </p>
-                <p style={{ fontSize: "14px", color: "#3a3a3a", lineHeight: "1.9", fontFamily: "var(--font-montserrat)", margin: 0 }}>
+                <p style={{ fontSize: "14px", color: "#3a3a3a", lineHeight: "1.9", fontFamily: "var(--font-source-serif)", margin: 0 }}>
                   Pada 5 September 2008, Wikimedia Indonesia resmi berdiri dan disahkan melalui akta notaris. Di akhir tahun 2010, revisi anggaran dasar dari pemerintah Indonesia melalui Menteri Hukum dan Hak Asasi Manusia diadopsi oleh organisasi dan disahkan pada tahun 2011. Jabatan Direktur Eksekutif pertama (yang kemudian diubah melalui AD/ART revisi tahun 2011 menjadi Ketua Umum) adalah Ivan Lanin. Riwayat orang yang menjabat sebagai Ketua Umum dapat dilihat{" "}
                   <a href="https://id.wikimedia.org/wiki/Ketua_Umum" target="_blank" rel="noopener noreferrer" style={{ color: "#1e4d7b", fontWeight: "600", textDecoration: "underline", textUnderlineOffset: "2px" }}>di sini</a>.
                 </p>
@@ -288,7 +288,7 @@ export default function TentangPage() {
                 <h3 style={{ fontSize: "1.15rem", fontWeight: "700", color: "#fff", fontFamily: "var(--font-montserrat)", margin: "10px 0 12px", lineHeight: "1.4", position: "relative", zIndex: 1 }}>
                   Mendorong Pengetahuan Bebas untuk Semua
                 </h3>
-                <p style={{ fontSize: "14px", color: "rgba(255,255,255,0.55)", fontFamily: "var(--font-montserrat)", margin: 0, lineHeight: "1.8", position: "relative", zIndex: 1 }}>
+                <p style={{ fontSize: "14px", color: "rgba(255,255,255,0.55)", fontFamily: "var(--font-source-serif)", margin: 0, lineHeight: "1.8", position: "relative", zIndex: 1 }}>
                   Mendorong pertumbuhan, pengembangan & penyebaran pengetahuan dalam bahasa Indonesia dan bahasa lainnya yang dipertuturkan di Indonesia secara bebas dan gratis.
                 </p>
               </div>
@@ -319,7 +319,7 @@ export default function TentangPage() {
           <div className="section-border-shimmer reveal" style={{ display: "flex", justifyContent: "space-between", alignItems: "flex-end", paddingBottom: "12px", marginBottom: "24px", borderBottom: "3px solid #0d0d0d" }}>
             <div>
               <span style={{ fontSize: "11px", fontWeight: "700", letterSpacing: "0.1em", textTransform: "uppercase" as const, color: "#0C57A8", fontFamily: "var(--font-montserrat)" }}>◆ Galeri</span>
-              <h2 style={{ fontSize: "1.4rem", fontWeight: "700", color: "#0d0d0d", fontFamily: "var(--font-montserrat)", marginTop: "4px", marginBottom: 0 }}>Kegiatan Wikimedia Indonesia</h2>
+              <h2 style={{ fontSize: "18px", fontWeight: "700", color: "#0d0d0d", fontFamily: "var(--font-montserrat)", marginTop: "4px", marginBottom: 0 }}>Kegiatan Wikimedia Indonesia</h2>
             </div>
             <span style={{ fontSize: "11px", color: "#6b6966", fontFamily: "var(--font-montserrat)" }}>Klik foto · Gunakan ← → atau ESC</span>
           </div>
