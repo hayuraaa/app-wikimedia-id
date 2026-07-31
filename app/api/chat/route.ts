@@ -72,7 +72,7 @@ const PANDUAN_WIKI = [
 const TOOL_DESCRIPTION =
   "Membaca halaman panduan resmi di wiki Wikimedia Indonesia (id.wikimedia.org). " +
   "Halaman Kopdar: 'Kopdar' (ketentuan umum), 'Kopdar/Persiapan_dan_Pelaksanaan', 'Kopdar/Pelaporan'. " +
-  "Halaman WikiLatih: 'WikiLatih' (ketentuan umum, pelatih, dan rekomendasi susunan acara), 'WikiLatih/Persiapan', 'WikiLatih/Bahan_Ajar' (materi ajar), 'WikiLatih/Pelatihan' (tugas pelaksanaan hari-H), 'WikiLatih/Pelaporan'. " +
+  "Halaman WikiLatih: 'WikiLatih' (ketentuan umum, pelatih, dan rekomendasi susunan acara), 'WikiLatih/Persiapan', 'WikiLatih/Bahan_Ajar' (materi ajar), 'WikiLatih/Pelatihan' (tugas pelaksanaan hari-H), 'WikiLatih/Pelaporan' (proses pelaporan aktivitas, DAN dukungan dana/biaya: konsumsi, komunikasi/pulsa, transportasi lokal, penggunaan ruangan, per diem, suvenir). " +
   "Pilih halaman yang paling spesifik dengan pertanyaan pengunjung; boleh membaca lebih dari satu halaman bila perlu.";
 
 const TOOL_JUDUL_DESCRIPTION =
