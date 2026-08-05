@@ -155,59 +155,71 @@ export default function ChatWidget() {
           {/* Header */}
           <div
             style={{
-              padding: "14px 18px",
-              backgroundColor: "#0C57A8",
+              padding: "10px 16px",
+              background: "linear-gradient(135deg, #0a4d99 0%, #0C57A8 60%, #1468c0 100%)",
               display: "flex",
               alignItems: "center",
               justifyContent: "space-between",
-              gap: "12px",
+              gap: "10px",
+              borderBottom: "1px solid rgba(255,255,255,0.1)",
             }}
           >
-            <div style={{ display: "flex", alignItems: "center", gap: "10px" }}>
+            <div style={{ display: "flex", alignItems: "center", gap: "12px" }}>
+              {/* Avatar */}
               <div style={{ position: "relative", flexShrink: 0 }}>
                 <div
                   style={{
-                    width: "34px",
-                    height: "34px",
+                    width: "42px",
+                    height: "42px",
                     borderRadius: "50%",
                     backgroundColor: "#fff",
+                    border: "2.5px solid rgba(255,255,255,0.8)",
+                    overflow: "hidden",
                     display: "flex",
                     alignItems: "center",
                     justifyContent: "center",
-                    overflow: "hidden",
+                    boxShadow: "0 2px 8px rgba(0,0,0,0.2)",
                   }}
                 >
                   {/* eslint-disable-next-line @next/next/no-img-element */}
                   <img
-                    src="/Logo_WMID.png"
+                    src="/Wikipedia's_25th_birthday_mascot_-_Laptop_Baby_Globe.gif"
                     alt="WMID"
-                    style={{ width: "26px", height: "26px", objectFit: "contain" }}
+                    style={{ width: "54px", height: "54px", objectFit: "contain" }}
                   />
                 </div>
                 <div
                   style={{
                     position: "absolute",
-                    bottom: "-2px",
-                    right: "-2px",
-                    width: "15px",
-                    height: "15px",
+                    bottom: "1px",
+                    right: "1px",
+                    width: "13px",
+                    height: "13px",
                     borderRadius: "50%",
                     backgroundColor: "#4CAF50",
-                    border: "2px solid #0C57A8",
-                    display: "flex",
-                    alignItems: "center",
-                    justifyContent: "center",
+                    border: "2px solid #fff",
+                    boxShadow: "0 1px 3px rgba(0,0,0,0.2)",
                   }}
-                >
-                  <svg width="7" height="7" viewBox="0 0 24 24" fill="none" stroke="#fff" strokeWidth="3">
-                    <path d="M21 15a2 2 0 0 1-2 2H7l-4 4V5a2 2 0 0 1 2-2h14a2 2 0 0 1 2 2z" />
-                  </svg>
-                </div>
+                />
               </div>
+              {/* Teks */}
               <div>
-                <div style={{ fontSize: "13px", fontWeight: 700, color: "#fff" }}>Asisten WMID</div>
-                <div style={{ fontSize: "10px", color: "rgba(255,255,255,0.65)" }}>
-                  Tanya seputar program &amp; kegiatan
+                <div style={{ fontSize: "14px", fontWeight: 700, color: "#fff", letterSpacing: "0.01em" }}>
+                  Asisten WMID
+                </div>
+                <div style={{ display: "flex", alignItems: "center", gap: "5px", marginTop: "2px" }}>
+                  <span
+                    style={{
+                      display: "inline-block",
+                      width: "6px",
+                      height: "6px",
+                      borderRadius: "50%",
+                      backgroundColor: "#4CAF50",
+                    }}
+                  />
+                  <span style={{ fontSize: "11px", color: "rgba(255,255,255,0.75)" }}>
+                    Online · siap membantu
+                  </span>
                 </div>
               </div>
             </div>
@@ -498,64 +510,77 @@ export default function ChatWidget() {
           position: "fixed",
           bottom: "20px",
           right: "20px",
-          width: "56px",
-          height: "56px",
-          borderRadius: "50%",
-          backgroundColor: "#0C57A8",
+          background: "none",
           border: "none",
           cursor: "pointer",
-          display: "flex",
-          alignItems: "center",
-          justifyContent: "center",
-          boxShadow: "0 6px 20px rgba(12,87,168,0.4)",
+          padding: 0,
           zIndex: 9999,
           transition: "transform 0.2s",
+          lineHeight: 0,
         }}
         onMouseEnter={(e) => (e.currentTarget.style.transform = "scale(1.06)")}
         onMouseLeave={(e) => (e.currentTarget.style.transform = "scale(1)")}
       >
         {open ? (
-          <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="#fff" strokeWidth="2.5">
-            <path d="M6 18L18 6M6 6l12 12" />
-          </svg>
+          <div
+            style={{
+              width: "56px",
+              height: "56px",
+              borderRadius: "50%",
+              backgroundColor: "#0C57A8",
+              display: "flex",
+              alignItems: "center",
+              justifyContent: "center",
+              boxShadow: "0 6px 20px rgba(12,87,168,0.4)",
+            }}
+          >
+            <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="#fff" strokeWidth="2.5">
+              <path d="M6 18L18 6M6 6l12 12" />
+            </svg>
+          </div>
         ) : (
-          <div style={{ position: "relative", width: "40px", height: "40px", flexShrink: 0 }}>
+          <div style={{ position: "relative", width: "68px", height: "68px" }}>
+            {/* Lingkaran bergaris dengan clip GIF */}
             <div
               style={{
-                width: "100%",
-                height: "100%",
+                width: "68px",
+                height: "68px",
                 borderRadius: "50%",
+                border: "3px solid #0C57A8",
                 backgroundColor: "#fff",
+                overflow: "hidden",
                 display: "flex",
                 alignItems: "center",
                 justifyContent: "center",
-                overflow: "hidden",
+                boxShadow: "0 6px 20px rgba(12,87,168,0.35)",
               }}
             >
               {/* eslint-disable-next-line @next/next/no-img-element */}
               <img
-                src="/Logo_WMID.png"
-                alt="WMID"
-                style={{ width: "30px", height: "30px", objectFit: "contain" }}
+                src="/Wikipedia's_25th_birthday_mascot_-_Laptop_Baby_Globe.gif"
+                alt="Asisten WMID"
+                style={{ width: "88px", height: "88px", objectFit: "contain" }}
               />
             </div>
+            {/* Badge di luar div clip agar tidak terpotong */}
             <div
               style={{
                 position: "absolute",
-                bottom: "-4px",
-                right: "-4px",
+                bottom: "1px",
+                right: "1px",
                 width: "20px",
                 height: "20px",
                 borderRadius: "50%",
-                backgroundColor: "#0C57A8",
-                border: "2px solid #fff",
+                backgroundColor: "#4CAF50",
+                border: "2.5px solid #fff",
                 display: "flex",
                 alignItems: "center",
                 justifyContent: "center",
+                boxShadow: "0 1px 4px rgba(0,0,0,0.2)",
               }}
             >
-              <svg width="11" height="11" viewBox="0 0 24 24" fill="none" stroke="#fff" strokeWidth="2.5">
-                <path d="M21 11.5a8.38 8.38 0 0 1-.9 3.8 8.5 8.5 0 0 1-7.6 4.7 8.38 8.38 0 0 1-3.8-.9L3 21l1.9-5.7a8.38 8.38 0 0 1-.9-3.8 8.5 8.5 0 0 1 4.7-7.6 8.38 8.38 0 0 1 3.8-.9h.5a8.48 8.48 0 0 1 8 8v.5z" />
+              <svg width="9" height="9" viewBox="0 0 24 24" fill="none" stroke="#fff" strokeWidth="3">
+                <path d="M21 15a2 2 0 0 1-2 2H7l-4 4V5a2 2 0 0 1 2-2h14a2 2 0 0 1 2 2z" />
               </svg>
             </div>
           </div>

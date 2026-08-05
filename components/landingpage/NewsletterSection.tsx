@@ -32,15 +32,15 @@ export default function NewsletterSection() {
   };
 
   return (
-    <section style={{ backgroundColor: "#034E9F", padding: "80px 24px", position: "relative", overflow: "hidden" }}>
-      <div style={{ position: "absolute", inset: 0, backgroundImage: `linear-gradient(rgba(255,255,255,0.03) 1px, transparent 1px), linear-gradient(90deg, rgba(255,255,255,0.03) 1px, transparent 1px)`, backgroundSize: "60px 60px" }} />
-      <div style={{ position: "absolute", top: "-80px", right: "-80px", width: "300px", height: "300px", borderRadius: "50%", backgroundColor: "rgba(12,87,168,0.12)" }} />
+    <section style={{ backgroundColor: "#f2f4f7", padding: "80px 24px", position: "relative", overflow: "hidden" }}>
+      <div style={{ position: "absolute", inset: 0, backgroundImage: `linear-gradient(rgba(0,0,0,0.04) 1px, transparent 1px), linear-gradient(90deg, rgba(0,0,0,0.04) 1px, transparent 1px)`, backgroundSize: "60px 60px" }} />
+      <div style={{ position: "absolute", top: "-80px", right: "-80px", width: "300px", height: "300px", borderRadius: "50%", backgroundColor: "rgba(12,87,168,0.06)" }} />
 
       <div className="reveal" style={{ maxWidth: "700px", margin: "0 auto", textAlign: "center", position: "relative", zIndex: 1 }}>
-        <h2 style={{ fontSize: "clamp(1.8rem, 3vw, 2.6rem)", fontWeight: "700", color: "#ffffff", fontFamily: "var(--font-montserrat)", margin: "12px 0 16px", lineHeight: "1.2" }}>
+        <h2 style={{ fontSize: "clamp(1.8rem, 3vw, 2.6rem)", fontWeight: "700", color: "#0d1117", fontFamily: "var(--font-montserrat)", margin: "12px 0 16px", lineHeight: "1.2" }}>
           Jadilah Bagian dari Gerakan Pengetahuan Bebas
         </h2>
-        <p style={{ fontSize: "15px", color: "rgba(255,255,255,0.65)", lineHeight: "1.8", marginBottom: "40px", fontFamily: "var(--font-source-serif)" }}>
+        <p style={{ fontSize: "15px", color: "rgba(0,0,0,0.55)", lineHeight: "1.8", marginBottom: "40px", fontFamily: "var(--font-source-serif)" }}>
           Daftarkan surel anda untuk mendapatkan kabar terbaru tentang program, acara, dan perkembangan Wikimedia Indonesia langsung di kotak masukmu.
         </p>
 
@@ -70,7 +70,7 @@ export default function NewsletterSection() {
             <div style={{
               display: "flex", maxWidth: "480px", width: "100%",
               borderRadius: "3px", overflow: "hidden",
-              border: submitStatus === "error" ? "1px solid rgba(220,38,38,0.5)" : "1px solid rgba(255,255,255,0.2)",
+              border: submitStatus === "error" ? "1px solid rgba(220,38,38,0.5)" : "1px solid rgba(0,0,0,0.15)",
             }}>
               <input
                 type="email"
@@ -81,8 +81,8 @@ export default function NewsletterSection() {
                 style={{
                   flex: 1, padding: "14px 20px", fontSize: "14px",
                   border: "none", outline: "none",
-                  backgroundColor: "rgba(255,255,255,0.08)",
-                  color: "#ffffff", fontFamily: "var(--font-montserrat)",
+                  backgroundColor: "#ffffff",
+                  color: "#0d1117", fontFamily: "var(--font-montserrat)",
                 }}
               />
               <button
@@ -128,7 +128,7 @@ export default function NewsletterSection() {
           </div>
         )}
 
-        <p style={{ fontSize: "14px", color: "rgba(255,255,255,0.35)", marginTop: "16px", fontFamily: "var(--font-source-serif)" }}>
+        <p style={{ fontSize: "14px", color: "rgba(0,0,0,0.4)", marginTop: "16px", fontFamily: "var(--font-source-serif)" }}>
           Kami tidak akan mengirim spam. Anda dapat berhenti berlangganan kapan saja.
         </p>
       </div>

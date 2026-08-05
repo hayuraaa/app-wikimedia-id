@@ -87,14 +87,7 @@ export default function Footer() {
   const currentYear = new Date().getFullYear();
 
   return (
-    <footer style={{ backgroundColor: "#0d0d0d", color: "#f8f8f6" }}>
-      <div
-        style={{
-          height: "3px",
-          background:
-            "linear-gradient(90deg, #0C57A8 0%, #1a3a5c 50%, #1e4d7b 100%)",
-        }}
-      />
+    <footer style={{ backgroundColor: "#0C57A8", color: "#f8f8f6" }}>
 
       <div
         style={{
