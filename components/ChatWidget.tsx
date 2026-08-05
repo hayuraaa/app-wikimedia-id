@@ -539,13 +539,25 @@ export default function ChatWidget() {
             </svg>
           </div>
         ) : (
-          <div style={{ position: "relative", width: "100px", height: "100px" }}>
-            {/* eslint-disable-next-line @next/next/no-img-element */}
-            <img
-              src="/Wikipedia's_25th_birthday_mascot_-_Laptop_Baby_Globe.gif"
-              alt="Asisten WMID"
-              style={{ width: "100px", height: "100px", objectFit: "contain" }}
-            />
+          <div style={{ position: "relative", width: "72px", height: "72px" }}>
+            <div style={{
+              width: "72px",
+              height: "72px",
+              borderRadius: "50%",
+              backgroundColor: "#fff",
+              boxShadow: "0 4px 16px rgba(0,0,0,0.15)",
+              overflow: "hidden",
+              display: "flex",
+              alignItems: "center",
+              justifyContent: "center",
+            }}>
+              {/* eslint-disable-next-line @next/next/no-img-element */}
+              <img
+                src="/Wikipedia's_25th_birthday_mascot_-_Laptop_Baby_Globe.gif"
+                alt="Asisten WMID"
+                style={{ width: "90px", height: "90px", objectFit: "contain" }}
+              />
+            </div>
             <div
               style={{
                 position: "absolute",
