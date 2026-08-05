@@ -539,50 +539,26 @@ export default function ChatWidget() {
             </svg>
           </div>
         ) : (
-          <div style={{ position: "relative", width: "68px", height: "68px" }}>
-            {/* Lingkaran bergaris dengan clip GIF */}
-            <div
-              style={{
-                width: "68px",
-                height: "68px",
-                borderRadius: "50%",
-                border: "3px solid #0C57A8",
-                backgroundColor: "#fff",
-                overflow: "hidden",
-                display: "flex",
-                alignItems: "center",
-                justifyContent: "center",
-                boxShadow: "0 6px 20px rgba(12,87,168,0.35)",
-              }}
-            >
-              {/* eslint-disable-next-line @next/next/no-img-element */}
-              <img
-                src="/Wikipedia's_25th_birthday_mascot_-_Laptop_Baby_Globe.gif"
-                alt="Asisten WMID"
-                style={{ width: "88px", height: "88px", objectFit: "contain" }}
-              />
-            </div>
-            {/* Badge di luar div clip agar tidak terpotong */}
+          <div style={{ position: "relative", width: "100px", height: "100px" }}>
+            {/* eslint-disable-next-line @next/next/no-img-element */}
+            <img
+              src="/Wikipedia's_25th_birthday_mascot_-_Laptop_Baby_Globe.gif"
+              alt="Asisten WMID"
+              style={{ width: "100px", height: "100px", objectFit: "contain" }}
+            />
             <div
               style={{
                 position: "absolute",
-                bottom: "1px",
-                right: "1px",
-                width: "20px",
-                height: "20px",
+                bottom: "4px",
+                right: "4px",
+                width: "18px",
+                height: "18px",
                 borderRadius: "50%",
                 backgroundColor: "#4CAF50",
-                border: "2.5px solid #fff",
-                display: "flex",
-                alignItems: "center",
-                justifyContent: "center",
-                boxShadow: "0 1px 4px rgba(0,0,0,0.2)",
+                border: "2px solid #fff",
+                boxShadow: "0 1px 4px rgba(0,0,0,0.25)",
               }}
-            >
-              <svg width="9" height="9" viewBox="0 0 24 24" fill="none" stroke="#fff" strokeWidth="3">
-                <path d="M21 15a2 2 0 0 1-2 2H7l-4 4V5a2 2 0 0 1 2-2h14a2 2 0 0 1 2 2z" />
-              </svg>
-            </div>
+            />
           </div>
         )}
       </button>

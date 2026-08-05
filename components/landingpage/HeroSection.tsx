@@ -56,13 +56,13 @@ export default function HeroSection() {
 
             <div className="hero-buttons hero-buttons-wrap" style={{ display: "flex", gap: "14px", flexWrap: "wrap" as const }}>
               <Link
-                href="/#artikel-terbaru"
+                href="/donasi"
                 className="btn-ripple"
                 style={{ display: "inline-flex", alignItems: "center", gap: "8px", padding: "13px 26px", backgroundColor: "#F9EE75", color: "#000000", fontSize: "13px", fontWeight: "700", letterSpacing: "0.06em", textTransform: "uppercase" as const, textDecoration: "none", fontFamily: "var(--font-montserrat)", transition: "all 0.2s", borderRadius: "2px" }}
-                onMouseEnter={(e) => (e.currentTarget.style.backgroundColor = "#0a4a8f")}
+                onMouseEnter={(e) => (e.currentTarget.style.backgroundColor = "#EAD94A")}
                 onMouseLeave={(e) => (e.currentTarget.style.backgroundColor = "#F9EE75")}
               >
-                Jelajahi
+                Donasi
                 <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2.5"><path d="M5 12h14M12 5l7 7-7 7" /></svg>
               </Link>
               <Link
