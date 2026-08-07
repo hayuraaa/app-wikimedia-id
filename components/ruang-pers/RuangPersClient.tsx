@@ -1,7 +1,6 @@
 "use client";
 
 import { useState, useEffect, useCallback } from "react";
-import Image from "next/image";
 import Link from "next/link";
 import type { PressRelease, Meta } from "@/app/ruang-pers/page";
 
@@ -27,114 +26,58 @@ const stripHtml = (html: string) => html.replace(/<[^>]*>/g, "").replace(/&nbsp;
 
 const BASE = "https://dashboard.wikimedia.or.id/api/v1";
 
-// ─── Card ─────────────────────────────────────────────────────────────────────
+// ─── List Item ────────────────────────────────────────────────────────────────
 
-function PressReleaseCard({ pr, featured = false }: { pr: PressRelease; featured?: boolean }) {
-  if (featured) {
-    return (
-      <Link href={`/ruang-pers/${pr.slug}`} style={{ textDecoration: "none", display: "block" }}>
-        <article
-          className="card-glow"
-          style={{
-            border: "1px solid #e5e2dd",
-            borderRadius: "4px",
-            overflow: "hidden",
-            backgroundColor: "#fff",
-            display: "grid",
-            gridTemplateColumns: pr.featured_image ? "1fr 1fr" : "1fr",
-          }}
-        >
-          {pr.featured_image && (
-            <div style={{ height: "280px", overflow: "hidden", position: "relative" }}>
-              <Image
-                src={pr.featured_image}
-                alt={pr.title}
-                fill
-                sizes="(max-width: 768px) 100vw, 50vw"
-                style={{ objectFit: "cover", transition: "transform 0.4s" }}
-                onMouseEnter={(e) => (e.currentTarget.style.transform = "scale(1.04)")}
-                onMouseLeave={(e) => (e.currentTarget.style.transform = "scale(1)")}
-              />
-              <div style={{ position: "absolute", inset: 0, background: "linear-gradient(to right, transparent 70%, #fff)", pointerEvents: "none" }} />
-            </div>
-          )}
-          <div style={{ padding: "32px 36px", display: "flex", flexDirection: "column", gap: "12px", justifyContent: "center" }}>
-            <div style={{ display: "flex", alignItems: "center", gap: "10px" }}>
-              <span style={{ fontSize: "10px", fontWeight: "700", letterSpacing: "0.1em", textTransform: "uppercase" as const, color: "#0C57A8", backgroundColor: "rgba(12,87,168,0.08)", padding: "3px 10px", borderRadius: "2px", fontFamily: "var(--font-montserrat)" }}>
-                ◆ Siaran Pers
-              </span>
-              <span style={{ fontSize: "11px", color: "#6b6966", fontFamily: "var(--font-montserrat)" }}>
-                {formatDateLong(pr.published_at)}
-              </span>
-            </div>
-            <h2 style={{ fontSize: "clamp(1.1rem, 2vw, 1.5rem)", fontWeight: "700", color: "#0d0d0d", lineHeight: "1.35", fontFamily: "var(--font-montserrat)", margin: 0 }}>
-              {pr.title}
-            </h2>
-            <p style={{ fontSize: "13px", color: "#5c5a57", lineHeight: "1.7", fontFamily: "var(--font-source-serif)", margin: 0, display: "-webkit-box", WebkitLineClamp: 3, WebkitBoxOrient: "vertical" as const, overflow: "hidden" }}>
-              {stripHtml(pr.excerpt)}
-            </p>
-            <div style={{ display: "flex", alignItems: "center", gap: "6px", marginTop: "4px" }}>
-              <span style={{ fontSize: "12px", fontWeight: "600", color: "#0C57A8", fontFamily: "var(--font-montserrat)" }}>
-                Baca selengkapnya
-              </span>
-              <svg width="13" height="13" viewBox="0 0 24 24" fill="none" stroke="#0C57A8" strokeWidth="2.5"><path d="M5 12h14M12 5l7 7-7 7"/></svg>
-            </div>
-          </div>
-        </article>
-      </Link>
-    );
-  }
-
+function PressReleaseItem({ pr }: { pr: PressRelease }) {
   return (
-    <Link href={`/ruang-pers/${pr.slug}`} style={{ textDecoration: "none", display: "block", height: "100%" }}>
+    <Link href={`/ruang-pers/${pr.slug}`} style={{ textDecoration: "none", display: "block" }}>
       <article
-        className="card-glow"
+        className="pers-item"
         style={{
-          border: "1px solid #e5e2dd",
-          borderRadius: "4px",
-          overflow: "hidden",
-          height: "100%",
-          backgroundColor: "#fff",
           display: "flex",
-          flexDirection: "column",
+          alignItems: "flex-start",
+          gap: "20px",
+          padding: "18px 20px",
+          backgroundColor: "#fff",
+          borderBottom: "1px solid #f0eeec",
+          transition: "background 0.15s",
         }}
       >
-        <div style={{ height: "180px", backgroundColor: "#f0eeec", overflow: "hidden", borderBottom: "1px solid #e5e2dd", flexShrink: 0, position: "relative" }}>
-          {pr.featured_image ? (
-            <Image
-              src={pr.featured_image}
-              alt={pr.title}
-              fill
-              sizes="(max-width: 560px) 100vw, (max-width: 1100px) 50vw, 33vw"
-              style={{ objectFit: "cover", transition: "transform 0.3s" }}
-              onMouseEnter={(e) => (e.currentTarget.style.transform = "scale(1.05)")}
-              onMouseLeave={(e) => (e.currentTarget.style.transform = "scale(1)")}
-            />
-          ) : (
-            <div style={{ width: "100%", height: "100%", display: "flex", alignItems: "center", justifyContent: "center", background: "linear-gradient(135deg, #f0eeec, #e5e2dd)" }}>
-              <svg width="36" height="36" viewBox="0 0 24 24" fill="none" stroke="#c5c3bf" strokeWidth="1.5"><path d="M14 2H6a2 2 0 0 0-2 2v16a2 2 0 0 0 2 2h12a2 2 0 0 0 2-2V8z"/><polyline points="14 2 14 8 20 8"/><line x1="16" y1="13" x2="8" y2="13"/><line x1="16" y1="17" x2="8" y2="17"/><polyline points="10 9 9 9 8 9"/></svg>
-            </div>
-          )}
+        {/* Tanggal */}
+        <div style={{ flexShrink: 0, width: "70px", textAlign: "center", paddingTop: "2px" }}>
+          <div style={{ fontSize: "20px", fontWeight: "700", color: "#0C57A8", lineHeight: 1, fontFamily: "var(--font-montserrat)" }}>
+            {new Date(pr.published_at).toLocaleDateString("id-ID", { day: "numeric", timeZone: "Asia/Jakarta" })}
+          </div>
+          <div style={{ fontSize: "10px", fontWeight: "600", color: "#a5a3a0", textTransform: "uppercase" as const, letterSpacing: "0.08em", fontFamily: "var(--font-montserrat)", marginTop: "2px" }}>
+            {new Date(pr.published_at).toLocaleDateString("id-ID", { month: "short", year: "numeric", timeZone: "Asia/Jakarta" })}
+          </div>
         </div>
-        <div style={{ padding: "16px 18px", flex: 1, display: "flex", flexDirection: "column", gap: "8px" }}>
-          <span style={{ fontSize: "11px", color: "#6b6966", fontFamily: "var(--font-montserrat)" }}>
-            {formatDateShort(pr.published_at)}
-          </span>
-          <h3 style={{ fontSize: "14px", fontWeight: "600", color: "#0d0d0d", lineHeight: "1.5", fontFamily: "var(--font-montserrat)", margin: 0 }}>
+
+        {/* Divider vertikal */}
+        <div style={{ width: "1px", alignSelf: "stretch", backgroundColor: "#e5e2dd", flexShrink: 0 }} />
+
+        {/* Konten */}
+        <div style={{ flex: 1, minWidth: 0 }}>
+          <h3 style={{ fontSize: "15px", fontWeight: "700", color: "#0d0d0d", lineHeight: "1.45", fontFamily: "var(--font-montserrat)", margin: "0 0 6px" }}>
             {pr.title}
           </h3>
-          <p style={{ fontSize: "14px", color: "#6b6966", lineHeight: "1.6", fontFamily: "var(--font-source-serif)", display: "-webkit-box", WebkitLineClamp: 2, WebkitBoxOrient: "vertical" as const, overflow: "hidden", margin: 0, flex: 1 }}>
+          <p style={{ fontSize: "13px", color: "#6b6966", lineHeight: "1.65", fontFamily: "var(--font-source-serif)", margin: "0 0 8px", display: "-webkit-box", WebkitLineClamp: 2, WebkitBoxOrient: "vertical" as const, overflow: "hidden" }}>
             {stripHtml(pr.excerpt)}
           </p>
-          <div style={{ display: "flex", alignItems: "center", justifyContent: "space-between", paddingTop: "10px", borderTop: "1px solid #f0eeec", marginTop: "auto" }}>
-            <span style={{ fontSize: "11px", color: "#5c5a57", fontFamily: "var(--font-montserrat)" }}>
+          <div style={{ display: "flex", alignItems: "center", gap: "12px" }}>
+            <span style={{ fontSize: "11px", color: "#a5a3a0", fontFamily: "var(--font-montserrat)" }}>
               {pr.creator?.name ?? "—"}
             </span>
-            <span style={{ display: "flex", alignItems: "center", gap: "4px", fontSize: "11px", color: "#6b6966", fontFamily: "var(--font-montserrat)" }}>
-              <svg width="12" height="12" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2"><path d="M1 12s4-8 11-8 11 8 11 8-4 8-11 8-11-8-11-8z"/><circle cx="12" cy="12" r="3"/></svg>
+            <span style={{ display: "flex", alignItems: "center", gap: "3px", fontSize: "11px", color: "#a5a3a0", fontFamily: "var(--font-montserrat)" }}>
+              <svg width="11" height="11" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2"><path d="M1 12s4-8 11-8 11 8 11 8-4 8-11 8-11-8-11-8z"/><circle cx="12" cy="12" r="3"/></svg>
               {pr.views.toLocaleString("id-ID")}
             </span>
           </div>
+        </div>
+
+        {/* Arrow */}
+        <div style={{ flexShrink: 0, display: "flex", alignItems: "center", paddingTop: "2px" }}>
+          <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="#c5c3bf" strokeWidth="2"><path d="M9 18l6-6-6-6"/></svg>
         </div>
       </article>
     </Link>
@@ -143,31 +86,18 @@ function PressReleaseCard({ pr, featured = false }: { pr: PressRelease; featured
 
 // ─── Skeleton ─────────────────────────────────────────────────────────────────
 
-function CardSkeleton() {
+function ListSkeleton() {
   return (
-    <div style={{ border: "1px solid #e5e2dd", borderRadius: "4px", overflow: "hidden", backgroundColor: "#fff" }}>
-      <div className="skeleton" style={{ height: "180px" }} />
-      <div style={{ padding: "16px 18px", display: "flex", flexDirection: "column", gap: "8px" }}>
-        <div className="skeleton" style={{ height: "10px", borderRadius: "2px", width: "30%" }} />
-        <div className="skeleton" style={{ height: "15px", borderRadius: "2px" }} />
-        <div className="skeleton" style={{ height: "15px", borderRadius: "2px", width: "80%" }} />
-        <div className="skeleton" style={{ height: "11px", borderRadius: "2px", width: "50%", marginTop: "4px" }} />
+    <div style={{ display: "flex", alignItems: "flex-start", gap: "20px", padding: "18px 20px", backgroundColor: "#fff", borderBottom: "1px solid #f0eeec" }}>
+      <div style={{ flexShrink: 0, width: "70px", display: "flex", flexDirection: "column", gap: "6px", alignItems: "center" }}>
+        <div className="skeleton" style={{ height: "22px", width: "32px", borderRadius: "2px" }} />
+        <div className="skeleton" style={{ height: "10px", width: "50px", borderRadius: "2px" }} />
       </div>
-    </div>
-  );
-}
-
-function FeaturedSkeleton() {
-  return (
-    <div style={{ border: "1px solid #e5e2dd", borderRadius: "4px", overflow: "hidden", backgroundColor: "#fff", display: "grid", gridTemplateColumns: "1fr 1fr" }}>
-      <div className="skeleton" style={{ height: "280px" }} />
-      <div style={{ padding: "32px 36px", display: "flex", flexDirection: "column", gap: "12px" }}>
-        <div className="skeleton" style={{ height: "12px", width: "40%", borderRadius: "2px" }} />
-        <div className="skeleton" style={{ height: "28px", borderRadius: "2px" }} />
-        <div className="skeleton" style={{ height: "28px", width: "70%", borderRadius: "2px" }} />
-        <div className="skeleton" style={{ height: "13px", borderRadius: "2px", marginTop: "4px" }} />
-        <div className="skeleton" style={{ height: "13px", borderRadius: "2px" }} />
-        <div className="skeleton" style={{ height: "13px", width: "60%", borderRadius: "2px" }} />
+      <div style={{ width: "1px", alignSelf: "stretch", backgroundColor: "#e5e2dd", flexShrink: 0 }} />
+      <div style={{ flex: 1, display: "flex", flexDirection: "column", gap: "8px" }}>
+        <div className="skeleton" style={{ height: "16px", borderRadius: "2px" }} />
+        <div className="skeleton" style={{ height: "16px", borderRadius: "2px", width: "75%" }} />
+        <div className="skeleton" style={{ height: "12px", borderRadius: "2px", width: "40%", marginTop: "2px" }} />
       </div>
     </div>
   );
@@ -290,9 +220,6 @@ export default function RuangPersClient({
     setMeta(initialMeta);
   };
 
-  // First item as featured, rest as grid
-  const featured = !loading && pressReleases.length > 0 && currentPage === 1 && !searchQuery ? pressReleases[0] : null;
-  const gridItems = featured ? pressReleases.slice(1) : pressReleases;
 
   return (
     <>
@@ -385,12 +312,9 @@ export default function RuangPersClient({
           </div>
 
           {loading ? (
-            <>
-              <FeaturedSkeleton />
-              <div style={{ marginTop: "24px" }} className="pers-grid">
-                {[...Array(8)].map((_, i) => <CardSkeleton key={i} />)}
-              </div>
-            </>
+            <div style={{ border: "1px solid #e5e2dd", borderRadius: "4px", overflow: "hidden" }}>
+              {[...Array(9)].map((_, i) => <ListSkeleton key={i} />)}
+            </div>
           ) : pressReleases.length === 0 ? (
             <div style={{ padding: "60px 24px", textAlign: "center", backgroundColor: "#fff", border: "1px solid #e5e2dd", borderRadius: "4px" }}>
               <span style={{ fontSize: "40px", opacity: 0.2 }}>🔍</span>
@@ -401,19 +325,9 @@ export default function RuangPersClient({
             </div>
           ) : (
             <>
-              {/* Featured — only first page, no search */}
-              {featured && (
-                <div style={{ marginBottom: "24px" }}>
-                  <PressReleaseCard pr={featured} featured />
-                </div>
-              )}
-
-              {/* Grid */}
-              {gridItems.length > 0 && (
-                <div className="pers-grid" style={{ display: "grid", gridTemplateColumns: "repeat(3, 1fr)", gap: "20px" }}>
-                  {gridItems.map((pr) => <PressReleaseCard key={pr.id} pr={pr} />)}
-                </div>
-              )}
+              <div style={{ border: "1px solid #e5e2dd", borderRadius: "4px", overflow: "hidden" }}>
+                {pressReleases.map((pr) => <PressReleaseItem key={pr.id} pr={pr} />)}
+              </div>
 
               {meta && meta.last_page > 1 && (
                 <Pagination meta={meta} onPageChange={(p) => setCurrentPage(p)} />
@@ -424,17 +338,8 @@ export default function RuangPersClient({
       </section>
 
       <style>{`
-        @media (max-width: 1100px) {
-          .pers-grid { grid-template-columns: repeat(2, 1fr) !important; }
-        }
-        @media (max-width: 560px) {
-          .pers-grid { grid-template-columns: 1fr !important; }
-        }
-        @media (max-width: 768px) {
-          article[style*="grid-template-columns: 1fr 1fr"] {
-            grid-template-columns: 1fr !important;
-          }
-        }
+        .pers-item:hover { background-color: #f8f7f5 !important; }
+        .pers-item:last-child { border-bottom: none !important; }
       `}</style>
     </>
   );

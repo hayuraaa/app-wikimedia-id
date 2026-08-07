@@ -183,7 +183,7 @@ export default function ChatWidget() {
                 >
                   {/* eslint-disable-next-line @next/next/no-img-element */}
                   <img
-                    src="/Neutral_Baby_Globe.gif"
+                    src="/Neutral_Baby_Globe-1.gif"
                     alt="WMID"
                     style={{ width: "54px", height: "54px", objectFit: "contain" }}
                   />
@@ -542,7 +542,7 @@ export default function ChatWidget() {
           <div style={{ position: "relative", width: "80px", height: "80px" }}>
               {/* eslint-disable-next-line @next/next/no-img-element */}
               <img
-                src="/Neutral_Baby_Globe.gif"
+                src="/Neutral_Baby_Globe-1.gif"
                 alt="Asisten WMID"
                 style={{ width: "80px", height: "80px", objectFit: "contain" }}
               />
