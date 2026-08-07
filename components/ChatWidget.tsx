@@ -205,7 +205,7 @@ export default function ChatWidget() {
               {/* Teks */}
               <div>
                 <div style={{ fontSize: "14px", fontWeight: 700, color: "#fff", letterSpacing: "0.01em" }}>
-                  Asisten WMID
+                  Tanya Baby Globe
                 </div>
                 <div style={{ display: "flex", alignItems: "center", gap: "5px", marginTop: "2px" }}>
                   <span
