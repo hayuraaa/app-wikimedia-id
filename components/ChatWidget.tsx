@@ -13,26 +13,20 @@ const SUGGESTIONS = [
 
 const MAX_HISTORY = 20;
 
-const PIN = "2026";
-
 // sessionStorage: bertahan selama tab masih terbuka, hilang saat ditutup —
 // jadi refresh halaman tidak menghapus percakapan yang sedang berlangsung.
 const SESSION_KEY = "wmid_chat_session";
 
-type StoredSession = { messages: Message[]; unlocked: boolean };
+type StoredSession = { messages: Message[] };
 
 export default function ChatWidget() {
   const [open, setOpen] = useState(false);
   const [expanded, setExpanded] = useState(false);
-  const [unlocked, setUnlocked] = useState(false);
-  const [pin, setPin] = useState("");
-  const [pinError, setPinError] = useState(false);
   const [messages, setMessages] = useState<Message[]>([]);
   const [input, setInput] = useState("");
   const [loading, setLoading] = useState(false);
   const [hydrated, setHydrated] = useState(false);
   const listRef = useRef<HTMLDivElement>(null);
-  const pinRef = useRef<HTMLInputElement>(null);
 
   // Muat sesi tersimpan sekali saat komponen dipasang di klien.
   useEffect(() => {
@@ -41,7 +35,6 @@ export default function ChatWidget() {
       if (raw) {
         const stored: StoredSession = JSON.parse(raw);
         if (Array.isArray(stored.messages)) setMessages(stored.messages);
-        if (stored.unlocked) setUnlocked(true);
       }
     } catch {
       // abaikan sessionStorage yang rusak/tidak tersedia
@@ -54,31 +47,16 @@ export default function ChatWidget() {
   useEffect(() => {
     if (!hydrated) return;
     try {
-      const stored: StoredSession = { messages, unlocked };
+      const stored: StoredSession = { messages };
       sessionStorage.setItem(SESSION_KEY, JSON.stringify(stored));
     } catch {
       // abaikan bila sessionStorage penuh/tidak tersedia
     }
-  }, [messages, unlocked, hydrated]);
+  }, [messages, hydrated]);
 
   useEffect(() => {
     listRef.current?.scrollTo({ top: listRef.current.scrollHeight, behavior: "smooth" });
   }, [messages, loading]);
-
-  useEffect(() => {
-    if (open && !unlocked) setTimeout(() => pinRef.current?.focus(), 100);
-  }, [open, unlocked]);
-
-  const submitPin = () => {
-    if (pin === PIN) {
-      setUnlocked(true);
-      setPinError(false);
-      setPin("");
-    } else {
-      setPinError(true);
-      setPin("");
-    }
-  };
 
   const send = async (text: string) => {
     const trimmed = text.trim();
@@ -263,112 +241,7 @@ export default function ChatWidget() {
             </div>
           </div>
 
-          {/* PIN gate — tampil saat belum unlock */}
-          {!unlocked ? (
-            <div
-              style={{
-                flex: 1,
-                display: "flex",
-                flexDirection: "column",
-                alignItems: "center",
-                justifyContent: "center",
-                padding: "28px 24px",
-                backgroundColor: "#f8f7f5",
-                gap: "20px",
-                textAlign: "center",
-              }}
-            >
-              {/* Ikon konstruksi */}
-              <div
-                style={{
-                  width: "56px",
-                  height: "56px",
-                  borderRadius: "50%",
-                  backgroundColor: "#F9EE75",
-                  display: "flex",
-                  alignItems: "center",
-                  justifyContent: "center",
-                  fontSize: "26px",
-                }}
-              >
-                🔧
-              </div>
-
-              <div>
-                <div
-                  style={{
-                    fontSize: "14px",
-                    fontWeight: 700,
-                    color: "#2a2a28",
-                    marginBottom: "8px",
-                  }}
-                >
-                  Tahap Pengembangan
-                </div>
-                <div
-                  style={{
-                    fontSize: "12px",
-                    color: "#6b6966",
-                    lineHeight: 1.6,
-                    maxWidth: "260px",
-                  }}
-                >
-                  Chatbot ini masih dalam tahap pengembangan, masukkan PIN untuk ujicoba.
-                </div>
-              </div>
-
-              {/* Input PIN */}
-              <div style={{ display: "flex", flexDirection: "column", alignItems: "center", gap: "10px", width: "100%" }}>
-                <input
-                  ref={pinRef}
-                  type="password"
-                  inputMode="numeric"
-                  maxLength={6}
-                  value={pin}
-                  onChange={(e) => { setPin(e.target.value); if (pinError) setPinError(false); }}
-                  onKeyDown={(e) => { if (e.key === "Enter") submitPin(); }}
-                  placeholder="Masukkan PIN"
-                  style={{
-                    width: "180px",
-                    padding: "10px 16px",
-                    fontSize: "18px",
-                    letterSpacing: "6px",
-                    fontFamily: "var(--font-montserrat)",
-                    textAlign: "center",
-                    border: pinError ? "1.5px solid #e53935" : "1.5px solid #d0cec9",
-                    borderRadius: "10px",
-                    outline: "none",
-                    backgroundColor: "#fff",
-                    color: "#2a2a28",
-                  }}
-                />
-                {pinError && (
-                  <div style={{ fontSize: "12px", color: "#e53935", fontWeight: 600 }}>
-                    PIN salah. Silakan coba lagi.
-                  </div>
-                )}
-                <button
-                  onClick={submitPin}
-                  disabled={pin.length === 0}
-                  style={{
-                    padding: "10px 32px",
-                    fontSize: "13px",
-                    fontWeight: 700,
-                    fontFamily: "var(--font-montserrat)",
-                    backgroundColor: pin.length === 0 ? "#c9d7e8" : "#0C57A8",
-                    color: "#fff",
-                    border: "none",
-                    borderRadius: "20px",
-                    cursor: pin.length === 0 ? "default" : "pointer",
-                    transition: "background 0.2s",
-                  }}
-                >
-                  Masuk
-                </button>
-              </div>
-            </div>
-          ) : (
-            <>
+          <>
               {/* Daftar pesan */}
               <div
                 ref={listRef}
@@ -497,8 +370,7 @@ export default function ChatWidget() {
                   </a>
                 </div>
               </div>
-            </>
-          )}
+          </>
         </div>
       )}
 
