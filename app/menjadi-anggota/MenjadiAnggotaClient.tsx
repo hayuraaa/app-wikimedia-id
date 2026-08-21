@@ -348,7 +348,7 @@ export default function MenjadiAnggotaPage() {
                   ].map((point, i) => (
                     <div key={i} style={{ display: "flex", gap: "12px", alignItems: "flex-start" }}>
                       <span style={{ width: "6px", height: "6px", borderRadius: "50%", backgroundColor: "#0C57A8", flexShrink: 0, marginTop: "9px" }} />
-                      <span style={{ fontSize: "14px", color: "#3a3a3a", lineHeight: "1.75", fontFamily: "var(--font-source-serif)" }}>{point}</span>
+                      <span style={{ fontSize: "13px", color: "#3a3a3a", lineHeight: "1.65", fontFamily: "var(--font-montserrat)" }}>{point}</span>
                     </div>
                   ))}
                 </div>
