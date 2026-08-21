@@ -138,18 +138,18 @@ export default function DonasiPage() {
                 </div>
 
                 {/* CTA Card */}
-                <div style={{ backgroundColor: "#0d0d0d", borderRadius: "4px", padding: "32px 36px", position: "relative", overflow: "hidden", display: "flex", alignItems: "center", justifyContent: "space-between", gap: "24px", flexWrap: "wrap" as const }}>
-                  <div style={{ position: "absolute", top: "-50px", right: "-50px", width: "200px", height: "200px", borderRadius: "50%", background: "radial-gradient(circle, rgba(12,87,168,0.25) 0%, transparent 70%)", pointerEvents: "none" }} />
-                  <div style={{ position: "absolute", bottom: "-30px", left: "30%", width: "120px", height: "120px", borderRadius: "50%", background: "radial-gradient(circle, rgba(30,77,123,0.12) 0%, transparent 70%)", pointerEvents: "none" }} />
+                <div style={{ backgroundColor: "#f2f4f7", borderRadius: "4px", padding: "32px 36px", position: "relative", overflow: "hidden", display: "flex", alignItems: "center", justifyContent: "space-between", gap: "24px", flexWrap: "wrap" as const }}>
+                  <div style={{ position: "absolute", top: "-50px", right: "-50px", width: "200px", height: "200px", borderRadius: "50%", background: "radial-gradient(circle, rgba(12,87,168,0.07) 0%, transparent 70%)", pointerEvents: "none" }} />
+                  <div style={{ position: "absolute", bottom: "-30px", left: "30%", width: "120px", height: "120px", borderRadius: "50%", background: "radial-gradient(circle, rgba(30,77,123,0.05) 0%, transparent 70%)", pointerEvents: "none" }} />
                   <div style={{ position: "relative", zIndex: 1 }}>
                     <div style={{ display: "flex", alignItems: "center", gap: "8px", marginBottom: "8px" }}>
                       <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="#3b8ed4" strokeWidth="2"><path d="M20.84 4.61a5.5 5.5 0 0 0-7.78 0L12 5.67l-1.06-1.06a5.5 5.5 0 0 0-7.78 7.78l1.06 1.06L12 21.23l7.78-7.78 1.06-1.06a5.5 5.5 0 0 0 0-7.78z"/></svg>
                       <span style={{ fontSize: "11px", fontWeight: "700", color: "#3b8ed4", fontFamily: "var(--font-montserrat)", letterSpacing: "0.08em", textTransform: "uppercase" as const }}>Donasi Sekarang</span>
                     </div>
-                    <h3 style={{ fontSize: "1.2rem", fontWeight: "700", color: "#fff", fontFamily: "var(--font-montserrat)", margin: "0 0 8px", lineHeight: "1.3" }}>
+                    <h3 style={{ fontSize: "1.2rem", fontWeight: "700", color: "#0d1117", fontFamily: "var(--font-montserrat)", margin: "0 0 8px", lineHeight: "1.3" }}>
                       Dukung kami membebaskan pengetahuan
                     </h3>
-                    <p style={{ fontSize: "13px", color: "rgba(255,255,255,0.45)", fontFamily: "var(--font-source-serif)", margin: 0, lineHeight: "1.65" }}>
+                    <p style={{ fontSize: "13px", color: "rgba(0,0,0,0.55)", fontFamily: "var(--font-source-serif)", margin: 0, lineHeight: "1.65" }}>
                       Donasi Anda akan digunakan untuk mendukung program-program Wikimedia Indonesia.
                     </p>
                   </div>

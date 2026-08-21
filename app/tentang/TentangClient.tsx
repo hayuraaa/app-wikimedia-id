@@ -281,14 +281,14 @@ export default function TentangPage() {
                   <a href="https://id.wikimedia.org/wiki/Ketua_Umum" target="_blank" rel="noopener noreferrer" style={{ color: "#1e4d7b", fontWeight: "600", textDecoration: "underline", textUnderlineOffset: "2px" }}>di sini</a>.
                 </p>
               </div>
-              <div style={{ backgroundColor: "#0d0d0d", borderRadius: "4px", padding: "28px 32px", position: "relative", overflow: "hidden" }}>
-                <div style={{ position: "absolute", top: "-40px", right: "-40px", width: "160px", height: "160px", borderRadius: "50%", background: "radial-gradient(circle, rgba(12,87,168,0.2) 0%, transparent 70%)", pointerEvents: "none" }} />
-                <div style={{ position: "absolute", inset: 0, backgroundImage: `linear-gradient(rgba(255,255,255,0.02) 1px, transparent 1px), linear-gradient(90deg, rgba(255,255,255,0.02) 1px, transparent 1px)`, backgroundSize: "30px 30px", pointerEvents: "none" }} />
+              <div style={{ backgroundColor: "#f2f4f7", borderRadius: "4px", padding: "28px 32px", position: "relative", overflow: "hidden" }}>
+                <div style={{ position: "absolute", top: "-40px", right: "-40px", width: "160px", height: "160px", borderRadius: "50%", background: "radial-gradient(circle, rgba(12,87,168,0.07) 0%, transparent 70%)", pointerEvents: "none" }} />
+                <div style={{ position: "absolute", inset: 0, backgroundImage: `linear-gradient(rgba(0,0,0,0.04) 1px, transparent 1px), linear-gradient(90deg, rgba(0,0,0,0.04) 1px, transparent 1px)`, backgroundSize: "30px 30px", pointerEvents: "none" }} />
                 <span style={{ fontSize: "10px", fontWeight: "700", letterSpacing: "0.1em", textTransform: "uppercase" as const, color: "#e05070", fontFamily: "var(--font-montserrat)" }}>◆ Tujuan Kami</span>
-                <h3 style={{ fontSize: "1.15rem", fontWeight: "700", color: "#fff", fontFamily: "var(--font-montserrat)", margin: "10px 0 12px", lineHeight: "1.4", position: "relative", zIndex: 1 }}>
+                <h3 style={{ fontSize: "1.15rem", fontWeight: "700", color: "#0d1117", fontFamily: "var(--font-montserrat)", margin: "10px 0 12px", lineHeight: "1.4", position: "relative", zIndex: 1 }}>
                   Mendorong Pengetahuan Bebas untuk Semua
                 </h3>
-                <p style={{ fontSize: "14px", color: "rgba(255,255,255,0.55)", fontFamily: "var(--font-source-serif)", margin: 0, lineHeight: "1.8", position: "relative", zIndex: 1 }}>
+                <p style={{ fontSize: "14px", color: "rgba(0,0,0,0.55)", fontFamily: "var(--font-source-serif)", margin: 0, lineHeight: "1.8", position: "relative", zIndex: 1 }}>
                   Mendorong pertumbuhan, pengembangan & penyebaran pengetahuan dalam bahasa Indonesia dan bahasa lainnya yang dipertuturkan di Indonesia secara bebas dan gratis.
                 </p>
               </div>

@@ -311,14 +311,14 @@ export default function FaqPage() {
 
           {/* ── Contact CTA ── */}
           {!loading && (
-            <div style={{ marginTop: "40px", backgroundColor: "#0d0d0d", borderRadius: "4px", padding: "32px 36px", display: "flex", alignItems: "center", justifyContent: "space-between", gap: "24px", flexWrap: "wrap" as const, position: "relative", overflow: "hidden" }}>
-              <div style={{ position: "absolute", top: "-40px", right: "-40px", width: "160px", height: "160px", borderRadius: "50%", background: "radial-gradient(circle, rgba(12,87,168,0.2) 0%, transparent 70%)", pointerEvents: "none" }} />
+            <div style={{ marginTop: "40px", backgroundColor: "#f2f4f7", borderRadius: "4px", padding: "32px 36px", display: "flex", alignItems: "center", justifyContent: "space-between", gap: "24px", flexWrap: "wrap" as const, position: "relative", overflow: "hidden" }}>
+              <div style={{ position: "absolute", top: "-40px", right: "-40px", width: "160px", height: "160px", borderRadius: "50%", background: "radial-gradient(circle, rgba(12,87,168,0.07) 0%, transparent 70%)", pointerEvents: "none" }} />
               <div style={{ position: "relative", zIndex: 1 }}>
                 <span style={{ fontSize: "10px", fontWeight: "700", letterSpacing: "0.1em", textTransform: "uppercase" as const, color: "#e05070", fontFamily: "var(--font-montserrat)" }}>◆ Masih Ada Pertanyaan?</span>
-                <h3 style={{ fontSize: "1.1rem", fontWeight: "700", color: "#fff", fontFamily: "var(--font-montserrat)", margin: "6px 0 6px" }}>
+                <h3 style={{ fontSize: "1.1rem", fontWeight: "700", color: "#0d1117", fontFamily: "var(--font-montserrat)", margin: "6px 0 6px" }}>
                   Tidak menemukan jawaban yang Anda cari?
                 </h3>
-                <p style={{ fontSize: "13px", color: "rgba(255,255,255,0.45)", fontFamily: "var(--font-source-serif)", margin: 0, lineHeight: "1.65" }}>
+                <p style={{ fontSize: "13px", color: "rgba(0,0,0,0.55)", fontFamily: "var(--font-source-serif)", margin: 0, lineHeight: "1.65" }}>
                   Hubungi kami langsung melalui halaman kontak.
                 </p>
               </div>

@@ -31,17 +31,17 @@ function RegistrationCard() {
   return (
     <>
       {/* Pendaftaran */}
-      <div style={{ backgroundColor: "#0d0d0d", borderRadius: "4px", padding: "22px", position: "relative", overflow: "hidden" }}>
-        <div style={{ position: "absolute", top: "-20px", right: "-20px", width: "80px", height: "80px", borderRadius: "50%", background: "radial-gradient(circle, rgba(12,87,168,0.3) 0%, transparent 70%)", pointerEvents: "none" }} />
+      <div style={{ backgroundColor: "#f2f4f7", borderRadius: "4px", padding: "22px", position: "relative", overflow: "hidden" }}>
+        <div style={{ position: "absolute", top: "-20px", right: "-20px", width: "80px", height: "80px", borderRadius: "50%", background: "radial-gradient(circle, rgba(12,87,168,0.08) 0%, transparent 70%)", pointerEvents: "none" }} />
         <span style={{ fontSize: "10px", fontWeight: "700", letterSpacing: "0.08em", textTransform: "uppercase" as const, color: "#e05070", fontFamily: "var(--font-montserrat)" }}>◆ Pendaftaran Baru</span>
-        <h3 style={{ fontSize: "14px", fontWeight: "700", color: "#fff", fontFamily: "var(--font-montserrat)", margin: "8px 0 10px", lineHeight: "1.35" }}>
+        <h3 style={{ fontSize: "14px", fontWeight: "700", color: "#0d1117", fontFamily: "var(--font-montserrat)", margin: "8px 0 10px", lineHeight: "1.35" }}>
           Pendaftaran Anggota Baru
         </h3>
-        <div style={{ display: "flex", alignItems: "center", gap: "8px", padding: "8px 12px", backgroundColor: "rgba(255,255,255,0.06)", borderRadius: "3px", marginBottom: "10px" }}>
+        <div style={{ display: "flex", alignItems: "center", gap: "8px", padding: "8px 12px", backgroundColor: "rgba(0,0,0,0.06)", borderRadius: "3px", marginBottom: "10px" }}>
           <svg width="12" height="12" viewBox="0 0 24 24" fill="none" stroke="#3b8ed4" strokeWidth="2"><rect x="3" y="4" width="18" height="18" rx="2"/><line x1="16" y1="2" x2="16" y2="6"/><line x1="8" y1="2" x2="8" y2="6"/><line x1="3" y1="10" x2="21" y2="10"/></svg>
-          <span style={{ fontSize: "11px", color: "rgba(255,255,255,0.65)", fontFamily: "var(--font-montserrat)", fontWeight: "600" }}>Setiap tahun: 1 Januari – 28 Februari</span>
+          <span style={{ fontSize: "11px", color: "rgba(0,0,0,0.6)", fontFamily: "var(--font-montserrat)", fontWeight: "600" }}>Setiap tahun: 1 Januari – 28 Februari</span>
         </div>
-        <p style={{ fontSize: "14px", color: "rgba(255,255,255,0.4)", fontFamily: "var(--font-source-serif)", margin: "0 0 14px", lineHeight: "1.65" }}>
+        <p style={{ fontSize: "14px", color: "rgba(0,0,0,0.5)", fontFamily: "var(--font-source-serif)", margin: "0 0 14px", lineHeight: "1.65" }}>
           {isDaftarOpen
             ? `Pendaftaran anggota baru ${year} sedang dibuka! Segera daftarkan diri Anda sebelum 28 Februari ${year}.`
             : `Pendaftaran anggota baru dibuka setiap tahun pada 1 Januari hingga 28 Februari. Pantau terus halaman ini.`}
@@ -55,7 +55,7 @@ function RegistrationCard() {
             <svg width="12" height="12" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2.5"><path d="M5 12h14M12 5l7 7-7 7"/></svg>
           </a>
         ) : (
-          <div style={{ display: "flex", alignItems: "center", gap: "7px", padding: "10px 16px", backgroundColor: "rgba(255,255,255,0.06)", borderRadius: "3px", fontSize: "12px", fontWeight: "600", fontFamily: "var(--font-montserrat)", color: "rgba(255,255,255,0.3)", cursor: "not-allowed" }}>
+          <div style={{ display: "flex", alignItems: "center", gap: "7px", padding: "10px 16px", backgroundColor: "rgba(0,0,0,0.06)", borderRadius: "3px", fontSize: "12px", fontWeight: "600", fontFamily: "var(--font-montserrat)", color: "rgba(0,0,0,0.35)", cursor: "not-allowed" }}>
             <svg width="12" height="12" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2"><circle cx="12" cy="12" r="10"/><line x1="12" y1="8" x2="12" y2="12"/><line x1="12" y1="16" x2="12.01" y2="16"/></svg>
             Pendaftaran Belum Dibuka
           </div>
