@@ -31,31 +31,32 @@ function RegistrationCard() {
   return (
     <>
       {/* Pendaftaran */}
-      <div style={{ backgroundColor: "#f2f4f7", borderRadius: "4px", padding: "22px", position: "relative", overflow: "hidden" }}>
-        <div style={{ position: "absolute", top: "-20px", right: "-20px", width: "80px", height: "80px", borderRadius: "50%", background: "radial-gradient(circle, rgba(12,87,168,0.08) 0%, transparent 70%)", pointerEvents: "none" }} />
-        <span style={{ fontSize: "10px", fontWeight: "700", letterSpacing: "0.08em", textTransform: "uppercase" as const, color: "#e05070", fontFamily: "var(--font-montserrat)" }}>◆ Pendaftaran Baru</span>
-        <h3 style={{ fontSize: "14px", fontWeight: "700", color: "#0d1117", fontFamily: "var(--font-montserrat)", margin: "8px 0 10px", lineHeight: "1.35" }}>
+      <div style={{ backgroundColor: "#0C57A8", borderRadius: "4px", padding: "20px", position: "relative", overflow: "hidden" }}>
+        <div style={{ position: "absolute", top: "-20px", right: "-20px", width: "100px", height: "100px", borderRadius: "50%", background: "radial-gradient(circle, rgba(255,255,255,0.12) 0%, transparent 70%)", pointerEvents: "none" }} />
+        <div style={{ position: "absolute", bottom: "-30px", left: "-10px", width: "80px", height: "80px", borderRadius: "50%", background: "radial-gradient(circle, rgba(255,255,255,0.06) 0%, transparent 70%)", pointerEvents: "none" }} />
+        <span style={{ fontSize: "10px", fontWeight: "700", letterSpacing: "0.08em", textTransform: "uppercase" as const, color: "rgba(255,255,255,0.6)", fontFamily: "var(--font-montserrat)" }}>◆ Pendaftaran Baru</span>
+        <h3 style={{ fontSize: "14px", fontWeight: "700", color: "#fff", fontFamily: "var(--font-montserrat)", margin: "8px 0 10px", lineHeight: "1.3" }}>
           Pendaftaran Anggota Baru
         </h3>
-        <div style={{ display: "flex", alignItems: "center", gap: "8px", padding: "8px 12px", backgroundColor: "rgba(0,0,0,0.06)", borderRadius: "3px", marginBottom: "10px" }}>
-          <svg width="12" height="12" viewBox="0 0 24 24" fill="none" stroke="#3b8ed4" strokeWidth="2"><rect x="3" y="4" width="18" height="18" rx="2"/><line x1="16" y1="2" x2="16" y2="6"/><line x1="8" y1="2" x2="8" y2="6"/><line x1="3" y1="10" x2="21" y2="10"/></svg>
-          <span style={{ fontSize: "11px", color: "rgba(0,0,0,0.6)", fontFamily: "var(--font-montserrat)", fontWeight: "600" }}>Setiap tahun: 1 Januari – 28 Februari</span>
+        <div style={{ display: "flex", alignItems: "center", gap: "8px", padding: "7px 11px", backgroundColor: "rgba(255,255,255,0.12)", borderRadius: "3px", marginBottom: "10px" }}>
+          <svg width="11" height="11" viewBox="0 0 24 24" fill="none" stroke="rgba(255,255,255,0.7)" strokeWidth="2"><rect x="3" y="4" width="18" height="18" rx="2"/><line x1="16" y1="2" x2="16" y2="6"/><line x1="8" y1="2" x2="8" y2="6"/><line x1="3" y1="10" x2="21" y2="10"/></svg>
+          <span style={{ fontSize: "11px", color: "rgba(255,255,255,0.75)", fontFamily: "var(--font-montserrat)", fontWeight: "600" }}>Setiap tahun: 1 Januari – 28 Februari</span>
         </div>
-        <p style={{ fontSize: "14px", color: "rgba(0,0,0,0.5)", fontFamily: "var(--font-source-serif)", margin: "0 0 14px", lineHeight: "1.65" }}>
+        <p style={{ fontSize: "13px", color: "rgba(255,255,255,0.7)", fontFamily: "var(--font-source-serif)", margin: "0 0 14px", lineHeight: "1.7" }}>
           {isDaftarOpen
             ? `Pendaftaran anggota baru ${year} sedang dibuka! Segera daftarkan diri Anda sebelum 28 Februari ${year}.`
             : `Pendaftaran anggota baru dibuka setiap tahun pada 1 Januari hingga 28 Februari. Pantau terus halaman ini.`}
         </p>
         {isDaftarOpen ? (
           <a href={DAFTAR_URL} target="_blank" rel="noopener noreferrer"
-            style={{ display: "flex", alignItems: "center", justifyContent: "center", gap: "7px", padding: "10px 16px", backgroundColor: "#0C57A8", color: "#fff", textDecoration: "none", borderRadius: "3px", fontSize: "12px", fontWeight: "700", fontFamily: "var(--font-montserrat)", letterSpacing: "0.04em", transition: "background 0.2s" }}
-            onMouseEnter={(e) => ((e.currentTarget as HTMLElement).style.backgroundColor = "#0a4a8f")}
-            onMouseLeave={(e) => ((e.currentTarget as HTMLElement).style.backgroundColor = "#0C57A8")}>
+            style={{ display: "flex", alignItems: "center", justifyContent: "center", gap: "7px", padding: "10px 16px", backgroundColor: "#fff", color: "#0C57A8", textDecoration: "none", borderRadius: "3px", fontSize: "12px", fontWeight: "700", fontFamily: "var(--font-montserrat)", letterSpacing: "0.04em", transition: "background 0.2s" }}
+            onMouseEnter={(e) => ((e.currentTarget as HTMLElement).style.backgroundColor = "#e8f0fb")}
+            onMouseLeave={(e) => ((e.currentTarget as HTMLElement).style.backgroundColor = "#fff")}>
             Daftar Sekarang
             <svg width="12" height="12" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2.5"><path d="M5 12h14M12 5l7 7-7 7"/></svg>
           </a>
         ) : (
-          <div style={{ display: "flex", alignItems: "center", gap: "7px", padding: "10px 16px", backgroundColor: "rgba(0,0,0,0.06)", borderRadius: "3px", fontSize: "12px", fontWeight: "600", fontFamily: "var(--font-montserrat)", color: "rgba(0,0,0,0.35)", cursor: "not-allowed" }}>
+          <div style={{ display: "flex", alignItems: "center", gap: "7px", padding: "10px 16px", backgroundColor: "rgba(255,255,255,0.1)", borderRadius: "3px", fontSize: "12px", fontWeight: "600", fontFamily: "var(--font-montserrat)", color: "rgba(255,255,255,0.4)", cursor: "not-allowed" }}>
             <svg width="12" height="12" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2"><circle cx="12" cy="12" r="10"/><line x1="12" y1="8" x2="12" y2="12"/><line x1="12" y1="16" x2="12.01" y2="16"/></svg>
             Pendaftaran Belum Dibuka
           </div>
@@ -72,30 +73,30 @@ function RegistrationCard() {
         <span style={{ fontSize: "10px", fontWeight: "700", letterSpacing: "0.08em", textTransform: "uppercase" as const, color: isPerpanjangOpen ? "#92400e" : "#6b6966", fontFamily: "var(--font-montserrat)" }}>
           {isPerpanjangOpen ? "⚠ Perpanjangan" : "◆ Perpanjangan"}
         </span>
-        <h3 style={{ fontSize: "13px", fontWeight: "700", color: "#0d0d0d", fontFamily: "var(--font-montserrat)", margin: "8px 0 6px", lineHeight: "1.4" }}>
+        <h3 style={{ fontSize: "14px", fontWeight: "700", color: "#0d1117", fontFamily: "var(--font-montserrat)", margin: "8px 0 8px", lineHeight: "1.3" }}>
           Perpanjangan Keanggotaan
         </h3>
         <div style={{ display: "flex", alignItems: "center", gap: "6px", marginBottom: "8px" }}>
           <svg width="11" height="11" viewBox="0 0 24 24" fill="none" stroke="#6b6966" strokeWidth="2"><rect x="3" y="4" width="18" height="18" rx="2"/><line x1="16" y1="2" x2="16" y2="6"/><line x1="8" y1="2" x2="8" y2="6"/><line x1="3" y1="10" x2="21" y2="10"/></svg>
           <span style={{ fontSize: "11px", color: "#6b6966", fontFamily: "var(--font-montserrat)", fontWeight: "600" }}>Setiap tahun: 1 November – 31 Desember</span>
         </div>
-        <p style={{ fontSize: "14px", color: "#5c5a57", fontFamily: "var(--font-source-serif)", margin: "0 0 12px", lineHeight: "1.65" }}>
+        <p style={{ fontSize: "13px", color: "#5c5a57", fontFamily: "var(--font-source-serif)", margin: "0 0 12px", lineHeight: "1.7" }}>
           {isPerpanjangOpen
             ? `Perpanjangan keanggotaan ${year} sedang dibuka! Segera perpanjang sebelum 31 Desember ${year}.`
             : `Perpanjangan keanggotaan dibuka setiap tahun pada 1 November hingga 31 Desember.`}
         </p>
         {isPerpanjangOpen ? (
           <a href={PERPANJANG_URL} target="_blank" rel="noopener noreferrer"
-            style={{ display: "flex", alignItems: "center", justifyContent: "center", gap: "7px", padding: "9px 14px", backgroundColor: "#f59e0b", color: "#fff", textDecoration: "none", borderRadius: "3px", fontSize: "12px", fontWeight: "700", fontFamily: "var(--font-montserrat)", letterSpacing: "0.04em", transition: "background 0.2s" }}
+            style={{ display: "flex", alignItems: "center", justifyContent: "center", gap: "7px", padding: "10px 16px", backgroundColor: "#f59e0b", color: "#fff", textDecoration: "none", borderRadius: "3px", fontSize: "12px", fontWeight: "700", fontFamily: "var(--font-montserrat)", letterSpacing: "0.04em", transition: "background 0.2s" }}
             onMouseEnter={(e) => ((e.currentTarget as HTMLElement).style.backgroundColor = "#d97706")}
             onMouseLeave={(e) => ((e.currentTarget as HTMLElement).style.backgroundColor = "#f59e0b")}>
             Perpanjang Sekarang
             <svg width="12" height="12" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2.5"><path d="M5 12h14M12 5l7 7-7 7"/></svg>
           </a>
         ) : (
-          <div style={{ fontSize: "11px", color: "#6b6966", fontFamily: "var(--font-montserrat)", fontStyle: "italic" }}>
+          <p style={{ fontSize: "12px", color: "#6b6966", fontFamily: "var(--font-montserrat)", fontStyle: "italic", margin: 0 }}>
             Tombol perpanjangan akan muncul saat periode dibuka.
-          </div>
+          </p>
         )}
       </div>
     </>
@@ -109,8 +110,8 @@ function PendaftaranPerpanjanganSection() {
 
   return (
     <div style={{ display: "flex", flexDirection: "column", gap: "12px" }}>
-      <div style={{ paddingBottom: "10px", borderBottom: "3px solid #0d0d0d" }}>
-        <h2 style={{ fontSize: "18px", fontWeight: "700", color: "#0d0d0d", fontFamily: "var(--font-montserrat)", marginTop: "4px", marginBottom: 0 }}>Pendaftaran & Perpanjangan</h2>
+      <div style={{ paddingBottom: "10px", borderBottom: "3px solid #0d1117" }}>
+        <h2 style={{ fontSize: "18px", fontWeight: "700", color: "#0d1117", fontFamily: "var(--font-montserrat)", marginTop: "4px", marginBottom: 0 }}>Pendaftaran & Perpanjangan</h2>
       </div>
 
       {/* Pendaftaran Anggota Baru */}
@@ -121,7 +122,7 @@ function PendaftaranPerpanjanganSection() {
         display: "flex", justifyContent: "space-between", alignItems: "flex-start", gap: "16px", flexWrap: "wrap" as const,
       }}>
         <div style={{ flex: 1, minWidth: "200px" }}>
-          <div style={{ display: "flex", alignItems: "center", gap: "8px", marginBottom: "6px" }}>
+          <div style={{ display: "flex", alignItems: "center", gap: "8px", marginBottom: "8px" }}>
             <span style={{
               fontSize: "10px", fontWeight: "700", padding: "2px 8px", borderRadius: "100px",
               fontFamily: "var(--font-montserrat)", letterSpacing: "0.05em", textTransform: "uppercase" as const,
@@ -129,24 +130,24 @@ function PendaftaranPerpanjanganSection() {
               color: isDaftarOpen ? "#0C57A8" : "#6b6966",
               border: isDaftarOpen ? "1px solid rgba(12,87,168,0.2)" : "1px solid #e5e2dd",
             }}>
-              {isDaftarOpen ? `\u25CF Dibuka \u2014 ${year}` : "Belum Dibuka"}
+              {isDaftarOpen ? `● Dibuka — ${year}` : "Belum Dibuka"}
             </span>
           </div>
-          <h3 style={{ fontSize: "14px", fontWeight: "700", color: "#0d0d0d", fontFamily: "var(--font-montserrat)", margin: "0 0 6px" }}>
+          <h3 style={{ fontSize: "15px", fontWeight: "700", color: "#0d1117", fontFamily: "var(--font-montserrat)", margin: "0 0 8px" }}>
             Pendaftaran Anggota Baru
           </h3>
-          <p style={{ fontSize: "13px", color: "#5c5a57", fontFamily: "var(--font-source-serif)", margin: "0 0 4px", lineHeight: "1.65" }}>
-            Dibuka setiap tahun pada <strong>1 Januari &ndash; 28 Februari</strong>.
+          <p style={{ fontSize: "14px", color: "#5c5a57", fontFamily: "var(--font-source-serif)", margin: "0 0 6px", lineHeight: "1.75" }}>
+            Dibuka setiap tahun pada <strong>1 Januari – 28 Februari</strong>.
           </p>
-          <p style={{ fontSize: "13px", color: isDaftarOpen ? "#0C57A8" : "#6b6966", fontFamily: "var(--font-source-serif)", margin: 0, lineHeight: "1.65", fontWeight: isDaftarOpen ? "600" : "400" }}>
+          <p style={{ fontSize: "14px", color: isDaftarOpen ? "#0C57A8" : "#6b6966", fontFamily: "var(--font-source-serif)", margin: 0, lineHeight: "1.75", fontWeight: isDaftarOpen ? "600" : "400" }}>
             {isDaftarOpen
               ? `Pendaftaran anggota baru ${year} sedang berlangsung. Segera daftarkan diri Anda sebelum 28 Februari ${year}!`
-              : `Pendaftaran akan dibuka kembali pada 1 Januari ${year + 1}. Daftarkan email Anda untuk mendapat pengingat.`}
+              : `Pendaftaran akan dibuka kembali pada 1 Januari ${year + 1}. Daftarkan surel Anda untuk mendapat pengingat.`}
           </p>
         </div>
         {isDaftarOpen && (
           <a href={DAFTAR_URL} target="_blank" rel="noopener noreferrer"
-            style={{ display: "inline-flex", alignItems: "center", gap: "7px", padding: "10px 18px", backgroundColor: "#0C57A8", color: "#fff", textDecoration: "none", borderRadius: "3px", fontSize: "12px", fontWeight: "700", fontFamily: "var(--font-montserrat)", letterSpacing: "0.04em", whiteSpace: "nowrap" as const, flexShrink: 0, alignSelf: "center" as const, transition: "background 0.2s" }}
+            style={{ display: "inline-flex", alignItems: "center", gap: "7px", padding: "10px 18px", backgroundColor: "#0C57A8", color: "#fff", textDecoration: "none", borderRadius: "3px", fontSize: "13px", fontWeight: "700", fontFamily: "var(--font-montserrat)", letterSpacing: "0.04em", whiteSpace: "nowrap" as const, flexShrink: 0, alignSelf: "center" as const, transition: "background 0.2s" }}
             onMouseEnter={(e) => ((e.currentTarget as HTMLElement).style.backgroundColor = "#0a4a8f")}
             onMouseLeave={(e) => ((e.currentTarget as HTMLElement).style.backgroundColor = "#0C57A8")}>
             Daftar Sekarang
@@ -163,7 +164,7 @@ function PendaftaranPerpanjanganSection() {
         display: "flex", justifyContent: "space-between", alignItems: "flex-start", gap: "16px", flexWrap: "wrap" as const,
       }}>
         <div style={{ flex: 1, minWidth: "200px" }}>
-          <div style={{ display: "flex", alignItems: "center", gap: "8px", marginBottom: "6px" }}>
+          <div style={{ display: "flex", alignItems: "center", gap: "8px", marginBottom: "8px" }}>
             <span style={{
               fontSize: "10px", fontWeight: "700", padding: "2px 8px", borderRadius: "100px",
               fontFamily: "var(--font-montserrat)", letterSpacing: "0.05em", textTransform: "uppercase" as const,
@@ -171,16 +172,16 @@ function PendaftaranPerpanjanganSection() {
               color: isPerpanjangOpen ? "#92400e" : "#6b6966",
               border: isPerpanjangOpen ? "1px solid rgba(245,158,11,0.3)" : "1px solid #e5e2dd",
             }}>
-              {isPerpanjangOpen ? `\u25CF Dibuka \u2014 ${year}` : "Belum Dibuka"}
+              {isPerpanjangOpen ? `● Dibuka — ${year}` : "Belum Dibuka"}
             </span>
           </div>
-          <h3 style={{ fontSize: "14px", fontWeight: "700", color: "#0d0d0d", fontFamily: "var(--font-montserrat)", margin: "0 0 6px" }}>
+          <h3 style={{ fontSize: "15px", fontWeight: "700", color: "#0d1117", fontFamily: "var(--font-montserrat)", margin: "0 0 8px" }}>
             Perpanjangan Keanggotaan
           </h3>
-          <p style={{ fontSize: "13px", color: "#5c5a57", fontFamily: "var(--font-source-serif)", margin: "0 0 4px", lineHeight: "1.65" }}>
-            Dibuka setiap tahun pada <strong>1 November &ndash; 31 Desember</strong>.
+          <p style={{ fontSize: "14px", color: "#5c5a57", fontFamily: "var(--font-source-serif)", margin: "0 0 6px", lineHeight: "1.75" }}>
+            Dibuka setiap tahun pada <strong>1 November – 31 Desember</strong>.
           </p>
-          <p style={{ fontSize: "13px", color: isPerpanjangOpen ? "#92400e" : "#6b6966", fontFamily: "var(--font-source-serif)", margin: 0, lineHeight: "1.65", fontWeight: isPerpanjangOpen ? "600" : "400" }}>
+          <p style={{ fontSize: "14px", color: isPerpanjangOpen ? "#92400e" : "#6b6966", fontFamily: "var(--font-source-serif)", margin: 0, lineHeight: "1.75", fontWeight: isPerpanjangOpen ? "600" : "400" }}>
             {isPerpanjangOpen
               ? `Perpanjangan keanggotaan ${year} sedang berlangsung. Segera perpanjang sebelum 31 Desember ${year}!`
               : `Perpanjangan akan dibuka kembali pada 1 November ${year}. Keanggotaan aktif berlaku hingga 31 Desember setiap tahunnya.`}
@@ -188,7 +189,7 @@ function PendaftaranPerpanjanganSection() {
         </div>
         {isPerpanjangOpen && (
           <a href={PERPANJANG_URL} target="_blank" rel="noopener noreferrer"
-            style={{ display: "inline-flex", alignItems: "center", gap: "7px", padding: "10px 18px", backgroundColor: "#f59e0b", color: "#fff", textDecoration: "none", borderRadius: "3px", fontSize: "12px", fontWeight: "700", fontFamily: "var(--font-montserrat)", letterSpacing: "0.04em", whiteSpace: "nowrap" as const, flexShrink: 0, alignSelf: "center" as const, transition: "background 0.2s" }}
+            style={{ display: "inline-flex", alignItems: "center", gap: "7px", padding: "10px 18px", backgroundColor: "#f59e0b", color: "#fff", textDecoration: "none", borderRadius: "3px", fontSize: "13px", fontWeight: "700", fontFamily: "var(--font-montserrat)", letterSpacing: "0.04em", whiteSpace: "nowrap" as const, flexShrink: 0, alignSelf: "center" as const, transition: "background 0.2s" }}
             onMouseEnter={(e) => ((e.currentTarget as HTMLElement).style.backgroundColor = "#d97706")}
             onMouseLeave={(e) => ((e.currentTarget as HTMLElement).style.backgroundColor = "#f59e0b")}>
             Perpanjang Sekarang
@@ -219,11 +220,11 @@ function SubscribeForm() {
       const json = await res.json();
       if (json.success) {
         setStatus("success");
-        setMessage(json.message ?? "Email berhasil didaftarkan!");
+        setMessage(json.message ?? "Surel berhasil didaftarkan!");
         setEmail("");
       } else {
         setStatus("error");
-        setMessage(json.message ?? "Gagal mendaftarkan email.");
+        setMessage(json.message ?? "Gagal mendaftarkan surel.");
       }
     } catch {
       setStatus("error");
@@ -238,7 +239,7 @@ function SubscribeForm() {
           <div style={{ width: "28px", height: "28px", borderRadius: "50%", backgroundColor: "rgba(22,163,74,0.12)", display: "flex", alignItems: "center", justifyContent: "center", flexShrink: 0 }}>
             <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="#16a34a" strokeWidth="2.5"><path d="M20 6L9 17l-5-5"/></svg>
           </div>
-          <p style={{ fontSize: "13px", color: "#15803d", fontFamily: "var(--font-source-serif)", margin: 0, fontWeight: "600" }}>{message}</p>
+          <p style={{ fontSize: "14px", color: "#15803d", fontFamily: "var(--font-source-serif)", margin: 0, fontWeight: "600" }}>{message}</p>
         </div>
       ) : (
         <div>
@@ -249,12 +250,12 @@ function SubscribeForm() {
               value={email}
               onChange={(e) => { setEmail(e.target.value); setStatus("idle"); }}
               onKeyDown={(e) => e.key === "Enter" && handleSubmit()}
-              style={{ flex: 1, padding: "12px 16px", fontSize: "13px", border: "none", outline: "none", fontFamily: "var(--font-montserrat)", color: "#0d0d0d", backgroundColor: "#fff" }}
+              style={{ flex: 1, padding: "12px 16px", fontSize: "14px", border: "none", outline: "none", fontFamily: "var(--font-montserrat)", color: "#0d1117", backgroundColor: "#fff" }}
             />
             <button
               onClick={handleSubmit}
               disabled={status === "loading" || !email.trim()}
-              style={{ padding: "12px 20px", backgroundColor: status === "loading" ? "#0a4a8f" : "#0C57A8", color: "#fff", border: "none", cursor: status === "loading" ? "not-allowed" : "pointer", fontSize: "12px", fontWeight: "700", fontFamily: "var(--font-montserrat)", letterSpacing: "0.04em", display: "flex", alignItems: "center", gap: "7px", transition: "background 0.2s", whiteSpace: "nowrap" as const }}
+              style={{ padding: "12px 20px", backgroundColor: status === "loading" ? "#0a4a8f" : "#0C57A8", color: "#fff", border: "none", cursor: status === "loading" ? "not-allowed" : "pointer", fontSize: "13px", fontWeight: "700", fontFamily: "var(--font-montserrat)", letterSpacing: "0.04em", display: "flex", alignItems: "center", gap: "7px", transition: "background 0.2s", whiteSpace: "nowrap" as const }}
               onMouseEnter={(e) => { if (status !== "loading") (e.currentTarget as HTMLElement).style.backgroundColor = "#0a4a8f"; }}
               onMouseLeave={(e) => { if (status !== "loading") (e.currentTarget as HTMLElement).style.backgroundColor = "#0C57A8"; }}
             >
@@ -266,9 +267,9 @@ function SubscribeForm() {
             </button>
           </div>
           {status === "error" && (
-            <p style={{ fontSize: "12px", color: "#dc2626", fontFamily: "var(--font-source-serif)", margin: "8px 0 0" }}>{message}</p>
+            <p style={{ fontSize: "13px", color: "#dc2626", fontFamily: "var(--font-source-serif)", margin: "8px 0 0" }}>{message}</p>
           )}
-          <p style={{ fontSize: "14px", color: "#6b6966", fontFamily: "var(--font-source-serif)", margin: "10px 0 0", lineHeight: "1.6" }}>
+          <p style={{ fontSize: "13px", color: "#6b6966", fontFamily: "var(--font-source-serif)", margin: "10px 0 0", lineHeight: "1.7" }}>
             Kami tidak akan mengirim spam. Anda dapat berhenti berlangganan kapan saja.
           </p>
         </div>
@@ -308,7 +309,7 @@ export default function MenjadiAnggotaPage() {
           <h1 style={{ fontSize: "clamp(1.8rem, 3vw, 2.6rem)", fontWeight: "700", color: "#fff", fontFamily: "var(--font-montserrat)", margin: "6px 0 0", lineHeight: "1.2" }}>
             Menjadi Anggota
           </h1>
-          <p style={{ fontSize: "13px", color: "rgba(255,255,255,0.45)", fontFamily: "var(--font-source-serif)", margin: "6px 0 0" }}>
+          <p style={{ fontSize: "14px", color: "rgba(255,255,255,0.55)", fontFamily: "var(--font-source-serif)", margin: "8px 0 0", lineHeight: "1.7" }}>
             Bergabunglah dengan komunitas sukarelawan yang berdedikasi membebaskan pengetahuan untuk seluruh masyarakat Indonesia.
           </p>
         </div>
@@ -325,9 +326,9 @@ export default function MenjadiAnggotaPage() {
             <div style={{ display: "flex", flexDirection: "column", gap: "20px" }}>
 
               {/* Tentang */}
-              <div style={{ backgroundColor: "#fff", border: "1px solid #e5e2dd", borderLeft: "4px solid #0d0d0d", borderRadius: "4px", padding: "28px 32px" }}>
-                <h2 style={{ fontSize: "18px", fontWeight: "700", color: "#0d0d0d", fontFamily: "var(--font-montserrat)", margin: "8px 0 14px" }}>Menjadi Anggota</h2>
-                <p style={{ fontSize: "14px", color: "#3a3a3a", lineHeight: "1.85", fontFamily: "var(--font-source-serif)", margin: 0 }}>
+              <div style={{ backgroundColor: "#fff", border: "1px solid #e5e2dd", borderLeft: "4px solid #0d1117", borderRadius: "4px", padding: "28px 32px" }}>
+                <h2 style={{ fontSize: "18px", fontWeight: "700", color: "#0d1117", fontFamily: "var(--font-montserrat)", margin: "0 0 14px" }}>Menjadi Anggota</h2>
+                <p style={{ fontSize: "14px", color: "#3a3a3a", lineHeight: "1.75", fontFamily: "var(--font-source-serif)", margin: 0 }}>
                   Wikimedia Indonesia adalah organisasi independen yang didirikan pada tahun 2008. Di tahun yang sama dengan pendiriannya, Wikimedia Indonesia diakui sebagai mitra lokal Yayasan Wikimedia (Wikimedia Foundation) yang berlokasi di Amerika Serikat. Wikimedia Indonesia memiliki tujuan yang seiring sejalan, tetapi bukanlah cabang dari Yayasan Wikimedia.
                 </p>
               </div>
@@ -336,9 +337,9 @@ export default function MenjadiAnggotaPage() {
               <PendaftaranPerpanjanganSection />
 
               {/* Keanggotaan */}
-              <div style={{ backgroundColor: "#fff", border: "1px solid #e5e2dd", borderLeft: "4px solid #0d0d0d", borderRadius: "4px", padding: "28px 32px" }}>
-                <h2 style={{ fontSize: "18px", fontWeight: "700", color: "#0d0d0d", fontFamily: "var(--font-montserrat)", margin: "8px 0 16px" }}>Keanggotaan</h2>
-                <p style={{ fontSize: "13px", color: "#5c5a57", fontFamily: "var(--font-source-serif)", margin: "0 0 14px", fontStyle: "italic" }}>Berdasarkan AD/ART Perkumpulan:</p>
+              <div style={{ backgroundColor: "#fff", border: "1px solid #e5e2dd", borderLeft: "4px solid #0d1117", borderRadius: "4px", padding: "28px 32px" }}>
+                <h2 style={{ fontSize: "18px", fontWeight: "700", color: "#0d1117", fontFamily: "var(--font-montserrat)", margin: "0 0 6px" }}>Keanggotaan</h2>
+                <p style={{ fontSize: "13px", color: "#6b6966", fontFamily: "var(--font-source-serif)", margin: "0 0 16px" }}>Berdasarkan AD/ART Perkumpulan:</p>
                 <div style={{ display: "flex", flexDirection: "column", gap: "12px" }}>
                   {[
                     "Anggota Wikimedia Indonesia terbuka bagi Warga Negara Indonesia maupun Warga Negara Asing.",
@@ -346,8 +347,8 @@ export default function MenjadiAnggotaPage() {
                     "Berdasarkan keputusan Rapat Dewan Pengurus tanggal 27 Januari 2012, usia minimal untuk mendaftar sebagai anggota adalah 17 tahun.",
                   ].map((point, i) => (
                     <div key={i} style={{ display: "flex", gap: "12px", alignItems: "flex-start" }}>
-                      <span style={{ width: "6px", height: "6px", borderRadius: "50%", backgroundColor: "#0C57A8", flexShrink: 0, marginTop: "8px" }} />
-                      <span style={{ fontSize: "14px", color: "#3a3a3a", lineHeight: "1.75", fontFamily: "var(--font-montserrat)" }}>{point}</span>
+                      <span style={{ width: "6px", height: "6px", borderRadius: "50%", backgroundColor: "#0C57A8", flexShrink: 0, marginTop: "9px" }} />
+                      <span style={{ fontSize: "14px", color: "#3a3a3a", lineHeight: "1.75", fontFamily: "var(--font-source-serif)" }}>{point}</span>
                     </div>
                   ))}
                 </div>
@@ -355,26 +356,26 @@ export default function MenjadiAnggotaPage() {
 
               {/* Biaya */}
               <div>
-                <div style={{ paddingBottom: "12px", marginBottom: "16px", borderBottom: "3px solid #0d0d0d" }}>
-                  <h2 style={{ fontSize: "18px", fontWeight: "700", color: "#0d0d0d", fontFamily: "var(--font-montserrat)", marginTop: "4px", marginBottom: 0 }}>Biaya Keanggotaan Tahunan</h2>
+                <div style={{ paddingBottom: "10px", marginBottom: "16px", borderBottom: "3px solid #0d1117" }}>
+                  <h2 style={{ fontSize: "18px", fontWeight: "700", color: "#0d1117", fontFamily: "var(--font-montserrat)", marginTop: "4px", marginBottom: 0 }}>Biaya Keanggotaan Tahunan</h2>
                 </div>
                 <div className="biaya-grid" style={{ display: "grid", gridTemplateColumns: "1fr 1fr", gap: "12px" }}>
                   {[
                     { label: "Opsi 1", title: "Keanggotaan + Suvenir", color: "#0C57A8", umum: "Rp250.000", pelajar: "Rp150.000" },
                     { label: "Opsi 2", title: "Keanggotaan", color: "#1e4d7b", umum: "Rp150.000", pelajar: "Rp100.000" },
                   ].map((opsi) => (
-                    <div key={opsi.label} style={{ backgroundColor: "#fff", border: "1px solid #e5e2dd", borderTop: `3px solid ${opsi.color}`, borderRadius: "4px", padding: "22px" }}>
+                    <div key={opsi.label} style={{ backgroundColor: "#fff", border: "1px solid #e5e2dd", borderRadius: "4px", padding: "22px" }}>
                       <span style={{ fontSize: "10px", fontWeight: "700", color: opsi.color, fontFamily: "var(--font-montserrat)", letterSpacing: "0.06em", textTransform: "uppercase" as const, display: "block", marginBottom: "4px" }}>{opsi.label}</span>
-                      <span style={{ fontSize: "13px", fontWeight: "700", color: "#0d0d0d", fontFamily: "var(--font-montserrat)", display: "block", marginBottom: "14px" }}>{opsi.title}</span>
+                      <span style={{ fontSize: "14px", fontWeight: "700", color: "#0d1117", fontFamily: "var(--font-montserrat)", display: "block", marginBottom: "16px" }}>{opsi.title}</span>
                       <div style={{ display: "flex", flexDirection: "column", gap: "8px" }}>
-                        <div style={{ padding: "11px 14px", backgroundColor: "#f8f7f5", borderRadius: "3px", border: "1px solid #e5e2dd" }}>
-                          <span style={{ fontSize: "10px", fontWeight: "700", color: "#5c5a57", fontFamily: "var(--font-montserrat)", display: "block", marginBottom: "2px" }}>UMUM</span>
-                          <span style={{ fontSize: "17px", fontWeight: "700", color: "#0d0d0d", fontFamily: "var(--font-montserrat)" }}>{opsi.umum}</span>
+                        <div style={{ padding: "12px 14px", backgroundColor: "#f8f7f5", borderRadius: "3px", border: "1px solid #e5e2dd" }}>
+                          <span style={{ fontSize: "10px", fontWeight: "700", color: "#6b6966", fontFamily: "var(--font-montserrat)", letterSpacing: "0.05em", display: "block", marginBottom: "3px" }}>UMUM</span>
+                          <span style={{ fontSize: "17px", fontWeight: "700", color: "#0d1117", fontFamily: "var(--font-montserrat)" }}>{opsi.umum}</span>
                         </div>
-                        <div style={{ padding: "11px 14px", backgroundColor: "#f8f7f5", borderRadius: "3px", border: "1px solid #e5e2dd" }}>
-                          <span style={{ fontSize: "10px", fontWeight: "700", color: "#5c5a57", fontFamily: "var(--font-montserrat)", display: "block", marginBottom: "2px" }}>PELAJAR / MAHASISWA (S1)</span>
-                          <span style={{ fontSize: "17px", fontWeight: "700", color: "#0d0d0d", fontFamily: "var(--font-montserrat)" }}>{opsi.pelajar}</span>
-                          <span style={{ fontSize: "10px", color: "#6b6966", fontFamily: "var(--font-montserrat)", display: "block", marginTop: "3px" }}>*lampirkan kartu tanda pelajar/mahasiswa yang masih berlaku</span>
+                        <div style={{ padding: "12px 14px", backgroundColor: "#f8f7f5", borderRadius: "3px", border: "1px solid #e5e2dd" }}>
+                          <span style={{ fontSize: "10px", fontWeight: "700", color: "#6b6966", fontFamily: "var(--font-montserrat)", letterSpacing: "0.05em", display: "block", marginBottom: "3px" }}>PELAJAR / MAHASISWA (S1)</span>
+                          <span style={{ fontSize: "17px", fontWeight: "700", color: "#0d1117", fontFamily: "var(--font-montserrat)" }}>{opsi.pelajar}</span>
+                          <span style={{ fontSize: "11px", color: "#6b6966", fontFamily: "var(--font-source-serif)", display: "block", marginTop: "4px" }}>*lampirkan kartu tanda pelajar/mahasiswa yang masih berlaku</span>
                         </div>
                       </div>
                     </div>
@@ -390,7 +391,7 @@ export default function MenjadiAnggotaPage() {
 
               {/* Ringkasan */}
               <div style={{ backgroundColor: "#fff", border: "1px solid #e5e2dd", borderRadius: "4px", overflow: "hidden" }}>
-                <div style={{ padding: "13px 18px", borderBottom: "3px solid #0d0d0d" }}>
+                <div style={{ padding: "13px 18px", borderBottom: "3px solid #0d1117" }}>
                   <span style={{ fontSize: "10px", fontWeight: "700", letterSpacing: "0.08em", textTransform: "uppercase" as const, color: "#0C57A8", fontFamily: "var(--font-montserrat)" }}>◆ Ringkasan</span>
                 </div>
                 <div style={{ padding: "14px 18px", display: "flex", flexDirection: "column", gap: "0" }}>
@@ -403,7 +404,7 @@ export default function MenjadiAnggotaPage() {
                   ].map((row, i) => (
                     <div key={i} style={{ display: "flex", justifyContent: "space-between", alignItems: "center", padding: "10px 0", ...(i > 0 ? { borderTop: "1px solid #f0eeec" } : {}) }}>
                       <span style={{ fontSize: "12px", color: "#6b6966", fontFamily: "var(--font-montserrat)" }}>{row.label}</span>
-                      <span style={{ fontSize: "12px", fontWeight: "700", color: "#0d0d0d", fontFamily: "var(--font-montserrat)" }}>{row.value}</span>
+                      <span style={{ fontSize: "12px", fontWeight: "700", color: "#0d1117", fontFamily: "var(--font-montserrat)" }}>{row.value}</span>
                     </div>
                   ))}
                 </div>
@@ -415,7 +416,7 @@ export default function MenjadiAnggotaPage() {
           <div style={{ marginTop: "40px", backgroundColor: "#fff", border: "1px solid #e5e2dd", borderRadius: "4px", overflow: "hidden" }}>
             <div className="subscribe-layout" style={{ display: "grid", gridTemplateColumns: "1fr 1fr" }}>
               <div style={{ padding: "36px 40px", borderRight: "1px solid #e5e2dd" }}>
-                <h3 style={{ fontSize: "1.3rem", fontWeight: "700", color: "#0d0d0d", fontFamily: "var(--font-montserrat)", margin: "8px 0 10px", lineHeight: "1.3" }}>
+                <h3 style={{ fontSize: "18px", fontWeight: "700", color: "#0d1117", fontFamily: "var(--font-montserrat)", margin: "0 0 12px", lineHeight: "1.3" }}>
                   Daftarkan surel Anda
                 </h3>
                 <p style={{ fontSize: "14px", color: "#5c5a57", fontFamily: "var(--font-source-serif)", lineHeight: "1.75", margin: 0 }}>
