@@ -226,7 +226,6 @@ export default function ProgramPage() {
         <div style={{ position: "absolute", top: "-60px", left: "50%", transform: "translateX(-50%)", width: "400px", height: "400px", borderRadius: "50%", background: "radial-gradient(circle, rgba(12,87,168,0.07) 0%, transparent 70%)", pointerEvents: "none" }} />
 
         <div style={{ maxWidth: "640px", margin: "0 auto", textAlign: "center", position: "relative", zIndex: 1 }}>
-          <span style={{ fontSize: "10px", fontWeight: "700", letterSpacing: "0.1em", textTransform: "uppercase" as const, color: "#e05070", fontFamily: "var(--font-montserrat)" }}>◆ Bergabung</span>
           <h2 style={{ fontSize: "clamp(1.6rem, 3vw, 2.2rem)", fontWeight: "700", color: "#0d1117", fontFamily: "var(--font-montserrat)", margin: "10px 0 14px", lineHeight: "1.2" }}>
             Jadilah Bagian dari Gerakan Pengetahuan Terbuka
           </h2>

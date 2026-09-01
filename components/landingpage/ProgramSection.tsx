@@ -43,7 +43,7 @@ export default function ProgramSection() {
         <div className="reveal-stagger" style={{ display: "grid", gridTemplateColumns: "repeat(auto-fill, minmax(260px, 1fr))", gap: "24px" }}>
           {programs.map((p) => (
             <a key={p.key} href={p.href} target={p.href.startsWith("http") ? "_blank" : "_self"} rel="noopener noreferrer" style={{ textDecoration: "none", display: "block" }}>
-              <div className="program-card" style={{ border: "1px solid #e5e2dd", borderRadius: "4px", padding: "32px", height: "100%", borderTop: `3px solid ${p.accent}` }}
+              <div className="program-card" style={{ border: "1px solid #e5e2dd", borderRadius: "4px", padding: "32px", height: "100%" }}
                 onMouseEnter={(e) => { (e.currentTarget as HTMLElement).style.boxShadow = "0 8px 32px rgba(0,0,0,0.08)"; (e.currentTarget as HTMLElement).style.transform = "translateY(-2px)"; }}
                 onMouseLeave={(e) => { (e.currentTarget as HTMLElement).style.boxShadow = "none"; (e.currentTarget as HTMLElement).style.transform = "none"; }}>
                 <h3 style={{ fontSize: "17px", fontWeight: "700", color: "#0d0d0d", fontFamily: "var(--font-montserrat)", marginBottom: "10px" }}>{p.title}</h3>

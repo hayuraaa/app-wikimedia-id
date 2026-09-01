@@ -701,7 +701,7 @@ export default function AcaraClient({ initialEvents }: { initialEvents: EventIte
             {/* ── Sidebar ── */}
             <aside style={{ position: "sticky", top: "88px", display: "flex", flexDirection: "column", gap: "14px" }}>
               <div style={{ backgroundColor: "#fff", border: "1px solid #e5e2dd", borderRadius: "4px", overflow: "hidden" }}>
-                <div style={{ padding: "11px 16px", borderBottom: "3px solid #0d0d0d" }}>
+                <div style={{ padding: "11px 16px", borderBottom: "1px solid #e5e2dd" }}>
                   <span style={{ fontSize: "10px", fontWeight: "700", letterSpacing: "0.08em", textTransform: "uppercase" as const, color: "#0C57A8", fontFamily: "var(--font-montserrat)" }}>◆ Status</span>
                 </div>
                 <div style={{ padding: "6px 0" }}>
@@ -726,7 +726,7 @@ export default function AcaraClient({ initialEvents }: { initialEvents: EventIte
               </div>
 
               <div style={{ backgroundColor: "#fff", border: "1px solid #e5e2dd", borderRadius: "4px", overflow: "hidden" }}>
-                <div style={{ padding: "11px 16px", borderBottom: "3px solid #0d0d0d" }}>
+                <div style={{ padding: "11px 16px", borderBottom: "1px solid #e5e2dd" }}>
                   <span style={{ fontSize: "10px", fontWeight: "700", letterSpacing: "0.08em", textTransform: "uppercase" as const, color: "#0C57A8", fontFamily: "var(--font-montserrat)" }}>◆ Jenis</span>
                 </div>
                 <div style={{ padding: "6px 0" }}>
@@ -746,7 +746,7 @@ export default function AcaraClient({ initialEvents }: { initialEvents: EventIte
 
               {availableYears.length > 0 && (
                 <div style={{ backgroundColor: "#fff", border: "1px solid #e5e2dd", borderRadius: "4px", overflow: "hidden" }}>
-                  <div style={{ padding: "11px 16px", borderBottom: "3px solid #0d0d0d" }}>
+                  <div style={{ padding: "11px 16px", borderBottom: "1px solid #e5e2dd" }}>
                     <span style={{ fontSize: "10px", fontWeight: "700", letterSpacing: "0.08em", textTransform: "uppercase" as const, color: "#0C57A8", fontFamily: "var(--font-montserrat)" }}>◆ Tahun</span>
                   </div>
                   <div style={{ padding: "6px 0", maxHeight: "200px", overflowY: "auto" as const }}>
@@ -767,7 +767,7 @@ export default function AcaraClient({ initialEvents }: { initialEvents: EventIte
 
               {filterYear !== "semua" && (
                 <div style={{ backgroundColor: "#fff", border: "1px solid #e5e2dd", borderRadius: "4px", overflow: "hidden" }}>
-                  <div style={{ padding: "11px 16px", borderBottom: "3px solid #0d0d0d" }}>
+                  <div style={{ padding: "11px 16px", borderBottom: "1px solid #e5e2dd" }}>
                     <span style={{ fontSize: "10px", fontWeight: "700", letterSpacing: "0.08em", textTransform: "uppercase" as const, color: "#0C57A8", fontFamily: "var(--font-montserrat)" }}>◆ Bulan</span>
                   </div>
                   <div style={{ padding: "6px 0" }}>
@@ -801,7 +801,7 @@ export default function AcaraClient({ initialEvents }: { initialEvents: EventIte
 
             {/* ── Main ── */}
             <div>
-              <div style={{ display: "flex", justifyContent: "space-between", alignItems: "center", marginBottom: "20px", paddingBottom: "12px", borderBottom: "3px solid #0d0d0d", flexWrap: "wrap" as const, gap: "10px" }}>
+              <div style={{ display: "flex", justifyContent: "space-between", alignItems: "center", marginBottom: "20px", paddingBottom: "12px", borderBottom: "1px solid #e5e2dd", flexWrap: "wrap" as const, gap: "10px" }}>
                 <div>
                   <span style={{ fontSize: "11px", fontWeight: "700", letterSpacing: "0.1em", textTransform: "uppercase" as const, color: "#0C57A8", fontFamily: "var(--font-montserrat)" }}>◆ Agenda</span>
                   <h2 style={{ fontSize: "18px", fontWeight: "700", color: "#0d0d0d", fontFamily: "var(--font-montserrat)", marginTop: "2px", marginBottom: 0 }}>

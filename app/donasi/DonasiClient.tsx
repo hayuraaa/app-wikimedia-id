@@ -130,7 +130,7 @@ export default function DonasiPage() {
 
               {/* Cara Donasi */}
               <div>
-                <div style={{ paddingBottom: "10px", marginBottom: "16px", borderBottom: "3px solid #0d0d0d" }}>
+                <div style={{ paddingBottom: "10px", marginBottom: "16px", borderBottom: "1px solid #e5e2dd" }}>
                   <span style={{ fontSize: "11px", fontWeight: "700", letterSpacing: "0.1em", textTransform: "uppercase" as const, color: "#0C57A8", fontFamily: "var(--font-montserrat)" }}>◆ Cara Berdonasi</span>
                   <h2 style={{ fontSize: "18px", fontWeight: "700", color: "#0d0d0d", fontFamily: "var(--font-montserrat)", marginTop: "4px", marginBottom: 0 }}>
                     Anda dapat memberikan donasi melalui tautan di bawah ini
