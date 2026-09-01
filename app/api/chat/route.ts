@@ -67,12 +67,20 @@ const PANDUAN_WIKI = [
   "WikiLatih/Bahan_Ajar",
   "WikiLatih/Pelatihan",
   "WikiLatih/Pelaporan",
+  "Komunitas",
+  "Komunitas/Kegiatan",
+  "Komunitas/Komunikasi",
+  "Komunitas/Laporan",
+  "Komunitas/Kebijakan",
+  "Komunitas/FAQ",
+  "Komunitas/Kontak",
 ] as const;
 
 const TOOL_DESCRIPTION =
   "Membaca halaman panduan resmi di wiki Wikimedia Indonesia (id.wikimedia.org). " +
   "Halaman Kopdar: 'Kopdar' (ketentuan umum), 'Kopdar/Persiapan_dan_Pelaksanaan', 'Kopdar/Pelaporan'. " +
   "Halaman WikiLatih: 'WikiLatih' (ketentuan umum, pelatih, dan rekomendasi susunan acara), 'WikiLatih/Persiapan', 'WikiLatih/Bahan_Ajar' (materi ajar), 'WikiLatih/Pelatihan' (tugas pelaksanaan hari-H), 'WikiLatih/Pelaporan' (proses pelaporan aktivitas, DAN dukungan dana/biaya: konsumsi, komunikasi/pulsa, transportasi lokal, penggunaan ruangan, per diem, suvenir). " +
+  "Halaman Komunitas: 'Komunitas' (gambaran umum komunitas Wikimedia Indonesia), 'Komunitas/Kegiatan' (jenis-jenis kegiatan komunitas), 'Komunitas/Komunikasi' (saluran komunikasi komunitas), 'Komunitas/Laporan' (pelaporan kegiatan komunitas), 'Komunitas/Kebijakan' (kebijakan komunitas), 'Komunitas/FAQ' (pertanyaan umum seputar komunitas), 'Komunitas/Kontak' (kontak komunitas). Gunakan halaman Komunitas untuk pertanyaan umum tentang komunitas, cara bergabung, komunikasi, kegiatan, atau hal-hal lain yang tidak secara spesifik berkaitan dengan Kopdar maupun WikiLatih. " +
   "Pilih halaman yang paling spesifik dengan pertanyaan pengunjung; boleh membaca lebih dari satu halaman bila perlu.";
 
 const TOOL_JUDUL_DESCRIPTION =
