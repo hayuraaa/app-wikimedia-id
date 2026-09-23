@@ -3,6 +3,8 @@ import ArticleClient from "@/components/rubrik/ArticleClient";
 import type { Metadata } from "next";
 
 
+const SITE_URL = "https://wikimedia.or.id";
+
 export async function generateMetadata({
   params,
 }: {
@@ -17,14 +19,32 @@ export async function generateMetadata({
     };
   }
 
+  const description = article.excerpt
+    ? article.excerpt.substring(0, 160).trim()
+    : article.content.replace(/<[^>]*>/g, "").substring(0, 160).trim();
+
   return {
     title: `${article.title} – Wikimedia Indonesia`,
-    description: article.excerpt
-      ? article.excerpt.substring(0, 160).trim()
-      : article.content.replace(/<[^>]*>/g, "").substring(0, 160).trim(),
+    description,
+    alternates: {
+      canonical: `${SITE_URL}/rubrik/${slug}`,
+    },
     openGraph: {
       title: article.title,
-      description: article.excerpt ?? "",
+      description: article.excerpt ?? description,
+      url: `${SITE_URL}/rubrik/${slug}`,
+      siteName: "Wikimedia Indonesia",
+      type: "article",
+      publishedTime: article.published_at,
+      authors: article.authors.map((a) => a.name),
+      images: article.featured_image
+        ? [{ url: article.featured_image, alt: article.title }]
+        : [],
+    },
+    twitter: {
+      card: "summary_large_image",
+      title: article.title,
+      description: description,
       images: article.featured_image ? [article.featured_image] : [],
     },
   };
@@ -130,11 +150,51 @@ export default async function ArticleDetailPage({
     getLatest(slug),
   ]);
 
+  const description = article.excerpt
+    ? article.excerpt.substring(0, 200).trim()
+    : article.content.replace(/<[^>]*>/g, "").substring(0, 200).trim();
+
+  const jsonLd = {
+    "@context": "https://schema.org",
+    "@type": "NewsArticle",
+    headline: article.title,
+    description,
+    url: `${SITE_URL}/rubrik/${article.slug}`,
+    datePublished: article.published_at,
+    dateModified: article.published_at,
+    image: article.featured_image
+      ? [article.featured_image]
+      : [`${SITE_URL}/Logo_WMID.png`],
+    author: article.authors.map((a) => ({
+      "@type": "Person",
+      name: a.name,
+      url: `${SITE_URL}/rubrik/author/${a.slug}`,
+    })),
+    publisher: {
+      "@type": "Organization",
+      name: "Wikimedia Indonesia",
+      logo: {
+        "@type": "ImageObject",
+        url: `${SITE_URL}/Logo_WMID.png`,
+      },
+    },
+    keywords: article.keywords?.join(", ") ?? "",
+    articleSection: article.categories?.join(", ") ?? "",
+    inLanguage: "id",
+    isAccessibleForFree: true,
+  };
+
   return (
-    <ArticleClient
-      article={article}
-      related={related}
-      latest={latest}
-    />
+    <>
+      <script
+        type="application/ld+json"
+        dangerouslySetInnerHTML={{ __html: JSON.stringify(jsonLd) }}
+      />
+      <ArticleClient
+        article={article}
+        related={related}
+        latest={latest}
+      />
+    </>
   );
 }

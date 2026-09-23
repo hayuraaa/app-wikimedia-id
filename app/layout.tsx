@@ -19,6 +19,7 @@ const sourceSerif = Source_Serif_4({
 });
 
 export const metadata: Metadata = {
+  metadataBase: new URL("https://wikimedia.or.id"),
   title: "Wikimedia Indonesia",
   description: "Portal informasi Wikimedia Indonesia",
   icons: {
