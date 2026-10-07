@@ -2,6 +2,12 @@
 
 import Link from "next/link";
 
+// Ubah tanggal ini sesuai tanggal halaman diterbitkan.
+const EFFECTIVE_DATE = "7 Oktober 2026";
+
+// Alamat surel untuk permintaan penghapusan data Platform Belajar.
+const DELETION_EMAIL = "info@wikimedia.or.id";
+
 const SECTIONS = [
   {
     num: "1",
@@ -75,7 +81,38 @@ Namun, tidak ada situs web yang dapat sepenuhnya menghilangkan risiko keamanan. 
     title: "Perubahan Kebijakan Privasi ini",
     content: `Kami terkadang memperbarui kebijakan privasi ini. Ketika kami melakukannya, kami akan memberi Anda pemberitahuan tentang pembaruan tersebut minimal melalui pemberitahuan yang cukup menonjol di situs web dan layanan, dan akan merevisi tanggal efektif. Kami mendorong Anda untuk secara berkala meninjau kebijakan privasi ini untuk tetap mendapat informasi tentang bagaimana kami melindungi, menggunakan, memproses, dan mentransfer informasi pribadi yang kami kumpulkan.`,
   },
+  {
+    num: "11",
+    title: "Data Pengguna Google pada Platform Belajar",
+    content: `Bagian ini berlaku khusus untuk platform pembelajaran daring Wikimedia Indonesia di https://belajar.wikimedia.or.id ("Platform Belajar"), yang menyediakan pilihan masuk menggunakan akun Google.
+
+<strong>Data yang kami akses.</strong> Saat Anda masuk menggunakan akun Google, kami hanya menerima informasi profil dasar, yaitu nama, alamat surel, dan foto profil (jika ada). Kami tidak mengakses kata sandi, kontak, surel, berkas Google Drive, kalender, atau data Google Anda lainnya.
+
+<strong>Penggunaan data.</strong> Data tersebut hanya digunakan untuk membuat dan mengelola akun Anda di Platform Belajar, memverifikasi identitas saat Anda masuk, menampilkan nama dan foto Anda pada profil dan aktivitas kursus, serta mengirim pemberitahuan yang berkaitan dengan kursus dan sertifikat. Kami tidak menggunakan data pengguna Google untuk iklan, tidak menjualnya, dan tidak menggunakannya untuk mengembangkan atau melatih model kecerdasan buatan (AI) atau pembelajaran mesin (ML).
+
+<strong>Pembagian data.</strong> Kami tidak menjual, menyewakan, atau membagikan data pengguna Google kepada pihak ketiga. Pengecualiannya hanya untuk penyedia layanan hosting yang menjalankan server Platform Belajar atas nama kami dan terikat kewajiban kerahasiaan, atau jika diwajibkan oleh hukum sebagaimana dijelaskan pada Bagian 5.
+
+<strong>Penyimpanan dan perlindungan data.</strong> Data disimpan di basis data server Platform Belajar. Seluruh koneksi dienkripsi menggunakan HTTPS, akses ke data dibatasi hanya untuk administrator yang berwenang, dan sistem diperbarui secara berkala untuk menjaga keamanannya.
+
+<strong>Masa simpan dan penghapusan data.</strong> Data disimpan selama akun Anda aktif. Anda dapat meminta penghapusan akun beserta seluruh data terkait dengan mengirim surel ke ${DELETION_EMAIL} dengan subjek "Penghapusan Akun Platform Belajar". Permintaan akan kami proses paling lambat 30 hari. Anda juga dapat mencabut akses Platform Belajar ke akun Google Anda kapan saja melalui https://myaccount.google.com/permissions.
+
+<strong>Kepatuhan.</strong> Penggunaan dan pengalihan informasi yang diterima dari Google API oleh Platform Belajar mematuhi Kebijakan Data Pengguna Layanan Google API (https://developers.google.com/terms/api-services-user-data-policy), termasuk persyaratan Penggunaan Terbatas (Limited Use).
+
+<strong>English version.</strong> This section applies to Wikimedia Indonesia's online learning platform at https://belajar.wikimedia.or.id (the "Learning Platform"), which offers sign-in with a Google account. When you sign in with Google, we receive only your name, email address, and profile picture (if available); we do not access your password, contacts, emails, Google Drive files, calendar, or any other Google data. This data is used only to create and manage your account, verify your identity at sign-in, display your name and picture on your profile and course activity, and send course- and certificate-related notifications. We do not use Google user data for advertising, do not sell it, and do not use it to develop or train generalized AI or machine learning models. We do not share Google user data with third parties, except with the hosting provider that operates the Learning Platform servers on our behalf under confidentiality obligations, or when required by law as described in Section 5. Data is stored in the Learning Platform's server database, all connections are encrypted via HTTPS, and access is restricted to authorized administrators. Data is retained while your account is active; you may request deletion of your account and all associated data by emailing ${DELETION_EMAIL} with the subject "Learning Platform Account Deletion", and requests are processed within 30 days. You can revoke the Learning Platform's access to your Google account at any time via https://myaccount.google.com/permissions. The Learning Platform's use and transfer of information received from Google APIs adheres to the Google API Services User Data Policy (https://developers.google.com/terms/api-services-user-data-policy), including the Limited Use requirements.`,
+  },
 ];
+
+// Mengubah URL dan alamat surel di dalam teks menjadi tautan.
+const LINK_STYLE = "color:#1e4d7b;font-weight:600;text-underline-offset:2px;";
+function linkify(text: string): string {
+  return text.replace(
+    /(https?:\/\/[^\s<]+[^\s<.,;:)"])|([\w.+-]+@[\w-]+(?:\.[\w-]+)+)/g,
+    (match, url) =>
+      url
+        ? `<a href="${url}" target="_blank" rel="noopener noreferrer" style="${LINK_STYLE}">${url}</a>`
+        : `<a href="mailto:${match}" style="${LINK_STYLE}">${match}</a>`
+  );
+}
 
 export default function KebijakanPrivasiPage() {
   return (
@@ -100,7 +137,7 @@ export default function KebijakanPrivasiPage() {
             Kebijakan Privasi
           </h1>
           <p style={{ fontSize: "13px", color: "rgba(255,255,255,0.45)", fontFamily: "var(--font-source-serif)", margin: 0, lineHeight: "1.6" }}>
-            Berlaku efektif mulai <strong style={{ color: "rgba(255,255,255,0.65)" }}>19 November 2018</strong>
+            Berlaku efektif mulai <strong style={{ color: "rgba(255,255,255,0.65)" }}>{EFFECTIVE_DATE}</strong>
           </p>
         </div>
       </section>
@@ -121,7 +158,7 @@ export default function KebijakanPrivasiPage() {
                     style={{ display: "flex", alignItems: "flex-start", gap: "8px", padding: "7px 10px", borderRadius: "3px", textDecoration: "none", transition: "background 0.15s" }}
                     onMouseEnter={(e) => { (e.currentTarget as HTMLElement).style.backgroundColor = "#ede9e4"; }}
                     onMouseLeave={(e) => { (e.currentTarget as HTMLElement).style.backgroundColor = "transparent"; }}>
-                    <span style={{ fontSize: "10px", fontWeight: "700", color: "#0C57A8", fontFamily: "var(--font-montserrat)", flexShrink: 0, marginTop: "1px", minWidth: "14px" }}>{s.num}.</span>
+                    <span style={{ fontSize: "10px", fontWeight: "700", color: "#0C57A8", fontFamily: "var(--font-montserrat)", flexShrink: 0, marginTop: "1px", minWidth: "18px" }}>{s.num}.</span>
                     <span style={{ fontSize: "12px", color: "#5c5a57", fontFamily: "var(--font-montserrat)", lineHeight: "1.4" }}>{s.title}</span>
                   </a>
                 ))}
@@ -156,11 +193,7 @@ export default function KebijakanPrivasiPage() {
                   <div style={{ paddingLeft: "36px" }}>
                     {s.content.split("\n\n").map((para, j) => (
                       <p key={j} style={{ fontSize: "14px", color: "#3a3a3a", lineHeight: "1.85", fontFamily: "var(--font-source-serif)", margin: j > 0 ? "12px 0 0" : "0" }}
-                        dangerouslySetInnerHTML={{
-                          __html: para
-                            .replace(/https:\/\/tools\.google\.com\/dlpage\/gaoptout/g, '<a href="https://tools.google.com/dlpage/gaoptout" target="_blank" rel="noopener noreferrer" style="color:#1e4d7b;font-weight:600;text-underline-offset:2px;">https://tools.google.com/dlpage/gaoptout</a>')
-                            .replace(/info@wikimedia\.or\.id/g, '<a href="mailto:info@wikimedia.or.id" style="color:#1e4d7b;font-weight:600;text-underline-offset:2px;">info@wikimedia.or.id</a>')
-                        }}
+                        dangerouslySetInnerHTML={{ __html: linkify(para) }}
                       />
                     ))}
                   </div>
@@ -174,7 +207,7 @@ export default function KebijakanPrivasiPage() {
               <div style={{ marginTop: "16px", padding: "16px 20px", backgroundColor: "#fff", border: "1px solid #e5e2dd", borderLeft: "4px solid #0C57A8", borderRadius: "4px", display: "flex", alignItems: "center", gap: "12px" }}>
                 <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="#0C57A8" strokeWidth="2"><rect x="3" y="4" width="18" height="18" rx="2"/><line x1="16" y1="2" x2="16" y2="6"/><line x1="8" y1="2" x2="8" y2="6"/><line x1="3" y1="10" x2="21" y2="10"/></svg>
                 <p style={{ fontSize: "13px", color: "#5c5a57", fontFamily: "var(--font-source-serif)", margin: 0 }}>
-                  Kebijakan privasi ini berlaku efektif mulai <strong style={{ color: "#0d0d0d" }}>19 November 2018</strong>.
+                  Kebijakan privasi ini berlaku efektif mulai <strong style={{ color: "#0d0d0d" }}>{EFFECTIVE_DATE}</strong>.
                 </p>
               </div>
             </div>
