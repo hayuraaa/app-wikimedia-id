@@ -38,6 +38,11 @@ function toFieldErrors(errors: Record<string, string[]> | undefined): FieldError
   return result;
 }
 
+// HTML siap simpan: tanpa paragraf kosong di akhir dan tanpa caption gambar yang kosong
+function cleanContent(html: string): string {
+  return html.replace(/<figcaption><p><\/p><\/figcaption>/g, "").replace(/(<p><\/p>)+$/, "");
+}
+
 async function uploadContentImage(file: File): Promise<string> {
   const body = new FormData();
   body.append("image", file);
@@ -133,7 +138,7 @@ export default function ArticleEditor({ article, categories, authorName }: { art
     if (!editor) return;
     setPreview({
       title,
-      content: editor.getHTML().replace(/(<p><\/p>)+$/, ""),
+      content: cleanContent(editor.getHTML()),
       featuredImage,
       authorName,
       categories: selectedCategories,
@@ -208,8 +213,8 @@ export default function ArticleEditor({ article, categories, authorName }: { art
 
     // Simpan draft pada artikel yang ditolak: status dibiarkan (tetap "perlu perbaikan")
     const status = intent === "pending" ? "pending" : isNew || article?.status === "draft" ? "draft" : null;
-    // Buang paragraf kosong di akhir (sisa tombol Enter) agar tidak ikut tersimpan
-    const content = editor.getHTML().replace(/(<p><\/p>)+$/, "");
+    // Buang paragraf kosong di akhir & caption kosong agar tidak ikut tersimpan
+    const content = cleanContent(editor.getHTML());
     const fields = { title: title.trim(), content, categories: selectedCategories, keywords };
 
     let res: Response | null = null;

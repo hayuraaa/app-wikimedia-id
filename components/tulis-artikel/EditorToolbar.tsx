@@ -168,7 +168,7 @@ export default function EditorToolbar({ editor, onUploadImage }: { editor: Edito
     try {
       const url = await onUploadImage(file);
       // Gambar disisipkan dengan kotak keterangan (caption) seperti editor dashboard
-      chain().setFigure({ src: url, alt: file.name.replace(/\.[^.]+$/, ""), align: "center" }).run();
+      chain().setFigure({ src: url, alt: file.name.replace(/\.[^.]+$/, "") }).run();
     } catch (e) {
       setError(e instanceof Error ? e.message : "Gagal mengunggah gambar.");
     }
