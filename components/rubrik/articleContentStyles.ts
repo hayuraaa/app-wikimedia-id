@@ -26,6 +26,9 @@ export const ARTICLE_CONTENT_CSS = `
 .article-content img { max-width: 100%; height: auto; border-radius: 4px; margin: 1.5em 0 0; border: 1px solid #e5e2dd; display: block; }
 .article-content figure { margin: 1.8em 0; }
 .article-content figure img { margin: 0; width: 100%; }
+/* Perataan gambar dari editor (data-align) & lebar hasil ubah ukuran (style width) */
+.article-content figure[data-align="center"] img { margin-left: auto; margin-right: auto; }
+.article-content figure[data-align="right"] img { margin-left: auto; }
 .article-content figcaption { margin-top: 6px; font-size: 0.82em; color: #7a7874; font-style: italic; font-family: var(--font-montserrat); text-align: center; line-height: 1.45; padding: 0 8px; }
 .article-content figcaption p { margin: 0; }
 .article-content code { font-family: 'Courier New', monospace; font-size: 0.88em; background: #f0eeec; border: 1px solid #e5e2dd; padding: 1px 6px; border-radius: 3px; color: #0C57A8; }

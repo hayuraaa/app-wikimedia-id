@@ -3,11 +3,17 @@
 import { useCallback, useEffect, useMemo, useRef, useState } from "react";
 import Link from "next/link";
 import { useRouter } from "next/navigation";
-import { EditorContent, useEditor } from "@tiptap/react";
+import { EditorContent, useEditor, useEditorState } from "@tiptap/react";
 import StarterKit from "@tiptap/starter-kit";
 import Image from "@tiptap/extension-image";
 import { TableKit } from "@tiptap/extension-table";
 import { CharacterCount, Placeholder } from "@tiptap/extensions";
+import { TextAlign } from "@tiptap/extension-text-align";
+import { Color, TextStyle } from "@tiptap/extension-text-style";
+import { Highlight } from "@tiptap/extension-highlight";
+import { Superscript } from "@tiptap/extension-superscript";
+import { Subscript } from "@tiptap/extension-subscript";
+import { Figure } from "./FigureExtension";
 import { ARTICLE_CONTENT_CSS } from "@/components/rubrik/articleContentStyles";
 import type { WriterArticle } from "@/lib/writer/types";
 import EditorToolbar from "./EditorToolbar";
@@ -81,15 +87,23 @@ export default function ArticleEditor({ article, categories, authorName }: { art
   const editor = useEditor({
     immediatelyRender: false, // hindari hydration mismatch (Next.js SSR)
     extensions: [
+      // H1 tidak dipakai: judul artikel sudah menjadi H1 di halaman
       StarterKit.configure({
         heading: { levels: [2, 3, 4] },
-        code: false,
-        codeBlock: false,
         link: { openOnClick: false, autolink: true, defaultProtocol: "https", HTMLAttributes: { rel: "noopener noreferrer nofollow ugc", target: "_blank" } },
       }),
+      Figure,
+      // <img> tanpa caption dari draft lama tetap bisa dibuka
       Image.configure({ allowBase64: false }),
       TableKit.configure({ table: { resizable: false } }),
-      Placeholder.configure({ placeholder: "Mulai menulis isi artikel di sini…" }),
+      TextAlign.configure({ types: ["heading", "paragraph"] }),
+      TextStyle,
+      Color,
+      Highlight.configure({ multicolor: true }),
+      Superscript,
+      Subscript,
+      // includeChildren: paragraf caption kosong ikut mendapat class is-empty (teksnya diatur lewat CSS)
+      Placeholder.configure({ includeChildren: true, showOnlyCurrent: false, placeholder: "Mulai menulis isi artikel di sini…" }),
       CharacterCount,
     ],
     content: article?.content ?? "",
@@ -259,8 +273,14 @@ export default function ArticleEditor({ article, categories, authorName }: { art
     router.refresh();
   };
 
-  const characters = editor?.storage.characterCount.characters() ?? 0;
-  const words = editor?.storage.characterCount.words() ?? 0;
+  // Dihitung ulang setiap isi editor berubah (bukan hanya saat komponen dirender ulang)
+  const { characters, words } = useEditorState({
+    editor,
+    selector: ({ editor: e }) => ({
+      characters: e?.storage.characterCount.characters() ?? 0,
+      words: e?.storage.characterCount.words() ?? 0,
+    }),
+  }) ?? { characters: 0, words: 0 };
 
   return (
     <div className="writer-editor-grid" style={{ display: "grid", gridTemplateColumns: "minmax(0, 1fr) 300px", gap: "24px", alignItems: "start" }}>
@@ -411,10 +431,15 @@ export default function ArticleEditor({ article, categories, authorName }: { art
         .writer-tool:hover:not(:disabled) { background-color: #f0eeec !important; }
         .writer-editor-content { outline: none; max-width: 100%; min-height: 400px; }
         .writer-editor-content > :first-child { margin-top: 0.8em; }
-        .writer-editor-content p.is-editor-empty:first-child::before {
+        .writer-editor-content p.is-editor-empty:first-child::before,
+        .writer-editor-content .writer-figure figcaption p.is-empty::before {
           content: attr(data-placeholder); color: #9a9690; pointer-events: none; float: left; height: 0;
         }
         .writer-editor-content img.ProseMirror-selectednode { outline: 3px solid rgba(12,87,168,0.45); }
+        .writer-editor-content .writer-figure figcaption { margin-top: 8px; }
+        .writer-editor-content .writer-figure figcaption p { margin: 0; text-align: center; font-size: 0.82em; color: #7a7874; font-style: italic; font-family: var(--font-montserrat); line-height: 1.45; }
+        .writer-editor-content .writer-figure.ProseMirror-selectednode img { outline: 3px solid rgba(12,87,168,0.45); }
+        .writer-editor-content .writer-figure figcaption p.is-empty::before { content: "Tulis keterangan gambar (opsional)…"; width: 100%; text-align: center; }
         .writer-editor-content table td, .writer-editor-content table th { border: 1px solid #e5e2dd; position: relative; min-width: 60px; vertical-align: top; }
         .writer-editor-content table th p, .writer-editor-content table td p { margin: 0; }
         .writer-editor-content .selectedCell::after { content: ""; position: absolute; inset: 0; background: rgba(12,87,168,0.12); pointer-events: none; }
