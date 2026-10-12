@@ -16,6 +16,7 @@ import { Subscript } from "@tiptap/extension-subscript";
 import { Figure } from "./FigureExtension";
 import { ARTICLE_CONTENT_CSS } from "@/components/rubrik/articleContentStyles";
 import type { WriterArticle } from "@/lib/writer/types";
+import { compressImage, formatBytes } from "@/lib/writer/compressImage";
 import EditorToolbar from "./EditorToolbar";
 import ArticlePreview, { type PreviewData } from "./ArticlePreview";
 import { COLOR, alertStyle, blurStyle, buttonStyle, cardStyle, focusStyle, inputStyle, labelStyle } from "./styles";
@@ -24,7 +25,6 @@ export type CategoryOption = { value: string; label: string };
 
 const MAX_CATEGORIES = 3;
 const MAX_KEYWORDS = 10;
-const MAX_FEATURED_BYTES = 10 * 1024 * 1024;
 
 type FieldErrors = Partial<Record<"title" | "content" | "categories" | "keywords" | "featured_image", string>>;
 
@@ -43,13 +43,26 @@ function cleanContent(html: string): string {
   return html.replace(/<figcaption><p><\/p><\/figcaption>/g, "").replace(/(<p><\/p>)+$/, "");
 }
 
-async function uploadContentImage(file: File): Promise<string> {
+/** Pesan untuk respons gagal yang bukan error validasi (413 terlalu besar, 5xx server) */
+function serverErrorMessage(status: number, hasImage: boolean): string | null {
+  if (status === 413) return "Gambar terlalu besar untuk diunggah. Gunakan gambar yang lebih kecil.";
+  if (status >= 500) {
+    return hasImage
+      ? "Server gagal memproses gambar. Coba ganti dengan gambar yang lebih kecil, lalu simpan lagi."
+      : "Terjadi gangguan di server. Tulisan Anda belum tersimpan; coba simpan lagi beberapa saat lagi.";
+  }
+  return null;
+}
+
+// Gambar isi: dikecilkan di browser (sisi terpanjang 1600 px) sebelum diunggah
+async function uploadContentImage(original: File): Promise<string> {
+  const file = await compressImage(original, { maxSize: 1600 });
   const body = new FormData();
   body.append("image", file);
   const res = await fetch("/api/writer/my/uploads/image", { method: "POST", body, headers: { Accept: "application/json" } });
   const json = await res.json().catch(() => null);
   if (!res.ok || !json?.data?.url) {
-    throw new Error(json?.errors?.image?.[0] ?? json?.message ?? "Gagal mengunggah gambar.");
+    throw new Error(json?.errors?.image?.[0] ?? serverErrorMessage(res.status, true) ?? json?.message ?? "Gagal mengunggah gambar.");
   }
   return json.data.url;
 }
@@ -85,6 +98,7 @@ export default function ArticleEditor({ article, categories, authorName }: { art
 
   const [dirty, setDirty] = useState(false);
   const [saving, setSaving] = useState<null | "draft" | "pending">(null);
+  const [processingImage, setProcessingImage] = useState(false);
   const [errors, setErrors] = useState<FieldErrors>({});
   const [message, setMessage] = useState<{ kind: "error" | "success"; text: string } | null>(null);
   const [preview, setPreview] = useState<PreviewData | null>(null);
@@ -167,19 +181,21 @@ export default function ArticleEditor({ article, categories, authorName }: { art
     setKeywordInput("");
   };
 
-  const pickFeaturedImage = (file: File | undefined) => {
+  // Gambar utama dikecilkan di browser (server memotongnya ke 1200×630), jadi foto ponsel besar tetap bisa dipakai
+  const pickFeaturedImage = async (file: File | undefined) => {
+    if (imageInputRef.current) imageInputRef.current.value = "";
     if (!file) return;
-    if (!/^image\/(jpeg|png|gif|webp)$/.test(file.type)) {
-      setErrors((e) => ({ ...e, featured_image: "Format gambar harus JPG, PNG, GIF, atau WebP." }));
-    } else if (file.size > MAX_FEATURED_BYTES) {
-      setErrors((e) => ({ ...e, featured_image: "Ukuran gambar maksimal 10 MB." }));
-    } else {
+    setProcessingImage(true);
+    try {
+      const compressed = await compressImage(file, { maxSize: 1600 });
       setErrors((e) => ({ ...e, featured_image: undefined }));
-      setImageFile(file);
+      setImageFile(compressed);
       setRemoveImage(false);
       touch();
+    } catch (e) {
+      setErrors((prev) => ({ ...prev, featured_image: e instanceof Error ? e.message : "Gambar tidak dapat diproses." }));
     }
-    if (imageInputRef.current) imageInputRef.current.value = "";
+    setProcessingImage(false);
   };
 
   const clearFeaturedImage = () => {
@@ -200,7 +216,7 @@ export default function ArticleEditor({ article, categories, authorName }: { art
   };
 
   const save = async (intent: "draft" | "pending") => {
-    if (!editor || saving) return;
+    if (!editor || saving || processingImage) return;
     const clientErrors = validate(intent === "pending");
     setErrors(clientErrors);
     if (Object.keys(clientErrors).length) {
@@ -253,7 +269,8 @@ export default function ArticleEditor({ article, categories, authorName }: { art
     }
     if (!res.ok) {
       setErrors(toFieldErrors(json?.errors));
-      setMessage({ kind: "error", text: json?.message && !json?.errors ? json.message : "Periksa kembali isian yang ditandai." });
+      const serverMessage = serverErrorMessage(res.status, !!imageFile);
+      setMessage({ kind: "error", text: serverMessage ?? (json?.message && !json?.errors ? json.message : "Periksa kembali isian yang ditandai.") });
       setSaving(null);
       return;
     }
@@ -355,11 +372,13 @@ export default function ArticleEditor({ article, categories, authorName }: { art
             <button type="button" onClick={() => imageInputRef.current?.click()}
               style={{ width: "100%", aspectRatio: "1200 / 630", border: `1.5px dashed ${COLOR.border}`, borderRadius: "4px", backgroundColor: "#faf9f7", color: COLOR.muted, cursor: "pointer", display: "flex", flexDirection: "column", alignItems: "center", justifyContent: "center", gap: "6px", fontFamily: "var(--font-montserrat)", fontSize: "12px" }}>
               <svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="1.6"><rect x="3" y="3" width="18" height="18" rx="2" /><circle cx="8.5" cy="8.5" r="1.5" /><path d="m21 15-5-5L5 21" /></svg>
-              Pilih gambar
+              {processingImage ? "Memproses gambar…" : "Pilih gambar"}
             </button>
           )}
           <p style={{ fontSize: "11px", color: COLOR.subtle, fontFamily: "var(--font-montserrat)", margin: "8px 0 0", lineHeight: 1.5 }}>
-            JPG, PNG, GIF, atau WebP · maks 10 MB · dipotong ke rasio 1200×630.
+            {processingImage
+              ? "Memproses gambar…"
+              : <>JPG, PNG, GIF, atau WebP · foto besar otomatis dikecilkan · dipotong ke rasio 1200×630{imageFile ? ` · ${formatBytes(imageFile.size)}` : ""}.</>}
           </p>
           <FieldError message={errors.featured_image} />
           <input ref={imageInputRef} type="file" accept="image/jpeg,image/png,image/gif,image/webp" hidden onChange={(e) => pickFeaturedImage(e.target.files?.[0])} />

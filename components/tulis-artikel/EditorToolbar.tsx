@@ -163,7 +163,7 @@ export default function EditorToolbar({ editor, onUploadImage }: { editor: Edito
     if (!file) return;
     setError(null);
     if (!/^image\/(jpeg|png|gif|webp)$/.test(file.type)) return setError("Format gambar harus JPG, PNG, GIF, atau WebP.");
-    if (file.size > 5 * 1024 * 1024) return setError("Ukuran gambar maksimal 5 MB.");
+    // Ukuran tidak dicek di sini: foto besar dikecilkan dulu oleh onUploadImage
     setUploading(true);
     try {
       const url = await onUploadImage(file);
@@ -225,7 +225,7 @@ export default function EditorToolbar({ editor, onUploadImage }: { editor: Edito
         <ToolButton icon="clear" label="Hapus format" onClick={() => chain().unsetAllMarks().clearNodes().run()} />
         <ToolButton icon="undo" label="Urungkan (Ctrl+Z)" disabled={!state.canUndo} onClick={() => chain().undo().run()} />
         <ToolButton icon="redo" label="Ulangi (Ctrl+Shift+Z)" disabled={!state.canRedo} onClick={() => chain().redo().run()} />
-        {uploading && <span style={{ fontSize: "11.5px", color: COLOR.muted, fontFamily: "var(--font-montserrat)", marginLeft: "6px" }}>Mengunggah gambar…</span>}
+        {uploading && <span style={{ fontSize: "11.5px", color: COLOR.muted, fontFamily: "var(--font-montserrat)", marginLeft: "6px" }}>Memproses & mengunggah gambar…</span>}
         <input ref={fileRef} type="file" accept="image/jpeg,image/png,image/gif,image/webp" hidden onChange={(e) => pickImage(e.target.files?.[0])} />
       </div>
 
